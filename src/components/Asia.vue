@@ -3,7 +3,7 @@
     <v-layout class="full-height hidden-sm-and-down" align-center justify-center fill-height>
       <v-layout>
         <v-flex xs7 md2 py-4>
-          <v-img :src="require('@/assets/logo-today-transparent.png')"></v-img>
+          <v-img :src="require('@/assets/logo-today-transparent-greyscale.png')"></v-img>
         </v-flex>
 
         <v-flex xs12 md8>
