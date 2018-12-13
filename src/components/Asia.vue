@@ -111,7 +111,7 @@
             </h1>
 
             <v-icon>fiber_manual_record</v-icon>
-            <h2 xs12 class="title">Новости стран
+            <h2 xs12 class="title grey--text text--darken-2">Новости стран
               <br>азиатского региона
             </h2>
             <hr width="80%">
@@ -121,9 +121,12 @@
               <br>Полезная информация.
             </p>
 
-            <address xs12 class="address">
+            <address xs12 class="address grey--text text--darken-1">
               Email:
-              <a href="mailto:info@asia-today.ru" class="black--text">asia-today.ru</a>
+              <a
+                href="mailto:info@asia-today.ru"
+                class="grey--text text--darken-4"
+              >info@asia-today.ru</a>
             </address>
 
             <div class="caption">&copy; {{ new Date().getFullYear() }} ASIA TODAY</div>
