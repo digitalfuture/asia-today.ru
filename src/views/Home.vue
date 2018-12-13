@@ -1,13 +1,13 @@
 <template>
-  <HelloWorld />
+  <Asia/>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import Asia from "../components/Asia";
 
-  export default {
-    components: {
-      HelloWorld
-    }
+export default {
+  components: {
+    Asia
   }
+};
 </script>
