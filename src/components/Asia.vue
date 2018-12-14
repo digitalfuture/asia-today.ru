@@ -18,7 +18,7 @@
               <v-card dark :href="site.link" target="_blank" raised ripple>
                 <v-img
                   :src="site.img"
-                  :lazy-src="require('@/assets/placeholder-537-360.png')"
+                  :lazy-src="require('@/assets/placeholder-537-360.jpg')"
                   gradient="to top, rgba(0,0,0,.8), transparent 50%"
                 ></v-img>
 
@@ -67,7 +67,7 @@
             <v-card dark :href="site.link" target="_blank" raised ripple>
               <v-img
                 :src="site.img"
-                :lazy-src="require('@/assets/placeholder-537-360.png')"
+                :lazy-src="require('@/assets/placeholder-537-360.jpg')"
                 gradient="to top, rgba(0,0,0,.8), transparent 50%"
               ></v-img>
 
