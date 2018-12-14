@@ -63,7 +63,7 @@
 
       <v-flex xs12>
         <v-layout wrap>
-          <v-flex v-for="(site, i) in sites" :key="i" class="pa-1" xs12>
+          <v-flex v-for="(site, i) in sites" :key="i" class="pa-0" xs12>
             <v-card dark :href="site.link" target="_blank" raised ripple>
               <v-img
                 :src="site.img"
@@ -103,6 +103,7 @@
       </v-btn>
     </v-layout>
 
+    <!-- Footer -->
     <v-footer class="footer-section scroll-down pa-3" height="100vh" absolute light>
       <v-layout justify-space-between xs12 fill-height wrap>
         <v-flex xs12 md4 align-space-between justify-space-between column fill-height>
