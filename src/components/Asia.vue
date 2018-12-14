@@ -1,9 +1,15 @@
 <template>
-  <v-container align-content-center fluid class="main-section" pa-0>
-    <v-layout class="full-height hidden-sm-and-down" align-center justify-center fill-height>
+  <v-container align-content-center fluid pa-0 class="scroll-up">
+    <!-- Middle screen and up -->
+    <v-layout
+      class="full-height hidden-sm-and-down main-section"
+      align-center
+      justify-center
+      fill-height
+    >
       <v-layout>
         <v-flex xs7 md2 py-4>
-          <v-img :src="require('@/assets/logo-today-transparent-greyscale.png')"></v-img>
+          <v-img :src="require('@/assets/logo-today-transparent-greyscale.png')" class="main-logo"></v-img>
         </v-flex>
 
         <v-flex xs12 md8>
@@ -49,9 +55,10 @@
       </v-layout>
     </v-layout>
 
-    <v-layout class="hidden-md-and-up" justify-center wrap pb-1>
+    <!-- Small screen and down -->
+    <v-layout class="hidden-md-and-up main-section" justify-center wrap pb-1>
       <v-flex xs7 py-4>
-        <v-img :src="require('@/assets/logo-today-transparent.png')" ma-5></v-img>
+        <v-img :src="require('@/assets/logo-today-transparent.png')" class="main-logo" ma-5></v-img>
       </v-flex>
 
       <v-flex xs12>
@@ -96,7 +103,7 @@
       </v-btn>
     </v-layout>
 
-    <v-footer class="footer-section pa-3 full-height" height="100vh" absolute light>
+    <v-footer class="footer-section scroll-down pa-3" height="100vh" absolute light>
       <v-layout justify-space-between xs12 fill-height wrap>
         <v-flex xs12 md4 align-space-between justify-space-between column fill-height>
           <v-layout align-center justify-space-between column fill-height text-xs-center>
@@ -104,13 +111,14 @@
               <v-img :src="require('@/assets/logo-today.png')" width="200" height="200"></v-img>
             </v-btn>
 
-            <h1 xs12 class="display-1">
+            <h1 xs12 class="display-1 footer-title">
               <span class="font-weight-medium">АЗИЯ</span>
               <br>
               <span class="font-weight-light">СЕГОДНЯ</span>
             </h1>
 
-            <v-icon>fiber_manual_record</v-icon>
+            <v-icon class="grey--text text--lighten-1">fiber_manual_record</v-icon>
+
             <h2 xs12 class="title grey--text text--darken-2">Новости стран
               <br>азиатского региона
             </h2>
@@ -129,7 +137,9 @@
               >info@asia-today.ru</a>
             </address>
 
-            <div class="caption">&copy; {{ new Date().getFullYear() }} ASIA TODAY</div>
+            <div
+              class="caption grey--text text--darken-1"
+            >&copy; {{ new Date().getFullYear() }} ASIA TODAY</div>
           </v-layout>
         </v-flex>
 
@@ -150,8 +160,8 @@ import { DateTime } from "luxon";
 
 export default {
   data: () => ({
-    up: ".main-section",
-    down: ".footer-section"
+    up: ".scroll-up",
+    down: ".scroll-down"
   }),
   computed: {
     ...mapState(["sites"])
@@ -177,30 +187,50 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif:400i&subset=cyrillic,vietnamese");
 
-.site-logo {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  width: 100px;
-}
+.main-section {
+  background-image: url("../assets/background-main.jpg");
+  background-size: cover;
+  background-position: center;
 
-.site-info {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  // .main-logo {
+  //   filter: drop-shadow(2px 2px 2px #222);
+  // }
 
-  .site-title {
-    padding-bottom: 5px;
+  .site-logo {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 100px;
   }
 
-  .site-date {
-    font-family: "Noto Serif", serif;
-    padding: 10px 16px;
+  .site-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .site-title {
+      padding-bottom: 5px;
+    }
+
+    .site-date {
+      font-family: "Noto Serif", serif;
+      padding: 10px 16px;
+    }
   }
 }
 
 .footer-section {
+  background-image: url("../assets/background-footer.png") !important;
+  background-size: contain !important;
+  background-position: right top !important;
+  background-repeat: no-repeat !important;
+
   bottom: -100vh;
+
+  .footer-title {
+    border-radius: 25px;
+    background: rgba(245, 245, 245, 0.5);
+  }
 
   .footer-logo {
     width: 200px;
