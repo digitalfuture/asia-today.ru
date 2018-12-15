@@ -148,7 +148,7 @@ export default {
       // const links = data.match(reLink);
       const links = data.match(link);
 
-      console.log("links:", links);
+      // console.log("links:", links);
 
       this.sites.forEach(site => {
         const newFragment = `href="/${site.name}`;
@@ -159,12 +159,12 @@ export default {
 
         const fragments = data.match(reFragment);
 
-        console.log(`${site.name} fragments:`, fragments);
+        // console.log(`${site.name} fragments:`, fragments);
 
-        data = data.replace(reFragment, reNewFragment);
+        // data = data.replace(reFragment, reNewFragment);
       });
 
-      console.log(data);
+      // console.log(data);
 
       return data;
     }

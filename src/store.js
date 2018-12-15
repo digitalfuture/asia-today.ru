@@ -69,7 +69,7 @@ export default new Vuex.Store({
         .get(siteUrl + '/wp-json/wp/v2/posts?slug=' + postSlug)
         .then(response => response.data)
         .then(data => {
-          console.log(data)
+          // console.log(data)
           return data
         })
     }
