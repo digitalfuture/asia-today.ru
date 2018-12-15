@@ -1,4 +1,5 @@
 <template>
+  <!-- Site page -->
   <BigBlock4/>
 </template>
 

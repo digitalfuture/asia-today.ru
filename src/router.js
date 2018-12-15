@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './views/Home'
+import SitePage from './views/SitePage'
+import Post from './components/Post'
 
 Vue.use(Router)
 
@@ -11,6 +13,18 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/:siteName/:postId',
+      name: 'postPage',
+      component: Post,
+      props: true
+    },
+    {
+      path: '/:siteName',
+      name: 'sitePage',
+      component: SitePage,
+      props: true
     }
   ]
 })

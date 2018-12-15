@@ -2,5 +2,8 @@ const path = require('path')
 
 module.exports = {
   outputDir: path.resolve(__dirname, './docs'),
-  baseUrl: '/'
+  baseUrl: '/',
+  configureWebpack: {
+    devtool: 'source-map'
+  }
 }

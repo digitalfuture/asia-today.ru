@@ -1,18 +1,16 @@
 <template>
   <v-app dark>
-    <v-content>
-      <Asia/>
-    </v-content>
+    <AppContainer/>
   </v-app>
 </template>
 
 <script>
-import Asia from "./components/Asia";
+import AppContainer from "./components/AppContainer";
 
 export default {
   name: "App",
   components: {
-    Asia
+    AppContainer
   },
   data() {
     return {
