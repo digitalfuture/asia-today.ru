@@ -4,6 +4,7 @@ module.exports = {
   outputDir: path.resolve(__dirname, './docs'),
   baseUrl: '/',
   configureWebpack: {
-    devtool: 'source-map'
+    devtool: 'source-map',
+    mode: 'production'
   }
 }

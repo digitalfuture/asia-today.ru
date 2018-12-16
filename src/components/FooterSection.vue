@@ -4,7 +4,7 @@
     <v-layout justify-space-between xs12 fill-height wrap>
       <v-flex xs12 md4 align-space-between justify-space-between column fill-height>
         <v-layout align-center justify-space-between column fill-height text-xs-center>
-          <v-btn fab class="footer-logo" raised>
+          <v-btn to="/" fab class="footer-logo" raised>
             <v-img :src="require('@/assets/logo-today.png')" width="200" height="200"></v-img>
           </v-btn>
 
@@ -65,6 +65,8 @@ export default {
 
 <style lang="scss">
 .footer-section {
+  min-height: 100vh;
+
   background-image: url("../assets/background-footer.png") !important;
   background-size: contain !important;
   background-position: right top !important;

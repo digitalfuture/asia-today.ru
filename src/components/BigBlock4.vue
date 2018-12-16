@@ -9,7 +9,7 @@
             <!-- Main logo -->
             <v-flex md12>
               <v-layout justify-center>
-                <a href="/">
+                <a href="/" class="logo-link">
                   <v-img
                     :src="require('@/assets/logo-today-transparent-greyscale.png')"
                     class="site-logo-2"
@@ -28,7 +28,7 @@
             <!-- Site logo -->
             <v-flex v-if="$route.name === 'sitePage'" md12>
               <v-layout justify-center>
-                <a :href="'/' + siteName">
+                <a :href="'/' + siteName" class="logo-link">
                   <v-img :src="getSiteLogo2(siteName)" class="site-logo-2"></v-img>
                 </a>
               </v-layout>
@@ -39,7 +39,7 @@
         <v-flex md8>
           <v-layout wrap>
             <v-flex v-for="(post, i) in posts" :key="i" class="pa-1" md6>
-              <v-card :to="'/' + post.siteName + '/' + post.id" raised ripple dark>
+              <v-card :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
                 <v-img
                   :src="post.thumb"
                   :lazy-src="require('@/assets/placeholder.jpg')"
@@ -91,7 +91,7 @@
           <!-- Main logo -->
           <v-flex xs5>
             <v-layout justify-center>
-              <a href="/">
+              <a href="/" class="logo-link">
                 <v-img
                   :src="require('@/assets/logo-today-transparent-greyscale.png')"
                   class="site-logo-2"
@@ -110,7 +110,7 @@
           <!-- Site logo -->
           <v-flex v-if="$route.name === 'sitePage'" xs5>
             <v-layout justify-center>
-              <a :href="'/' + siteName">
+              <a :href="'/' + siteName" class="logo-link">
                 <v-img :src="getSiteLogo2(siteName)" class="site-logo-2"></v-img>
               </a>
             </v-layout>
@@ -120,8 +120,8 @@
 
       <v-flex xs12>
         <v-layout wrap>
-          <v-flex v-for="(post, i) in posts" :key="i" class="pa-0" xs12>
-            <v-card :to="'/' + post.siteName + '/' + post.id" raised ripple dark>
+          <v-flex v-for="(post, i) in posts" :key="i" class="pb-2" xs12>
+            <v-card :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
               <v-img
                 :src="post.thumb"
                 :lazy-src="require('@/assets/placeholder.jpg')"
@@ -172,6 +172,7 @@ import { DateTime } from "luxon";
 
 export default {
   data: () => ({
+    up: ".scroll-up",
     posts: [],
     down: ".scroll-down"
   }),
@@ -196,6 +197,7 @@ export default {
     savePostData({ siteName, data }) {
       this.posts.push({
         id: data.id,
+        slug: data.slug,
         siteName: siteName,
         title: data.title.rendered,
         date: data.date,
@@ -220,6 +222,8 @@ export default {
     }
   },
   mounted() {
+    this.scroll(this.up);
+
     if (this.$route.name === "sitePage") {
       this.getLastPosts({
         siteUrl: this.getSiteUrl(this.$route.params.siteName),
@@ -248,7 +252,7 @@ export default {
 
 <style lang="scss">
 .big-block-4 {
-  background-image: url("../assets/background-main.jpg");
+  // background-image: url("../assets/background-main.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: repeat-y;
@@ -260,10 +264,22 @@ export default {
     width: 100px;
   }
 
-  .site-logo-2 {
-    margin: auto;
-    width: 200px;
-    max-height: 200px;
+  .hidden-md-and-up .logo-link {
+    width: 100%;
+
+    .site-logo-2 {
+      margin: auto;
+      width: 100%;
+      max-height: 100px;
+    }
+  }
+
+  .hidden-sm-and-down .logo-link {
+    .site-logo-2 {
+      margin: auto;
+      width: 200px;
+      max-height: 100px;
+    }
   }
 
   .site-info {

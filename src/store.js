@@ -50,10 +50,10 @@ export default new Vuex.Store({
       return axios
         .get(`${siteUrl}/wp-json/wp/v2/posts?per_page=${count}&_embed`)
         .then(response => response.data)
-      // .then(data => {
-      //   console.log(data)
-      //   return data
-      // })
+        .then(data => {
+          // console.log(data)
+          return data
+        })
     },
     getPostById(context, { siteUrl, postId }) {
       return axios
@@ -66,10 +66,10 @@ export default new Vuex.Store({
     },
     getPostBySlug(context, { siteUrl, postSlug }) {
       return axios
-        .get(siteUrl + '/wp-json/wp/v2/posts?slug=' + postSlug)
-        .then(response => response.data)
+        .get(siteUrl + '/wp-json/wp/v2/posts?slug=' + postSlug + '&_embed')
+        .then(response => response.data[0])
         .then(data => {
-          // console.log(data)
+          // console.log('post:', data)
           return data
         })
     }

@@ -1,7 +1,7 @@
 <template>
   <v-content>
     <!-- Post page -->
-    <v-container v-show="img" class="post-container" fluid px-0>
+    <v-container v-show="img" class="post-container scroll-up" fluid px-0>
       <v-layout wrap justify-center>
         <!-- Logo block -->
         <v-flex xs12 md2 py-4>
@@ -10,7 +10,7 @@
             <!-- Asia Today logo -->
             <v-flex md12>
               <v-layout justify-center>
-                <a href="/">
+                <a href="/" class="logo-link">
                   <v-img
                     :src="require('@/assets/logo-today-transparent-greyscale.png')"
                     class="site-logo-2"
@@ -29,7 +29,7 @@
             <!-- Site logo -->
             <v-flex md12>
               <v-layout justify-center>
-                <a :href="'/' + siteName">
+                <a :href="'/' + siteName" class="logo-link">
                   <v-img :src="siteLogo2" class="site-logo-2"></v-img>
                 </a>
               </v-layout>
@@ -41,7 +41,7 @@
             <!-- Main logo -->
             <v-flex xs5>
               <v-layout justify-center>
-                <a href="/">
+                <a href="/" class="logo-link">
                   <v-img
                     :src="require('@/assets/logo-today-transparent-greyscale.png')"
                     class="site-logo-2"
@@ -60,7 +60,7 @@
             <!-- Site logo -->
             <v-flex xs5>
               <v-layout justify-center>
-                <a :href="'/' + siteName">
+                <a :href="'/' + siteName" class="logo-link">
                   <v-img :src="siteLogo2" class="site-logo-2"></v-img>
                 </a>
               </v-layout>
@@ -103,6 +103,9 @@ import { DateTime } from "luxon";
 export default {
   // props: ["postId"],
   data: () => ({
+    up: ".scroll-up",
+    id: "",
+    slug: "",
     title: "",
     content: "",
     date: "",
@@ -122,8 +125,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["getPostById", "getPostBySlug", "getMedia"]),
+    ...mapActions(["getPostBySlug", "getMedia"]),
     savePostData(data) {
+      this.id = data.id;
+      this.slug = data.slug;
       this.title = data.title.rendered;
       this.content = this.processContent(data.content.rendered);
       this.date = DateTime.fromISO(data.date, {
@@ -140,39 +145,57 @@ export default {
     },
     processContent(data) {
       data = this.processLinks(data);
+      data = this.processIframes(data);
+
       return data;
     },
     processLinks(data) {
-      const link = /href=(["'])(.*?)\1/g;
-      // const reLink = new RegExp(link, "g");
-      // const links = data.match(reLink);
-      const links = data.match(link);
+      const template = document.createElement("div");
 
-      // console.log("links:", links);
+      template.innerHTML = data;
+      const links = template.querySelectorAll("a");
 
       this.sites.forEach(site => {
-        const newFragment = `href="/${site.name}`;
-        const reNewFragment = new RegExp(newFragment, "g");
+        for (const link of links) {
+          console.log("inks:", links);
+          const domainName = site.name.split("//").reverse()[0];
 
-        const fragment = `href="${site.url}`;
-        const reFragment = new RegExp(fragment, "g");
+          if (link.href.search(domainName) !== -1) {
+            const linkFragments = link.href.split("/").reverse();
+            console.log("linkFragments:", linkFragments);
 
-        const fragments = data.match(reFragment);
+            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1];
 
-        // console.log(`${site.name} fragments:`, fragments);
-
-        // data = data.replace(reFragment, reNewFragment);
+            link.href = `/${site.name}/${slug}`;
+            link.target = "";
+          }
+        }
       });
 
-      // console.log(data);
+      return template.innerHTML;
+    },
+    processIframes(data) {
+      const template = document.createElement("div");
 
-      return data;
+      template.innerHTML = data;
+      const iframes = template.querySelectorAll("iframe");
+
+      for (const iframe of iframes) {
+        iframe.parentNode.classList.add("aspect-ratio");
+      }
+
+      return template.innerHTML;
+    },
+    scroll(target) {
+      this.$vuetify.goTo(target);
     }
   },
   mounted() {
-    this.getPostById({
+    this.scroll(this.up);
+
+    this.getPostBySlug({
       siteUrl: this.siteUrl,
-      postId: this.$route.params.postId
+      postSlug: this.$route.params.postSlug
     }).then(data => this.savePostData(data));
   }
 };
@@ -180,10 +203,25 @@ export default {
 
 <style lang="scss">
 .post-container {
-  .site-logo-2 {
-    margin: auto;
-    width: 200px;
-    max-height: 200px;
+  .hidden-md-and-up .logo-link {
+    width: 100%;
+
+    .site-logo-2 {
+      margin: auto;
+      width: 100%;
+      max-height: 100px;
+    }
+  }
+
+  .hidden-sm-and-down .logo-link {
+    max-width: 100%;
+
+    .site-logo-2 {
+      max-width: 100%;
+      margin: auto;
+      width: 200px;
+      max-height: 100px;
+    }
   }
 
   .round-separator {
@@ -209,8 +247,9 @@ export default {
       }
     }
 
-    img {
-      width: 100%;
+    img,
+    figure {
+      width: 100% !important;
       height: auto;
     }
 
@@ -288,11 +327,23 @@ export default {
       font-size: 1.6em;
       font-weight: bold;
       color: #bdbdbd;
-      margin: 48px;
+      margin: 48px 0;
+      line-height: 1.2;
     }
 
-    iframe {
+    .aspect-ratio {
+      position: relative;
       width: 100%;
+      height: 0;
+      padding-bottom: 51%;
+
+      iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
     }
   }
 }
