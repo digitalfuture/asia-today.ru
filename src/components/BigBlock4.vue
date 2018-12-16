@@ -101,7 +101,7 @@
           </v-flex>
 
           <!-- Logo separator -->
-          <v-flex v-if="$route.name === 'sitePage'" xs2>
+          <v-flex v-if="$route.name === 'sitePage'" xs1>
             <v-layout justify-center>
               <v-icon class="grey--text text--lighten-1 mx-5">fiber_manual_record</v-icon>
             </v-layout>

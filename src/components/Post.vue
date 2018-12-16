@@ -51,7 +51,7 @@
             </v-flex>
 
             <!-- Logo separator -->
-            <v-flex xs2>
+            <v-flex xs1>
               <v-layout justify-center>
                 <v-icon class="grey--text text--lighten-1 mx-5">fiber_manual_record</v-icon>
               </v-layout>
@@ -69,7 +69,7 @@
         </v-flex>
 
         <v-flex xs12 md8>
-          <v-card light class="pa-4 content">
+          <v-card light class="pa-3 content">
             <v-card-title>
               <h1 class="post-title">{{ title }}</h1>
             </v-card-title>
