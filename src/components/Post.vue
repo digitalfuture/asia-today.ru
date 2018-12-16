@@ -105,8 +105,7 @@
                   </div>
                   <div
                     class="ya-share2"
-                    data-services="collections,vkontakte,facebook,odnoklassniki,twitter,tumblr,viber,whatsapp,skype,telegram"
-                    data-counter
+                    data-services="vkontakte,facebook,odnoklassniki,twitter,tumblr,viber,telegram"
                   ></div>
                 </v-layout>
               </div>
