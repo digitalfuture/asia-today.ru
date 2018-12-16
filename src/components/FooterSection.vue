@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="footer-section scroll-down pa-3" height="100vh" absolute light>
+  <v-footer class="footer-section scroll-down pa-3" height="100vh" light>
     <!-- Footer -->
     <v-layout justify-space-between xs12 fill-height wrap>
       <v-flex xs12 md4 align-space-between justify-space-between column fill-height>
@@ -65,8 +65,6 @@ export default {
 
 <style lang="scss">
 .footer-section {
-  min-height: 100vh;
-
   background-image: url("../assets/background-footer.png") !important;
   background-size: contain !important;
   background-position: right top !important;
@@ -89,9 +87,9 @@ export default {
     text-decoration: none;
     font-family: "Noto Serif", serif;
   }
-}
 
-.scroll-button {
-  bottom: 2% !important;
+  .scroll-button {
+    bottom: 16px !important;
+  }
 }
 </style>

@@ -4,33 +4,47 @@
     <v-layout class="full-height hidden-sm-and-down" align-center justify-center fill-height>
       <v-layout>
         <!-- Logo block -->
-        <v-flex md2 py-4>
+        <v-flex md2 py-4 px-2>
           <v-layout justify-center align-center column>
-            <!-- Main logo -->
-            <v-flex md12>
+            <!-- Site logo -->
+            <v-flex v-if="$route.name === 'sitePage'" md12>
               <v-layout justify-center>
-                <a href="/" class="logo-link">
-                  <v-img
-                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
-                    class="site-logo-2"
-                  ></v-img>
-                </a>
+                <router-link :to="'/' + siteName" class="logo-link">
+                  <v-img :src="getSiteLogo2(siteName)" class="site-logo-2"></v-img>
+                </router-link>
               </v-layout>
             </v-flex>
 
             <!-- Logo separator -->
-            <v-flex v-if="$route.name === 'sitePage'" md12>
+            <v-flex md12>
               <v-layout justify-center>
-                <v-icon class="grey--text text--lighten-1 my-5">fiber_manual_record</v-icon>
+                <v-icon class="grey--text text--darken-1 my-5">fiber_manual_record</v-icon>
               </v-layout>
             </v-flex>
 
-            <!-- Site logo -->
-            <v-flex v-if="$route.name === 'sitePage'" md12>
+            <!-- Main logo -->
+            <v-flex md12>
               <v-layout justify-center>
-                <a :href="'/' + siteName" class="logo-link">
-                  <v-img :src="getSiteLogo2(siteName)" class="site-logo-2"></v-img>
-                </a>
+                <router-link to="/" class="logo-link">
+                  <v-img
+                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
+                    class="site-logo-2"
+                  ></v-img>
+                </router-link>
+              </v-layout>
+            </v-flex>
+
+            <!-- Logo separator 2 -->
+            <v-flex md12>
+              <v-layout justify-center>
+                <v-icon class="grey--text text--darken-2 my-5">fiber_manual_record</v-icon>
+              </v-layout>
+            </v-flex>
+
+            <!-- Logo separator 3 -->
+            <v-flex md12>
+              <v-layout justify-center>
+                <v-icon class="grey--text text--darken-3 my-5">fiber_manual_record</v-icon>
               </v-layout>
             </v-flex>
           </v-layout>
@@ -56,11 +70,9 @@
                   </v-card-text>
                 </div>
 
-                <v-img
-                  v-if="$route.name !== 'sitePage'"
-                  :src="getSiteLogo(post.siteName)"
-                  class="site-logo"
-                ></v-img>
+                <v-btn v-if="$route.name !== 'sitePage'" fab raised class="site-logo">
+                  <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
+                </v-btn>
               </v-card>
             </v-flex>
           </v-layout>
@@ -86,33 +98,33 @@
     <!-- Small screen and down -->
     <v-layout class="hidden-md-and-up main-section" wrap py-1>
       <!-- Logo block -->
-      <v-flex xs12 py-4>
+      <v-flex xs12 py-4 px-2>
         <v-layout justify-center align-center>
-          <!-- Main logo -->
-          <v-flex xs5>
+          <!-- Site logo -->
+          <v-flex v-if="$route.name === 'sitePage'" xs5>
             <v-layout justify-center>
-              <a href="/" class="logo-link">
-                <v-img
-                  :src="require('@/assets/logo-today-transparent-greyscale.png')"
-                  class="site-logo-2"
-                ></v-img>
-              </a>
+              <router-link :to="'/' + siteName" class="logo-link">
+                <v-img :src="getSiteLogo2(siteName)" class="site-logo-2"></v-img>
+              </router-link>
             </v-layout>
           </v-flex>
 
           <!-- Logo separator -->
           <v-flex v-if="$route.name === 'sitePage'" xs1>
             <v-layout justify-center>
-              <v-icon class="grey--text text--lighten-1 mx-5">fiber_manual_record</v-icon>
+              <v-icon class="grey--text text--darken-4 mx-5">fiber_manual_record</v-icon>
             </v-layout>
           </v-flex>
 
-          <!-- Site logo -->
-          <v-flex v-if="$route.name === 'sitePage'" xs5>
+          <!-- Main logo -->
+          <v-flex xs5>
             <v-layout justify-center>
-              <a :href="'/' + siteName" class="logo-link">
-                <v-img :src="getSiteLogo2(siteName)" class="site-logo-2"></v-img>
-              </a>
+              <router-link to="/" class="logo-link">
+                <v-img
+                  :src="require('@/assets/logo-today-transparent-greyscale.png')"
+                  class="site-logo-2"
+                ></v-img>
+              </router-link>
             </v-layout>
           </v-flex>
         </v-layout>
@@ -137,12 +149,15 @@
                   <span class="grey--text">{{ getDate(post.date) }}</span>
                 </v-card-text>
               </div>
-
-              <v-img
+              <v-btn
+                :to="'/' + post.siteName"
                 v-if="$route.name !== 'sitePage'"
-                :src="getSiteLogo(post.siteName)"
+                fab
+                raised
                 class="site-logo"
-              ></v-img>
+              >
+                <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
+              </v-btn>
             </v-card>
           </v-flex>
         </v-layout>
@@ -171,17 +186,14 @@ import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
 
 export default {
+  props: ["siteName"],
   data: () => ({
     up: ".scroll-up",
     posts: [],
     down: ".scroll-down"
   }),
   computed: {
-    ...mapState(["sites"]),
-    siteName() {
-      return this.$route.params.siteName;
-    }
-    //
+    ...mapState(["sites"])
   },
   methods: {
     ...mapActions(["getLastPosts", "getMedia"]),
@@ -226,12 +238,12 @@ export default {
 
     if (this.$route.name === "sitePage") {
       this.getLastPosts({
-        siteUrl: this.getSiteUrl(this.$route.params.siteName),
+        siteUrl: this.getSiteUrl(this.siteName),
         count: 4
       }).then(data =>
         data.forEach(post =>
           this.savePostData({
-            siteName: this.$route.params.siteName,
+            siteName: this.siteName,
             data: post
           })
         )
@@ -262,6 +274,7 @@ export default {
     left: 16px;
     top: 16px;
     width: 100px;
+    height: 100px;
   }
 
   .hidden-md-and-up .logo-link {
@@ -296,13 +309,13 @@ export default {
       padding: 10px 16px;
     }
   }
-}
 
-.scroll-button {
-  bottom: 2% !important;
-}
+  .scroll-button {
+    bottom: 16px !important;
+  }
 
-.full-height {
-  height: 100vh;
+  .full-height {
+    height: 100vh;
+  }
 }
 </style>

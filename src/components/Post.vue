@@ -4,87 +4,111 @@
     <v-container v-show="img" class="post-container scroll-up" fluid px-0>
       <v-layout wrap justify-center>
         <!-- Logo block -->
-        <v-flex xs12 md2 py-4>
+        <v-flex xs12 md2 py-4 px-2>
           <!-- Middle screen and up -->
           <v-layout justify-center align-center column class="hidden-sm-and-down">
-            <!-- Asia Today logo -->
+            <!-- Site logo -->
             <v-flex md12>
               <v-layout justify-center>
-                <a href="/" class="logo-link">
-                  <v-img
-                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
-                    class="site-logo-2"
-                  ></v-img>
-                </a>
+                <router-link :to="'/' + siteName" class="logo-link">
+                  <v-img :src="siteLogo2" class="site-logo-2"></v-img>
+                </router-link>
               </v-layout>
             </v-flex>
 
             <!-- Logo separator -->
             <v-flex md12>
               <v-layout justify-center>
-                <v-icon class="grey--text text--lighten-1 my-5">fiber_manual_record</v-icon>
+                <v-icon class="grey--text text--darken-1 my-5">fiber_manual_record</v-icon>
               </v-layout>
             </v-flex>
 
-            <!-- Site logo -->
+            <!-- Main logo -->
             <v-flex md12>
               <v-layout justify-center>
-                <a :href="'/' + siteName" class="logo-link">
-                  <v-img :src="siteLogo2" class="site-logo-2"></v-img>
-                </a>
+                <router-link to="/" class="logo-link">
+                  <v-img
+                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
+                    class="site-logo-2"
+                  ></v-img>
+                </router-link>
+              </v-layout>
+            </v-flex>
+
+            <!-- Logo separator 2 -->
+            <v-flex md12>
+              <v-layout justify-center>
+                <v-icon class="grey--text text--darken-2 my-5">fiber_manual_record</v-icon>
+              </v-layout>
+            </v-flex>
+
+            <!-- Logo separator 3 -->
+            <v-flex md12>
+              <v-layout justify-center>
+                <v-icon class="grey--text text--darken-3 my-5">fiber_manual_record</v-icon>
               </v-layout>
             </v-flex>
           </v-layout>
 
           <!-- Small screen and down -->
           <v-layout justify-center align-center class="hidden-md-and-up">
-            <!-- Main logo -->
+            <!-- Site logo -->
             <v-flex xs5>
               <v-layout justify-center>
-                <a href="/" class="logo-link">
-                  <v-img
-                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
-                    class="site-logo-2"
-                  ></v-img>
-                </a>
+                <router-link :to="'/' + siteName" class="logo-link">
+                  <v-img :src="siteLogo2" class="site-logo-2"></v-img>
+                </router-link>
               </v-layout>
             </v-flex>
 
             <!-- Logo separator -->
             <v-flex xs1>
               <v-layout justify-center>
-                <v-icon class="grey--text text--lighten-1 mx-5">fiber_manual_record</v-icon>
+                <v-icon class="grey--text text--darken-4 mx-5">fiber_manual_record</v-icon>
               </v-layout>
             </v-flex>
 
-            <!-- Site logo -->
+            <!-- Main logo -->
             <v-flex xs5>
               <v-layout justify-center>
-                <a :href="'/' + siteName" class="logo-link">
-                  <v-img :src="siteLogo2" class="site-logo-2"></v-img>
-                </a>
+                <router-link to="/" class="logo-link">
+                  <v-img
+                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
+                    class="site-logo-2"
+                  ></v-img>
+                </router-link>
               </v-layout>
             </v-flex>
           </v-layout>
         </v-flex>
 
+        <!-- Content block -->
         <v-flex xs12 md8>
-          <v-card light class="pa-3 content">
+          <v-card light class="pt-4 pb-3 px-3 content body-1 mb-2">
             <v-card-title>
               <h1 class="post-title">{{ title }}</h1>
             </v-card-title>
 
             <hr>
 
-            <v-img :src="img" :lazy-src="require('@/assets/placeholder.jpg')"></v-img>
+            <v-img :src="img" :lazy-src="require('@/assets/placeholder.jpg')" class="post-img"></v-img>
             <br>
 
-            <v-card-text class="body-1">
+            <v-card-text>
               <div v-html="content"></div>
 
               <div class="site-date font-italic font-weight-light">
                 <hr>
-                <span class="grey--text">{{ date }}</span>
+                <v-layout justify-space-between>
+                  <div>
+                    <span class="grey--text">{{ date }}</span>
+                  </div>
+                  <div
+                    class="ya-share2"
+                    data-services="collections,vkontakte,facebook,odnoklassniki,twitter,tumblr,viber,whatsapp,skype,telegram"
+                    data-counter
+                  ></div>
+                </v-layout>
               </div>
             </v-card-text>
           </v-card>
@@ -101,7 +125,7 @@ import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
 
 export default {
-  // props: ["postId"],
+  props: ["postSlug", "siteName"],
   data: () => ({
     up: ".scroll-up",
     id: "",
@@ -114,9 +138,6 @@ export default {
   }),
   computed: {
     ...mapState(["sites"]),
-    siteName() {
-      return this.$route.params.siteName;
-    },
     siteLogo2() {
       return this.sites.find(site => site.name === this.siteName).logo2;
     },
@@ -157,12 +178,10 @@ export default {
 
       this.sites.forEach(site => {
         for (const link of links) {
-          console.log("inks:", links);
           const domainName = site.name.split("//").reverse()[0];
 
           if (link.href.search(domainName) !== -1) {
             const linkFragments = link.href.split("/").reverse();
-            console.log("linkFragments:", linkFragments);
 
             const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1];
 
@@ -195,7 +214,7 @@ export default {
 
     this.getPostBySlug({
       siteUrl: this.siteUrl,
-      postSlug: this.$route.params.postSlug
+      postSlug: this.postSlug
     }).then(data => this.savePostData(data));
   }
 };
@@ -224,10 +243,6 @@ export default {
     }
   }
 
-  .round-separator {
-    text-align: center;
-  }
-
   .content {
     * {
       padding-left: 0;
@@ -248,16 +263,18 @@ export default {
     }
 
     img,
-    figure {
+    figure,
+    .post-img {
       width: 100% !important;
       height: auto;
+      border-radius: 2px;
     }
 
     hr {
       margin: 16px 0 32px 0;
-      height: 1px;
-      color: #e0e0e0;
-      background-color: #e0e0e0;
+      height: 12px;
+      color: #f5f5f5;
+      background-color: #f5f5f5;
       border: none;
     }
 
@@ -265,7 +282,9 @@ export default {
       font-family: "Noto Serif", serif;
       font-style: italic;
       font-size: 3em;
-      color: #757575;
+      font-weight: normal;
+      line-height: 1.2;
+      color: #424242;
     }
 
     h2,
@@ -275,7 +294,9 @@ export default {
     h6 {
       font-family: "Roboto Condensed", sans-serif;
       margin: 24px 0;
-      color: #757575;
+      line-height: 1.2;
+      font-weight: normal;
+      color: #424242;
     }
 
     h2 {
@@ -283,22 +304,19 @@ export default {
     }
 
     h3 {
-      font-size: 1.8em;
+      font-size: 1.7em;
     }
 
     h4 {
-      font-size: 1.8em;
-      font-weight: normal;
+      font-size: 1.4em;
     }
 
     h5 {
-      font-size: 1.5em;
-      font-weight: bold;
+      font-size: 1.2em;
     }
 
     h6 {
-      font-size: 1.5em;
-      font-weight: normal;
+      font-size: 1em;
     }
 
     a {
@@ -306,7 +324,6 @@ export default {
     }
 
     p {
-      font-family: "Noto Sans", sans-serif;
       color: #424242;
       font-size: 1.2em;
     }
@@ -324,9 +341,9 @@ export default {
     blockquote * {
       text-align: center;
       font-family: "Noto Serif", serif;
-      font-size: 1.6em;
+      font-size: 1.5em;
       font-weight: bold;
-      color: #bdbdbd;
+      color: #424242;
       margin: 48px 0;
       line-height: 1.2;
     }
