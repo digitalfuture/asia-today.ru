@@ -32,12 +32,17 @@
                 </v-card-title>
               </v-flex>
             </v-img>
-            <br>
+
+            <v-flex mt-3>
+              <hr>
+            </v-flex>
 
             <v-card-text>
               <div v-html="content"></div>
 
-              <hr>
+              <v-flex mt-4 mb-5>
+                <hr>
+              </v-flex>
 
               <div class="site-date font-italic font-weight-light">
                 <v-layout justify-space-between wrap>
@@ -124,11 +129,25 @@ export default {
         ][0].media_details.sizes.full.source_url;
     },
     processContent(data) {
+      data = this.removeClasses(data);
       data = this.processLinks(data);
       data = this.processIframes(data);
       data = this.processInages(data);
 
       return data;
+    },
+    removeClasses(data) {
+      const template = document.createElement("div");
+      template.innerHTML = data;
+
+      const elements = template.querySelectorAll("*");
+
+      for (const element of elements) {
+        console.log("element:", element);
+        element.classList = [];
+      }
+
+      return template.innerHTML;
     },
     processLinks(data) {
       const template = document.createElement("div");
@@ -216,8 +235,12 @@ export default {
       border-radius: 2px;
     }
 
+    figure {
+      font-family: "Noto Serif", serif;
+      padding-bottom: 24px;
+    }
+
     hr {
-      margin: 16px 0 32px 0;
       height: 12px;
       color: #f5f5f5;
       background-color: #f5f5f5;
