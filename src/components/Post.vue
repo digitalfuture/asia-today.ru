@@ -58,6 +58,7 @@
                       <yandex-share
                         :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
                         counter
+                        :description="title"
                       />
                     </v-layout>
 
@@ -66,6 +67,7 @@
                       <yandex-share
                         :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
                         counter
+                        :description="title"
                       />
                     </v-layout>
                   </v-flex>
