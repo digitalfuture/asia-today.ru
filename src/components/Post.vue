@@ -13,6 +13,7 @@
               :lazy-src="require('@/assets/placeholder.jpg')"
               class="post-img white--text hidden-sm-and-down"
               gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
+              :aspect-ratio="16/9"
             >
               <v-flex mx-4>
                 <v-card-title>
@@ -25,6 +26,7 @@
               :lazy-src="require('@/assets/placeholder.jpg')"
               class="post-img white--text hidden-md-and-up"
               gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
+              :aspect-ratio="16/9"
             >
               <v-flex mx-4>
                 <v-card-title>
