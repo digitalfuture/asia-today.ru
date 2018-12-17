@@ -9,7 +9,10 @@ import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
   id: 'UA-131048533-1',
-  router
+  router,
+  debug: {
+    sendHitTask: false
+  }
 })
 
 Vue.component('yandex-share', YandexShare)
