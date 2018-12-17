@@ -7,7 +7,7 @@
 
         <!-- Content block -->
         <v-flex xs12 md8>
-          <v-card light class="pt-3 pb-2 px-3 content body-1 mb-2">
+          <v-card light class="pt-3 pb-2 px-3 content body-1">
             <v-img
               :src="img"
               :lazy-src="require('@/assets/placeholder.jpg')"
@@ -40,14 +40,28 @@
               <hr>
 
               <div class="site-date font-italic font-weight-light">
-                <v-layout justify-space-between>
-                  <div>
+                <v-layout justify-space-between wrap>
+                  <v-flex xs12 sm6 pb-4>
                     <span class="grey--text subheading">{{ date }}</span>
-                  </div>
-                  <div
-                    class="ya-share2"
-                    data-services="vkontakte,facebook,odnoklassniki,twitter,tumblr,viber,telegram"
-                  ></div>
+                  </v-flex>
+
+                  <v-flex xs12 sm6>
+                    <!-- Extra small screens - align left -->
+                    <v-layout justify-start class="hidden-sm-and-up">
+                      <yandex-share
+                        :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
+                        counter
+                      />
+                    </v-layout>
+
+                    <!-- Small screens and up - align right -->
+                    <v-layout justify-end class="hidden-xs-only">
+                      <yandex-share
+                        :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
+                        counter
+                      />
+                    </v-layout>
+                  </v-flex>
                 </v-layout>
               </div>
             </v-card-text>
@@ -63,11 +77,13 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
+import YandexShare from "@cookieseater/vue-yandex-share";
 import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 
 export default {
   components: {
+    YandexShare,
     LeftSideBar,
     RightSideBar
   },
