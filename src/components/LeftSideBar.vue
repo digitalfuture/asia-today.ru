@@ -39,6 +39,61 @@
     </v-layout>
 
     <!-- Small screen and down -->
+    <!-- For home page only -->
+    <v-layout
+      v-if="$route.name === 'homePage'"
+      justify-center
+      align-center
+      class="hidden-md-and-up"
+    >
+      <!-- Site logo -->
+      <!-- Small screen -->
+      <v-flex>
+        <v-layout justify-center>
+          <v-btn :to="'/' + siteName" fab raised class="site-logo">
+            <v-img :src="require('@/assets/logo-today.png')" class="logo-image"></v-img>
+          </v-btn>
+        </v-layout>
+      </v-flex>
+
+      <!-- Round separator -->
+      <v-flex class="hidden-xs-only text-xs-center">
+        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+      </v-flex>
+
+      <!-- Site title -->
+      <!-- Small screen - align center-->
+      <v-flex class="hidden-xs-only">
+        <h1 class="headline text-xs-center">
+          <span class="font-weight-regular text-uppercase text-responsive">АЗИЯ</span>
+          <br>
+          <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
+        </h1>
+      </v-flex>
+
+      <!-- Extra small screen - align left-->
+      <v-flex class="hidden-sm-and-up border-left">
+        <h1 class="headline text-xs-left">
+          <span class="font-weight-regular text-uppercase text-responsive">АЗИЯ</span>
+          <br>
+          <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
+        </h1>
+      </v-flex>
+
+      <!-- Round separator -->
+      <v-flex class="hidden-xs-only text-xs-center">
+        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+      </v-flex>
+
+      <!-- Tag line -->
+      <v-flex class="hidden-xs-only">
+        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">последние
+          <br>новости
+        </h2>
+      </v-flex>
+    </v-layout>
+
+    <!-- Not for Home page -->
     <v-layout
       v-if="$route.name !== 'homePage'"
       justify-center

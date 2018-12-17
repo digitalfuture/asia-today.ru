@@ -195,7 +195,6 @@ export default {
 
       for (const image of images) {
         if (image.src.startsWith(window.location.origin)) {
-          console.log("image:", image);
           image.src = image.src.replace(window.location.origin, this.siteUrl);
         }
       }
