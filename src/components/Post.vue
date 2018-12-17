@@ -136,7 +136,7 @@ export default {
       data = this.removeClasses(data);
       data = this.processLinks(data);
       data = this.processIframes(data);
-      data = this.processInages(data);
+      data = this.processImages(data);
 
       return data;
     },
@@ -147,7 +147,6 @@ export default {
       const elements = template.querySelectorAll("*");
 
       for (const element of elements) {
-        console.log("element:", element);
         element.classList = [];
       }
 
@@ -188,7 +187,7 @@ export default {
 
       return template.innerHTML;
     },
-    processInages(data) {
+    processImages(data) {
       const template = document.createElement("div");
       template.innerHTML = data;
 
