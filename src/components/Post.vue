@@ -1,107 +1,48 @@
 <template>
   <v-content>
     <!-- Post page -->
-    <v-container v-show="img" class="post-container scroll-up" fluid px-0>
+    <v-container v-show="img" class="post scroll-up" fluid px-0>
       <v-layout wrap justify-center>
-        <!-- Logo block -->
-        <v-flex xs12 md2 py-4 px-2>
-          <!-- Middle screen and up -->
-          <v-layout justify-center align-center column class="hidden-sm-and-down">
-            <!-- Site logo -->
-            <v-flex md12>
-              <v-layout justify-center>
-                <router-link :to="'/' + siteName" class="logo-link">
-                  <v-img :src="siteLogo2" class="site-logo-2"></v-img>
-                </router-link>
-              </v-layout>
-            </v-flex>
-
-            <!-- Logo separator -->
-            <v-flex md12>
-              <v-layout justify-center>
-                <v-icon class="grey--text text--darken-1 my-5">fiber_manual_record</v-icon>
-              </v-layout>
-            </v-flex>
-
-            <!-- Main logo -->
-            <v-flex md12>
-              <v-layout justify-center>
-                <router-link to="/" class="logo-link">
-                  <v-img
-                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
-                    class="site-logo-2"
-                  ></v-img>
-                </router-link>
-              </v-layout>
-            </v-flex>
-
-            <!-- Logo separator 2 -->
-            <v-flex md12>
-              <v-layout justify-center>
-                <v-icon class="grey--text text--darken-2 my-5">fiber_manual_record</v-icon>
-              </v-layout>
-            </v-flex>
-
-            <!-- Logo separator 3 -->
-            <v-flex md12>
-              <v-layout justify-center>
-                <v-icon class="grey--text text--darken-3 my-5">fiber_manual_record</v-icon>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-
-          <!-- Small screen and down -->
-          <v-layout justify-center align-center class="hidden-md-and-up">
-            <!-- Site logo -->
-            <v-flex xs5>
-              <v-layout justify-center>
-                <router-link :to="'/' + siteName" class="logo-link">
-                  <v-img :src="siteLogo2" class="site-logo-2"></v-img>
-                </router-link>
-              </v-layout>
-            </v-flex>
-
-            <!-- Logo separator -->
-            <v-flex xs1>
-              <v-layout justify-center>
-                <v-icon class="grey--text text--darken-4 mx-5">fiber_manual_record</v-icon>
-              </v-layout>
-            </v-flex>
-
-            <!-- Main logo -->
-            <v-flex xs5>
-              <v-layout justify-center>
-                <router-link to="/" class="logo-link">
-                  <v-img
-                    :src="require('@/assets/logo-today-transparent-greyscale.png')"
-                    class="site-logo-2"
-                  ></v-img>
-                </router-link>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
+        <LeftSideBar :siteName="siteName"/>
 
         <!-- Content block -->
         <v-flex xs12 md8>
-          <v-card light class="pt-4 pb-3 px-3 content body-1 mb-2">
-            <v-card-title>
-              <h1 class="post-title">{{ title }}</h1>
-            </v-card-title>
-
-            <hr>
-
-            <v-img :src="img" :lazy-src="require('@/assets/placeholder.jpg')" class="post-img"></v-img>
+          <v-card light class="pt-3 pb-2 px-3 content body-1 mb-2">
+            <v-img
+              :src="img"
+              :lazy-src="require('@/assets/placeholder.jpg')"
+              class="post-img white--text hidden-sm-and-down"
+              gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
+            >
+              <v-flex mx-4>
+                <v-card-title>
+                  <h1 class="display-2 font-weight-light">{{ title }}</h1>
+                </v-card-title>
+              </v-flex>
+            </v-img>
+            <v-img
+              :src="img"
+              :lazy-src="require('@/assets/placeholder.jpg')"
+              class="post-img white--text hidden-md-and-up"
+              gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
+            >
+              <v-flex mx-4>
+                <v-card-title>
+                  <h1 class="display-1 font-weight-light">{{ title }}</h1>
+                </v-card-title>
+              </v-flex>
+            </v-img>
             <br>
 
             <v-card-text>
               <div v-html="content"></div>
 
+              <hr>
+
               <div class="site-date font-italic font-weight-light">
-                <hr>
                 <v-layout justify-space-between>
                   <div>
-                    <span class="grey--text">{{ date }}</span>
+                    <span class="grey--text subheading">{{ date }}</span>
                   </div>
                   <div
                     class="ya-share2"
@@ -113,7 +54,7 @@
           </v-card>
         </v-flex>
 
-        <v-spacer></v-spacer>
+        <RightSideBar :siteName="siteName"/>
       </v-layout>
     </v-container>
   </v-content>
@@ -122,8 +63,14 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
+import LeftSideBar from "./LeftSideBar";
+import RightSideBar from "./RightSideBar";
 
 export default {
+  components: {
+    LeftSideBar,
+    RightSideBar
+  },
   props: ["postSlug", "siteName"],
   data: () => ({
     up: ".scroll-up",
@@ -137,9 +84,6 @@ export default {
   }),
   computed: {
     ...mapState(["sites"]),
-    siteLogo2() {
-      return this.sites.find(site => site.name === this.siteName).logo2;
-    },
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url;
     }
@@ -166,6 +110,7 @@ export default {
     processContent(data) {
       data = this.processLinks(data);
       data = this.processIframes(data);
+      data = this.processInages(data);
 
       return data;
     },
@@ -204,6 +149,21 @@ export default {
 
       return template.innerHTML;
     },
+    processInages(data) {
+      const template = document.createElement("div");
+      template.innerHTML = data;
+
+      const images = template.querySelectorAll("img");
+
+      for (const image of images) {
+        if (image.src.startsWith(window.location.origin)) {
+          console.log("image:", image);
+          image.src = image.src.replace(window.location.origin, this.siteUrl);
+        }
+      }
+
+      return template.innerHTML;
+    },
     scroll(target) {
       this.$vuetify.goTo(target);
     }
@@ -220,45 +180,16 @@ export default {
 </script>
 
 <style lang="scss">
-.post-container {
-  .hidden-md-and-up .logo-link {
-    width: 100%;
-
-    .site-logo-2 {
-      margin: auto;
-      width: 100%;
-      max-height: 100px;
-    }
-  }
-
-  .hidden-sm-and-down .logo-link {
-    max-width: 100%;
-
-    .site-logo-2 {
-      max-width: 100%;
-      margin: auto;
-      width: 200px;
-      max-height: 100px;
-    }
-  }
-
+.post {
   .content {
     * {
       padding-left: 0;
       padding-right: 0;
     }
 
-    .post-title {
-      width: 100%;
-    }
-
     .site-date {
       font-family: "Noto Serif", serif;
       margin-top: 16px;
-
-      hr {
-        margin: 48px 0 16px;
-      }
     }
 
     img,
@@ -275,15 +206,6 @@ export default {
       color: #f5f5f5;
       background-color: #f5f5f5;
       border: none;
-    }
-
-    h1 {
-      font-family: "Noto Serif", serif;
-      font-style: italic;
-      font-size: 3em;
-      font-weight: normal;
-      line-height: 1.2;
-      color: #424242;
     }
 
     h2,
@@ -340,8 +262,8 @@ export default {
     blockquote * {
       text-align: center;
       font-family: "Noto Serif", serif;
-      font-size: 1.5em;
-      font-weight: bold;
+      font-size: 1.3em;
+      // font-weight: bold;
       color: #424242;
       margin: 48px 0;
       line-height: 1.2;
@@ -352,6 +274,8 @@ export default {
       width: 100%;
       height: 0;
       padding-bottom: 51%;
+      border-radius: 2px;
+      overflow: hidden;
 
       iframe {
         position: absolute;
@@ -359,6 +283,7 @@ export default {
         height: 100%;
         left: 0;
         top: 0;
+        border-radius: 2px;
       }
     }
   }

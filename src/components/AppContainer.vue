@@ -1,24 +1,22 @@
 <template>
   <v-container align-content-center fluid pa-0 class="scroll-up app-container">
-    <HeaderSection/>
+    <AppHeader/>
     <router-view></router-view>
-    <FooterSection/>
+    <AppFooter/>
   </v-container>
 </template>
 
 <script>
-import HeaderSection from "./HeaderSection";
-import FooterSection from "./FooterSection";
+import AppHeader from "./AppHeader";
+import AppFooter from "./AppFooter";
 
 export default {
   components: {
-    HeaderSection,
-    FooterSection
+    AppHeader,
+    AppFooter
   },
   data: () => ({
     //
   })
 };
 </script>
-<style lang="scss">
-</style>

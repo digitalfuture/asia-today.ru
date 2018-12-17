@@ -1,15 +1,15 @@
 <template>
   <!-- Site page -->
-  <BigBlock4 :siteName="siteName"/>
+  <PostGrid :siteName="siteName"/>
 </template>
 
 <script>
-import BigBlock4 from "../components/BigBlock4";
+import PostGrid from "../components/PostGrid";
 
 export default {
   props: ["siteName"],
   components: {
-    BigBlock4
+    PostGrid
   }
 };
 </script>

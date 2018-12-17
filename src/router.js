@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home'
+import HomePage from './views/HomePage'
 import SitePage from './views/SitePage'
 import Post from './components/Post'
 
@@ -11,12 +11,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'homePage',
+      component: HomePage
     },
     {
       path: '/:siteName/:postSlug',
-      name: 'postPage',
+      name: 'post',
       component: Post,
       props: true
     },

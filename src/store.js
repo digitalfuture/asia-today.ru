@@ -9,6 +9,7 @@ export default new Vuex.Store({
     sites: [
       {
         name: 'vietnam',
+        rusName: 'Вьетнам',
         url: 'https://asia-vietnam.ru',
         logo:
           'https://asia-vietnam.ru/wp-content/uploads/2018/11/logo_vietnam-small.png',
@@ -16,6 +17,7 @@ export default new Vuex.Store({
       },
       {
         name: 'nepal',
+        rusName: 'Непал',
         url: 'https://asia-nepal.ru',
         logo:
           'https://asia-nepal.ru/wp-content/uploads/2018/11/logo_nepal_small.png',
@@ -23,6 +25,7 @@ export default new Vuex.Store({
       },
       {
         name: 'thailand',
+        rusName: 'Таиланд',
         url: 'https://asia-thailand.ru',
         logo:
           'https://asia-thailand.ru/wp-content/uploads/2018/11/logo-thailand-small.png',
@@ -31,6 +34,7 @@ export default new Vuex.Store({
       },
       {
         name: 'philippines',
+        rusName: 'Филиппины',
         url: 'https://asia-philippines.ru',
         logo:
           'https://asia-philippines.ru/wp-content/uploads/2018/11/logo-philippines-small.png',

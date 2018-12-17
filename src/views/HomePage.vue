@@ -1,13 +1,13 @@
 <template>
-  <BigBlock4/>
+  <PostGrid/>
 </template>
 
 <script>
-import BigBlock4 from "../components/BigBlock4";
+import PostGrid from "../components/PostGrid";
 
 export default {
   components: {
-    BigBlock4
+    PostGrid
   }
 };
 </script>
