@@ -11,7 +11,7 @@
 
       <!-- Large screens and up-->
       <v-flex md12 class="hidden-md-and-down">
-        <h1 class="display-1 text-md-center">
+        <h1 class="headline text-md-center">
           <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
           <br>
           <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
@@ -20,7 +20,7 @@
 
       <!-- Middle screens and down -->
       <v-flex md12 class="hidden-lg-and-up">
-        <h1 class="display-1 text-md-center text-responsive">
+        <h1 class="headline text-md-center text-responsive">
           <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
           <br>
           <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
@@ -34,8 +34,8 @@
 
       <!-- Tag line -->
       <v-flex md12>
-        <h2 class="title font-weight-regular grey--text text--darken-1 text-md-center">ПОСЛЕДНИЕ
-          <br>НОВОСТИ
+        <h2 class="title font-weight-regular grey--text text--darken-1 text-md-center">последние
+          <br>новости
         </h2>
       </v-flex>
     </v-layout>

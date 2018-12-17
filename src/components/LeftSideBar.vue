@@ -63,7 +63,7 @@
       <!-- Site title -->
       <!-- Small screen - align center-->
       <v-flex class="hidden-xs-only">
-        <h1 class="display-1 text-xs-center">
+        <h1 class="headline text-xs-center">
           <span class="font-weight-regular text-uppercase text-responsive">{{ rusSiteName}}</span>
           <br>
           <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
@@ -72,7 +72,7 @@
 
       <!-- Extra small screen - align left-->
       <v-flex class="hidden-sm-and-up border-left">
-        <h1 class="display-1 text-xs-left">
+        <h1 class="headline text-xs-left">
           <span class="font-weight-regular text-uppercase text-responsive">{{ rusSiteName}}</span>
           <br>
           <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
@@ -86,8 +86,8 @@
 
       <!-- Tag line -->
       <v-flex class="hidden-xs-only">
-        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">ПОСЛЕДНИЕ
-          <br>НОВОСТИ
+        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">последние
+          <br>новости
         </h2>
       </v-flex>
     </v-layout>
@@ -119,7 +119,6 @@ export default {
     .border-left {
       border-left: 4px solid #424242;
       padding-left: 16px;
-      padding-top: 4px;
     }
 
     .site-logo {
