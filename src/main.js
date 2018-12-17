@@ -8,7 +8,8 @@ import YandexShare from '@cookieseater/vue-yandex-share'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
-  id: 'UA-131048533-1'
+  id: 'UA-131048533-1',
+  router
 })
 
 Vue.component('yandex-share', YandexShare)
