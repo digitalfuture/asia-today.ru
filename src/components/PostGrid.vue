@@ -49,12 +49,8 @@
                     fab
                     raised
                     class="hidden-sm-and-down color-point ma-0"
-                  >
-                    <v-icon
-                      :style="'color: ' + getSiteColor(post.siteName)"
-                      class="icon-point"
-                    >fiber_manual_record</v-icon>
-                  </v-btn>
+                    :style="'background-color: ' + getSiteColor(post.siteName)"
+                  ></v-btn>
 
                   <!-- All screens sizes except middle - round logo -->
                   <!-- For site page only -->
@@ -64,12 +60,8 @@
                     fab
                     raised
                     class="color-point ma-0"
-                  >
-                    <v-icon
-                      :style="'color: ' + getSiteColor(siteName)"
-                      class="icon-point"
-                    >fiber_manual_record</v-icon>
-                  </v-btn>
+                    :style="'background-color: ' + getSiteColor(post.siteName)"
+                  ></v-btn>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -130,12 +122,8 @@
                 fab
                 raised
                 class="color-point ma-0"
-              >
-                <v-icon
-                  :style="'color: ' + getSiteColor(siteName)"
-                  class="icon-point"
-                >fiber_manual_record</v-icon>
-              </v-btn>
+                :style="'background-color: ' + getSiteColor(post.siteName)"
+              ></v-btn>
             </v-card>
           </v-flex>
         </v-layout>
@@ -272,10 +260,6 @@ export default {
       top: 16px;
       width: 32px;
       height: 32px;
-
-      .icon-point {
-        font-size: 48px;
-      }
     }
 
     .site-logo {
