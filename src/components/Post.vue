@@ -8,6 +8,7 @@
         <!-- Content block -->
         <v-flex xs12 md8>
           <v-card light class="pt-3 pb-2 px-3">
+            <!-- Middle screens and up -->
             <v-img
               :src="img"
               :lazy-src="require('@/assets/placeholder.jpg')"
@@ -15,12 +16,14 @@
               gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
               :aspect-ratio="16/9"
             >
-              <v-flex mx-4>
+              <v-flex mx-2>
                 <v-card-title>
                   <h1 class="display-2 font-weight-light" v-html="title"></h1>
                 </v-card-title>
               </v-flex>
             </v-img>
+
+            <!-- Small screens and down -->
             <v-img
               :src="img"
               :lazy-src="require('@/assets/placeholder.jpg')"
@@ -28,7 +31,7 @@
               gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
               :aspect-ratio="16/9"
             >
-              <v-flex mx-4>
+              <v-flex mx-2>
                 <v-card-title>
                   <h1 class="display-1 font-weight-light" v-html="title"></h1>
                 </v-card-title>
