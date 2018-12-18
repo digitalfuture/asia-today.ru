@@ -14,7 +14,7 @@
                 raised
                 ripple
                 dark
-                class="site-card"
+                class="site-card grey"
               >
                 <v-img
                   :src="post.thumb"
@@ -127,7 +127,18 @@ export default {
   props: ["siteName"],
   data: () => ({
     up: ".scroll-up",
-    posts: [],
+    posts: [
+      // {
+      //   id,
+      //   slug,
+      //   siteName,
+      //   title,
+      //   date,
+      //   link,
+      //   content,
+      //   thumb
+      // }
+    ],
     down: ".scroll-down"
   }),
   computed: {
@@ -157,9 +168,6 @@ export default {
         link: data.link,
         content: data.content.rendered,
         thumb:
-          data._embedded["wp:featuredmedia"][0].media_details.sizes.td_537x360
-            .source_url,
-        img:
           data._embedded["wp:featuredmedia"][0].media_details.sizes.full
             .source_url
       });
@@ -241,6 +249,7 @@ export default {
 
   .full-height {
     height: 100vh;
+    min-height: 600px;
   }
 }
 </style>
