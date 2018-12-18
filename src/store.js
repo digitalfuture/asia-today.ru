@@ -11,38 +11,28 @@ export default new Vuex.Store({
         name: 'vietnam',
         rusName: 'Вьетнам',
         url: 'https://asia-vietnam.ru',
-        logo:
-          'https://asia-vietnam.ru/wp-content/uploads/2018/11/logo_vietnam-small.png',
-        logo2: 'https://asia-vietnam.ru/wp-content/uploads/2018/08/logo2.png',
+        logo: require('@/assets/logo-vietnam-transparent.png'),
         color: '#68D758'
       },
       {
         name: 'nepal',
         rusName: 'Непал',
         url: 'https://asia-nepal.ru',
-        logo:
-          'https://asia-nepal.ru/wp-content/uploads/2018/11/logo_nepal_small.png',
-        logo2: 'https://asia-nepal.ru/wp-content/uploads/2018/08/logo4.png',
+        logo: require('@/assets/logo-nepal-transparent.png'),
         color: '#4DB2EC'
       },
       {
         name: 'thailand',
         rusName: 'Таиланд',
         url: 'https://asia-thailand.ru',
-        logo:
-          'https://asia-thailand.ru/wp-content/uploads/2018/11/logo-thailand-small.png',
-        logo2:
-          'https://asia-thailand.ru/wp-content/uploads/2018/10/logo-thailand-transparent-300x116.png',
+        logo: require('@/assets/logo-thailand-transparent.png'),
         color: '#BB86FC'
       },
       {
         name: 'philippines',
         rusName: 'Филиппины',
         url: 'https://asia-philippines.ru',
-        logo:
-          'https://asia-philippines.ru/wp-content/uploads/2018/11/logo-philippines-small.png',
-        logo2:
-          'https://asia-philippines.ru/wp-content/uploads/2018/10/logo-philippines-transparent-300x116.png',
+        logo: require('@/assets/logo-philippines-transparent.png'),
         color: '#03DAC6'
       }
     ]

@@ -109,10 +109,10 @@
                 :to="'/' + post.siteName"
                 v-if="$route.name !== 'sitePage'"
                 fab
-                raised
+                color="black"
                 class="site-logo ma-0"
               >
-                <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
+                <v-img :src="getSiteLogo(post.siteName)" width="100" height="100" contain></v-img>
               </v-btn>
 
               <!-- For site page only -->
@@ -120,7 +120,6 @@
                 :to="'/' + siteName"
                 v-if="$route.name === 'sitePage'"
                 fab
-                raised
                 class="color-point ma-0"
                 :style="'background-color: ' + getSiteColor(post.siteName)"
               ></v-btn>

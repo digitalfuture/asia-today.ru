@@ -13,39 +13,49 @@
     >
       <!-- Rounded site logo -->
       <v-flex md12 pb-5>
-        <v-btn :to="'/' + siteName" fab raised class="site-logo">
-          <v-img :src="siteLogo" class="logo-image"></v-img>
-        </v-btn>
+        <v-layout align-center fill-height>
+          <v-btn :to="'/' + siteName" fab class="site-logo-fixed" color="black">
+            <v-img :src="siteLogo" class="logo-image" contain></v-img>
+          </v-btn>
+        </v-layout>
       </v-flex>
 
       <!-- Large screens and up - fixed text size -->
       <v-flex md12 class="hidden-md-and-down">
-        <h1 class="headline text-md-center">
-          <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
-          <br>
-          <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
-        </h1>
+        <v-layout align-center fill-height>
+          <h1 class="headline text-md-center">
+            <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
+            <br>
+            <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
+          </h1>
+        </v-layout>
       </v-flex>
 
       <!-- Middle screens only - responsive text size-->
       <v-flex md12 class="hidden-lg-and-up">
-        <h1 class="headline text-md-center text-responsive">
-          <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
-          <br>
-          <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
-        </h1>
+        <v-layout align-center fill-height>
+          <h1 class="headline text-md-center text-responsive">
+            <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
+            <br>
+            <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
+          </h1>
+        </v-layout>
       </v-flex>
 
       <!-- Rounded separator -->
       <v-flex md12 my-4>
-        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
+        <v-layout align-center fill-height>
+          <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
+        </v-layout>
       </v-flex>
 
       <!-- Tag line -->
       <v-flex md12>
-        <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">последние
-          <br>новости
-        </h2>
+        <v-layout align-center fill-height>
+          <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">последние
+            <br>новости
+          </h2>
+        </v-layout>
       </v-flex>
     </v-layout>
 
@@ -55,8 +65,8 @@
         <!-- Rounded site logos -->
         <v-flex v-for="(site, i) in sites" :key="i" md12>
           <v-layout align-center fill-height>
-            <v-btn :to="'/' + site.name" fab raised class="site-logo-fixed">
-              <v-img :src="site.logo" class="logo-image"></v-img>
+            <v-btn :to="'/' + site.name" fab class="site-logo-fixed" color="black">
+              <v-img :src="site.logo" class="logo-image" contain></v-img>
             </v-btn>
           </v-layout>
         </v-flex>

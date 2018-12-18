@@ -56,8 +56,8 @@
       <!-- Small screen -->
       <v-flex>
         <v-layout justify-center>
-          <v-btn to="/" fab raised class="site-logo">
-            <v-img :src="require('@/assets/logo-today.png')" class="logo-image"></v-img>
+          <v-btn to="/" fab class="site-logo" color="black">
+            <v-img :src="require('@/assets/logo-today-transparent.png')" class="logo-image" contain></v-img>
           </v-btn>
         </v-layout>
       </v-flex>
@@ -111,8 +111,8 @@
       <!-- Small screen -->
       <v-flex>
         <v-layout justify-center>
-          <v-btn :to="'/' + siteName" fab raised class="site-logo">
-            <v-img :src="siteLogo" class="logo-image"></v-img>
+          <v-btn :to="'/' + siteName" fab class="site-logo" color="black">
+            <v-img :src="siteLogo" class="logo-image" contain></v-img>
           </v-btn>
         </v-layout>
       </v-flex>

@@ -4,8 +4,13 @@
     <v-layout justify-space-between xs12 fill-height wrap>
       <v-flex xs12 md4 align-space-between justify-space-between column fill-height>
         <v-layout align-center justify-space-between column fill-height text-xs-center>
-          <v-btn to="/" fab class="footer-logo" raised>
-            <v-img :src="require('@/assets/logo-today.png')" width="200" height="200"></v-img>
+          <v-btn to="/" fab class="footer-logo" raised pa-2 color="black">
+            <v-img
+              :src="require('@/assets/logo-today-transparent.png')"
+              width="200"
+              height="200"
+              contain
+            ></v-img>
           </v-btn>
 
           <h1 xs12 class="display-1 footer-title">
@@ -16,7 +21,7 @@
 
           <v-icon class="grey--text text--lighten-1">fiber_manual_record</v-icon>
 
-          <h2 xs12 class="title grey--text text--darken-2">Новости стран
+          <h2 xs12 class="title grey--text text--darken-2">новости стран
             <br>азиатского региона
           </h2>
           <hr width="80%">
