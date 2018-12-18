@@ -71,6 +71,7 @@ export default {
   background-repeat: no-repeat !important;
 
   bottom: -100vh;
+  min-height: 600px;
 
   .footer-title {
     border-radius: 25px;
