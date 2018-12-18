@@ -30,7 +30,7 @@
             >
               <v-flex mx-4>
                 <v-card-title>
-                  <h1 class="display-1 font-weight-light">{{ title }}</h1>
+                  <h1 class="display-1 font-weight-light" v-html="title"></h1>
                 </v-card-title>
               </v-flex>
             </v-img>

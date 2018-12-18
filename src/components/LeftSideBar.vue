@@ -50,7 +50,7 @@
       <!-- Small screen -->
       <v-flex>
         <v-layout justify-center>
-          <v-btn :to="'/' + siteName" fab raised class="site-logo">
+          <v-btn to="/" fab raised class="site-logo">
             <v-img :src="require('@/assets/logo-today.png')" class="logo-image"></v-img>
           </v-btn>
         </v-layout>
