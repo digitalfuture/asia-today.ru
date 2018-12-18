@@ -76,6 +76,7 @@ export default {
   .footer-title {
     border-radius: 25px;
     background: rgba(245, 245, 245, 0.5);
+    padding: 12px;
   }
 
   .footer-logo {

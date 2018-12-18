@@ -1,39 +1,44 @@
 <template>
-  <v-flex xs12 md2 py-4 px-2 class="left-side-bar">
+  <v-flex xs12 md2 px-2 class="left-side-bar">
     <!-- Left side bar -->
     <!-- Middle screen and up -->
-    <v-layout justify-center align-center column class="hidden-sm-and-down">
-      <v-flex md2 py-4 px-2>
-        <v-layout justify-center align-center column>
-          <!-- Main logo -->
-          <v-flex md12>
-            <v-layout justify-center>
-              <router-link to="/" class="site-logo-2-link">
-                <v-img :src="require('@/assets/logo-today-transparent.png')" class="site-logo-2"></v-img>
-              </router-link>
-            </v-layout>
-          </v-flex>
+    <v-layout
+      justify-center
+      align-center
+      column
+      fill-height
+      justify-space-between
+      md2
+      px-2
+      class="hidden-sm-and-down"
+    >
+      <!-- Main logo -->
+      <v-flex md12>
+        <v-layout justify-center align-center fill-height>
+          <router-link to="/" class="site-logo-2-link">
+            <v-img :src="require('@/assets/logo-today-transparent.png')" class="site-logo-2"></v-img>
+          </router-link>
+        </v-layout>
+      </v-flex>
 
-          <!-- Logo separator -->
-          <v-flex md12>
-            <v-layout justify-center>
-              <v-icon class="grey--text text--darken-1 my-5">fiber_manual_record</v-icon>
-            </v-layout>
-          </v-flex>
+      <!-- Logo separator -->
+      <v-flex md12>
+        <v-layout justify-center align-center fill-height>
+          <v-icon class="grey--text text--darken-1">fiber_manual_record</v-icon>
+        </v-layout>
+      </v-flex>
 
-          <!-- Logo separator 2 -->
-          <v-flex md12>
-            <v-layout justify-center>
-              <v-icon class="grey--text text--darken-2 my-5">fiber_manual_record</v-icon>
-            </v-layout>
-          </v-flex>
+      <!-- Logo separator 2 -->
+      <v-flex md12>
+        <v-layout justify-center align-center fill-height>
+          <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+        </v-layout>
+      </v-flex>
 
-          <!-- Logo separator 3 -->
-          <v-flex md12>
-            <v-layout justify-center>
-              <v-icon class="grey--text text--darken-3 my-5">fiber_manual_record</v-icon>
-            </v-layout>
-          </v-flex>
+      <!-- Logo separator 3 -->
+      <v-flex md12>
+        <v-layout justify-center align-center fill-height>
+          <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -44,6 +49,7 @@
       v-if="$route.name === 'homePage'"
       justify-center
       align-center
+      my-4
       class="hidden-md-and-up"
     >
       <!-- Site logo -->
@@ -58,7 +64,7 @@
 
       <!-- Round separator -->
       <v-flex class="hidden-xs-only text-xs-center">
-        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
       </v-flex>
 
       <!-- Site title -->
@@ -82,7 +88,7 @@
 
       <!-- Round separator -->
       <v-flex class="hidden-xs-only text-xs-center">
-        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
       </v-flex>
 
       <!-- Tag line -->
@@ -98,6 +104,7 @@
       v-if="$route.name !== 'homePage'"
       justify-center
       align-center
+      my-4
       class="hidden-md-and-up"
     >
       <!-- Site logo -->
@@ -112,7 +119,7 @@
 
       <!-- Round separator -->
       <v-flex class="hidden-xs-only text-xs-center">
-        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
       </v-flex>
 
       <!-- Site title -->
@@ -136,12 +143,12 @@
 
       <!-- Round separator -->
       <v-flex class="hidden-xs-only text-xs-center">
-        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
       </v-flex>
 
       <!-- Tag line -->
       <v-flex class="hidden-xs-only">
-        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">последние
+        <h2 class="title font-weight-light grey--text text--darken-1 text-xs-center">последние
           <br>новости
         </h2>
       </v-flex>
@@ -170,6 +177,8 @@ export default {
 </script>
 <style lang="scss">
 .left-side-bar {
+  max-height: 100vh;
+
   .hidden-md-and-up {
     .border-left {
       border-left: 4px solid #424242;

@@ -1,11 +1,14 @@
 <template>
   <!-- Right side bar -->
-  <v-flex md2 py-2 px-2 class="right-side-bar">
+  <v-flex md2 px-2 class="right-side-bar">
+    <!-- For all pages except home page -->
     <v-layout
-      v-if="$route.name === 'sitePage'"
+      v-if="$route.name !== 'homePage'"
       column
       align-center
       justify-center
+      fill-height
+      justify-space-between
       class="hidden-sm-and-down"
     >
       <!-- Rounded site logo -->
@@ -24,7 +27,7 @@
         </h1>
       </v-flex>
 
-      <!-- Middle screens and down - responsive text size-->
+      <!-- Middle screens only - responsive text size-->
       <v-flex md12 class="hidden-lg-and-up">
         <h1 class="headline text-md-center text-responsive">
           <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
@@ -35,30 +38,27 @@
 
       <!-- Rounded separator -->
       <v-flex md12 my-4>
-        <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
       </v-flex>
 
       <!-- Tag line -->
       <v-flex md12>
-        <h2 class="title font-weight-regular grey--text text--darken-1 text-md-center">последние
+        <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">последние
           <br>новости
         </h2>
       </v-flex>
     </v-layout>
 
-    <v-layout
-      v-if="$route.name !== 'sitePage'"
-      column
-      align-center
-      justify-center
-      class="hidden-sm-and-down"
-    >
-      <!-- Rounded site logos -->
-      <v-layout pt-3 column>
+    <!-- For home page only site page -->
+    <v-layout v-if="$route.name === 'homePage'" fill-height align-center>
+      <v-layout column align-center justify-center fill-height justify-space-between>
+        <!-- Rounded site logos -->
         <v-flex v-for="(site, i) in sites" :key="i" md12>
-          <v-btn :to="'/' + site.name" fab raised class="site-logo-fixed">
-            <v-img :src="site.logo" class="logo-image"></v-img>
-          </v-btn>
+          <v-layout align-center fill-height>
+            <v-btn :to="'/' + site.name" fab raised class="site-logo-fixed">
+              <v-img :src="site.logo" class="logo-image"></v-img>
+            </v-btn>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-layout>
@@ -86,6 +86,8 @@ export default {
 </script>
 <style lang="scss">
 .right-side-bar {
+  max-height: 100vh;
+
   position: relative;
 
   .site-logo {

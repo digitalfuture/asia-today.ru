@@ -13,7 +13,8 @@ export default new Vuex.Store({
         url: 'https://asia-vietnam.ru',
         logo:
           'https://asia-vietnam.ru/wp-content/uploads/2018/11/logo_vietnam-small.png',
-        logo2: 'https://asia-vietnam.ru/wp-content/uploads/2018/08/logo2.png'
+        logo2: 'https://asia-vietnam.ru/wp-content/uploads/2018/08/logo2.png',
+        color: '#68D758'
       },
       {
         name: 'nepal',
@@ -21,7 +22,8 @@ export default new Vuex.Store({
         url: 'https://asia-nepal.ru',
         logo:
           'https://asia-nepal.ru/wp-content/uploads/2018/11/logo_nepal_small.png',
-        logo2: 'https://asia-nepal.ru/wp-content/uploads/2018/08/logo4.png'
+        logo2: 'https://asia-nepal.ru/wp-content/uploads/2018/08/logo4.png',
+        color: '#4DB2EC'
       },
       {
         name: 'thailand',
@@ -30,7 +32,8 @@ export default new Vuex.Store({
         logo:
           'https://asia-thailand.ru/wp-content/uploads/2018/11/logo-thailand-small.png',
         logo2:
-          'https://asia-thailand.ru/wp-content/uploads/2018/10/logo-thailand-transparent-300x116.png'
+          'https://asia-thailand.ru/wp-content/uploads/2018/10/logo-thailand-transparent-300x116.png',
+        color: '#BB86FC'
       },
       {
         name: 'philippines',
@@ -39,7 +42,8 @@ export default new Vuex.Store({
         logo:
           'https://asia-philippines.ru/wp-content/uploads/2018/11/logo-philippines-small.png',
         logo2:
-          'https://asia-philippines.ru/wp-content/uploads/2018/10/logo-philippines-transparent-300x116.png'
+          'https://asia-philippines.ru/wp-content/uploads/2018/10/logo-philippines-transparent-300x116.png',
+        color: '#03DAC6'
       }
     ]
   },

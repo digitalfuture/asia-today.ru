@@ -20,7 +20,7 @@
                   <v-img
                     :src="post.thumb"
                     :lazy-src="require('@/assets/placeholder.jpg')"
-                    gradient="to top, rgba(0,0,0,.8), transparent 50%"
+                    gradient="to top, rgba(0,0,0,.8), transparent 100%"
                     :aspect-ratio="16/9"
                   ></v-img>
 
@@ -29,20 +29,46 @@
                       <h3 class="subheading" v-html="post.title"></h3>
                     </v-card-title>
 
-                    <v-card-text class="site-date font-weight-light font-italic">
-                      <span class="grey--text">{{ getDate(post.date) }}</span>
+                    <v-card-text class="post-details font-weight-light font-italic">
+                      <v-layout justify-space-between>
+                        <span
+                          v-if="$route.name === 'homePage'"
+                          class="grey--text"
+                        >{{ getRusSiteName(post.siteName) }}</span>
+                        <span class="grey--text">{{ getDate(post.date) }}</span>
+                      </v-layout>
                     </v-card-text>
                   </div>
 
-                  <!-- Rounded site logo -->
+                  <!-- Site logo -->
+                  <!-- For all pages except site page -->
+                  <!-- Middle screens and up - color point only -->
                   <v-btn
                     :to="'/' + post.siteName"
                     v-if="$route.name !== 'sitePage'"
                     fab
                     raised
-                    class="site-logo"
+                    class="hidden-sm-and-down color-point ma-0"
                   >
-                    <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
+                    <v-icon
+                      :style="'color: ' + getSiteColor(post.siteName)"
+                      class="icon-point"
+                    >fiber_manual_record</v-icon>
+                  </v-btn>
+
+                  <!-- All screens sizes except middle - round logo -->
+                  <!-- For site page only -->
+                  <v-btn
+                    :to="'/' + siteName"
+                    v-if="$route.name === 'sitePage'"
+                    fab
+                    raised
+                    class="color-point ma-0"
+                  >
+                    <v-icon
+                      :style="'color: ' + getSiteColor(siteName)"
+                      class="icon-point"
+                    >fiber_manual_record</v-icon>
                   </v-btn>
                 </v-card>
               </v-flex>
@@ -81,18 +107,34 @@
                   <h3 class="subheading" v-html="post.title"></h3>
                 </v-card-title>
 
-                <v-card-text class="site-date font-weight-light font-italic">
+                <v-card-text class="post-details font-weight-light font-italic">
                   <span class="grey--text">{{ getDate(post.date) }}</span>
                 </v-card-text>
               </div>
+
+              <!-- For all pages except site page -->
               <v-btn
                 :to="'/' + post.siteName"
                 v-if="$route.name !== 'sitePage'"
                 fab
                 raised
-                class="site-logo"
+                class="site-logo ma-0"
               >
                 <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
+              </v-btn>
+
+              <!-- For site page only -->
+              <v-btn
+                :to="'/' + siteName"
+                v-if="$route.name === 'sitePage'"
+                fab
+                raised
+                class="color-point ma-0"
+              >
+                <v-icon
+                  :style="'color: ' + getSiteColor(siteName)"
+                  class="icon-point"
+                >fiber_manual_record</v-icon>
               </v-btn>
             </v-card>
           </v-flex>
@@ -153,6 +195,9 @@ export default {
     },
     getRusSiteName(siteName) {
       return this.sites.find(site => site.name === siteName).rusName;
+    },
+    getSiteColor(siteName) {
+      return this.sites.find(site => site.name === siteName).color;
     },
     getSiteLogo(siteName) {
       return this.sites.find(site => site.name === siteName).logo;
@@ -221,6 +266,18 @@ export default {
   background-repeat: repeat-y;
 
   .site-card {
+    .color-point {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 32px;
+      height: 32px;
+
+      .icon-point {
+        font-size: 48px;
+      }
+    }
+
     .site-logo {
       position: absolute;
       left: 16px;
@@ -238,7 +295,7 @@ export default {
         padding-bottom: 5px;
       }
 
-      .site-date {
+      .post-details {
         font-family: "Noto Serif", serif;
         padding: 10px 16px;
       }
