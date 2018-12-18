@@ -29,13 +29,13 @@
                       <h3 class="subheading" v-html="post.title"></h3>
                     </v-card-title>
 
-                    <v-card-text class="post-details font-weight-light font-italic">
+                    <v-card-text class="post-details font-weight-light">
                       <v-layout justify-space-between>
+                        <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
                         <span
                           v-if="$route.name === 'homePage'"
-                          class="grey--text"
+                          class="body-1 grey--text"
                         >{{ getRusSiteName(post.siteName) }}</span>
-                        <span class="grey--text">{{ getDate(post.date) }}</span>
                       </v-layout>
                     </v-card-text>
                   </div>
@@ -296,8 +296,11 @@ export default {
       }
 
       .post-details {
-        font-family: "Noto Serif", serif;
         padding: 10px 16px;
+
+        .post-date {
+          font-family: "Noto Serif", serif;
+        }
       }
     }
   }
