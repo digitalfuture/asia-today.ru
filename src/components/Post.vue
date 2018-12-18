@@ -39,7 +39,7 @@
               <hr>
             </v-flex>
 
-            <v-card-text class="content">
+            <v-card-text class="content px-0">
               <div v-html="content"></div>
 
               <v-flex mt-4 mb-5>
