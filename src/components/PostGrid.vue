@@ -7,49 +7,51 @@
         <leftSideBar :siteName="siteName"/>
 
         <v-flex md8>
-          <v-layout wrap>
-            <v-flex v-for="(post, i) in posts" :key="i" class="pa-1" md6>
-              <v-card
-                :to="'/' + post.siteName + '/' + post.slug"
-                raised
-                ripple
-                dark
-                class="site-card grey"
-              >
-                <v-img
-                  :src="post.thumb"
-                  :lazy-src="require('@/assets/placeholder.jpg')"
-                  gradient="to top, rgba(0,0,0,.8), transparent 50%"
-                  :aspect-ratio="16/9"
-                ></v-img>
-
-                <div class="site-info">
-                  <v-card-title class="site-title">
-                    <h3 class="subheading" v-html="post.title"></h3>
-                  </v-card-title>
-
-                  <v-card-text class="site-date font-weight-light font-italic">
-                    <span class="grey--text">{{ getDate(post.date) }}</span>
-                  </v-card-text>
-                </div>
-
-                <!-- Rounded site logo -->
-                <v-btn
-                  :to="'/' + post.siteName"
-                  v-if="$route.name !== 'sitePage'"
-                  fab
+          <v-layout align-center fill-height>
+            <v-layout wrap>
+              <v-flex v-for="(post, i) in posts" :key="i" class="pa-1" md6>
+                <v-card
+                  :to="'/' + post.siteName + '/' + post.slug"
                   raised
-                  class="site-logo"
+                  ripple
+                  dark
+                  class="site-card grey"
                 >
-                  <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
-                </v-btn>
-              </v-card>
-            </v-flex>
+                  <v-img
+                    :src="post.thumb"
+                    :lazy-src="require('@/assets/placeholder.jpg')"
+                    gradient="to top, rgba(0,0,0,.8), transparent 50%"
+                    :aspect-ratio="16/9"
+                  ></v-img>
+
+                  <div class="site-info">
+                    <v-card-title class="site-title">
+                      <h3 class="subheading" v-html="post.title"></h3>
+                    </v-card-title>
+
+                    <v-card-text class="site-date font-weight-light font-italic">
+                      <span class="grey--text">{{ getDate(post.date) }}</span>
+                    </v-card-text>
+                  </div>
+
+                  <!-- Rounded site logo -->
+                  <v-btn
+                    :to="'/' + post.siteName"
+                    v-if="$route.name !== 'sitePage'"
+                    fab
+                    raised
+                    class="site-logo"
+                  >
+                    <v-img :src="getSiteLogo(post.siteName)" width="100" height="100"></v-img>
+                  </v-btn>
+                </v-card>
+              </v-flex>
+            </v-layout>
           </v-layout>
         </v-flex>
 
         <v-spacer v-if="$route.name !== 'sitePage'"></v-spacer>
-        <RightSideBar v-if="$route.name === 'sitePage'" :siteName="siteName"/>
+        <RightSideBar :siteName="siteName"/>
       </v-layout>
     </v-layout>
 

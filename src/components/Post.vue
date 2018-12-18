@@ -7,7 +7,7 @@
 
         <!-- Content block -->
         <v-flex xs12 md8>
-          <v-card light class="pt-3 pb-2 px-3 content body-1">
+          <v-card light class="pt-3 pb-2 px-3">
             <v-img
               :src="img"
               :lazy-src="require('@/assets/placeholder.jpg')"
@@ -39,7 +39,7 @@
               <hr>
             </v-flex>
 
-            <v-card-text>
+            <v-card-text class="content">
               <div v-html="content"></div>
 
               <v-flex mt-4 mb-5>
@@ -218,10 +218,21 @@ export default {
 
 <style lang="scss">
 .post {
+  hr {
+    height: 12px;
+    color: #f5f5f5;
+    background-color: #f5f5f5;
+    border: none;
+  }
+
   .content {
     * {
       padding-left: 0;
       padding-right: 0;
+
+      color: #424242;
+      font-size: 18px;
+      font-weight: 400;
     }
 
     .site-date {
@@ -240,13 +251,6 @@ export default {
     figure {
       font-family: "Noto Serif", serif;
       padding-bottom: 24px;
-    }
-
-    hr {
-      height: 12px;
-      color: #f5f5f5;
-      background-color: #f5f5f5;
-      border: none;
     }
 
     h2,
@@ -285,16 +289,12 @@ export default {
       color: #616161;
     }
 
-    p {
-      color: #424242;
-      font-size: 1.2em;
-    }
-
     em {
       font-family: "Noto Serif", serif;
     }
 
-    p > em:first-child {
+    p > em:first-child,
+    div > em:first-child {
       display: inline-block;
       margin-top: 32px;
     }

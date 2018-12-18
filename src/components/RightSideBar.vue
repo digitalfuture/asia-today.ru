@@ -1,7 +1,13 @@
 <template>
   <!-- Right side bar -->
   <v-flex md2 py-2 px-2 class="right-side-bar">
-    <v-layout column align-center justify-center class="hidden-sm-and-down">
+    <v-layout
+      v-if="$route.name === 'sitePage'"
+      column
+      align-center
+      justify-center
+      class="hidden-sm-and-down"
+    >
       <!-- Rounded site logo -->
       <v-flex md12 pb-5>
         <v-btn :to="'/' + siteName" fab raised class="site-logo">
@@ -9,7 +15,7 @@
         </v-btn>
       </v-flex>
 
-      <!-- Large screens and up-->
+      <!-- Large screens and up - fixed text size -->
       <v-flex md12 class="hidden-md-and-down">
         <h1 class="headline text-md-center">
           <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
@@ -18,7 +24,7 @@
         </h1>
       </v-flex>
 
-      <!-- Middle screens and down -->
+      <!-- Middle screens and down - responsive text size-->
       <v-flex md12 class="hidden-lg-and-up">
         <h1 class="headline text-md-center text-responsive">
           <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
@@ -39,11 +45,28 @@
         </h2>
       </v-flex>
     </v-layout>
+
+    <v-layout
+      v-if="$route.name !== 'sitePage'"
+      column
+      align-center
+      justify-center
+      class="hidden-sm-and-down"
+    >
+      <!-- Rounded site logos -->
+      <v-layout pt-3 column>
+        <v-flex v-for="(site, i) in sites" :key="i" md12>
+          <v-btn :to="'/' + site.name" fab raised class="site-logo-fixed">
+            <v-img :src="site.logo" class="logo-image"></v-img>
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-layout>
   </v-flex>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   props: ["siteName"],
@@ -73,6 +96,16 @@ export default {
     .logo-image {
       width: 10vw;
       height: 10vw;
+    }
+  }
+
+  .site-logo-fixed {
+    width: 100px;
+    height: 100px;
+
+    .logo-image {
+      width: 100px;
+      height: 100px;
     }
   }
 
