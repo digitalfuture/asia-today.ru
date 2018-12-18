@@ -12,7 +12,7 @@
       class="hidden-sm-and-down"
     >
       <!-- Rounded site logo -->
-      <v-flex md12 pb-5>
+      <v-flex md12>
         <v-layout align-center fill-height>
           <v-btn :to="'/' + siteName" fab class="site-logo-fixed" color="black">
             <v-img :src="siteLogo" class="logo-image" contain></v-img>
@@ -43,7 +43,7 @@
       </v-flex>
 
       <!-- Rounded separator -->
-      <v-flex md12 my-4>
+      <v-flex md12>
         <v-layout align-center fill-height>
           <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
         </v-layout>
@@ -97,19 +97,7 @@ export default {
 <style lang="scss">
 .right-side-bar {
   max-height: 100vh;
-
   position: relative;
-
-  .site-logo {
-    width: 10vw;
-    height: 10vw;
-    max-width: 100%;
-
-    .logo-image {
-      width: 10vw;
-      height: 10vw;
-    }
-  }
 
   .site-logo-fixed {
     width: 100px;
