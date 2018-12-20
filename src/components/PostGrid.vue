@@ -41,22 +41,8 @@
                   </div>
 
                   <!-- Site logo -->
-                  <!-- For all pages except site page -->
-                  <!-- Middle screens and up - color point only -->
-                  <v-btn
-                    :to="'/' + post.siteName"
-                    v-if="$route.name !== 'sitePage'"
-                    fab
-                    raised
-                    class="hidden-sm-and-down color-point ma-0"
-                    :style="'background-color: ' + getSiteColor(post.siteName)"
-                  ></v-btn>
-
-                  <!-- All screens sizes except middle - round logo -->
-                  <!-- For site page only -->
                   <v-btn
                     :to="'/' + siteName"
-                    v-if="$route.name === 'sitePage'"
                     fab
                     raised
                     class="color-point ma-0"
@@ -100,26 +86,20 @@
                   <h3 class="subheading" v-html="post.title"></h3>
                 </v-card-title>
 
-                <v-card-text class="post-details font-weight-light font-italic">
-                  <span class="grey--text">{{ getDate(post.date) }}</span>
+                <v-card-text class="post-details font-weight-light">
+                  <v-layout justify-space-between>
+                    <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
+                    <span
+                      v-if="$route.name === 'homePage'"
+                      class="body-1 grey--text"
+                    >{{ getRusSiteName(post.siteName) }}</span>
+                  </v-layout>
                 </v-card-text>
               </div>
-
-              <!-- For all pages except site page -->
-              <v-btn
-                :to="'/' + post.siteName"
-                v-if="$route.name !== 'sitePage'"
-                fab
-                color="black"
-                class="site-logo ma-0"
-              >
-                <v-img :src="getSiteLogo(post.siteName)" width="100" height="100" contain></v-img>
-              </v-btn>
 
               <!-- For site page only -->
               <v-btn
                 :to="'/' + siteName"
-                v-if="$route.name === 'sitePage'"
                 fab
                 class="color-point ma-0"
                 :style="'background-color: ' + getSiteColor(post.siteName)"
