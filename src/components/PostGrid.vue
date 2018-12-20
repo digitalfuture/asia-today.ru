@@ -77,7 +77,7 @@
               <v-img
                 :src="post.thumb"
                 :lazy-src="require('@/assets/placeholder.jpg')"
-                gradient="to top, rgba(0,0,0,.8), transparent 50%"
+                gradient="to top, rgba(0,0,0,.8), transparent 100%"
                 :aspect-ratio="16/9"
               ></v-img>
 
