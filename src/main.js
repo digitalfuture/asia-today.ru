@@ -11,7 +11,7 @@ Vue.use(VueAnalytics, {
   id: 'UA-131048533-1',
   router,
   debug: {
-    sendHitTask: false
+    // sendHitTask: false
   }
 })
 
