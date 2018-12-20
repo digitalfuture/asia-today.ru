@@ -12,7 +12,7 @@
       class="hidden-sm-and-down"
     >
       <!-- Rounded site logo -->
-      <v-flex md12>
+      <v-flex md12 mb-4>
         <v-layout align-center fill-height>
           <v-btn :to="'/' + siteName" fab class="site-logo-fixed" color="black">
             <v-img :src="siteLogo" class="logo-image" contain></v-img>
@@ -21,7 +21,7 @@
       </v-flex>
 
       <!-- Large screens and up - fixed text size -->
-      <v-flex md12 class="hidden-md-and-down">
+      <v-flex md12 mb-4 class="hidden-md-and-down">
         <v-layout align-center fill-height>
           <h1 class="headline text-md-center">
             <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
@@ -32,7 +32,7 @@
       </v-flex>
 
       <!-- Middle screens only - responsive text size-->
-      <v-flex md12 class="hidden-lg-and-up">
+      <v-flex md12 mb-4 class="hidden-lg-and-up">
         <v-layout align-center fill-height>
           <h1 class="headline text-md-center text-responsive">
             <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
@@ -43,7 +43,7 @@
       </v-flex>
 
       <!-- Rounded separator -->
-      <v-flex md12>
+      <v-flex md12 mb-4>
         <v-layout align-center fill-height>
           <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
         </v-layout>

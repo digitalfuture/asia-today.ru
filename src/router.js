@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from './views/HomePage'
 import SitePage from './views/SitePage'
-import Post from './components/Post'
+import PostPage from './views/PostPage'
 
 Vue.use(Router)
 
@@ -16,8 +16,8 @@ export default new Router({
     },
     {
       path: '/:siteName/:postSlug',
-      name: 'post',
-      component: Post,
+      name: 'postPage',
+      component: PostPage,
       props: true
     },
     {

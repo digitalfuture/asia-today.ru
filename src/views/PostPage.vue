@@ -7,7 +7,7 @@
 
         <!-- Content block -->
         <v-flex xs12 md8>
-          <v-card light class="pt-3 pb-2 px-3">
+          <v-card light class="pt-3 pb-2 px-3 content">
             <!-- Middle screens and up -->
             <v-img
               :src="img"
@@ -16,9 +16,9 @@
               gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
               :aspect-ratio="16/9"
             >
-              <v-flex mx-2>
+              <v-flex mx-4>
                 <v-card-title>
-                  <h1 class="display-2 font-weight-light" v-html="title"></h1>
+                  <h1 class="display-2 font-weight-light white--text" v-html="title"></h1>
                 </v-card-title>
               </v-flex>
             </v-img>
@@ -31,9 +31,9 @@
               gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
               :aspect-ratio="16/9"
             >
-              <v-flex mx-2>
+              <v-flex mx-4>
                 <v-card-title>
-                  <h1 class="display-1 font-weight-light" v-html="title"></h1>
+                  <h1 class="display-1 font-weight-light white--text" v-html="title"></h1>
                 </v-card-title>
               </v-flex>
             </v-img>
@@ -42,7 +42,7 @@
               <hr>
             </v-flex>
 
-            <v-card-text class="content px-0">
+            <v-card-text class="px-0">
               <div v-html="content"></div>
 
               <v-flex mt-4 mb-5>
@@ -90,8 +90,8 @@
 import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
 import YandexShare from "@cookieseater/vue-yandex-share";
-import LeftSideBar from "./LeftSideBar";
-import RightSideBar from "./RightSideBar";
+import LeftSideBar from "../components/LeftSideBar";
+import RightSideBar from "../components/RightSideBar";
 
 export default {
   components: {
@@ -229,6 +229,8 @@ export default {
   }
 
   .content {
+    min-height: 100vh;
+
     * {
       padding-left: 0;
       padding-right: 0;
