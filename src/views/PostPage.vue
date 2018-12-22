@@ -1,5 +1,6 @@
 <template>
   <v-content>
+    <vue-headful :title="`${ title } - ${this.rusSiteName} Сегодня`"/>
     <!-- Post page -->
     <v-container v-show="img" class="post scroll-up" fluid px-0>
       <v-layout wrap justify-center>
@@ -114,6 +115,9 @@ export default {
     ...mapState(["sites"]),
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url;
+    },
+    rusSiteName() {
+      return this.sites.find(site => site.name === this.siteName).rusName;
     }
   },
   methods: {

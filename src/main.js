@@ -6,6 +6,7 @@ import store from './store'
 
 import YandexShare from '@cookieseater/vue-yandex-share'
 import VueAnalytics from 'vue-analytics'
+import vueHeadful from 'vue-headful'
 
 Vue.use(VueAnalytics, {
   id: 'UA-131048533-1',
@@ -16,6 +17,7 @@ Vue.use(VueAnalytics, {
 })
 
 Vue.component('yandex-share', YandexShare)
+Vue.component('vue-headful', vueHeadful)
 
 Vue.config.productionTip = false
 Vue.config.errorHandler = function(err, vm, info) {
