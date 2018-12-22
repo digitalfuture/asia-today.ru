@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    <vue-headful :title="`${ title } - ${this.rusSiteName} Сегодня`"/>
+    <vue-headful :title="`${ title } - ${ rusSiteName } Сегодня`"/>
     <!-- Post page -->
     <v-container v-show="img" class="post scroll-up" fluid px-0>
       <v-layout wrap justify-center>
