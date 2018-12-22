@@ -232,104 +232,113 @@ export default {
     min-height: 100vh;
 
     * {
-      padding-left: 0;
-      padding-right: 0;
-
       color: #424242;
       font-size: 18px;
       font-weight: 400;
-    }
 
-    .site-date {
-      font-family: "Noto Serif", serif;
-      margin-top: 16px;
-    }
+      padding-left: 0;
+      padding-right: 0;
 
-    img,
-    figure,
-    .post-img {
-      width: 100% !important;
-      height: auto;
-      border-radius: 2px;
-    }
+      ul {
+        padding-left: 24px;
+      }
 
-    figure {
-      font-family: "Noto Serif", serif;
-      padding-bottom: 24px;
-    }
+      p,
+      ul {
+        margin-bottom: 16px;
+      }
 
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Roboto Condensed", sans-serif;
-      margin: 24px 0;
-      line-height: 1.2;
-      font-weight: normal;
-      color: #424242;
-    }
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Roboto Condensed", sans-serif;
+        margin: 24px 0;
+        line-height: 1.2;
+        font-weight: normal;
+        color: #424242;
+      }
 
-    h2 {
-      font-size: 2em;
-    }
+      h2 {
+        font-size: 2em;
+      }
 
-    h3 {
-      font-size: 1.7em;
-    }
+      h3 {
+        font-size: 1.7em;
+      }
 
-    h4 {
-      font-size: 1.4em;
-    }
+      h4 {
+        font-size: 1.4em;
+      }
 
-    h5 {
-      font-size: 1.2em;
-    }
+      h5 {
+        font-size: 1.2em;
+      }
 
-    h6 {
-      font-size: 1em;
-    }
+      h6 {
+        font-size: 1em;
+      }
 
-    a {
-      color: #616161;
-    }
+      a {
+        color: #616161;
+      }
 
-    em {
-      font-family: "Noto Serif", serif;
-    }
+      em {
+        font-family: "Noto Serif", serif;
+      }
 
-    p > em:first-child,
-    div > em:first-child {
-      display: inline-block;
-      margin-top: 32px;
-    }
+      p > em:first-child,
+      div > em:first-child {
+        display: inline-block;
+        margin-top: 32px;
+      }
 
-    blockquote,
-    blockquote * {
-      text-align: center;
-      font-family: "Noto Serif", serif;
-      font-size: 1.3em;
-      // font-weight: bold;
-      color: #424242;
-      margin: 48px 0;
-      line-height: 1.2;
-    }
+      blockquote,
+      blockquote * {
+        text-align: center;
+        font-family: "Noto Serif", serif;
+        font-size: 1.3em;
+        // font-weight: bold;
+        color: #424242;
+        margin: 48px 0;
+        line-height: 1.2;
+      }
 
-    .aspect-ratio {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 51%;
-      border-radius: 2px;
-      overflow: hidden;
-
-      iframe {
-        position: absolute;
+      .aspect-ratio {
+        position: relative;
         width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
+        height: 0;
+        padding-bottom: 51%;
         border-radius: 2px;
+        overflow: hidden;
+
+        iframe {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          border-radius: 2px;
+        }
+      }
+
+      .site-date {
+        font-family: "Noto Serif", serif;
+        margin-top: 16px;
+      }
+
+      img,
+      figure,
+      .post-img {
+        width: 100% !important;
+        height: auto;
+        border-radius: 2px;
+      }
+
+      figure {
+        font-family: "Noto Serif", serif;
+        padding-bottom: 24px;
       }
     }
   }
