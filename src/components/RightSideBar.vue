@@ -52,8 +52,9 @@
       <!-- Tag line -->
       <v-flex md12>
         <v-layout align-center fill-height>
-          <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">последние
-            <br>новости
+          <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">
+            ПОСЛЕДНИЕ
+            <br>НОВОСТИ
           </h2>
         </v-layout>
       </v-flex>

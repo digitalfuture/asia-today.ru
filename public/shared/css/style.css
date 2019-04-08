@@ -1,0 +1,90 @@
+/*  disable autor RELATED ARTICLE */
+.td-related-title .td-related-left {
+  border-radius: 3px;
+}
+
+.td-related-title .td-related-right {
+  display: none;
+}
+
+/*button odnoklassniki*/
+/*odnoklassniki-header*/
+.td-header-top-menu a[title='OK'] {
+  background-image: url('/wp-content/uploads/2018/11/ok2.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  line-height: 14px;
+  height: 14;
+}
+
+.td-header-top-menu a[title='OK'] {
+  filter: brightness(0) invert(1);
+}
+
+.td-header-top-menu a[title='OK']:hover {
+  filter: none;
+}
+
+/*odnoklassniki-footer*/
+.span-ok {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-top: 12px;
+  margin-right: 7px;
+}
+
+.footer-social-wrap a[title='OK'] {
+  background-image: url('/wp-content/uploads/2018/11/ok.png');
+  background-position: center;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.footer-social-wrap a[title='OK']:hover {
+  width: 32px;
+  height: 32px;
+  background-color: #ee8208;
+  border-radius: 3px;
+}
+
+.footer-social-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-social-wrap .td-icon-telegram:hover {
+  background-color: #0088cc;
+}
+
+.td-menu-socials {
+  display: flex;
+}
+
+.td-mobile-container .td-menu-socials .span-ok-mobile a[title='OK'] {
+  background-image: url('/wp-content/uploads/2018/11/ok.png');
+  background-position: bottom;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+/*articleFooter Banner2*/
+.articleFooterBanner2 {
+  margin-top: 25px;
+  display: block;
+}
+
+/* social-Sharing*/
+#socialSharingButtons {
+  margin-bottom: 30px !important;
+}

@@ -93,8 +93,9 @@
 
       <!-- Tag line -->
       <v-flex class="hidden-xs-only">
-        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">последние
-          <br>новости
+        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">
+          ПОСЛЕДНИЕ
+          <br>НОВОСТИ
         </h2>
       </v-flex>
     </v-layout>
@@ -148,8 +149,9 @@
 
       <!-- Tag line -->
       <v-flex class="hidden-xs-only">
-        <h2 class="title font-weight-light grey--text text--darken-1 text-xs-center">последние
-          <br>новости
+        <h2 class="title font-weight-light grey--text text--darken-1 text-xs-center">
+          ПОСЛЕДНИЕ
+          <br>НОВОСТИ
         </h2>
       </v-flex>
     </v-layout>

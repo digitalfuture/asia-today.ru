@@ -21,12 +21,14 @@
 
           <v-icon class="grey--text text--lighten-1">fiber_manual_record</v-icon>
 
-          <h2 xs12 class="title grey--text text--darken-2">новости стран
-            <br>азиатского региона
+          <h2 xs12 class="title grey--text text--darken-2">
+            НОВОСТИ СТРАН
+            <br>АЗИАТСКОГО РЕГИОНА
           </h2>
           <hr width="80%">
 
-          <p xs12 class="body-2">Все самое интересное и важное в одном месте.
+          <p xs12 class="body-2">
+            Все самое интересное и важное в одном месте.
             <br>Бизнес. Туризм. Происшествия.
             <br>Полезная информация.
           </p>
