@@ -10,7 +10,7 @@
 /*button odnoklassniki*/
 /*odnoklassniki-header*/
 .td-header-top-menu a[title='OK'] {
-  background-image: url('/wp-content/uploads/2018/11/ok2.png');
+  background-image: url('https://asia-today.ru/shared/img/social/ok-white.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -36,7 +36,7 @@
 }
 
 .footer-social-wrap a[title='OK'] {
-  background-image: url('/wp-content/uploads/2018/11/ok.png');
+  background-image: url('https://asia-today.ru/shared/img/social/ok-orange.png');
   background-position: center;
   background-size: 35%;
   background-repeat: no-repeat;
@@ -68,7 +68,7 @@
 }
 
 .td-mobile-container .td-menu-socials .span-ok-mobile a[title='OK'] {
-  background-image: url('/wp-content/uploads/2018/11/ok.png');
+  background-image: url('https://asia-today.ru/shared/img/social/ok-orange.png');
   background-position: bottom;
   background-size: 35%;
   background-repeat: no-repeat;
