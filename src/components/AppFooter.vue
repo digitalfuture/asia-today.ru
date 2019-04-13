@@ -51,7 +51,8 @@
 
       <v-flex xs0 md4></v-flex>
     </v-layout>
-    <ScrollButton scrollDirection="up" color="grey"/>
+
+    <ScrollButton color="grey"/>
   </v-footer>
 </template>
 <script>

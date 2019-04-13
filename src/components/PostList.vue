@@ -1,9 +1,9 @@
 <template>
   <!-- Post list -->
-  <v-flex md8 class="post-list" py-4>
+  <v-flex xs12 md8 class="post-list" py-4>
     <!-- Middle screen and up -->
     <v-layout wrap>
-      <v-flex v-for="(post, i) in sortedPosts" :key="i" md12 py-1>
+      <v-flex v-for="(post, i) in sortedPosts" :key="i" xs12 py-1>
         <v-card class="site-card" :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
           <v-layout>
             <!-- Site color point -->
@@ -42,7 +42,7 @@ import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
 
 export default {
-  props: ["siteName", "offset", "postSlug"],
+  props: ["siteName", "offset"],
   data: () => ({
     page: 1,
     posts: [

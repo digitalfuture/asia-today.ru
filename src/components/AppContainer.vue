@@ -1,7 +1,7 @@
 <template>
   <v-container align-content-center fluid pa-0 class="app-container">
     <v-content>
-      <router-view></router-view>
+      <router-view :key="$route.path"></router-view>
     </v-content>
     <AppFooter/>
   </v-container>

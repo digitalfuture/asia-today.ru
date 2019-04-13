@@ -1,39 +1,16 @@
 <template>
-  <v-btn
-    absolute
-    right
-    fab
-    dark
-    :color="color"
-    :scrollDirection="scrollDirection"
-    @click="scroll()"
-    class="scroll-button"
-    :class="scrollDirection"
-  >
-    <v-icon v-if="scrollDirection === 'up'" dark>keyboard_arrow_up</v-icon>
-    <v-icon v-if="scrollDirection === 'down'" dark>keyboard_arrow_down</v-icon>
+  <v-btn absolute right fab dark :color="color" @click="scrollToTop" class="scroll-button">
+    <v-icon dark>keyboard_arrow_up</v-icon>
   </v-btn>
 </template>
-
 <script>
+import { mapActions } from "vuex";
+
 export default {
-  props: ["scrollDirection", "color"],
+  props: ["color"],
   data: () => ({}),
   methods: {
-    scroll() {
-      if (this.scrollDirection === "up") {
-        this.$vuetify.goTo(".scroll-up");
-      }
-      if (this.scrollDirection === "down") {
-        this.$vuetify.goTo(".scroll-down");
-      }
-    }
-  },
-  mounted() {
-    this.scroll();
+    ...mapActions(["scrollToTop"])
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

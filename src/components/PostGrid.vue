@@ -100,7 +100,7 @@ import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
 
 export default {
-  props: ["siteName", "offset", "postSlug"],
+  props: ["siteName", "offset"],
   data: () => ({
     posts: [
       // {
@@ -180,7 +180,7 @@ export default {
       this.getLastPostsEmbed({
         siteUrl: this.getSiteUrl(this.siteName),
         count: 4,
-        offset: this.getOffset
+        offset: this.offset
       }).then(data =>
         data.forEach(post =>
           this.savePostData({

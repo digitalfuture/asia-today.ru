@@ -52,6 +52,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    scrollToTop() {
+      Vue.prototype.$vuetify.goTo(".scroll-up");
+    },
     getLastPosts(context, { siteUrl, page, count, offset }) {
       context.commit("startLoading");
 

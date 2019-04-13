@@ -66,7 +66,7 @@
                 <!-- Small screens and up - align right -->
                 <v-layout justify-end class="hidden-xs-only">
                   <yandex-share
-                    :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
+                    :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'tumblr', 'viber', 'telegram']"
                     counter
                     :description="title"
                   />
