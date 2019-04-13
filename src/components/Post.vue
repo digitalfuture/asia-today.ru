@@ -1,80 +1,82 @@
 <template>
   <!-- Content block -->
-  <!-- Set title to page -->
-  <v-flex v-show="img" xs12 md8 :class="siteName">
+  <v-flex class="post" :class="siteName" xs12 md8>
+    <!-- Set title to page -->
     <vue-headful :title="`${ title } - ${ rusSiteName } Сегодня`"/>
 
-    <v-card light class="pt-3 pb-2 px-3 content">
-      <!-- Middle screens and up -->
-      <v-img
-        :src="img"
-        :lazy-src="require('@/assets/placeholder.jpg')"
-        class="post-img white--text hidden-sm-and-down"
-        gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
-        :aspect-ratio="16/9"
-      >
-        <v-flex mx-4>
-          <v-card-title>
-            <h1 class="display-2 font-weight-light white--text" v-html="title"></h1>
-          </v-card-title>
-        </v-flex>
-      </v-img>
+    <v-layout v-show="img">
+      <v-card light class="pt-3 pb-2 px-3 content">
+        <!-- Middle screens and up -->
+        <v-img
+          :src="img"
+          :lazy-src="require('@/assets/placeholder.jpg')"
+          class="post-img white--text hidden-sm-and-down"
+          gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
+          :aspect-ratio="16/9"
+        >
+          <v-flex mx-4>
+            <v-card-title>
+              <h1 class="display-2 font-weight-light white--text" v-html="title"></h1>
+            </v-card-title>
+          </v-flex>
+        </v-img>
 
-      <!-- Small screens and down -->
-      <v-img
-        :src="img"
-        :lazy-src="require('@/assets/placeholder.jpg')"
-        class="post-img white--text hidden-md-and-up"
-        gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
-        :aspect-ratio="16/9"
-      >
-        <v-flex mx-4>
-          <v-card-title>
-            <h1 class="display-1 font-weight-light white--text" v-html="title"></h1>
-          </v-card-title>
-        </v-flex>
-      </v-img>
+        <!-- Small screens and down -->
+        <v-img
+          :src="img"
+          :lazy-src="require('@/assets/placeholder.jpg')"
+          class="post-img white--text hidden-md-and-up"
+          gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
+          :aspect-ratio="16/9"
+        >
+          <v-flex mx-4>
+            <v-card-title>
+              <h1 class="display-1 font-weight-light white--text" v-html="title"></h1>
+            </v-card-title>
+          </v-flex>
+        </v-img>
 
-      <v-flex mt-3>
-        <hr>
-      </v-flex>
-
-      <v-card-text class="px-0">
-        <div v-html="content"></div>
-
-        <v-flex mt-4 mb-5>
+        <v-flex mt-3>
           <hr>
         </v-flex>
 
-        <div class="site-date font-italic font-weight-light">
-          <v-layout justify-space-between wrap>
-            <v-flex xs12 sm6 pb-4>
-              <span class="grey--text subheading">{{ date }}</span>
-            </v-flex>
+        <v-card-text class="px-0">
+          <div v-html="content"></div>
 
-            <v-flex xs12 sm6>
-              <!-- Extra small screens - align left -->
-              <v-layout justify-start class="hidden-sm-and-up">
-                <yandex-share
-                  :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
-                  counter
-                  :description="title"
-                />
-              </v-layout>
+          <v-flex mt-4 mb-5>
+            <hr>
+          </v-flex>
 
-              <!-- Small screens and up - align right -->
-              <v-layout justify-end class="hidden-xs-only">
-                <yandex-share
-                  :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
-                  counter
-                  :description="title"
-                />
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </div>
-      </v-card-text>
-    </v-card>
+          <div class="site-date font-italic font-weight-light">
+            <v-layout justify-space-between wrap>
+              <v-flex xs12 sm6 pb-4>
+                <span class="grey--text subheading">{{ date }}</span>
+              </v-flex>
+
+              <v-flex xs12 sm6>
+                <!-- Extra small screens - align left -->
+                <v-layout justify-start class="hidden-sm-and-up">
+                  <yandex-share
+                    :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
+                    counter
+                    :description="title"
+                  />
+                </v-layout>
+
+                <!-- Small screens and up - align right -->
+                <v-layout justify-end class="hidden-xs-only">
+                  <yandex-share
+                    :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
+                    counter
+                    :description="title"
+                  />
+                </v-layout>
+              </v-flex>
+            </v-layout>
+          </div>
+        </v-card-text>
+      </v-card>
+    </v-layout>
   </v-flex>
 </template>
 
@@ -89,7 +91,6 @@ export default {
   },
   props: ["postSlug", "siteName"],
   data: () => ({
-    up: ".scroll-up",
     id: "",
     slug: "",
     title: "",
@@ -194,14 +195,9 @@ export default {
       }
 
       return template.innerHTML;
-    },
-    scroll(target) {
-      this.$vuetify.goTo(target);
     }
   },
   mounted() {
-    this.scroll(this.up);
-
     this.getPostBySlug({
       siteUrl: this.siteUrl,
       postSlug: this.postSlug
@@ -212,13 +208,13 @@ export default {
 
 <style lang="scss">
 $vietnam-color: rgba(104, 215, 88, 1);
-$vietnam-color-light: rgba(104, 215, 88, 0.2);
+$vietnam-color-light: rgba(104, 215, 88, 0.3);
 $thailand-color: rgba(187, 134, 252, 1);
-$thailand-color-light: rgba(187, 134, 252, 0.2);
+$thailand-color-light: rgba(187, 134, 252, 0.3);
 $nepal-color: rgba(77, 178, 236, 1);
-$nepal-color-light: rgba(77, 178, 236, 0.2);
+$nepal-color-light: rgba(77, 178, 236, 0.3);
 $philippines-color: rgba(3, 218, 198, 1);
-$philippines-color-light: rgba(3, 218, 198, 0.2);
+$philippines-color-light: rgba(3, 218, 198, 0.3);
 
 a {
   text-decoration: none;

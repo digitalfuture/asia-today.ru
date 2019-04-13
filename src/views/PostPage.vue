@@ -1,30 +1,50 @@
 <template>
-  <v-content>
-    <!-- Post page -->
-    <v-container class="post scroll-up" fluid px-0>
-      <v-layout wrap justify-center>
+  <!-- Post page -->
+  <section>
+    <AppHeader :siteName="siteName"/>
+
+    <v-container fluid px-0>
+      <v-layout>
         <LeftSideBar :siteName="siteName"/>
         <Post :siteName="siteName" :postSlug="postSlug"/>
         <RightSideBar :siteName="siteName"/>
       </v-layout>
+
+      <v-layout>
+        <LeftSideBar :siteName="siteName"/>
+        <PostGrid :siteName="siteName" offset="0" :postSlug="postSlug"/>
+        <RightSideBar :siteName="siteName"/>
+      </v-layout>
+
+      <v-layout>
+        <LeftSideBar :siteName="siteName"/>
+        <PostList :siteName="siteName" offset="4" :postSlug="postSlug"/>
+        <RightSideBar :siteName="siteName"/>
+      </v-layout>
     </v-container>
-  </v-content>
+  </section>
 </template>
 
 <script>
+import AppHeader from "../components/AppHeader";
 import LeftSideBar from "../components/LeftSideBar";
 import RightSideBar from "../components/RightSideBar";
 import Post from "../components/Post";
+import PostGrid from "../components/PostGrid";
+import PostList from "../components/PostList";
 
 export default {
   components: {
+    AppHeader,
     LeftSideBar,
     RightSideBar,
-    Post
+    Post,
+    PostGrid,
+    PostList
   },
   props: ["postSlug", "siteName"]
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>

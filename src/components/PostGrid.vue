@@ -1,144 +1,107 @@
 <template>
-  <v-container align-content-center fluid pa-0 class="scroll-up big-block-4">
+  <v-flex md8 class="post-grid">
     <!-- Post grid -->
     <!-- Middle screen and up -->
-    <v-layout class="full-height hidden-sm-and-down" align-center justify-center fill-height>
-      <v-layout>
-        <leftSideBar :siteName="siteName"/>
+    <v-layout
+      class="full-height hidden-sm-and-down"
+      align-content-center
+      align-center
+      justify-center
+      fill-height
+      md12
+      wrap
+    >
+      <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pa-1" md6>
+        <v-card
+          :to="'/' + post.siteName + '/' + post.slug"
+          raised
+          ripple
+          dark
+          class="site-card grey"
+        >
+          <v-img
+            :src="post.thumb"
+            :lazy-src="require('@/assets/placeholder.jpg')"
+            gradient="to top, rgba(0,0,0,.8), transparent 100%"
+            :aspect-ratio="16/9"
+          ></v-img>
 
-        <v-flex md8>
-          <v-layout align-center fill-height>
-            <v-layout wrap>
-              <v-flex v-for="(post, i) in posts" :key="i" class="pa-1" md6>
-                <v-card
-                  :to="'/' + post.siteName + '/' + post.slug"
-                  raised
-                  ripple
-                  dark
-                  class="site-card grey"
-                >
-                  <v-img
-                    :src="post.thumb"
-                    :lazy-src="require('@/assets/placeholder.jpg')"
-                    gradient="to top, rgba(0,0,0,.8), transparent 100%"
-                    :aspect-ratio="16/9"
-                  ></v-img>
+          <div class="site-info">
+            <v-card-title class="site-title">
+              <h3 class="subheading" v-html="post.title"></h3>
+            </v-card-title>
 
-                  <div class="site-info">
-                    <v-card-title class="site-title">
-                      <h3 class="subheading" v-html="post.title"></h3>
-                    </v-card-title>
+            <v-card-text class="post-details font-weight-light">
+              <v-layout justify-space-between>
+                <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
+                <span
+                  v-if="$route.name === 'homePage'"
+                  class="body-1 grey--text"
+                >{{ getRusSiteName(post.siteName) }}</span>
+              </v-layout>
+            </v-card-text>
+          </div>
 
-                    <v-card-text class="post-details font-weight-light">
-                      <v-layout justify-space-between>
-                        <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
-                        <span
-                          v-if="$route.name === 'homePage'"
-                          class="body-1 grey--text"
-                        >{{ getRusSiteName(post.siteName) }}</span>
-                      </v-layout>
-                    </v-card-text>
-                  </div>
-
-                  <!-- Site logo -->
-                  <v-btn
-                    :to="'/' + siteName"
-                    fab
-                    raised
-                    class="color-point ma-0"
-                    :style="'background-color: ' + getSiteColor(post.siteName)"
-                  ></v-btn>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-layout>
-        </v-flex>
-
-        <v-spacer v-if="$route.name !== 'sitePage'"></v-spacer>
-        <RightSideBar :siteName="siteName"/>
-      </v-layout>
-    </v-layout>
-
-    <!-- Small screen and down -->
-    <v-layout class="hidden-md-and-up" wrap py-1>
-      <leftSideBar xs12 :siteName="siteName"/>
-
-      <!-- Post grid -->
-      <v-flex xs12>
-        <v-layout wrap>
-          <v-flex v-for="(post, i) in posts" :key="i" class="pb-2" xs12>
-            <v-card
-              :to="'/' + post.siteName + '/' + post.slug"
-              raised
-              ripple
-              dark
-              class="site-card"
-            >
-              <v-img
-                :src="post.thumb"
-                :lazy-src="require('@/assets/placeholder.jpg')"
-                gradient="to top, rgba(0,0,0,.8), transparent 100%"
-                :aspect-ratio="16/9"
-              ></v-img>
-
-              <div class="site-info">
-                <v-card-title class="site-title">
-                  <h3 class="subheading" v-html="post.title"></h3>
-                </v-card-title>
-
-                <v-card-text class="post-details font-weight-light">
-                  <v-layout justify-space-between>
-                    <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
-                    <span
-                      v-if="$route.name === 'homePage'"
-                      class="body-1 grey--text"
-                    >{{ getRusSiteName(post.siteName) }}</span>
-                  </v-layout>
-                </v-card-text>
-              </div>
-
-              <!-- For site page only -->
-              <v-btn
-                :to="'/' + siteName"
-                fab
-                class="color-point ma-0"
-                :style="'background-color: ' + getSiteColor(post.siteName)"
-              ></v-btn>
-            </v-card>
-          </v-flex>
-        </v-layout>
+          <!-- Site logo -->
+          <v-btn
+            :to="'/' + siteName"
+            fab
+            raised
+            class="color-point ma-0"
+            :style="'background-color: ' + getSiteColor(post.siteName)"
+          ></v-btn>
+        </v-card>
       </v-flex>
     </v-layout>
 
-    <v-btn
-      absolute
-      bottom
-      right
-      fab
-      dark
-      color="gray"
-      @click="scroll(down)"
-      class="scroll-button hidden-sm-and-down"
-    >
-      <v-icon dark>keyboard_arrow_down</v-icon>
-    </v-btn>
-  </v-container>
+    <!-- Post grid -->
+    <!-- Small screen and down -->
+    <v-layout class="hidden-md-and-up" xs12 wrap>
+      <v-flex v-for="(post, i) in posts" :key="i" class="pb-2" xs12>
+        <v-card :to="'/' + post.siteName + '/' + post.slug" raised ripple dark class="site-card">
+          <v-img
+            :src="post.thumb"
+            :lazy-src="require('@/assets/placeholder.jpg')"
+            gradient="to top, rgba(0,0,0,.8), transparent 100%"
+            :aspect-ratio="16/9"
+          ></v-img>
+
+          <div class="site-info">
+            <v-card-title class="site-title">
+              <h3 class="subheading" v-html="post.title"></h3>
+            </v-card-title>
+
+            <v-card-text class="post-details font-weight-light">
+              <v-layout justify-space-between>
+                <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
+                <span
+                  v-if="$route.name === 'homePage'"
+                  class="body-1 grey--text"
+                >{{ getRusSiteName(post.siteName) }}</span>
+              </v-layout>
+            </v-card-text>
+          </div>
+
+          <!-- For site page only -->
+          <v-btn
+            :to="'/' + siteName"
+            fab
+            class="color-point ma-0"
+            :style="'background-color: ' + getSiteColor(post.siteName)"
+          ></v-btn>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-flex>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
-import LeftSideBar from "./LeftSideBar";
-import RightSideBar from "./RightSideBar";
 
 export default {
-  components: {
-    LeftSideBar,
-    RightSideBar
-  },
-  props: ["siteName"],
+  props: ["siteName", "offset", "postSlug"],
   data: () => ({
-    up: ".scroll-up",
     posts: [
       // {
       //   id,
@@ -150,14 +113,19 @@ export default {
       //   content,
       //   thumb
       // }
-    ],
-    down: ".scroll-down"
+    ]
   }),
   computed: {
-    ...mapState(["sites"])
+    ...mapState(["sites"]),
+    sortedPosts() {
+      const posts = [...this.posts];
+      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      return sorted;
+    }
   },
   methods: {
-    ...mapActions(["getLastPosts", "getMedia"]),
+    ...mapActions(["getLastPostsEmbed", "getMedia"]),
     getSiteUrl(siteName) {
       return this.sites.find(site => site.name === siteName).url;
     },
@@ -192,18 +160,27 @@ export default {
       return DateTime.fromISO(date, { locale: "ru" }).toLocaleString(
         DateTime.DATE_FULL
       );
-    },
-    scroll(target) {
-      this.$vuetify.goTo(target);
     }
   },
   mounted() {
-    this.scroll(this.up);
-
-    if (this.$route.name === "sitePage") {
-      this.getLastPosts({
+    if (this.$route.name === "homePage") {
+      this.sites.forEach(site =>
+        this.getLastPostsEmbed({
+          siteUrl: site.url,
+          count: 1,
+          offset: this.offset
+        }).then(data =>
+          this.savePostData({
+            siteName: site.name,
+            data: data[0]
+          })
+        )
+      );
+    } else if (this.$route.name === "sitePage") {
+      this.getLastPostsEmbed({
         siteUrl: this.getSiteUrl(this.siteName),
-        count: 4
+        count: 4,
+        offset: this.getOffset
       }).then(data =>
         data.forEach(post =>
           this.savePostData({
@@ -212,12 +189,16 @@ export default {
           })
         )
       );
-    } else {
-      this.sites.forEach(site =>
-        this.getLastPosts({ siteUrl: site.url, count: 1 }).then(data =>
+    } else if (this.$route.name === "postPage") {
+      this.getLastPostsEmbed({
+        siteUrl: this.getSiteUrl(this.siteName),
+        count: 4,
+        offset: this.offset
+      }).then(data =>
+        data.forEach(post =>
           this.savePostData({
-            siteName: site.name,
-            data: data[0]
+            siteName: this.siteName,
+            data: post
           })
         )
       );
@@ -226,13 +207,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.big-block-4 {
-  position: relative;
-  background-size: cover;
-  background-position: top;
-  background-repeat: repeat-y;
-
+<style lang="scss" scoped>
+.post-grid {
   .site-card {
     .color-point {
       position: absolute;
@@ -240,14 +216,6 @@ export default {
       top: 16px;
       width: 32px;
       height: 32px;
-    }
-
-    .site-logo {
-      position: absolute;
-      left: 16px;
-      top: 16px;
-      width: 100px;
-      height: 100px;
     }
 
     .site-info {
@@ -267,10 +235,6 @@ export default {
         }
       }
     }
-  }
-
-  .scroll-button {
-    bottom: 16px !important;
   }
 
   .full-height {

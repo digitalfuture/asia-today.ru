@@ -51,33 +51,25 @@
 
       <v-flex xs0 md4></v-flex>
     </v-layout>
-    <v-btn absolute bottom right fab dark color="grey" @click="scroll(up)" class="scroll-button">
-      <v-icon dark>keyboard_arrow_up</v-icon>
-    </v-btn>
+    <ScrollButton scrollDirection="up" color="grey"/>
   </v-footer>
 </template>
-
 <script>
+import ScrollButton from "./ScrollButton";
+
 export default {
-  data: () => ({
-    up: ".scroll-up"
-  }),
-  methods: {
-    scroll(target) {
-      this.$vuetify.goTo(target);
-    }
+  components: {
+    ScrollButton
   }
 };
 </script>
-
-<style lang="scss">
+<style lang="scss" scoped>
 .footer-section {
   background-image: url("../assets/background-footer.png") !important;
   background-size: contain !important;
   background-position: right top !important;
   background-repeat: no-repeat !important;
 
-  bottom: -100vh;
   min-height: 600px;
 
   .footer-title {
