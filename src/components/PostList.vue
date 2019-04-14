@@ -23,10 +23,7 @@
               <v-card-text class="post-details font-weight-light">
                 <v-layout justify-space-between>
                   <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
-                  <span
-                    v-if="$route.name === 'homePage'"
-                    class="body-1 grey--text"
-                  >{{ getRusSiteName(post.siteName) }}</span>
+                  <span class="body-1 grey--text">{{ getRusSiteName(post.siteName) }}</span>
                 </v-layout>
               </v-card-text>
             </v-flex>

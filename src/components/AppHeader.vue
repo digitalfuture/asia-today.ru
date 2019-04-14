@@ -69,9 +69,9 @@
 
       <!-- Tag line -->
       <v-flex class="hidden-xs-only">
-        <h2 class="title font-weight-light grey--text text--darken-1 text-xs-center">
-          ПОСЛЕДНИЕ
-          <br>НОВОСТИ
+        <h2 class="subheading font-weight-light grey--text text--darken-1 text-xs-center">
+          НОВОСТИ
+          <br>АЗИИ
         </h2>
       </v-flex>
     </v-layout>
@@ -126,7 +126,7 @@
 
       <!-- Tag line -->
       <v-flex class="hidden-xs-only">
-        <h2 class="title font-weight-light grey--text text--darken-1 text-xs-center">
+        <h2 class="subheading font-weight-light grey--text text--darken-1 text-xs-center">
           ПОСЛЕДНИЕ
           <br>НОВОСТИ
         </h2>
@@ -173,8 +173,8 @@ export default {
     padding-left: 16px;
   }
 
-  .title {
-    text-transform: lowercase;
+  .subheading {
+    line-height: 1;
   }
 }
 </style>

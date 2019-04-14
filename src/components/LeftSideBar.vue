@@ -25,9 +25,9 @@
       <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
 
       <!-- Tag line -->
-      <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">
-        ПОСЛЕДНИЕ
-        <br>НОВОСТИ
+      <h2 class="subheading font-weight-light grey--text text--darken-1 text-md-center">
+        НОВОСТИ
+        <br>АЗИИ
       </h2>
     </v-layout>
   </v-flex>
@@ -49,13 +49,14 @@
 
   .text-responsive {
     line-height: 2rem !important;
+
     span {
       font-size: 2.2vw;
     }
   }
 
-  .title {
-    text-transform: lowercase;
+  .subheading {
+    line-height: 1;
   }
 }
 </style>
