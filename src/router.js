@@ -27,7 +27,7 @@ export default new Router({
       props: true
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { x: 0, y: 0 };
   }
 });

@@ -120,7 +120,7 @@ export default {
       this.getLastPosts({
         siteUrl: this.getSiteUrl(this.siteName),
         page: this.page,
-        count: 10,
+        count: 7,
         offset: this.offset
       }).then(data =>
         data.forEach(post =>

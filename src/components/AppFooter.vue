@@ -2,7 +2,7 @@
   <v-footer class="footer-section scroll-down pa-3" height="100vh" light>
     <!-- Footer -->
     <v-layout justify-space-between xs12 fill-height wrap>
-      <v-flex xs12 md4 align-space-between justify-space-between column fill-height>
+      <v-flex xs12 sm6 md4 align-space-between justify-space-between column fill-height>
         <v-layout align-center justify-space-between column fill-height text-xs-center>
           <v-btn to="/" fab class="footer-logo" raised pa-2 color="black">
             <v-img
@@ -47,7 +47,19 @@
         </v-layout>
       </v-flex>
 
-      <v-flex xs0 md4></v-flex>
+      <!-- All sites logos block -->
+      <v-flex xs0 sm6 md4>
+        <v-layout wrap class="all-sites-logos hidden-xs-only">
+          <!-- Rounded site logos -->
+          <v-flex v-for="(site, i) in sites" :key="i" xs6>
+            <v-layout justify-center>
+              <v-btn :to="'/' + site.name" fab class="site-logo-fixed" color="black">
+                <v-img :src="site.logo" class="logo-image" contain></v-img>
+              </v-btn>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-flex>
 
       <v-flex xs0 md4></v-flex>
     </v-layout>
@@ -56,11 +68,16 @@
   </v-footer>
 </template>
 <script>
+import { mapState } from "vuex";
+
 import ScrollButton from "./ScrollButton";
 
 export default {
   components: {
     ScrollButton
+  },
+  computed: {
+    ...mapState(["sites"])
   }
 };
 </script>
@@ -88,6 +105,16 @@ export default {
   .address a {
     text-decoration: none;
     font-family: "Noto Serif", serif;
+  }
+
+  .site-logo-fixed {
+    width: 100px;
+    height: 100px;
+
+    .logo-image {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   .scroll-button {
