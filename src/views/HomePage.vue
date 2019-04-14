@@ -14,9 +14,9 @@
       </v-layout>
 
       <v-layout>
-        <v-flex md-2></v-flex>
+        <v-flex xs0 md2></v-flex>
         <PostList offset="1"/>
-        <v-flex md-2></v-flex>
+        <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>
   </section>

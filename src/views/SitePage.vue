@@ -14,9 +14,9 @@
       </v-layout>
 
       <v-layout>
-        <LeftSideBar :siteName="siteName"/>
+        <v-flex xs0 md2></v-flex>
         <PostList :siteName="siteName" offset="4"/>
-        <RightSideBar :siteName="siteName"/>
+        <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>
   </section>

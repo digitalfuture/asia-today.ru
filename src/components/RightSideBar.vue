@@ -1,6 +1,28 @@
 <template>
   <!-- Right side bar -->
   <v-flex class="right-side-bar hidden-sm-and-down" md2 px-2 py-5>
+    <!-- For home page only -->
+    <v-layout
+      v-if="$route.name === 'homePage'"
+      fill-height
+      align-center
+      column
+      justify-space-between
+    >
+      <!-- Rounded site logos -->
+      <v-btn
+        v-for="(site, i) in sites"
+        :key="i"
+        md12
+        :to="'/' + site.name"
+        fab
+        class="site-logo-fixed"
+        color="black"
+      >
+        <v-img :src="site.logo" class="logo-image" contain></v-img>
+      </v-btn>
+    </v-layout>
+
     <!-- For all pages except home page -->
     <v-layout
       v-if="$route.name !== 'homePage'"
@@ -36,28 +58,6 @@
         ПОСЛЕДНИЕ
         <br>НОВОСТИ
       </h2>
-    </v-layout>
-
-    <!-- For home page only -->
-    <v-layout
-      v-if="$route.name === 'homePage'"
-      fill-height
-      align-center
-      column
-      justify-space-around
-    >
-      <!-- Rounded site logos -->
-      <v-btn
-        v-for="(site, i) in sites"
-        :key="i"
-        md12
-        :to="'/' + site.name"
-        fab
-        class="site-logo-fixed"
-        color="black"
-      >
-        <v-img :src="site.logo" class="logo-image" contain></v-img>
-      </v-btn>
     </v-layout>
   </v-flex>
 </template>
