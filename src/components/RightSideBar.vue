@@ -1,13 +1,13 @@
 <template>
   <!-- Right side bar -->
-  <v-flex md2 px-2 class="right-side-bar hidden-sm-and-down">
+  <v-flex class="right-side-bar hidden-sm-and-down" md2 px-2 py-5>
     <!-- For all pages except home page -->
     <v-layout
       v-if="$route.name !== 'homePage'"
       column
       align-center
       fill-height
-      justify-space-around
+      justify-space-between
     >
       <!-- Rounded site logo -->
       <v-btn :to="'/' + siteName" fab class="site-logo-fixed" color="black">
@@ -38,7 +38,7 @@
       </h2>
     </v-layout>
 
-    <!-- For home page only site page -->
+    <!-- For home page only -->
     <v-layout
       v-if="$route.name === 'homePage'"
       fill-height

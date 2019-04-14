@@ -63,19 +63,12 @@
 
       <v-flex xs0 md4></v-flex>
     </v-layout>
-
-    <ScrollButton color="grey"/>
   </v-footer>
 </template>
 <script>
 import { mapState } from "vuex";
 
-import ScrollButton from "./ScrollButton";
-
 export default {
-  components: {
-    ScrollButton
-  },
   computed: {
     ...mapState(["sites"])
   }
@@ -115,10 +108,6 @@ export default {
       width: 100px;
       height: 100px;
     }
-  }
-
-  .scroll-button {
-    bottom: 16px !important;
   }
 }
 </style>

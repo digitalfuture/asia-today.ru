@@ -1,76 +1,61 @@
 <template>
-  <v-flex class="left-side-bar hidden-sm-and-down" md2 px-2>
+  <v-flex class="left-side-bar hidden-sm-and-down" md2 px-2 py-5>
     <!-- Left side bar -->
-    <!-- Middle screen and up -->
-    <v-layout column fill-height justify-space-around>
-      <!-- Main logo -->
-      <router-link to="/" class="site-logo-2-link">
-        <v-img :src="require('@/assets/logo-today-transparent.png')" class="site-logo-2"></v-img>
-      </router-link>
+    <v-layout column align-center fill-height justify-space-between>
+      <!-- Rounded site logo -->
+      <v-btn :to="'/'" fab class="site-logo-fixed" color="black">
+        <v-img :src="require('@/assets/logo-today-transparent.png')" class="logo-image" contain></v-img>
+      </v-btn>
 
-      <!-- Logo separator -->
-      <v-icon class="grey--text text--darken-1">fiber_manual_record</v-icon>
+      <!-- Large screens and up - fixed text size -->
+      <h1 class="hidden-md-and-down headline text-md-center">
+        <span class="font-weight-regular text-uppercase">АЗИЯ</span>
+        <br>
+        <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
+      </h1>
 
-      <!-- Logo separator 2 -->
-      <v-icon class="grey--text text--darken-2">fiber_manual_record</v-icon>
+      <!-- Middle screens only - responsive text size-->
+      <h1 class="hidden-lg-and-up headline text-md-center text-responsive">
+        <span class="font-weight-regular text-uppercase">АЗИЯ</span>
+        <br>
+        <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
+      </h1>
 
-      <!-- Logo separator 3 -->
+      <!-- Rounded separator -->
       <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
+
+      <!-- Tag line -->
+      <h2 class="title font-weight-light grey--text text--darken-1 text-md-center">
+        ПОСЛЕДНИЕ
+        <br>НОВОСТИ
+      </h2>
     </v-layout>
   </v-flex>
 </template>
 
-<script>
-import { mapState } from "vuex";
-
-export default {
-  props: ["siteName"],
-  computed: {
-    ...mapState(["sites"]),
-    siteLogo() {
-      return this.sites.find(site => site.name === this.siteName).logo;
-    },
-    rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName;
-    }
-  }
-};
-</script>
 <style lang="scss" scope>
 .left-side-bar {
   height: calc(100vh - 32px);
 
-  .hidden-md-and-up {
-    .site-logo {
+  .site-logo-fixed {
+    width: 100px;
+    height: 100px;
+
+    .logo-image {
       width: 100px;
       height: 100px;
-      max-width: 100%;
-
-      .logo-image {
-        width: 100px;
-        height: 100px;
-      }
-    }
-
-    .site-logo-2-link {
-      .site-logo-2 {
-        margin: auto;
-        max-height: 100px;
-      }
     }
   }
 
-  .hidden-sm-and-down {
-    .site-logo-2-link {
-      width: 100%;
-
-      .site-logo-2 {
-        margin: auto;
-        width: 200px;
-        max-width: 100%;
-        max-height: 100px;
-      }
+  .text-responsive {
+    line-height: 2rem !important;
+    span {
+      font-size: 2.2vw;
     }
+  }
+
+  .title {
+    text-transform: lowercase;
   }
 }
 </style>

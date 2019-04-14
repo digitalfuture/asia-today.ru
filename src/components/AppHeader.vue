@@ -22,39 +22,50 @@
     >
       <!-- Site logo -->
       <!-- Small screen -->
-
-      <v-btn to="/" fab class="site-logo-fixed" color="black">
-        <v-img :src="require('@/assets/logo-today-transparent.png')" class="logo-image" contain></v-img>
-      </v-btn>
+      <v-flex>
+        <v-layout justify-center>
+          <v-btn to="/" fab class="site-logo-fixed" color="black">
+            <v-img :src="require('@/assets/logo-today-transparent.png')" class="logo-image" contain></v-img>
+          </v-btn>
+        </v-layout>
+      </v-flex>
 
       <!-- Round separator -->
-      <v-icon class="hidden-xs-only text-xs-center grey--text text--darken-3">fiber_manual_record</v-icon>
+      <v-flex class="hidden-xs-only text-xs-center">
+        <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
+      </v-flex>
 
       <!-- Site title -->
       <!-- Small screen - align center-->
-      <h1 class="hidden-xs-only headline text-xs-center">
-        <span class="font-weight-regular text-uppercase text-responsive">АЗИЯ</span>
-        <br>
-        <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
-      </h1>
+      <v-flex class="hidden-xs-only">
+        <h1 class="headline text-xs-center">
+          <span class="font-weight-regular text-uppercase text-responsive">АЗИЯ</span>
+          <br>
+          <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
+        </h1>
+      </v-flex>
 
       <!-- Extra small screen - align left-->
-      <div class="hidden-sm-and-up border-left">
+      <v-flex class="hidden-sm-and-up border-left">
         <h1 class="headline text-xs-left">
           <span class="font-weight-regular text-uppercase text-responsive">АЗИЯ</span>
           <br>
           <span class="font-weight-thin text-xs-center text-responsive">СЕГОДНЯ</span>
         </h1>
-      </div>
+      </v-flex>
 
       <!-- Round separator -->
-      <v-icon class="hidden-xs-only text-xs-center grey--text text--darken-3">fiber_manual_record</v-icon>
+      <v-flex class="hidden-xs-only text-xs-center">
+        <v-icon class="text-xs-center grey--text text--darken-3">fiber_manual_record</v-icon>
+      </v-flex>
 
       <!-- Tag line -->
-      <h2 class="hidden-xs-only title font-weight-regular grey--text text--darken-1 text-xs-center">
-        ПОСЛЕДНИЕ
-        <br>НОВОСТИ
-      </h2>
+      <v-flex class="hidden-xs-only">
+        <h2 class="title font-weight-regular grey--text text--darken-1 text-xs-center">
+          ПОСЛЕДНИЕ
+          <br>НОВОСТИ
+        </h2>
+      </v-flex>
     </v-layout>
 
     <!--  -->
@@ -63,7 +74,7 @@
       v-if="$route.name !== 'homePage'"
       justify-center
       align-center
-      my-4
+      py-4
       class="hidden-md-and-up"
     >
       <!-- Site logo -->
