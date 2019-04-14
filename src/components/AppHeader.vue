@@ -1,15 +1,23 @@
 <template>
   <!-- Header -->
   <section class="header-section scroll-up">
+    <v-toolbar
+      v-show="loadingCount === 0"
+      class="toolbar"
+      scroll-target
+      absolute
+      height="4"
+      color="grey"
+    />
+
     <v-progress-linear
       :indeterminate="true"
-      :active="isLoading"
+      :active="loadingCount > 0"
       height="4px"
       color="grey"
-      class="ma-0"
+      class="progress-bar ma-0"
+      fixed
     ></v-progress-linear>
-
-    <v-toolbar absolute v-if="!isLoading" height="4" color="grey"/>
 
     <!-- Small screen and down -->
     <!-- For home page only -->
@@ -133,7 +141,7 @@ import { mapState } from "vuex";
 export default {
   props: ["siteName"],
   computed: {
-    ...mapState(["sites", "isLoading"]),
+    ...mapState(["sites", "loadingCount"]),
     siteLogo() {
       return this.sites.find(site => site.name === this.siteName).logo;
     },
@@ -146,6 +154,10 @@ export default {
 
 <style lang="scss" scoped>
 .header-section {
+  .progress-bar {
+    position: fixed;
+  }
+
   .site-logo-fixed {
     width: 100px;
     height: 100px;

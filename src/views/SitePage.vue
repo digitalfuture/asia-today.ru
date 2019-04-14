@@ -48,9 +48,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.post-list {
-  min-height: 100vh;
-}
 .scroll-button {
   bottom: 16px !important;
 }

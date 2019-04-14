@@ -47,17 +47,19 @@
         </v-layout>
       </v-flex>
 
-      <!-- All sites logos block -->
+      <!-- All logos block -->
       <v-flex xs0 sm6 md4>
-        <v-layout wrap class="all-sites-logos hidden-xs-only">
+        <v-layout wrap class="all-sites-logos hidden-xs-only" align-center fill-height>
           <!-- Rounded site logos -->
-          <v-flex v-for="(site, i) in sites" :key="i" xs6>
-            <v-layout justify-center>
-              <v-btn :to="'/' + site.name" fab class="site-logo-fixed" color="black">
-                <v-img :src="site.logo" class="logo-image" contain></v-img>
-              </v-btn>
-            </v-layout>
-          </v-flex>
+          <v-layout wrap>
+            <v-flex v-for="(site, i) in sites" :key="i">
+              <v-layout justify-center>
+                <v-btn :to="'/' + site.name" fab class="site-logo-fixed" color="black">
+                  <v-img :src="site.logo" class="logo-image" contain></v-img>
+                </v-btn>
+              </v-layout>
+            </v-flex>
+          </v-layout>
         </v-layout>
       </v-flex>
 

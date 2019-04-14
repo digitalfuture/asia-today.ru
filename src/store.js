@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isLoading: false,
+    loadingCount: 0,
     sites: [
       {
         name: "vietnam",
@@ -44,11 +44,11 @@ export default new Vuex.Store({
   mutations: {
     startLoading(state) {
       // console.log("start loading");
-      state.isLoading = true;
+      state.loadingCount++;
     },
     stopLoading(state) {
       // console.log("stop loading");
-      state.isLoading = false;
+      state.loadingCount--;
     }
   },
   actions: {
@@ -65,7 +65,6 @@ export default new Vuex.Store({
         .then(response => response.data)
         .then(data => {
           context.commit("stopLoading");
-
           // console.log(data)
           return data;
         });
@@ -80,7 +79,6 @@ export default new Vuex.Store({
         .then(response => response.data)
         .then(data => {
           context.commit("stopLoading");
-
           // console.log(data)
           return data;
         });
@@ -93,7 +91,6 @@ export default new Vuex.Store({
         .then(response => response.data)
         .then(data => {
           context.commit("stopLoading");
-
           // console.log(data)
           return data;
         });
@@ -106,7 +103,6 @@ export default new Vuex.Store({
         .then(response => response.data[0])
         .then(data => {
           context.commit("stopLoading");
-
           // console.log('post:', data)
           return data;
         });

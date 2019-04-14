@@ -1,19 +1,20 @@
 <template>
-  <v-btn
-    transition="slide-y-reverse-transition"
-    v-show="isScrolled"
-    raised
-    fixed
-    right
-    fab
-    dark
-    color="black"
-    @click="scrollToTop"
-    v-scroll="onScroll"
-    class="scroll-button"
-  >
-    <v-icon>keyboard_arrow_up</v-icon>
-  </v-btn>
+  <v-slide-y-reverse-transition>
+    <v-btn
+      v-show="isScrolled"
+      raised
+      fixed
+      right
+      fab
+      dark
+      color="black"
+      @click="scrollToTop"
+      v-scroll="onScroll"
+      class="scroll-button"
+    >
+      <v-icon>keyboard_arrow_up</v-icon>
+    </v-btn>
+  </v-slide-y-reverse-transition>
 </template>
 <script>
 import { mapActions } from "vuex";
