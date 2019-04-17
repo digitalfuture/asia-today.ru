@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import AppFooter from "./components/AppFooter";
 import ScrollButton from "./components/ScrollButton";
 
@@ -20,6 +21,15 @@ export default {
   components: {
     AppFooter,
     ScrollButton
+  },
+  methods: {
+    ...mapMutations(["clearSearchString", "clearSearchResults"])
+  },
+  watch: {
+    $route() {
+      this.clearSearchString();
+      this.clearSearchResults();
+    }
   }
 };
 </script>

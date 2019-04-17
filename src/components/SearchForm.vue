@@ -33,10 +33,6 @@ export default {
   watch: {
     searchString() {
       searchString: this.updateSearchString(this.searchString);
-    },
-    $route(to, from) {
-      console.log("route watcher fired");
-      this.clearSearchResults();
     }
   },
   methods: {
