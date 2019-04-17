@@ -72,6 +72,9 @@ export default new Vuex.Store({
 
       // console.log("after update:", state.searchResults);
     },
+    clearSearchString(state) {
+      state.searchString = "";
+    },
     clearSearchResults(state) {
       state.searchResults = [];
     }
@@ -132,14 +135,14 @@ export default new Vuex.Store({
           return data;
         });
     },
-    searchPosts(context, { siteUrl, searchString, count }) {
+    searchPosts(context, { siteUrl, searchString, count, page }) {
       context.commit("startLoading");
       context.commit("clearSearchResults");
 
       //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
       return axios
         .get(
-          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${count}`
+          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${count}&page=${page}`
         )
         .then(response => response.data)
         .then(data => {

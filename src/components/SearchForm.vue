@@ -1,6 +1,7 @@
 <template>
   <v-flex xs12>
     <v-text-field
+      light
       solo
       clearable
       single-line
@@ -9,7 +10,7 @@
       :suffix="suffixString"
       @click:clear="clearSearchResults"
       v-model="searchString"
-      @change="search"
+      @keyup.enter="search"
     ></v-text-field>
   </v-flex>
 </template>
@@ -19,6 +20,7 @@ import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   props: ["siteName"],
   data: () => ({
+    page: 1,
     searchString: ""
   }),
   computed: {
@@ -42,12 +44,13 @@ export default {
       "clearSearchResults"
     ]),
     ...mapActions(["searchPosts"]),
-    search(searchString) {
+    search() {
       if (this.siteName !== undefined) {
         this.searchPosts({
           siteUrl: this.siteUrl,
-          searchString,
-          count: 10
+          searchString: this.searchString,
+          count: 10,
+          page: this.page
         }).then(data => {
           data = data.map(post => ({
             id: post.id,
@@ -65,8 +68,9 @@ export default {
         this.sites.forEach(site => {
           this.searchPosts({
             siteUrl: site.url,
-            searchString,
-            count: 10
+            searchString: this.searchString,
+            count: 10,
+            page: this.page
           }).then(data => {
             data = data.map(post => ({
               id: post.id,
