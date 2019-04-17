@@ -140,6 +140,7 @@ import { mapState } from "vuex";
 
 export default {
   props: ["siteName"],
+
   computed: {
     ...mapState(["sites", "loadingCount"]),
     siteLogo() {
@@ -156,6 +157,7 @@ export default {
 .header-section {
   .progress-bar {
     position: fixed;
+    z-index: 999;
   }
 
   .site-logo-fixed {

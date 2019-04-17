@@ -6,7 +6,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    searchString: "",
     loadingCount: 0,
+    searchResults: [
+      // {
+      //   id,
+      //   slug,
+      //   siteName,
+      //   title,
+      //   date,
+      //   link,
+      //   content
+      // }
+    ],
     sites: [
       {
         name: "vietnam",
@@ -49,6 +61,19 @@ export default new Vuex.Store({
     stopLoading(state) {
       // console.log("stop loading");
       state.loadingCount--;
+    },
+    updateSearchString(state, text) {
+      state.searchString = text;
+    },
+    updateSearchResults(state, data) {
+      // console.log("update data:", data);
+      // console.log("before update:", state.searchResults);
+      data.forEach(post => state.searchResults.push(post));
+
+      // console.log("after update:", state.searchResults);
+    },
+    clearSearchResults(state) {
+      state.searchResults = [];
     }
   },
   actions: {
@@ -104,6 +129,22 @@ export default new Vuex.Store({
         .then(data => {
           context.commit("stopLoading");
           // console.log('post:', data)
+          return data;
+        });
+    },
+    searchPosts(context, { siteUrl, searchString, count }) {
+      context.commit("startLoading");
+      context.commit("clearSearchResults");
+
+      //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
+      return axios
+        .get(
+          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${count}`
+        )
+        .then(response => response.data)
+        .then(data => {
+          context.commit("stopLoading");
+          // console.log("post:", data);
           return data;
         });
     }

@@ -1,35 +1,69 @@
 <template>
   <!-- Post list -->
   <v-flex xs12 md8 class="post-list" py-4>
+    <SearchForm :siteName="siteName"/>
+
     <!-- Middle screen and up -->
-    <v-layout wrap>
-      <v-flex v-for="(post, i) in sortedPosts" :key="i" xs12 py-1>
-        <v-card class="site-card" :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
-          <v-layout>
-            <!-- Site color point -->
-            <v-btn
-              :to="'/' + siteName"
-              fab
-              raised
-              class="color-point ma-3"
-              :style="'background-color: ' + getSiteColor(post.siteName)"
-            ></v-btn>
+    <v-layout>
+      <v-layout v-if="searchString" wrap>
+        <v-flex v-for="(post, i) in sortedSearchResults" :key="i" py-1 xs12>
+          <v-card class="site-card" :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
+            <v-layout>
+              <!-- Site color point -->
+              <v-btn
+                :to="'/' + siteName"
+                fab
+                raised
+                class="color-point ma-3"
+                :style="'background-color: ' + getSiteColor(post.siteName)"
+              ></v-btn>
 
-            <v-flex class="site-info">
-              <v-card-title class="site-title">
-                <h3 class="subheading" v-html="post.title"></h3>
-              </v-card-title>
+              <v-flex class="site-info">
+                <v-card-title class="site-title">
+                  <h3 class="subheading" v-html="post.title"></h3>
+                </v-card-title>
 
-              <v-card-text class="post-details font-weight-light">
-                <v-layout justify-space-between>
-                  <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
-                  <span class="body-1 grey--text">{{ getRusSiteName(post.siteName) }}</span>
-                </v-layout>
-              </v-card-text>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
+                <v-card-text class="post-details font-weight-light">
+                  <v-layout justify-space-between>
+                    <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
+                    <span class="body-1 grey--text">{{ getRusSiteName(post.siteName) }}</span>
+                  </v-layout>
+                </v-card-text>
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
+
+      <v-layout v-else wrap>
+        <v-flex v-for="(post, i) in sortedPosts" :key="i" py-1 xs12>
+          <v-card class="site-card" :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
+            <v-layout>
+              <!-- Site color point -->
+              <v-btn
+                :to="'/' + siteName"
+                fab
+                raised
+                class="color-point ma-3"
+                :style="'background-color: ' + getSiteColor(post.siteName)"
+              ></v-btn>
+
+              <v-flex class="site-info">
+                <v-card-title class="site-title">
+                  <h3 class="subheading" v-html="post.title"></h3>
+                </v-card-title>
+
+                <v-card-text class="post-details font-weight-light">
+                  <v-layout justify-space-between>
+                    <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
+                    <span class="body-1 grey--text">{{ getRusSiteName(post.siteName) }}</span>
+                  </v-layout>
+                </v-card-text>
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </v-layout>
   </v-flex>
 </template>
@@ -38,7 +72,12 @@
 import { mapState, mapActions } from "vuex";
 import { DateTime } from "luxon";
 
+import SearchForm from "./SearchForm";
+
 export default {
+  components: {
+    SearchForm
+  },
   props: ["siteName", "offset"],
   data: () => ({
     page: 1,
@@ -55,9 +94,17 @@ export default {
     ]
   }),
   computed: {
-    ...mapState(["sites"]),
+    ...mapState(["sites", "searchString", "searchResults"]),
     sortedPosts() {
       const posts = [...this.posts];
+      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      return sorted;
+    },
+    sortedSearchResults() {
+      if (!this.searchResults) return null;
+
+      const posts = [...this.searchResults];
       const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       return sorted;
@@ -80,6 +127,12 @@ export default {
     getSiteLogo2(siteName) {
       return this.sites.find(site => site.name === siteName).logo2;
     },
+    getDate(date) {
+      if (!date) return "";
+      return DateTime.fromISO(date, { locale: "ru" }).toLocaleString(
+        DateTime.DATE_FULL
+      );
+    },
     savePostData({ siteName, data }) {
       this.posts.push({
         id: data.id,
@@ -90,12 +143,6 @@ export default {
         link: data.link,
         content: data.content.rendered
       });
-    },
-    getDate(date) {
-      if (!date) return "";
-      return DateTime.fromISO(date, { locale: "ru" }).toLocaleString(
-        DateTime.DATE_FULL
-      );
     }
   },
   mounted() {
@@ -117,7 +164,7 @@ export default {
       this.getLastPosts({
         siteUrl: this.getSiteUrl(this.siteName),
         page: this.page,
-        count: 7,
+        count: 10,
         offset: this.offset
       }).then(data =>
         data.forEach(post =>

@@ -2,7 +2,7 @@
   <!-- Content block -->
   <v-flex class="post" :class="siteName" xs12 md8 mb-4>
     <!-- Set title to page -->
-    <vue-headful :title="`${ title } - ${ rusSiteName } Сегодня`"/>
+    <vue-headful :title="`${ getTitle(title) } - ${ rusSiteName } Сегодня`"/>
 
     <v-layout v-show="img">
       <v-card light class="pt-3 pb-2 px-3 content">
@@ -110,6 +110,11 @@ export default {
   },
   methods: {
     ...mapActions(["getPostBySlug", "getMedia"]),
+    getTitle(title) {
+      const div = document.createElement("div");
+      div.innerHTML = title;
+      return div.innerText;
+    },
     savePostData(data) {
       this.id = data.id;
       this.slug = data.slug;
