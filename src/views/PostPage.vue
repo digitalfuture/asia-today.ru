@@ -12,13 +12,13 @@
 
       <v-layout>
         <LeftSideBar :siteName="siteName"/>
-        <PostGrid :siteName="siteName" offset="0" :postSlug="postSlug"/>
+        <PostGrid :siteName="siteName" :offset="0" :perPage="4" :postSlug="postSlug"/>
         <RightSideBar :siteName="siteName"/>
       </v-layout>
 
       <v-layout>
         <v-flex xs0 md2></v-flex>
-        <PostList :siteName="siteName" offset="4" :postSlug="postSlug"/>
+        <PostList :siteName="siteName" :offset="4" :perPage="10" :postSlug="postSlug"/>
         <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>

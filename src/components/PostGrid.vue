@@ -34,7 +34,7 @@ export default {
   components: {
     PostCard
   },
-  props: ["siteName", "offset"],
+  props: ["siteName", "offset", "perPage"],
   data: () => ({
     posts: [
       // {
@@ -83,8 +83,8 @@ export default {
       this.sites.forEach(site =>
         this.getLastPostsEmbed({
           siteUrl: site.url,
-          count: 1,
-          offset: this.offset
+          offset: this.offset,
+          perPage: this.perPage
         }).then(data =>
           this.savePostData({
             siteName: site.name,
@@ -92,24 +92,11 @@ export default {
           })
         )
       );
-    } else if (this.$route.name === "sitePage") {
+    } else {
       this.getLastPostsEmbed({
         siteUrl: this.getSiteUrl(this.siteName),
-        count: 4,
-        offset: this.offset
-      }).then(data =>
-        data.forEach(post =>
-          this.savePostData({
-            siteName: this.siteName,
-            data: post
-          })
-        )
-      );
-    } else if (this.$route.name === "postPage") {
-      this.getLastPostsEmbed({
-        siteUrl: this.getSiteUrl(this.siteName),
-        count: 4,
-        offset: this.offset
+        offset: this.offset,
+        perPage: this.perPage
       }).then(data =>
         data.forEach(post =>
           this.savePostData({

@@ -50,9 +50,6 @@ export default new Vuex.Store({
       }
     ]
   },
-  getters: {
-    //
-  },
   mutations: {
     startLoading(state) {
       // console.log("start loading");
@@ -66,7 +63,7 @@ export default new Vuex.Store({
       state.searchString = text;
     },
     updateSearchResults(state, data) {
-      // console.log("update data:", data);
+      console.log("update data:", data);
       // console.log("before update:", state.searchResults);
       data.forEach(post => state.searchResults.push(post));
 
@@ -83,12 +80,12 @@ export default new Vuex.Store({
     scrollToTop() {
       Vue.prototype.$vuetify.goTo(".scroll-up");
     },
-    getLastPosts(context, { siteUrl, page, count, offset }) {
+    getLastPosts(context, { siteUrl, page, perPage, offset }) {
       context.commit("startLoading");
 
       return axios
         .get(
-          `${siteUrl}/wp-json/wp/v2/posts?page=${page}&offset=${offset}&per_page=${count}`
+          `${siteUrl}/wp-json/wp/v2/posts?offset=${offset}&per_page=${perPage}`
         )
         .then(response => response.data)
         .then(data => {
@@ -97,12 +94,12 @@ export default new Vuex.Store({
           return data;
         });
     },
-    getLastPostsEmbed(context, { siteUrl, count, offset }) {
+    getLastPostsEmbed(context, { siteUrl, perPage, offset }) {
       context.commit("startLoading");
 
       return axios
         .get(
-          `${siteUrl}/wp-json/wp/v2/posts?offset=${offset}&per_page=${count}&_embed`
+          `${siteUrl}/wp-json/wp/v2/posts?offset=${offset}&per_page=${perPage}&_embed`
         )
         .then(response => response.data)
         .then(data => {
@@ -135,14 +132,13 @@ export default new Vuex.Store({
           return data;
         });
     },
-    searchPosts(context, { siteUrl, searchString, count, page }) {
+    searchPosts(context, { siteUrl, searchString, offset, perPage }) {
       context.commit("startLoading");
-      context.commit("clearSearchResults");
 
       //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
       return axios
         .get(
-          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${count}&page=${page}`
+          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${perPage}&offset=${offset}`
         )
         .then(response => response.data)
         .then(data => {

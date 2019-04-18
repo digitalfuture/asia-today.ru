@@ -9,13 +9,13 @@
     <v-container pa-0 fluid>
       <v-layout>
         <LeftSideBar/>
-        <PostGrid offset="0"/>
+        <PostGrid :offset="0" :perPage="1"/>
         <RightSideBar/>
       </v-layout>
 
       <v-layout>
         <v-flex xs0 md2></v-flex>
-        <PostList offset="1"/>
+        <PostList :offset="1" :perPage="1"/>
         <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>

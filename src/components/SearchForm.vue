@@ -11,6 +11,7 @@
       @click:clear="clearSearchResults"
       v-model="searchString"
       @keyup.enter="search"
+      @input="clearSearchResults"
     ></v-text-field>
   </v-flex>
 </template>
@@ -18,9 +19,8 @@
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
-  props: ["siteName"],
+  props: ["siteName", "offset", "perPage"],
   data: () => ({
-    page: 1,
     searchString: ""
   }),
   computed: {
@@ -34,7 +34,11 @@ export default {
   },
   watch: {
     searchString() {
-      searchString: this.updateSearchString(this.searchString);
+      this.updateSearchString(this.searchString);
+    },
+    offset() {
+      console.log("search more");
+      this.search();
     }
   },
   methods: {
@@ -49,8 +53,8 @@ export default {
         this.searchPosts({
           siteUrl: this.siteUrl,
           searchString: this.searchString,
-          count: 10,
-          page: this.page
+          perPage: this.perPage,
+          offset: this.offset
         }).then(data => {
           data = data.map(post => ({
             id: post.id,
@@ -69,8 +73,8 @@ export default {
           this.searchPosts({
             siteUrl: site.url,
             searchString: this.searchString,
-            count: 10,
-            page: this.page
+            offset: this.offset,
+            perPage: this.perPage
           }).then(data => {
             data = data.map(post => ({
               id: post.id,

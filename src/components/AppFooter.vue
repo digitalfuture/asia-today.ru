@@ -2,7 +2,7 @@
   <v-footer class="footer-section scroll-down pa-3" height="auto" light>
     <!-- Footer -->
     <v-layout justify-space-between xs12 fill-height wrap>
-      <v-flex xs12 sm6 md4 align-space-between justify-space-between column fill-height>
+      <v-flex xs12 sm8 md4 align-space-between justify-space-between column fill-height>
         <!-- All logos block -->
         <v-layout xs12 wrap py-5 class="hidden-sm-and-up">
           <v-flex v-for="(site, i) in sites" :key="i">
@@ -46,7 +46,7 @@
             </h2>
           </v-flex>
 
-          <hr width="80%">
+          <hr width="10%">
 
           <v-flex pb-5 pt-3>
             <p xs12 class="body-2">
@@ -73,22 +73,23 @@
       </v-flex>
 
       <!-- All logos block -->
-      <v-flex xs0 sm6 md4>
-        <v-layout wrap class="all-sites-logos hidden-xs-only" align-center fill-height>
+      <v-flex xs0 sm4 md8>
+        <v-layout class="all-sites-logos hidden-xs-only" align-center justify-center fill-height>
           <!-- Rounded site logos -->
-          <v-layout wrap>
-            <v-flex v-for="(site, i) in sites" :key="i">
-              <v-layout justify-center>
-                <v-btn :to="'/' + site.name" fab class="site-logo-fixed" color="black">
-                  <v-img :src="site.logo" class="logo-image" contain></v-img>
-                </v-btn>
-              </v-layout>
-            </v-flex>
-          </v-layout>
+
+          <div>
+            <v-layout wrap>
+              <v-flex v-for="(site, i) in sites" :key="i">
+                <v-layout justify-center>
+                  <v-btn :to="'/' + site.name" fab class="site-logo-fixed" color="black">
+                    <v-img :src="site.logo" class="logo-image" contain></v-img>
+                  </v-btn>
+                </v-layout>
+              </v-flex>
+            </v-layout>
+          </div>
         </v-layout>
       </v-flex>
-
-      <v-flex xs0 md4></v-flex>
     </v-layout>
   </v-footer>
 </template>
@@ -114,6 +115,10 @@ export default {
     border-radius: 25px;
     background: rgba(245, 245, 245, 0.5);
     padding: 12px;
+  }
+
+  .title {
+    font-weight: 400;
   }
 
   .footer-logo {
