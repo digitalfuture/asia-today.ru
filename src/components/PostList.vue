@@ -68,7 +68,6 @@ export default {
   },
   watch: {
     currentOffset() {
-      console.log("load more");
       this.getPosts();
     }
   },

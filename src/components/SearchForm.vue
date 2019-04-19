@@ -37,7 +37,6 @@ export default {
       this.updateSearchString(this.searchString);
     },
     offset() {
-      console.log("search more");
       this.search();
     }
   },
