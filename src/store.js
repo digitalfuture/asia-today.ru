@@ -63,7 +63,7 @@ export default new Vuex.Store({
       state.searchString = text;
     },
     updateSearchResults(state, data) {
-      console.log("update data:", data);
+      // console.log("update data:", data);
       // console.log("before update:", state.searchResults);
       data.forEach(post => state.searchResults.push(post));
 
@@ -80,7 +80,7 @@ export default new Vuex.Store({
     scrollToTop() {
       Vue.prototype.$vuetify.goTo(".scroll-up");
     },
-    getLastPosts(context, { siteUrl, page, perPage, offset }) {
+    getLastPosts(context, { siteUrl, perPage, offset }) {
       context.commit("startLoading");
 
       return axios
