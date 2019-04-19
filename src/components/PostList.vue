@@ -119,7 +119,7 @@ export default {
             perPage: this.perPage,
             offset: this.currentOffset
           }).then(posts =>
-            posts.ForEach(post =>
+            posts.forEach(post =>
               this.savePostData({
                 siteName: site.name,
                 data: post
