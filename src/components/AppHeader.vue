@@ -128,7 +128,7 @@
       <v-flex class="hidden-xs-only">
         <h2 class="subheading font-weight-light grey--text text--darken-1 text-xs-center">
           ПОСЛЕДНИЕ
-          <br>НОВОСТИ
+          <br>>НОВОСТИ
         </h2>
       </v-flex>
     </v-layout>

@@ -2,20 +2,20 @@
   <!-- Site page -->
   <section>
     <!-- Set title to page -->
-    <vue-headful :title="`${ rusSiteName } Сегодня`"/>
+    <vue-headful :title="`${rusSiteName} Сегодня`" />
 
-    <AppHeader :siteName="siteName"/>
+    <AppHeader :siteName="siteName" />
 
     <v-container pa-0 fluid>
       <v-layout>
-        <LeftSideBar :siteName="siteName"/>
-        <PostGrid :siteName="siteName" :offset="0" :perPage="4"/>
-        <RightSideBar :siteName="siteName"/>
+        <LeftSideBar :siteName="siteName" />
+        <PostGrid :siteName="siteName" :offset="0" :perPage="4" />
+        <RightSideBar :siteName="siteName" />
       </v-layout>
 
       <v-layout>
         <v-flex xs0 md2></v-flex>
-        <PostList :siteName="siteName" :offset="1" :perPage="10"/>
+        <PostList :siteName="siteName" :offset="1" :perPage="10" />
         <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>

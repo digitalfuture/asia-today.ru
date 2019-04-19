@@ -12,14 +12,14 @@
       wrap
     >
       <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pa-1" md6>
-        <PostCard :post="post"/>
+        <PostCard :post="post" />
       </v-flex>
     </v-layout>
 
     <!-- Small screen and down -->
     <v-layout class="hidden-md-and-up" xs12 wrap>
       <v-flex v-for="(post, i) in posts" :key="i" class="pb-2" xs12>
-        <PostCard :post="post"/>
+        <PostCard :post="post" />
       </v-flex>
     </v-layout>
   </v-flex>

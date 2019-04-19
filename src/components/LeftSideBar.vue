@@ -4,20 +4,24 @@
     <v-layout column align-center fill-height justify-space-between>
       <!-- Rounded site logo -->
       <v-btn :to="'/'" fab class="site-logo-fixed" color="black">
-        <v-img :src="require('@/assets/logo-today-transparent.png')" class="logo-image" contain></v-img>
+        <v-img
+          :src="require('@/assets/logo-today-transparent.png')"
+          class="logo-image"
+          contain
+        ></v-img>
       </v-btn>
 
       <!-- Large screens and up - fixed text size -->
       <h1 class="hidden-md-and-down headline text-md-center">
         <span class="font-weight-regular text-uppercase">АЗИЯ</span>
-        <br>
+        <br />
         <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
       </h1>
 
       <!-- Middle screens only - responsive text size-->
       <h1 class="hidden-lg-and-up headline text-md-center text-responsive">
         <span class="font-weight-regular text-uppercase">АЗИЯ</span>
-        <br>
+        <br />
         <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
       </h1>
 
@@ -25,9 +29,11 @@
       <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
 
       <!-- Tag line -->
-      <h2 class="subheading font-weight-light grey--text text--darken-1 text-md-center">
+      <h2
+        class="subheading font-weight-light grey--text text--darken-1 text-md-center"
+      >
         НОВОСТИ
-        <br>АЗИИ
+        <br />АЗИИ
       </h2>
     </v-layout>
   </v-flex>

@@ -38,15 +38,19 @@
 
       <!-- Large screens and up - fixed text size -->
       <h1 class="hidden-md-and-down headline text-md-center">
-        <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
-        <br>
+        <span class="font-weight-regular text-uppercase">{{
+          rusSiteName
+        }}</span>
+        <br />
         <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
       </h1>
 
       <!-- Middle screens only - responsive text size-->
       <h1 class="hidden-lg-and-up headline text-md-center text-responsive">
-        <span class="font-weight-regular text-uppercase">{{ rusSiteName }}</span>
-        <br>
+        <span class="font-weight-regular text-uppercase">{{
+          rusSiteName
+        }}</span>
+        <br />
         <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
       </h1>
 
@@ -54,9 +58,11 @@
       <v-icon class="grey--text text--darken-3">fiber_manual_record</v-icon>
 
       <!-- Tag line -->
-      <h2 class="subheading font-weight-light grey--text text--darken-1 text-md-center">
+      <h2
+        class="subheading font-weight-light grey--text text--darken-1 text-md-center"
+      >
         ПОСЛЕДНИЕ
-        <br>НОВОСТИ
+        <br />НОВОСТИ
       </h2>
     </v-layout>
   </v-flex>

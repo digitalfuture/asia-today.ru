@@ -1,13 +1,17 @@
 <template>
   <!-- Post list -->
   <v-flex xs12 md8 class="post-list" py-4>
-    <SearchForm :siteName="siteName" :offset="searchCurrentOffset" :perPage="perPage"/>
+    <SearchForm
+      :siteName="siteName"
+      :offset="searchCurrentOffset"
+      :perPage="perPage"
+    />
 
     <v-layout wrap>
       <v-flex v-if="searchString" xs12>
         <v-layout wrap>
           <v-flex v-for="(post, i) in searchResults" :key="i" py-1 xs12>
-            <PostStripe :post="post" :siteName="post.siteName"/>
+            <PostStripe :post="post" :siteName="post.siteName" />
           </v-flex>
         </v-layout>
 
@@ -22,7 +26,7 @@
         <v-layout xs12>
           <v-layout xs12 wrap>
             <v-flex v-for="(post, i) in filteredPosts" :key="i" py-1 xs12>
-              <PostStripe :post="post" :siteName="post.siteName"/>
+              <PostStripe :post="post" :siteName="post.siteName" />
             </v-flex>
           </v-layout>
         </v-layout>
@@ -114,11 +118,13 @@ export default {
             page: this.page,
             perPage: this.perPage,
             offset: this.currentOffset
-          }).then(data =>
-            this.savePostData({
-              siteName: site.name,
-              data: data[0]
-            })
+          }).then(posts =>
+            posts.ForEach(post =>
+              this.savePostData({
+                siteName: site.name,
+                data: post
+              })
+            )
           )
         );
       } else {

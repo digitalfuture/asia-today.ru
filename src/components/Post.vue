@@ -2,7 +2,7 @@
   <!-- Content block -->
   <v-flex class="post" :class="siteName" xs12 md8 mb-4>
     <!-- Set title to page -->
-    <vue-headful :title="`${ getTitle(title) } - ${ rusSiteName } Сегодня`"/>
+    <vue-headful :title="`${getTitle(title)} - ${rusSiteName} Сегодня`" />
 
     <v-layout v-show="img">
       <v-card light class="pt-3 pb-2 px-3 content">
@@ -12,11 +12,14 @@
           :lazy-src="require('@/assets/placeholder.jpg')"
           class="post-img white--text hidden-sm-and-down"
           gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
-          :aspect-ratio="16/9"
+          :aspect-ratio="16 / 9"
         >
           <v-flex mx-4>
             <v-card-title>
-              <h1 class="display-2 font-weight-light white--text" v-html="title"></h1>
+              <h1
+                class="display-2 font-weight-light white--text"
+                v-html="title"
+              ></h1>
             </v-card-title>
           </v-flex>
         </v-img>
@@ -27,24 +30,27 @@
           :lazy-src="require('@/assets/placeholder.jpg')"
           class="post-img white--text hidden-md-and-up"
           gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
-          :aspect-ratio="16/9"
+          :aspect-ratio="16 / 9"
         >
           <v-flex mx-4>
             <v-card-title>
-              <h1 class="display-1 font-weight-light white--text" v-html="title"></h1>
+              <h1
+                class="display-1 font-weight-light white--text"
+                v-html="title"
+              ></h1>
             </v-card-title>
           </v-flex>
         </v-img>
 
         <v-flex mt-3>
-          <hr>
+          <hr />
         </v-flex>
 
         <v-card-text class="px-0">
           <div v-html="content"></div>
 
           <v-flex mt-4 mb-5>
-            <hr>
+            <hr />
           </v-flex>
 
           <div class="site-date font-italic font-weight-light">
@@ -57,7 +63,16 @@
                 <!-- Extra small screens - align left -->
                 <v-layout justify-start class="hidden-sm-and-up">
                   <yandex-share
-                    :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'twitter', 'tumblr', 'viber', 'telegram']"
+                    :services="[
+                      'vkontakte',
+                      'facebook',
+                      'twitter',
+                      'odnoklassniki',
+                      'twitter',
+                      'tumblr',
+                      'viber',
+                      'telegram'
+                    ]"
                     counter
                     :description="title"
                   />
@@ -66,7 +81,15 @@
                 <!-- Small screens and up - align right -->
                 <v-layout justify-end class="hidden-xs-only">
                   <yandex-share
-                    :services="['vkontakte','facebook','twitter', 'odnoklassniki', 'tumblr', 'viber', 'telegram']"
+                    :services="[
+                      'vkontakte',
+                      'facebook',
+                      'twitter',
+                      'odnoklassniki',
+                      'tumblr',
+                      'viber',
+                      'telegram'
+                    ]"
                     counter
                     :description="title"
                   />

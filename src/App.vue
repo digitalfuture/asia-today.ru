@@ -4,10 +4,10 @@
       <v-content>
         <router-view :key="$route.path"></router-view>
       </v-content>
-      <AppFooter/>
+      <AppFooter />
     </v-container>
 
-    <ScrollButton/>
+    <ScrollButton />
   </v-app>
 </template>
 

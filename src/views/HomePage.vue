@@ -2,20 +2,20 @@
   <!-- Home page -->
   <section>
     <!-- Set title to page -->
-    <vue-headful title="Азия Сегодня"/>
+    <vue-headful title="Азия Сегодня" />
 
-    <AppHeader/>
+    <AppHeader />
 
     <v-container pa-0 fluid>
       <v-layout>
-        <LeftSideBar/>
-        <PostGrid :offset="0" :perPage="1"/>
-        <RightSideBar/>
+        <LeftSideBar />
+        <PostGrid :offset="0" :perPage="1" />
+        <RightSideBar />
       </v-layout>
 
       <v-layout>
         <v-flex xs0 md2></v-flex>
-        <PostList :offset="1" :perPage="1"/>
+        <PostList :offset="1" :perPage="5" />
         <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>

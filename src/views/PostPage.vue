@@ -1,24 +1,34 @@
 <template>
   <!-- Post page -->
   <section>
-    <AppHeader :siteName="siteName"/>
+    <AppHeader :siteName="siteName" />
 
     <v-container fluid px-0>
       <v-layout>
-        <LeftSideBar :siteName="siteName"/>
-        <Post :siteName="siteName" :postSlug="postSlug"/>
-        <RightSideBar :siteName="siteName"/>
+        <LeftSideBar :siteName="siteName" />
+        <Post :siteName="siteName" :postSlug="postSlug" />
+        <RightSideBar :siteName="siteName" />
       </v-layout>
 
       <v-layout>
-        <LeftSideBar :siteName="siteName"/>
-        <PostGrid :siteName="siteName" :offset="0" :perPage="4" :postSlug="postSlug"/>
-        <RightSideBar :siteName="siteName"/>
+        <LeftSideBar :siteName="siteName" />
+        <PostGrid
+          :siteName="siteName"
+          :offset="0"
+          :perPage="4"
+          :postSlug="postSlug"
+        />
+        <RightSideBar :siteName="siteName" />
       </v-layout>
 
       <v-layout>
         <v-flex xs0 md2></v-flex>
-        <PostList :siteName="siteName" :offset="4" :perPage="10" :postSlug="postSlug"/>
+        <PostList
+          :siteName="siteName"
+          :offset="4"
+          :perPage="10"
+          :postSlug="postSlug"
+        />
         <v-flex xs0 md2></v-flex>
       </v-layout>
     </v-container>
@@ -46,5 +56,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

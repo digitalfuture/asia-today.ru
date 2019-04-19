@@ -1,5 +1,11 @@
 <template>
-  <v-card class="site-card" :to="'/' + post.siteName + '/' + post.slug" raised ripple dark>
+  <v-card
+    class="site-card"
+    :to="'/' + post.siteName + '/' + post.slug"
+    raised
+    ripple
+    dark
+  >
     <v-layout>
       <!-- Site color point -->
       <v-btn
@@ -17,8 +23,12 @@
 
         <v-card-text class="post-details font-weight-light">
           <v-layout justify-space-between>
-            <span class="grey--text post-date font-italic">{{ getDate(post.date) }}</span>
-            <span class="body-1 grey--text">{{ getRusSiteName(post.siteName) }}</span>
+            <span class="grey--text post-date font-italic">{{
+              getDate(post.date)
+            }}</span>
+            <span class="body-1 grey--text">{{
+              getRusSiteName(post.siteName)
+            }}</span>
           </v-layout>
         </v-card-text>
       </v-flex>
