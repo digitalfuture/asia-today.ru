@@ -8,9 +8,9 @@
 
     <v-container pa-0 fluid>
       <v-layout>
-        <LeftSideBar :siteName="siteName" />
+        <SideBarLeft :siteName="siteName" />
         <PostGrid :siteName="siteName" :offset="0" :perPage="4" />
-        <RightSideBar :siteName="siteName" />
+        <SideBarRight :siteName="siteName" />
       </v-layout>
 
       <v-layout>
@@ -25,8 +25,8 @@
 <script>
 import { mapState } from "vuex";
 import AppHeader from "../components/AppHeader";
-import LeftSideBar from "../components/LeftSideBar";
-import RightSideBar from "../components/RightSideBar";
+import SideBarLeft from "../components/SideBarLeft";
+import SideBarRight from "../components/SideBarRight";
 import PostGrid from "../components/PostGrid";
 import PostList from "../components/PostList";
 
@@ -35,8 +35,8 @@ export default {
     AppHeader,
     PostGrid,
     PostList,
-    LeftSideBar,
-    RightSideBar
+    SideBarLeft,
+    SideBarRight
   },
   props: ["siteName"],
   computed: {

@@ -5,20 +5,20 @@
 
     <v-container fluid px-0>
       <v-layout>
-        <LeftSideBar :siteName="siteName" />
+        <SideBarLeft :siteName="siteName" />
         <Post :siteName="siteName" :postSlug="postSlug" />
-        <RightSideBar :siteName="siteName" />
+        <SideBarRight :siteName="siteName" />
       </v-layout>
 
       <v-layout>
-        <LeftSideBar :siteName="siteName" />
+        <SideBarLeft :siteName="siteName" />
         <PostGrid
           :siteName="siteName"
           :offset="0"
           :perPage="4"
           :postSlug="postSlug"
         />
-        <RightSideBar :siteName="siteName" />
+        <SideBarRight :siteName="siteName" />
       </v-layout>
 
       <v-layout>
@@ -37,8 +37,8 @@
 
 <script>
 import AppHeader from "../components/AppHeader";
-import LeftSideBar from "../components/LeftSideBar";
-import RightSideBar from "../components/RightSideBar";
+import SideBarLeft from "../components/SideBarLeft";
+import SideBarRight from "../components/SideBarRight";
 import Post from "../components/Post";
 import PostGrid from "../components/PostGrid";
 import PostList from "../components/PostList";
@@ -46,8 +46,8 @@ import PostList from "../components/PostList";
 export default {
   components: {
     AppHeader,
-    LeftSideBar,
-    RightSideBar,
+    SideBarLeft,
+    SideBarRight,
     Post,
     PostGrid,
     PostList

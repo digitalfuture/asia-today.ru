@@ -6,38 +6,40 @@
     dark
     class="site-card grey"
   >
-    <v-img
-      :src="post.thumb"
-      :lazy-src="require('@/assets/placeholder.jpg')"
-      gradient="to top, rgba(0,0,0,.8), transparent 100%"
-      :aspect-ratio="16 / 9"
-    ></v-img>
+    <v-layout>
+      <v-img
+        :src="post.thumb"
+        :lazy-src="require('@/assets/placeholder.jpg')"
+        gradient="to top, rgba(0,0,0,.8), transparent 100%"
+        :aspect-ratio="16 / 9"
+      ></v-img>
 
-    <div class="site-info">
-      <v-card-title class="site-title">
-        <h3 class="subheading" v-html="post.title"></h3>
-      </v-card-title>
+      <div class="site-info">
+        <v-card-title class="site-title">
+          <h3 class="subheading" v-html="post.title"></h3>
+        </v-card-title>
 
-      <v-card-text class="post-details font-weight-light">
-        <v-layout justify-space-between>
-          <span class="grey--text post-date font-italic">{{
-            getDate(post.date)
-          }}</span>
-          <span class="body-1 grey--text">{{
-            getRusSiteName(post.siteName)
-          }}</span>
-        </v-layout>
-      </v-card-text>
-    </div>
+        <v-card-text class="post-details font-weight-light">
+          <v-layout justify-space-between>
+            <span class="grey--text post-date font-italic">
+              {{ getDate(post.date) }}
+            </span>
+            <span class="body-1 grey--text">
+              {{ getRusSiteName(post.siteName) }}
+            </span>
+          </v-layout>
+        </v-card-text>
+      </div>
 
-    <!-- Site logo -->
-    <v-btn
-      :to="'/' + post.siteName"
-      fab
-      raised
-      class="color-point ma-0"
-      :style="'background-color: ' + getSiteColor(post.siteName)"
-    ></v-btn>
+      <!-- Site logo -->
+      <v-btn
+        :to="'/' + post.siteName"
+        fab
+        raised
+        class="color-point ma-0"
+        :style="'background-color: ' + getSiteColor(post.siteName)"
+      ></v-btn>
+    </v-layout>
   </v-card>
 </template>
 

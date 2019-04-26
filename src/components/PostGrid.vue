@@ -5,8 +5,7 @@
     <v-layout
       class="full-height hidden-sm-and-down"
       align-content-center
-      align-center
-      justify-center
+      justify-start
       fill-height
       md12
       wrap
@@ -76,36 +75,39 @@ export default {
           data._embedded["wp:featuredmedia"][0].media_details.sizes.full
             .source_url
       });
-    }
-  },
-  mounted() {
-    if (this.$route.name === "homePage") {
-      this.sites.forEach(site =>
+    },
+    getPosts() {
+      if (this.$route.name === "homePage") {
+        this.sites.forEach(site =>
+          this.getLastPostsEmbed({
+            siteUrl: site.url,
+            offset: this.offset,
+            perPage: this.perPage
+          }).then(data =>
+            this.savePostData({
+              siteName: site.name,
+              data: data[0]
+            })
+          )
+        );
+      } else {
         this.getLastPostsEmbed({
-          siteUrl: site.url,
+          siteUrl: this.getSiteUrl(this.siteName),
           offset: this.offset,
           perPage: this.perPage
         }).then(data =>
-          this.savePostData({
-            siteName: site.name,
-            data: data[0]
-          })
-        )
-      );
-    } else {
-      this.getLastPostsEmbed({
-        siteUrl: this.getSiteUrl(this.siteName),
-        offset: this.offset,
-        perPage: this.perPage
-      }).then(data =>
-        data.forEach(post =>
-          this.savePostData({
-            siteName: this.siteName,
-            data: post
-          })
-        )
-      );
+          data.forEach(post =>
+            this.savePostData({
+              siteName: this.siteName,
+              data: post
+            })
+          )
+        );
+      }
     }
+  },
+  created() {
+    this.getPosts();
   }
 };
 </script>

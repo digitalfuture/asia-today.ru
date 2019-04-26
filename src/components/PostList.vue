@@ -3,7 +3,7 @@
   <v-flex xs12 md8 class="post-list" py-4>
     <SearchForm
       :siteName="siteName"
-      :offset="searchCurrentOffset"
+      :offset="сurrentOffsetSearch"
       :perPage="perPage"
     />
 
@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       currentOffset: this.offset,
-      searchCurrentOffset: 0,
+      сurrentOffsetSearch: 0,
       posts: [
         // {
         //   id,
@@ -65,7 +65,8 @@ export default {
         //   title,
         //   date,
         //   link,
-        //   content
+        //   content,
+        //   thumb
         // }
       ]
     };
@@ -157,10 +158,10 @@ export default {
       this.currentOffset = this.currentOffset + this.perPage;
     },
     searchMore() {
-      this.searchCurrentOffset = this.searchCurrentOffset + this.perPage;
+      this.сurrentOffsetSearch = this.сurrentOffsetSearch + this.perPage;
     }
   },
-  mounted() {
+  created() {
     this.getPosts();
   }
 };
