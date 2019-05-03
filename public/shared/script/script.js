@@ -108,7 +108,7 @@ for (const country of countries) {
 }
 
 const telegramButton = document.createElement("a");
-telegramButton.href = `${telegramLink}`;
+telegramButton.href = telegramLink;
 telegramButton.target = "_blank";
 telegramButton.innerHTML = `
     <button class="telegram-button">
