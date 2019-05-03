@@ -108,34 +108,13 @@ for (const country of countries) {
 }
 
 const telegramButton = document.createElement("a");
-telegramButton.outerHTML = `
-    <a href="${telegramLink}" target="_blank">
-        <style>
-            .telegram-button {
-                line-height: 16px;
-                text-align: left;
-                position: fixed;
-                display: flex;
-                align-items: center;
-                width: 120px;
-                height: 50px;
-                left: 0;
-                bottom: 23px;
-                background-color: #fff;
-                color: grey;
-                border-radius: 0 25px 25px 0;
-            }
-
-            .telegram-icon {
-                width: 36px;
-                margin-right: 4px;
-            }
-        </style>
-        <button class="telegram-button">
-                telegram канал
-            <img src="https://asia-today.ru/shared/img/social/telegram.png" class="telegram-icon"/>
-        </button>
-    </a>
+telegramButton.href = `${telegramLink}`;
+telegramButton.target = "_blank";
+telegramButton.innerHTML = `
+    <button class="telegram-button">
+            telegram канал
+        <img src="https://asia-today.ru/shared/img/social/telegram.png" class="telegram-icon"/>
+    </button>
 `;
 
 document.body.appendChild(telegramButton);

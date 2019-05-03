@@ -93,6 +93,26 @@
   margin-left: 5px;
 }
 
+.telegram-button {
+  line-height: 16px;
+  text-align: left;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  left: 0;
+  bottom: 23px;
+  background-color: #fff;
+  color: grey;
+  border-radius: 0 25px 25px 0;
+}
+
+.telegram-icon {
+  width: 36px;
+  margin-right: 4px;
+}
+
 /*articleFooter Banner2*/
 .articleFooterBanner2 {
   margin-top: 25px;
