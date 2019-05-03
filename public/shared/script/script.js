@@ -133,7 +133,7 @@ telegramButton.outerHTML = `
         </style>
         <button class="telegram-button">
                 telegram канал
-            <img src="https://asia-today.ru/shared/img/logotype-telegram-round-blue-logo-512.png" class="telegram-icon"/>
+            <img src="https://asia-today.ru/shared/img/social/telegram.png" class="telegram-icon"/>
         </button>
     </a>
 `;
