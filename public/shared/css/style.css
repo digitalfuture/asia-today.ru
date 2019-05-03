@@ -1,3 +1,18 @@
+.header-banner-container {
+  display: flex;
+  width: 100%;
+}
+.header-banner-item {
+  flex-grow: 1;
+  text-align: center;
+  margin: 12px;
+}
+.header-banner-item img {
+  width: 90px;
+  display: inline-block;
+  margin: auto;
+}
+
 /*  disable autor RELATED ARTICLE */
 .td-related-title .td-related-left {
   border-radius: 3px;
