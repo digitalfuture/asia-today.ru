@@ -106,6 +106,7 @@
   background-color: #fff;
   color: grey;
   border-radius: 0 25px 25px 0;
+  z-index: 999;
 }
 
 .telegram-icon {
