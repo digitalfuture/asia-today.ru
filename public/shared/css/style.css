@@ -114,6 +114,10 @@
   margin-right: 4px;
 }
 
+/* hide post views counter */
+.td-post-views {
+  display: none;
+}
 /*articleFooter Banner2*/
 .articleFooterBanner2 {
   margin-top: 25px;

@@ -237,10 +237,13 @@ export default {
 <style lang="scss">
 $vietnam-color: rgba(104, 215, 88, 1);
 $vietnam-color-light: rgba(104, 215, 88, 0.3);
+
 $thailand-color: rgba(187, 134, 252, 1);
 $thailand-color-light: rgba(187, 134, 252, 0.3);
+
 $nepal-color: rgba(77, 178, 236, 1);
 $nepal-color-light: rgba(77, 178, 236, 0.3);
+
 $philippines-color: rgba(3, 218, 198, 1);
 $philippines-color-light: rgba(3, 218, 198, 0.3);
 
