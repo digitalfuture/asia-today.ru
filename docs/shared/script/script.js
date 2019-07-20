@@ -147,7 +147,11 @@ function createArticleFooterBanners() {
 }
 
 createCountryBasedClassName();
+<<<<<<< HEAD
 // createHeaderBanner();
+=======
+createHeaderBanner();
+>>>>>>> da1b0a9726d1d084bd86a7d3373d90bef7546b43
 createSocialSharingButtons();
 createOdnoklassnikiButtons();
 // createTelegramLinks()
