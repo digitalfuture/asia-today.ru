@@ -1,4 +1,4 @@
-.header-banner-container {
+/* .header-banner-container {
   display: flex;
   width: 100%;
 }
@@ -11,13 +11,12 @@
   width: 90px;
   display: inline-block;
   margin: auto;
-}
+} */
 
 /*  disable autor RELATED ARTICLE */
 .td-related-title .td-related-left {
   border-radius: 3px;
 }
-
 .td-related-title .td-related-right {
   display: none;
 }
