@@ -1,3 +1,5 @@
+import { countries } from './config.json'
+
 export default function createHeaderBanner() {
   const headerBannerContainer = document.querySelector('.td-header-sp-rec')
   headerBannerContainer.innerHTML =

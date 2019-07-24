@@ -1,6 +1,4 @@
-import config from './config.json'
-
-const { countries } = config
+import { countries } from './config.json'
 
 export default function createOdnoklassnikiButtons() {
   const odnoklassnikiLinks = {
