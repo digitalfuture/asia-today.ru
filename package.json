@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
-    "lint": "vue-cli-service lint"
+    "build": "npm run build:main && npm run build:shared",
+    "build:main": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
+    "build:shared": "npm run prebuild:shared && parcel build -d docs/shared/script -o script.js shared/script/index.js",
+    "lint": "vue-cli-service lint",
+    "prebuild:shared": "rm -rf docs/shared/script"
   },
   "dependencies": {
     "@cookieseater/vue-yandex-share": "^0.2.1",
@@ -44,7 +47,14 @@
       "@vue/prettier"
     ],
     "rules": {
-      "no-console": "off"
+      "no-console": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "semi": false
+        }
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
