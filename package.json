@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm run build:main && npm run build:shared",
+    "build": "npm run build:components && build:post && npm run build:main && npm run build:shared",
     "build:main": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
-    "build:shared": "npm run prebuild:shared && parcel build -d docs/shared/script -o script.js shared/script/index.js",
+    "build:shared": "parcel build -d docs/shared/script -o script.js shared/script/index.js",
     "lint": "vue-cli-service lint",
-    "prebuild:shared": "rm -rf docs/shared/script"
+    "build:components": "vue-cli-service build --target wc-async --name article-grid shared/script/components/*.vue",
+    "build:post": "rm -rf public/shared/script/components/*.* && mkdir public\\shared\\script\\components && mv docs/*.* public/shared/script/components/ -v"
   },
   "dependencies": {
     "@cookieseater/vue-yandex-share": "^0.2.1",

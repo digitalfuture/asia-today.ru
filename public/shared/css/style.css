@@ -13,6 +13,11 @@
   margin: auto;
 } */
 
+/* Fix top footer banner section */
+.td-a-rec {
+  display: initial;
+}
+
 /*  disable autor RELATED ARTICLE */
 .td-related-title .td-related-left {
   border-radius: 3px;

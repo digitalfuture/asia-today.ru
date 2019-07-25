@@ -6,11 +6,5 @@ module.exports = {
   configureWebpack: {
     devtool: 'source-map'
     // mode: 'production',
-  },
-  chainWebpack: config => {
-    // config
-    //   .entry('shared')
-    //   .add('src/admin/index.js')
-    //   .end()
   }
 }
