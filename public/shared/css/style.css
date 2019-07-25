@@ -21,6 +21,9 @@
 /* Round scroll button */
 .td-scroll-up {
   border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  padding: 9px;
 }
 
 /*  disable autor RELATED ARTICLE */
