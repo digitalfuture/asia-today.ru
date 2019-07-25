@@ -17,20 +17,20 @@
   </v-slide-y-reverse-transition>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
 
 export default {
-  props: ["color"],
+  props: ['color'],
   data: () => ({
     isScrolled: false
   }),
   methods: {
-    ...mapActions(["scrollToTop"]),
+    ...mapActions(['scrollToTop']),
     onScroll() {
       window.scrollY > 600
         ? (this.isScrolled = true)
-        : (this.isScrolled = false);
+        : (this.isScrolled = false)
     }
   }
-};
+}
 </script>

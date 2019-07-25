@@ -16,37 +16,37 @@
   </v-flex>
 </template>
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
-  props: ["siteName", "offset", "perPage"],
+  props: ['siteName', 'offset', 'perPage'],
   data: () => ({
-    searchString: ""
+    searchString: ''
   }),
   computed: {
-    ...mapState(["sites", "searchResults"]),
+    ...mapState(['sites', 'searchResults']),
     siteUrl() {
-      return this.sites.find(site => site.name === this.siteName).url;
+      return this.sites.find(site => site.name === this.siteName).url
     },
     suffixString() {
-      return this.searchResults.length ? "" + this.searchResults.length : "";
+      return this.searchResults.length ? '' + this.searchResults.length : ''
     }
   },
   watch: {
     searchString() {
-      this.updateSearchString(this.searchString);
+      this.updateSearchString(this.searchString)
     },
     offset() {
-      this.search();
+      this.search()
     }
   },
   methods: {
     ...mapMutations([
-      "updateSearchString",
-      "updateSearchResults",
-      "clearSearchResults"
+      'updateSearchString',
+      'updateSearchResults',
+      'clearSearchResults'
     ]),
-    ...mapActions(["searchPosts"]),
+    ...mapActions(['searchPosts']),
     search() {
       if (this.siteName !== undefined) {
         this.searchPosts({
@@ -63,10 +63,10 @@ export default {
             date: post.date,
             link: post.link,
             content: post.content.rendered
-          }));
+          }))
 
-          this.updateSearchResults(data);
-        });
+          this.updateSearchResults(data)
+        })
       } else {
         this.sites.forEach(site => {
           this.searchPosts({
@@ -83,15 +83,15 @@ export default {
               date: post.date,
               link: post.link,
               content: post.content.rendered
-            }));
+            }))
 
-            this.updateSearchResults(data);
-          });
-        });
+            this.updateSearchResults(data)
+          })
+        })
       }
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .v-text-field__suffix {

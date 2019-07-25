@@ -1,12 +1,12 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import axios from "axios";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import axios from 'axios'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    searchString: "",
+    searchString: '',
     loadingCount: 0,
     searchResults: [
       // {
@@ -21,67 +21,67 @@ export default new Vuex.Store({
     ],
     sites: [
       {
-        name: "vietnam",
-        rusName: "Вьетнам",
-        url: "https://asia-vietnam.ru",
-        logo: require("@/assets/logo-vietnam-transparent.png"),
-        color: "#68D758"
+        name: 'vietnam',
+        rusName: 'Вьетнам',
+        url: 'https://asia-vietnam.ru',
+        logo: require('@/assets/logo-vietnam-transparent.png'),
+        color: '#68D758'
       },
       {
-        name: "nepal",
-        rusName: "Непал",
-        url: "https://asia-nepal.ru",
-        logo: require("@/assets/logo-nepal-transparent.png"),
-        color: "#4DB2EC"
+        name: 'nepal',
+        rusName: 'Непал',
+        url: 'https://asia-nepal.ru',
+        logo: require('@/assets/logo-nepal-transparent.png'),
+        color: '#4DB2EC'
       },
       {
-        name: "thailand",
-        rusName: "Таиланд",
-        url: "https://asia-thailand.ru",
-        logo: require("@/assets/logo-thailand-transparent.png"),
-        color: "#BB86FC"
+        name: 'thailand',
+        rusName: 'Таиланд',
+        url: 'https://asia-thailand.ru',
+        logo: require('@/assets/logo-thailand-transparent.png'),
+        color: '#BB86FC'
       },
       {
-        name: "philippines",
-        rusName: "Филиппины",
-        url: "https://asia-philippines.ru",
-        logo: require("@/assets/logo-philippines-transparent.png"),
-        color: "#03DAC6"
+        name: 'philippines',
+        rusName: 'Филиппины',
+        url: 'https://asia-philippines.ru',
+        logo: require('@/assets/logo-philippines-transparent.png'),
+        color: '#03DAC6'
       }
     ]
   },
   mutations: {
     startLoading(state) {
       // console.log("start loading");
-      state.loadingCount++;
+      state.loadingCount++
     },
     stopLoading(state) {
       // console.log("stop loading");
-      state.loadingCount--;
+      state.loadingCount--
     },
     updateSearchString(state, text) {
-      state.searchString = text;
+      state.searchString = text
     },
     updateSearchResults(state, data) {
       // console.log("update data:", data);
       // console.log("before update:", state.searchResults);
-      data.forEach(post => state.searchResults.push(post));
+      data.forEach(post => state.searchResults.push(post))
 
       // console.log("after update:", state.searchResults);
     },
     clearSearchString(state) {
-      state.searchString = "";
+      state.searchString = ''
     },
     clearSearchResults(state) {
-      state.searchResults = [];
+      state.searchResults = []
     }
   },
   actions: {
     scrollToTop() {
-      Vue.prototype.$vuetify.goTo(".scroll-up");
+      Vue.prototype.$vuetify.goTo('.scroll-up')
     },
     getLastPosts(context, { siteUrl, perPage, offset }) {
-      context.commit("startLoading");
+      context.commit('startLoading')
 
       return axios
         .get(
@@ -89,13 +89,13 @@ export default new Vuex.Store({
         )
         .then(response => response.data)
         .then(data => {
-          context.commit("stopLoading");
+          context.commit('stopLoading')
           // console.log(data)
-          return data;
-        });
+          return data
+        })
     },
     getLastPostsEmbed(context, { siteUrl, perPage, offset }) {
-      context.commit("startLoading");
+      context.commit('startLoading')
 
       return axios
         .get(
@@ -103,37 +103,37 @@ export default new Vuex.Store({
         )
         .then(response => response.data)
         .then(data => {
-          context.commit("stopLoading");
+          context.commit('stopLoading')
           // console.log(data)
-          return data;
-        });
+          return data
+        })
     },
     getPostById(context, { siteUrl, postId }) {
-      context.commit("startLoading");
+      context.commit('startLoading')
 
       return axios
-        .get(siteUrl + "/wp-json/wp/v2/posts/" + postId + "?_embed")
+        .get(siteUrl + '/wp-json/wp/v2/posts/' + postId + '?_embed')
         .then(response => response.data)
         .then(data => {
-          context.commit("stopLoading");
+          context.commit('stopLoading')
           // console.log(data)
-          return data;
-        });
+          return data
+        })
     },
     getPostBySlug(context, { siteUrl, postSlug }) {
-      context.commit("startLoading");
+      context.commit('startLoading')
 
       return axios
-        .get(siteUrl + "/wp-json/wp/v2/posts?slug=" + postSlug + "&_embed")
+        .get(siteUrl + '/wp-json/wp/v2/posts?slug=' + postSlug + '&_embed')
         .then(response => response.data[0])
         .then(data => {
-          context.commit("stopLoading");
+          context.commit('stopLoading')
           // console.log('post:', data)
-          return data;
-        });
+          return data
+        })
     },
     searchPosts(context, { siteUrl, searchString, offset, perPage }) {
-      context.commit("startLoading");
+      context.commit('startLoading')
 
       //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
       return axios
@@ -142,10 +142,10 @@ export default new Vuex.Store({
         )
         .then(response => response.data)
         .then(data => {
-          context.commit("stopLoading");
+          context.commit('stopLoading')
           // console.log("post:", data);
-          return data;
-        });
+          return data
+        })
     }
   }
-});
+})

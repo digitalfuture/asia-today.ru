@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import AppHeader from "../components/AppHeader";
-import SideBarLeft from "../components/SideBarLeft";
-import SideBarRight from "../components/SideBarRight";
-import PostGrid from "../components/PostGrid";
-import PostList from "../components/PostList";
+import AppHeader from '../components/AppHeader'
+import SideBarLeft from '../components/SideBarLeft'
+import SideBarRight from '../components/SideBarRight'
+import PostGrid from '../components/PostGrid'
+import PostList from '../components/PostList'
 
 export default {
   components: {
@@ -37,5 +37,5 @@ export default {
     PostGrid,
     PostList
   }
-};
+}
 </script>

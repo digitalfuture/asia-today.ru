@@ -104,134 +104,134 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import { DateTime } from "luxon";
-import YandexShare from "@cookieseater/vue-yandex-share";
+import { mapState, mapActions } from 'vuex'
+import { DateTime } from 'luxon'
+import YandexShare from '@cookieseater/vue-yandex-share'
 
 export default {
   components: {
     YandexShare
   },
-  props: ["postSlug", "siteName"],
+  props: ['postSlug', 'siteName'],
   data: () => ({
-    id: "",
-    slug: "",
-    title: "",
-    content: "",
-    date: "",
-    img: "",
-    thumb: ""
+    id: '',
+    slug: '',
+    title: '',
+    content: '',
+    date: '',
+    img: '',
+    thumb: ''
   }),
   computed: {
-    ...mapState(["sites"]),
+    ...mapState(['sites']),
     siteUrl() {
-      return this.sites.find(site => site.name === this.siteName).url;
+      return this.sites.find(site => site.name === this.siteName).url
     },
     rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName;
+      return this.sites.find(site => site.name === this.siteName).rusName
     }
   },
   methods: {
-    ...mapActions(["getPostBySlug", "getMedia"]),
+    ...mapActions(['getPostBySlug', 'getMedia']),
     getTitle(title) {
-      const div = document.createElement("div");
-      div.innerHTML = title;
-      return div.innerText;
+      const div = document.createElement('div')
+      div.innerHTML = title
+      return div.innerText
     },
     savePostData(data) {
-      this.id = data.id;
-      this.slug = data.slug;
-      this.title = data.title.rendered;
-      this.content = this.processContent(data.content.rendered);
+      this.id = data.id
+      this.slug = data.slug
+      this.title = data.title.rendered
+      this.content = this.processContent(data.content.rendered)
       this.date = DateTime.fromISO(data.date, {
-        locale: "ru"
-      }).toLocaleString(DateTime.DATE_FULL);
+        locale: 'ru'
+      }).toLocaleString(DateTime.DATE_FULL)
       this.thumb =
         data._embedded[
-          "wp:featuredmedia"
-        ][0].media_details.sizes.td_537x360.source_url;
+          'wp:featuredmedia'
+        ][0].media_details.sizes.td_537x360.source_url
       this.img =
         data._embedded[
-          "wp:featuredmedia"
-        ][0].media_details.sizes.full.source_url;
+          'wp:featuredmedia'
+        ][0].media_details.sizes.full.source_url
     },
     processContent(data) {
-      data = this.removeClasses(data);
-      data = this.processLinks(data);
-      data = this.processIframes(data);
-      data = this.processImages(data);
+      data = this.removeClasses(data)
+      data = this.processLinks(data)
+      data = this.processIframes(data)
+      data = this.processImages(data)
 
-      return data;
+      return data
     },
     removeClasses(data) {
-      const template = document.createElement("div");
-      template.innerHTML = data;
+      const template = document.createElement('div')
+      template.innerHTML = data
 
-      const elements = template.querySelectorAll("*");
+      const elements = template.querySelectorAll('*')
 
       for (const element of elements) {
-        element.classList = [];
+        element.classList = []
       }
 
-      return template.innerHTML;
+      return template.innerHTML
     },
     processLinks(data) {
-      const template = document.createElement("div");
+      const template = document.createElement('div')
 
-      template.innerHTML = data;
-      const links = template.querySelectorAll("a");
+      template.innerHTML = data
+      const links = template.querySelectorAll('a')
 
       this.sites.forEach(site => {
         for (const link of links) {
-          const domainName = site.name.split("//").reverse()[0];
+          const domainName = site.name.split('//').reverse()[0]
 
           if (link.href.search(domainName) !== -1) {
-            const linkFragments = link.href.split("/").reverse();
+            const linkFragments = link.href.split('/').reverse()
 
-            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1];
+            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
 
-            link.href = `/${site.name}/${slug}`;
-            link.target = "";
+            link.href = `/${site.name}/${slug}`
+            link.target = ''
           }
         }
-      });
+      })
 
-      return template.innerHTML;
+      return template.innerHTML
     },
     processIframes(data) {
-      const template = document.createElement("div");
+      const template = document.createElement('div')
 
-      template.innerHTML = data;
-      const iframes = template.querySelectorAll("iframe");
+      template.innerHTML = data
+      const iframes = template.querySelectorAll('iframe')
 
       for (const iframe of iframes) {
-        iframe.parentNode.classList.add("aspect-ratio");
+        iframe.parentNode.classList.add('aspect-ratio')
       }
 
-      return template.innerHTML;
+      return template.innerHTML
     },
     processImages(data) {
-      const template = document.createElement("div");
-      template.innerHTML = data;
+      const template = document.createElement('div')
+      template.innerHTML = data
 
-      const images = template.querySelectorAll("img");
+      const images = template.querySelectorAll('img')
 
       for (const image of images) {
         if (image.src.startsWith(window.location.origin)) {
-          image.src = image.src.replace(window.location.origin, this.siteUrl);
+          image.src = image.src.replace(window.location.origin, this.siteUrl)
         }
       }
 
-      return template.innerHTML;
+      return template.innerHTML
     }
   },
   mounted() {
     this.getPostBySlug({
       siteUrl: this.siteUrl,
       postSlug: this.postSlug
-    }).then(data => this.savePostData(data));
+    }).then(data => this.savePostData(data))
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -351,7 +351,7 @@ a {
       h4,
       h5,
       h6 {
-        font-family: "Roboto Condensed", sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
         margin: 24px 0;
         line-height: 1.2;
         font-weight: normal;
@@ -379,7 +379,7 @@ a {
       }
 
       em {
-        font-family: "Noto Serif", serif;
+        font-family: 'Noto Serif', serif;
       }
 
       p > em:first-child,
@@ -391,7 +391,7 @@ a {
       blockquote,
       blockquote * {
         text-align: center;
-        font-family: "Noto Serif", serif;
+        font-family: 'Noto Serif', serif;
         font-size: 1.3em;
         // font-weight: bold;
         margin: 48px 0;
@@ -417,7 +417,7 @@ a {
       }
 
       .site-date {
-        font-family: "Noto Serif", serif;
+        font-family: 'Noto Serif', serif;
         margin-top: 16px;
       }
 
@@ -430,7 +430,7 @@ a {
       }
 
       figure {
-        font-family: "Noto Serif", serif;
+        font-family: 'Noto Serif', serif;
         padding-bottom: 24px;
       }
     }

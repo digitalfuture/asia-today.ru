@@ -1,25 +1,25 @@
-import Vue from "vue";
-import "./plugins/vuetify";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import Vue from 'vue'
+import './plugins/vuetify'
+import App from './App.vue'
+import router from './router'
+import store from './store'
 
-import YandexShare from "@cookieseater/vue-yandex-share";
-import VueAnalytics from "vue-analytics";
-import vueHeadful from "vue-headful";
+import YandexShare from '@cookieseater/vue-yandex-share'
+import VueAnalytics from 'vue-analytics'
+import vueHeadful from 'vue-headful'
 
 Vue.use(VueAnalytics, {
-  id: "UA-131048533-1",
+  id: 'UA-131048533-1',
   router,
   debug: {
     // sendHitTask: false
   }
-});
+})
 
-Vue.component("yandex-share", YandexShare);
-Vue.component("vue-headful", vueHeadful);
+Vue.component('yandex-share', YandexShare)
+Vue.component('vue-headful', vueHeadful)
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 // Vue.config.errorHandler = function(err, vm, info) {
 // handle error
 // `info` is a Vue-specific error info, e.g. which lifecycle hook
@@ -31,4 +31,4 @@ new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app')

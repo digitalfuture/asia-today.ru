@@ -12,26 +12,26 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-import AppFooter from "./components/AppFooter";
-import ScrollButton from "./components/ScrollButton";
+import { mapMutations } from 'vuex'
+import AppFooter from './components/AppFooter'
+import ScrollButton from './components/ScrollButton'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     AppFooter,
     ScrollButton
   },
   methods: {
-    ...mapMutations(["clearSearchString", "clearSearchResults"])
+    ...mapMutations(['clearSearchString', 'clearSearchResults'])
   },
   watch: {
     $route() {
-      this.clearSearchString();
-      this.clearSearchResults();
+      this.clearSearchString()
+      this.clearSearchResults()
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex'
 
-import PostCard from "./PostCard";
+import PostCard from './PostCard'
 
 export default {
   components: {
     PostCard
   },
-  props: ["siteName", "offset", "perPage"],
+  props: ['siteName', 'offset', 'perPage'],
   data: () => ({
     posts: [
       // {
@@ -49,18 +49,18 @@ export default {
     ]
   }),
   computed: {
-    ...mapState(["sites"]),
+    ...mapState(['sites']),
     sortedPosts() {
-      const posts = [...this.posts];
-      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const posts = [...this.posts]
+      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-      return sorted;
+      return sorted
     }
   },
   methods: {
-    ...mapActions(["getLastPostsEmbed", "getMedia"]),
+    ...mapActions(['getLastPostsEmbed', 'getMedia']),
     getSiteUrl(siteName) {
-      return this.sites.find(site => site.name === siteName).url;
+      return this.sites.find(site => site.name === siteName).url
     },
     savePostData({ siteName, data }) {
       this.posts.push({
@@ -72,12 +72,12 @@ export default {
         link: data.link,
         content: data.content.rendered,
         thumb:
-          data._embedded["wp:featuredmedia"][0].media_details.sizes.full
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
             .source_url
-      });
+      })
     },
     getPosts() {
-      if (this.$route.name === "homePage") {
+      if (this.$route.name === 'homePage') {
         this.sites.forEach(site =>
           this.getLastPostsEmbed({
             siteUrl: site.url,
@@ -89,7 +89,7 @@ export default {
               data: data[0]
             })
           )
-        );
+        )
       } else {
         this.getLastPostsEmbed({
           siteUrl: this.getSiteUrl(this.siteName),
@@ -102,14 +102,14 @@ export default {
               data: post
             })
           )
-        );
+        )
       }
     }
   },
   created() {
-    this.getPosts();
+    this.getPosts()
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -69,20 +69,20 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
 export default {
-  props: ["siteName"],
+  props: ['siteName'],
   computed: {
-    ...mapState(["sites"]),
+    ...mapState(['sites']),
     siteLogo() {
-      return this.sites.find(site => site.name === this.siteName).logo;
+      return this.sites.find(site => site.name === this.siteName).logo
     },
     rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName;
+      return this.sites.find(site => site.name === this.siteName).rusName
     }
   }
-};
+}
 </script>
 <style lang="scss" scope>
 .right-side-bar {

@@ -36,12 +36,12 @@
 </template>
 
 <script>
-import AppHeader from "../components/AppHeader";
-import SideBarLeft from "../components/SideBarLeft";
-import SideBarRight from "../components/SideBarRight";
-import Post from "../components/Post";
-import PostGrid from "../components/PostGrid";
-import PostList from "../components/PostList";
+import AppHeader from '../components/AppHeader'
+import SideBarLeft from '../components/SideBarLeft'
+import SideBarRight from '../components/SideBarRight'
+import Post from '../components/Post'
+import PostGrid from '../components/PostGrid'
+import PostList from '../components/PostList'
 
 export default {
   components: {
@@ -52,8 +52,8 @@ export default {
     PostGrid,
     PostList
   },
-  props: ["postSlug", "siteName"]
-};
+  props: ['postSlug', 'siteName']
+}
 </script>
 
 <style lang="scss" scoped></style>

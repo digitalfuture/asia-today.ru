@@ -126,17 +126,17 @@
   </v-footer>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(["sites"])
+    ...mapState(['sites'])
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .footer-section {
-  background-image: url("../assets/background-footer.png") !important;
+  background-image: url('../assets/background-footer.png') !important;
   background-size: contain !important;
   background-position: right top !important;
   background-repeat: no-repeat !important;
@@ -161,7 +161,7 @@ export default {
   .address,
   .address a {
     text-decoration: none;
-    font-family: "Noto Serif", serif;
+    font-family: 'Noto Serif', serif;
   }
 
   .site-logo-fixed {

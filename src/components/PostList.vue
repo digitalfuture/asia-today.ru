@@ -42,17 +42,17 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex'
 
-import SearchForm from "./SearchForm";
-import PostStripe from "./PostStripe";
+import SearchForm from './SearchForm'
+import PostStripe from './PostStripe'
 
 export default {
   components: {
     SearchForm,
     PostStripe
   },
-  props: ["siteName", "offset", "perPage"],
+  props: ['siteName', 'offset', 'perPage'],
   data() {
     return {
       currentOffset: this.offset,
@@ -69,50 +69,50 @@ export default {
         //   thumb
         // }
       ]
-    };
+    }
   },
   watch: {
     currentOffset() {
-      this.getPosts();
+      this.getPosts()
     }
   },
   computed: {
-    ...mapState(["sites", "searchString", "searchResults"]),
+    ...mapState(['sites', 'searchString', 'searchResults']),
     sortedPosts() {
-      const posts = [...this.posts];
-      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const posts = [...this.posts]
+      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-      let prevPostId = null;
+      let prevPostId = null
 
       return sorted.filter(post => {
         if (post.id === prevPostId) {
-          return false;
+          return false
         } else {
-          prevPostId = post.id;
-          return true;
+          prevPostId = post.id
+          return true
         }
-      });
+      })
     },
     filteredPosts() {
-      let prevPostId = null;
+      let prevPostId = null
 
       return this.posts.filter(post => {
         if (post.id === prevPostId) {
-          return false;
+          return false
         } else {
-          prevPostId = post.id;
-          return true;
+          prevPostId = post.id
+          return true
         }
-      });
+      })
     }
   },
   methods: {
-    ...mapActions(["getLastPosts"]),
+    ...mapActions(['getLastPosts']),
     getSiteUrl(siteName) {
-      return this.sites.find(site => site.name === siteName).url;
+      return this.sites.find(site => site.name === siteName).url
     },
     getPosts() {
-      if (this.$route.name === "homePage") {
+      if (this.$route.name === 'homePage') {
         this.sites.forEach(site =>
           this.getLastPosts({
             siteUrl: site.url,
@@ -127,7 +127,7 @@ export default {
               })
             )
           )
-        );
+        )
       } else {
         this.getLastPosts({
           siteUrl: this.getSiteUrl(this.siteName),
@@ -140,7 +140,7 @@ export default {
               data: post
             })
           )
-        );
+        )
       }
     },
     savePostData({ siteName, data }) {
@@ -152,19 +152,19 @@ export default {
         date: data.date,
         link: data.link,
         content: data.content.rendered
-      });
+      })
     },
     loadMore() {
-      this.currentOffset = this.currentOffset + this.perPage;
+      this.currentOffset = this.currentOffset + this.perPage
     },
     searchMore() {
-      this.сurrentOffsetSearch = this.сurrentOffsetSearch + this.perPage;
+      this.сurrentOffsetSearch = this.сurrentOffsetSearch + this.perPage
     }
   },
   created() {
-    this.getPosts();
+    this.getPosts()
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

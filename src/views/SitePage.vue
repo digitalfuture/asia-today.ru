@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import AppHeader from "../components/AppHeader";
-import SideBarLeft from "../components/SideBarLeft";
-import SideBarRight from "../components/SideBarRight";
-import PostGrid from "../components/PostGrid";
-import PostList from "../components/PostList";
+import { mapState } from 'vuex'
+import AppHeader from '../components/AppHeader'
+import SideBarLeft from '../components/SideBarLeft'
+import SideBarRight from '../components/SideBarRight'
+import PostGrid from '../components/PostGrid'
+import PostList from '../components/PostList'
 
 export default {
   components: {
@@ -38,14 +38,14 @@ export default {
     SideBarLeft,
     SideBarRight
   },
-  props: ["siteName"],
+  props: ['siteName'],
   computed: {
-    ...mapState(["sites"]),
+    ...mapState(['sites']),
     rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName;
+      return this.sites.find(site => site.name === this.siteName).rusName
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .scroll-button {

@@ -44,36 +44,36 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon'
 
 export default {
-  props: ["post"],
+  props: ['post'],
   computed: {
-    ...mapState(["sites"])
+    ...mapState(['sites'])
   },
   methods: {
     getRusSiteName(siteName) {
-      return this.sites.find(site => site.name === siteName).rusName;
+      return this.sites.find(site => site.name === siteName).rusName
     },
     getSiteColor(siteName) {
-      return this.sites.find(site => site.name === siteName).color;
+      return this.sites.find(site => site.name === siteName).color
     },
     getSiteLogo(siteName) {
-      return this.sites.find(site => site.name === siteName).logo;
+      return this.sites.find(site => site.name === siteName).logo
     },
     getSiteLogo2(siteName) {
-      return this.sites.find(site => site.name === siteName).logo2;
+      return this.sites.find(site => site.name === siteName).logo2
     },
     getDate(date) {
-      if (!date) return "";
-      return DateTime.fromISO(date, { locale: "ru" }).toLocaleString(
+      if (!date) return ''
+      return DateTime.fromISO(date, { locale: 'ru' }).toLocaleString(
         DateTime.DATE_FULL
-      );
+      )
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -99,7 +99,7 @@ export default {
       padding: 10px 16px;
 
       .post-date {
-        font-family: "Noto Serif", serif;
+        font-family: 'Noto Serif', serif;
       }
     }
   }
