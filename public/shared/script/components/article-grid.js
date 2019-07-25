@@ -1131,12 +1131,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"44919e7a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared/script/components/article-grid.vue?vue&type=template&id=70711440&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7a9242fc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared/script/components/article-grid.vue?vue&type=template&id=af28f0c8&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"site-container"},_vm._l((_vm.articles),function(article){return _c('a',{key:article.country,staticClass:"site-container__link",attrs:{"href":article.link,"target":"_blank"}},[_c('div',{staticClass:"site-container__block site-container__thailand"},[_c('div',{staticClass:"site-container__image",style:(article.image)}),_c('div',{staticClass:"site-container__wrapper"},[_c('div',{staticClass:"site-container__logo-wrapper"},[_c('div',{staticClass:"site-container__logo site-container__logo",style:(article.logo)})]),_c('div',{staticClass:"site-container__logo-text"},[_c('span',{staticClass:"site-container__logo-text--bold"},[_vm._v(_vm._s(article.ruCountryName))]),_c('br'),_c('span',{staticClass:"site-container__logo-text--thin"},[_vm._v("СЕГОДНЯ")])])]),_c('div',{staticClass:"site-container__info"},[_vm._v(_vm._s(article.title))])])])}),0)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./shared/script/components/article-grid.vue?vue&type=template&id=70711440&shadow
+// CONCATENATED MODULE: ./shared/script/components/article-grid.vue?vue&type=template&id=af28f0c8&shadow
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.symbol.async-iterator.js
 var es7_symbol_async_iterator = __webpack_require__("ac4d");
@@ -1179,6 +1179,7 @@ var web_dom_iterable = __webpack_require__("ac6a");
 //
 /* harmony default export */ var article_gridvue_type_script_lang_js_shadow = ({
   data: () => ({
+    name: "article-grid",
     countries: [{
       name: "vietnam",
       ruName: "Вьетнам"
@@ -1197,6 +1198,8 @@ var web_dom_iterable = __webpack_require__("ac6a");
       // ruName: 'Вьетнам',
       // title: '',
       // image: ''
+      // link: ''
+      // logo: ''
       // }
     ]
   }),
@@ -1219,7 +1222,7 @@ var web_dom_iterable = __webpack_require__("ac6a");
             var title = _ref.title,
                 imageUrl = _ref.imageUrl;
             var logo = `background-image: url(https://asia-today.ru/shared/img/logo-${country.name}-icon.png)`;
-            var link = `href="https://asia-${country.name}.ru`;
+            var link = `https://asia-${country.name}.ru`;
             var image = `background: url(${imageUrl}) center center`;
 
             _this.articles.push({

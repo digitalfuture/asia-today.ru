@@ -27,6 +27,7 @@
 <script>
 export default {
   data: () => ({
+    name: "article-grid",
     countries: [
       {
         name: "vietnam",
@@ -51,6 +52,8 @@ export default {
       // ruName: 'Вьетнам',
       // title: '',
       // image: ''
+      // link: ''
+      // logo: ''
       // }
     ]
   }),
@@ -68,7 +71,7 @@ export default {
           }))
           .then(({ title, imageUrl }) => {
             const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${country.name}-icon.png)`;
-            const link = `href="https://asia-${country.name}.ru`;
+            const link = `https://asia-${country.name}.ru`;
             const image = `background: url(${imageUrl}) center center`;
 
             this.articles.push({
