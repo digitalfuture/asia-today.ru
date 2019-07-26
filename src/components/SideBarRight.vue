@@ -10,17 +10,14 @@
       justify-space-between
     >
       <!-- Rounded site logos -->
-      <v-btn
+      <SiteLogo
         v-for="(site, i) in sites"
         :key="i"
-        md12
+        hasImage
+        :siteName="site.name"
+        :sites="sites"
         :to="'/' + site.name"
-        fab
-        class="site-logo-fixed"
-        color="black"
-      >
-        <v-img :src="site.logo" class="logo-image" contain></v-img>
-      </v-btn>
+      />
     </v-layout>
 
     <!-- For all pages except home page -->
@@ -70,8 +67,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import SiteLogo from './SiteLogo'
 
 export default {
+  components: {
+    SiteLogo
+  },
   props: ['siteName'],
   computed: {
     ...mapState(['sites']),

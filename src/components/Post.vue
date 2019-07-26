@@ -35,7 +35,11 @@
           <v-flex mx-4>
             <v-card-title>
               <h1
-                class="display-1 font-weight-light white--text"
+                class="hidden-sm-and-up headline font-weight-light white--text"
+                v-html="title"
+              ></h1>
+              <h1
+                class="hidden-xs-only display-1 font-weight-light white--text"
                 v-html="title"
               ></h1>
             </v-card-title>
@@ -68,7 +72,6 @@
                       'facebook',
                       'twitter',
                       'odnoklassniki',
-                      'twitter',
                       'tumblr',
                       'viber',
                       'telegram'
@@ -247,10 +250,6 @@ $nepal-color-light: rgba(77, 178, 236, 0.3);
 $philippines-color: rgba(3, 218, 198, 1);
 $philippines-color-light: rgba(3, 218, 198, 0.3);
 
-a {
-  text-decoration: none;
-}
-
 // siteName based styles
 .vietnam {
   blockquote,
@@ -316,7 +315,6 @@ a {
 }
 
 //
-
 .post {
   hr {
     height: 12px;
@@ -325,13 +323,17 @@ a {
     border: none;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   .content {
     min-height: 100vh;
     a {
       color: #424242;
     }
     * {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 400;
 
       padding-left: 0;
@@ -359,23 +361,23 @@ a {
       }
 
       h2 {
-        font-size: 2em;
-      }
-
-      h3 {
-        font-size: 1.7em;
-      }
-
-      h4 {
         font-size: 1.4em;
       }
 
-      h5 {
+      h3 {
+        font-size: 1.3em;
+      }
+
+      h4 {
         font-size: 1.2em;
       }
 
+      h5 {
+        font-size: 1.15em;
+      }
+
       h6 {
-        font-size: 1em;
+        font-size: 1.1em;
       }
 
       em {
@@ -405,6 +407,7 @@ a {
         padding-bottom: 51%;
         border-radius: 2px;
         overflow: hidden;
+        margin-bottom: 16px;
 
         iframe {
           position: absolute;
@@ -434,6 +437,9 @@ a {
         padding-bottom: 24px;
       }
     }
+  }
+  .ya-share2__list.ya-share2__list_direction_horizontal {
+    padding-left: 0;
   }
 }
 </style>

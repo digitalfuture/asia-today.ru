@@ -11,15 +11,20 @@
         <div class="site-container__image" :style="article.image"></div>
         <div class="site-container__wrapper">
           <div class="site-container__logo-wrapper">
-            <div class="site-container__logo site-container__logo" :style="article.logo"></div>
+            <div
+              class="site-container__logo site-container__logo"
+              :style="article.logo"
+            ></div>
           </div>
           <div class="site-container__logo-text">
-            <span class="site-container__logo-text--bold">{{article.ruCountryName}}</span>
+            <span class="site-container__logo-text--bold">{{
+              article.ruCountryName
+            }}</span>
             <br />
             <span class="site-container__logo-text--thin">СЕГОДНЯ</span>
           </div>
         </div>
-        <div class="site-container__info">{{article.title}}</div>
+        <div class="site-container__info">{{ article.title }}</div>
       </div>
     </a>
   </div>
@@ -27,23 +32,23 @@
 <script>
 export default {
   data: () => ({
-    name: "article-grid",
+    name: 'article-grid',
     countries: [
       {
-        name: "vietnam",
-        ruName: "Вьетнам"
+        name: 'vietnam',
+        ruName: 'Вьетнам'
       },
       {
-        name: "thailand",
-        ruName: "Таиланд"
+        name: 'thailand',
+        ruName: 'Таиланд'
       },
       {
-        name: "philippines",
-        ruName: "Филиппины"
+        name: 'philippines',
+        ruName: 'Филиппины'
       },
       {
-        name: "nepal",
-        ruName: "Непал"
+        name: 'nepal',
+        ruName: 'Непал'
       }
     ],
     articles: [
@@ -62,17 +67,21 @@ export default {
     updateArticles() {
       for (let country of this.countries) {
         fetch(
-          `https://asia-${country.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
+          `https://asia-${
+            country.name
+          }.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
           .then(response => response.json())
           .then(data => ({
             title: data[0].title.rendered,
-            imageUrl: data[0]._embedded["wp:featuredmedia"][0].link
+            imageUrl: data[0]._embedded['wp:featuredmedia'][0].link
           }))
           .then(({ title, imageUrl }) => {
-            const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${country.name}-icon.png)`;
-            const link = `https://asia-${country.name}.ru`;
-            const image = `background: url(${imageUrl}) center center`;
+            const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${
+              country.name
+            }-icon.png)`
+            const link = `https://asia-${country.name}.ru`
+            const image = `background: url(${imageUrl}) center center`
 
             this.articles.push({
               country: country.name,
@@ -81,19 +90,19 @@ export default {
               image,
               logo,
               link
-            });
-          });
+            })
+          })
       }
     }
   },
   mounted() {
-    this.updateArticles();
+    this.updateArticles()
   }
-};
+}
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
 .site-container {
   display: flex;

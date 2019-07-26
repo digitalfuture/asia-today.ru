@@ -24,28 +24,28 @@ export default new Vuex.Store({
         name: 'vietnam',
         rusName: 'Вьетнам',
         url: 'https://asia-vietnam.ru',
-        logo: require('@/assets/logo-vietnam-transparent.png'),
+        logo: require('@/assets/logo-vietnam-icon.png'),
         color: '#68D758'
       },
       {
         name: 'nepal',
         rusName: 'Непал',
         url: 'https://asia-nepal.ru',
-        logo: require('@/assets/logo-nepal-transparent.png'),
+        logo: require('@/assets/logo-nepal-icon.png'),
         color: '#4DB2EC'
       },
       {
         name: 'thailand',
         rusName: 'Таиланд',
         url: 'https://asia-thailand.ru',
-        logo: require('@/assets/logo-thailand-transparent.png'),
+        logo: require('@/assets/logo-thailand-icon.png'),
         color: '#BB86FC'
       },
       {
         name: 'philippines',
         rusName: 'Филиппины',
         url: 'https://asia-philippines.ru',
-        logo: require('@/assets/logo-philippines-transparent.png'),
+        logo: require('@/assets/logo-philippines-icon.png'),
         color: '#03DAC6'
       }
     ]

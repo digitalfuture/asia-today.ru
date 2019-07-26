@@ -1,6 +1,6 @@
 <template>
-  <v-footer class="footer-section scroll-down pa-3" height="auto" light>
-    <!-- Footer -->
+  <!-- Footer -->
+  <v-footer class="app-footer scroll-down pa-3" height="auto" light>
     <v-layout justify-space-between xs12 fill-height wrap>
       <v-flex
         xs12
@@ -135,7 +135,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.footer-section {
+.app-footer {
   background-image: url('../assets/background-footer.png') !important;
   background-size: contain !important;
   background-position: right top !important;
