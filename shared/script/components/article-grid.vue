@@ -31,6 +31,7 @@
   </div>
 </template>
 <script>
+// Rebuild
 export default {
   data: () => ({
     name: 'article-grid',
