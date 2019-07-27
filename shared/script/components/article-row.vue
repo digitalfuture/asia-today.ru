@@ -32,8 +32,8 @@
 </template>
 <script>
 export default {
+  name: 'article-row',
   data: () => ({
-    name: 'article-grid',
     countries: [
       {
         name: 'vietnam',
@@ -66,7 +66,21 @@ export default {
   computed: {},
   methods: {
     updateArticles() {
-      for (let country of this.countries) {
+      const countries = this.countries.filter(country => {
+        console.log('country.name:', country.name)
+        console.log('country:', country)
+
+        const currentCountry =
+          Array.from(document.body.classList).indexOf(country.name) === -1
+
+        console.log('current country?', currentCountry)
+
+        return currentCountry
+      })
+
+      console.log('countries after processing:', countries)
+
+      for (let country of countries) {
         fetch(
           `https://asia-${
             country.name
@@ -112,7 +126,7 @@ export default {
 }
 .site-container__link {
   display: block;
-  width: 50%;
+  width: 226.66px;
   max-width: 100%;
 }
 .site-container__block {
@@ -139,7 +153,7 @@ export default {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .site-container__image {
   position: absolute;

@@ -8,8 +8,11 @@
     "build:main": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
     "build:shared": "parcel build -d docs/shared/script -o script.js shared/script/index.js",
     "lint": "vue-cli-service lint",
-    "build:components": "vue-cli-service build --target wc-async --name article-grid shared/script/components/*.vue",
-    "build:post": "rm -rf public/shared/script/components/*.* && mv docs/*.* public/shared/script/components/ -v"
+    "build:components": "npm run build:components:article-grid && npm run build:components:article-row",
+    "build:components:article-grid": "vue-cli-service build --target wc-async --name article-grid shared/script/components/article-grid.vue",
+    "build:components:article-row": "vue-cli-service build --target wc-async --name article-row shared/script/components/article-row.vue",
+    "build:post": "rm -rf public/shared/script/components/*.* && mv docs/*.* public/shared/script/components/ -v",
+    "service:articles-row": "vue-cli-service serve --help"
   },
   "dependencies": {
     "@cookieseater/vue-yandex-share": "^0.2.1",
