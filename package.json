@@ -4,15 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm run build:components && npm run build:post && npm run build:main && npm run build:shared",
+    "build": "rm -rf public/shared/script/components/*.* && npm run build:components && npm run build:main && npm run build:shared",
     "build:main": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
     "build:shared": "parcel build -d docs/shared/script -o script.js shared/script/index.js",
     "lint": "vue-cli-service lint",
-    "build:components": "npm run build:components:article-grid && npm run build:components:article-row",
+    "build:components": "npm run build:components:article-grid && npm run build:post && npm run build:components:article-row && npm run build:post",
     "build:components:article-grid": "vue-cli-service build --target wc-async --name article-grid shared/script/components/article-grid.vue",
     "build:components:article-row": "vue-cli-service build --target wc-async --name article-row shared/script/components/article-row.vue",
-    "build:post": "rm -rf public/shared/script/components/*.* && mv docs/*.* public/shared/script/components/ -v",
-    "service:articles-row": "vue-cli-service serve --help"
+    "build:post": "mv docs/*.* public/shared/script/components/ -v"
   },
   "dependencies": {
     "@cookieseater/vue-yandex-share": "^0.2.1",
