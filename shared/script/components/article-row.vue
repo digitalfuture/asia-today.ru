@@ -127,7 +127,7 @@ export default {
 }
 .site-container__link {
   display: block;
-  width: 226.66px;
+  width: 33.33%;
   max-width: 100%;
 }
 .site-container__block {
