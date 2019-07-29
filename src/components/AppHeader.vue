@@ -20,7 +20,7 @@
     ></v-progress-linear>
 
     <!-- Small screen and down -->
-    <v-layout justify-center align-center py-4 class="hidden-md-and-up">
+    <v-layout justify-center align-center py-4>
       <!-- Site logo -->
       <!-- Small screen-->
       <v-flex class="hidden-xs-only">
@@ -102,6 +102,8 @@ export default {
   .app-header__progress-bar {
     position: fixed;
     z-index: 999;
+    left: 0;
+    right: 0;
   }
 
   .app-header__tag-line {

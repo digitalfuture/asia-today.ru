@@ -31,7 +31,6 @@
   </div>
 </template>
 <script>
-// Rebuild
 export default {
   name: 'article-row',
   data: () => ({
@@ -68,15 +67,15 @@ export default {
   methods: {
     updateArticles() {
       const countries = this.countries.filter(country => {
-        console.log('country.name:', country.name)
-        console.log('country:', country)
+        // console.log('country.name:', country.name)
+        // console.log('country:', country)
 
         const currentCountry =
-          Array.from(document.body.classList).indexOf(country.name) === -1
+          Array.from(document.body.classList).indexOf(country.name) !== -1
 
-        console.log('current country?', currentCountry)
+        // console.log('current country?', currentCountry)
 
-        return currentCountry
+        return !currentCountry
       })
 
       console.log('countries after processing:', countries)

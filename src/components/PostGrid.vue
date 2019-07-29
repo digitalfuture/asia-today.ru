@@ -1,13 +1,11 @@
 <template>
   <!-- Post grid -->
-  <v-flex md8 class="post-grid">
+  <v-flex class="post-grid">
     <!-- Middle screen and up -->
     <v-layout
-      class="full-height hidden-sm-and-down"
+      class="hidden-sm-and-down"
       align-content-center
       justify-start
-      fill-height
-      md12
       wrap
     >
       <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pa-1" md6>
@@ -17,7 +15,7 @@
 
     <!-- Small screen and down -->
     <v-layout class="hidden-md-and-up" xs12 wrap>
-      <v-flex v-for="(post, i) in posts" :key="i" class="pb-2" xs12>
+      <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pb-2" xs12>
         <PostCard :post="post" />
       </v-flex>
     </v-layout>
@@ -111,12 +109,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.post-grid {
-  .full-height {
-    height: 100vh;
-    min-height: 600px;
-  }
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
   <!-- Content block -->
-  <v-flex class="post" :class="siteName" xs12 md8 mb-4>
+  <v-flex class="post" :class="siteName" xs12 mb-4>
     <!-- Set title to page -->
     <vue-headful :title="`${getTitle(title)} - ${rusSiteName} Сегодня`" />
 

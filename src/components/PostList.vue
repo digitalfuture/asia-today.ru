@@ -1,6 +1,6 @@
 <template>
   <!-- Post list -->
-  <v-flex xs12 md8 class="post-list" py-4>
+  <v-flex class="post-list" py-4>
     <SearchForm
       :siteName="siteName"
       :offset="сurrentOffsetSearch"

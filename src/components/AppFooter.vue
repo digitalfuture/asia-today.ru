@@ -14,16 +14,7 @@
         <!-- All logos block -->
         <v-layout xs12 wrap py-5 class="hidden-sm-and-up">
           <v-flex v-for="(site, i) in sites" :key="i">
-            <v-layout justify-center>
-              <v-btn
-                :to="'/' + site.name"
-                fab
-                class="site-logo-fixed"
-                color="black"
-              >
-                <v-img :src="site.logo" class="logo-image" contain></v-img>
-              </v-btn>
-            </v-layout>
+            <SiteLogo hasImage :siteName="site.name" />
           </v-flex>
         </v-layout>
 
@@ -36,6 +27,7 @@
           text-xs-center
           xs12
         >
+          <!-- Footer info -->
           <v-flex py-3>
             <v-btn to="/" fab class="footer-logo" raised pa-2 color="black">
               <v-img
@@ -72,8 +64,8 @@
 
           <v-flex pb-5 pt-3>
             <p xs12 class="body-2">
-              Все самое интересное и важное в одном месте.
-              <br />Бизнес. Туризм. Происшествия. <br />Полезная информация.
+              Все самое интересное и важное в одном месте. Бизнес. Туризм.
+              Происшествия. Полезная информация.
             </p>
           </v-flex>
 
@@ -103,20 +95,10 @@
           fill-height
         >
           <!-- Rounded site logos -->
-
           <div>
             <v-layout wrap>
               <v-flex v-for="(site, i) in sites" :key="i">
-                <v-layout justify-center>
-                  <v-btn
-                    :to="'/' + site.name"
-                    fab
-                    class="site-logo-fixed"
-                    color="black"
-                  >
-                    <v-img :src="site.logo" class="logo-image" contain></v-img>
-                  </v-btn>
-                </v-layout>
+                <SiteLogo hasImage :siteName="site.name" />
               </v-flex>
             </v-layout>
           </div>
@@ -127,8 +109,12 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import SiteLogo from '../components/SiteLogo'
 
 export default {
+  components: {
+    SiteLogo
+  },
   computed: {
     ...mapState(['sites'])
   }
