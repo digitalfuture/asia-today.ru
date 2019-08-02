@@ -71,7 +71,7 @@
 
           <v-flex>
             <address xs12 class="address grey--text text--darken-1">
-              Email:
+              email:
               <a
                 href="mailto:info@asia-today.ru"
                 class="grey--text text--darken-4"
@@ -80,7 +80,7 @@
             </address>
 
             <div class="caption grey--text text--darken-1">
-              &copy; {{ new Date().getFullYear() }} ASIA TODAY
+              &copy; {{ new Date().getFullYear() }} АЗИЯ СЕГОДНЯ
             </div>
           </v-flex>
         </v-layout>
