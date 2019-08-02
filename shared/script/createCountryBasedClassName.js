@@ -1,4 +1,4 @@
-const countries = ['vietnam', 'nepal', 'philippines', 'thailand']
+import countries from './countries'
 
 // Add country-based class
 export default function createCountryBasedClassName() {
