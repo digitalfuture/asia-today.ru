@@ -1,4 +1,4 @@
-import countries from './countries'
+import { countries } from './config.json'
 
 // Add country-based class
 export default function createCountryBasedClassName() {

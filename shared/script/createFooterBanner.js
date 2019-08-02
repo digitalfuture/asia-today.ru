@@ -1,4 +1,4 @@
-import countries from './countries'
+import { countries } from './config.json'
 
 export default function createFooterBanner() {
   fetch('./header.html')
