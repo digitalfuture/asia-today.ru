@@ -339,12 +339,14 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
       padding-left: 0;
       padding-right: 0;
 
-      ul {
+      ul,
+      ol {
         padding-left: 24px;
       }
 
       p,
-      ul {
+      ul,
+      ol {
         margin-bottom: 16px;
       }
 
