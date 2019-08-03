@@ -78,7 +78,7 @@ export default {
         return !currentCountry
       })
 
-      console.log('countries after processing:', countries)
+      // console.log('countries after processing:', countries)
 
       for (let country of countries) {
         fetch(
