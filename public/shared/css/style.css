@@ -39,9 +39,10 @@
   visibility: hidden;
 }
 .td-related-title::before {
-  visibility: visible; 
+  visibility: visible;
   display: block;
-  position: absolute; 
+  position: absolute;
+  content: 'Схожие статьи';
 }
 
 /*button odnoklassniki*/
