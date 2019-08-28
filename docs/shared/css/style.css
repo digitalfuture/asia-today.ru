@@ -34,6 +34,17 @@
   display: none;
 }
 
+/* Content translation for Related Articles */
+.td-related-title {
+  visibility: hidden;
+}
+.td-related-title::before {
+  visibility: visible;
+  display: block;
+  position: absolute;
+  content: 'Схожие статьи';
+}
+
 /*button odnoklassniki*/
 /*odnoklassniki-header*/
 .td-header-top-menu a[title='OK'] {
