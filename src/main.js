@@ -7,6 +7,7 @@ import store from './store'
 import YandexShare from '@cookieseater/vue-yandex-share'
 import VueAnalytics from 'vue-analytics'
 import vueHeadful from 'vue-headful'
+import './registerServiceWorker'
 
 Vue.use(VueAnalytics, {
   id: 'UA-131048533-1',
