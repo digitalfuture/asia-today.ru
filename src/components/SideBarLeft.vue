@@ -3,10 +3,10 @@
     <!-- Left side bar -->
     <v-layout column align-center fill-height justify-space-between>
       <!-- Rounded site logo -->
-      <v-btn :to="'/'" fab class="site-logo-fixed" color="black">
+      <v-btn :to="'/'" fab class="left-side-bar__site-logo" color="black">
         <v-img
           :src="require('@/assets/logo-today-transparent.png')"
-          class="logo-image"
+          class="left-side-bar__logo-image"
           contain
         ></v-img>
       </v-btn>
@@ -30,7 +30,7 @@
 
       <!-- Tag line -->
       <h2
-        class="subheading font-weight-light grey--text text--darken-1 text-md-center"
+        class="left-side-bar__subheader subheading font-weight-light grey--text text--darken-1 text-md-center"
       >
         НОВОСТИ
         <br />АЗИИ
@@ -43,17 +43,16 @@
 .left-side-bar {
   height: calc(100vh - 32px);
 
-  .site-logo-fixed {
+  .left-side-bar__site-logo {
     width: 100px;
     height: 100px;
 
-    .logo-image {
+    .left-side-bar__logo-image {
       width: 100px;
       height: 100px;
     }
   }
-
-  .text-responsive {
+  left-side-bar__text .left-side-bar__text {
     line-height: 2rem !important;
 
     span {
@@ -61,7 +60,7 @@
     }
   }
 
-  .subheading {
+  .left-side-bar__subheader {
     line-height: 1;
   }
 }

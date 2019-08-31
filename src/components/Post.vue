@@ -5,12 +5,12 @@
     <vue-headful :title="`${getTitle(title)} - ${rusSiteName} Сегодня`" />
 
     <v-layout v-show="img">
-      <v-card light class="pt-3 pb-2 px-3 content">
+      <v-card light class="pt-3 pb-2 px-3 post__post-content">
         <!-- Middle screens and up -->
         <v-img
           :src="img"
           :lazy-src="require('@/assets/placeholder.jpg')"
-          class="post-img white--text hidden-sm-and-down"
+          class="post__post-content__post-img white--text hidden-sm-and-down"
           gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
           :aspect-ratio="16 / 9"
         >
@@ -28,7 +28,7 @@
         <v-img
           :src="img"
           :lazy-src="require('@/assets/placeholder.jpg')"
-          class="post-img white--text hidden-md-and-up"
+          class="post__post-content__post-img white--text hidden-md-and-up"
           gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
           :aspect-ratio="16 / 9"
         >
@@ -57,7 +57,9 @@
             <hr />
           </v-flex>
 
-          <div class="site-date font-italic font-weight-light">
+          <div
+            class="post__post-content__site-date font-italic font-weight-light"
+          >
             <v-layout justify-space-between wrap>
               <v-flex xs12 sm6 pb-4>
                 <span class="grey--text subheading">{{ date }}</span>
@@ -208,7 +210,7 @@ export default {
       const iframes = template.querySelectorAll('iframe')
 
       for (const iframe of iframes) {
-        iframe.parentNode.classList.add('aspect-ratio')
+        iframe.parentNode.classList.add('post__post-content__aspect-ratio')
       }
 
       return template.innerHTML
@@ -327,7 +329,7 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
     text-decoration: none;
   }
 
-  .content {
+  .post__post-content {
     min-height: 100vh;
     a {
       color: #424242;
@@ -402,7 +404,7 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
         line-height: 1.2;
       }
 
-      .aspect-ratio {
+      .post__post-content__aspect-ratio {
         position: relative;
         width: 100%;
         height: 0;
@@ -421,14 +423,14 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
         }
       }
 
-      .site-date {
+      .post__post-content__site-date {
         font-family: 'Noto Serif', serif;
         margin-top: 16px;
       }
 
       img,
       figure,
-      .post-img {
+      .post__post-content__post-img {
         width: 100% !important;
         height: auto;
         border-radius: 2px;

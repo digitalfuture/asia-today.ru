@@ -29,7 +29,14 @@
         >
           <!-- Footer info -->
           <v-flex py-3>
-            <v-btn to="/" fab class="footer-logo" raised pa-2 color="black">
+            <v-btn
+              to="/"
+              fab
+              class="app-footer__logo"
+              raised
+              pa-2
+              color="black"
+            >
               <v-img
                 :src="require('@/assets/logo-today-transparent.png')"
                 width="200"
@@ -40,7 +47,7 @@
           </v-flex>
 
           <v-flex py-3>
-            <h1 xs12 class="display-1 footer-title">
+            <h1 xs12 class="app-footer__title display-1">
               <span class="font-weight-medium">АЗИЯ</span>
               <br />
               <span class="font-weight-light">СЕГОДНЯ</span>
@@ -54,13 +61,16 @@
           </v-flex>
 
           <v-flex py-3>
-            <h2 xs12 class="title grey--text text--darken-2">
+            <h2
+              xs12
+              class="app-footer__subtitle title grey--text text--darken-2"
+            >
               НОВОСТИ СТРАН
               <br />АЗИАТСКОГО РЕГИОНА
             </h2>
           </v-flex>
 
-          <hr width="10%" />
+          <hr width="10%" class="app-footer__divider" />
 
           <v-flex pb-5 pt-3>
             <p xs12 class="body-2">
@@ -70,7 +80,7 @@
           </v-flex>
 
           <v-flex>
-            <address xs12 class="address grey--text text--darken-1">
+            <address xs12 class="app-footer__address grey--text text--darken-1">
               email:
               <a
                 href="mailto:info@asia-today.ru"
@@ -89,7 +99,7 @@
       <!-- All logos block -->
       <v-flex xs0 sm4 md8>
         <v-layout
-          class="all-sites-logos hidden-xs-only"
+          class="hidden-xs-only"
           align-center
           justify-center
           fill-height
@@ -129,35 +139,31 @@ export default {
 
   min-height: 100vh;
 
-  .footer-title {
+  .app-footer__title {
     border-radius: 25px;
     background: rgba(245, 245, 245, 0.5);
     padding: 12px;
   }
 
-  .title {
+  .app-footer__subtitle {
     font-weight: 400;
   }
 
-  .footer-logo {
+  .app-footer__logo {
     width: 200px;
     height: 200px;
   }
 
-  .address,
-  .address a {
-    text-decoration: none;
-    font-family: 'Noto Serif', serif;
+  .app-footer__divider {
+    border: none;
+    background: lightgray;
+    height: 2px;
   }
 
-  .site-logo-fixed {
-    width: 100px;
-    height: 100px;
-
-    .logo-image {
-      width: 100px;
-      height: 100px;
-    }
+  .app-footer__address,
+  .app-footer__address a {
+    text-decoration: none;
+    font-family: 'Noto Serif', serif;
   }
 }
 </style>

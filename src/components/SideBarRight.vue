@@ -29,8 +29,17 @@
       justify-space-between
     >
       <!-- Rounded site logo -->
-      <v-btn :to="'/' + siteName" fab class="site-logo-fixed" color="black">
-        <v-img :src="siteLogo" class="logo-image" contain></v-img>
+      <v-btn
+        :to="'/' + siteName"
+        fab
+        class="right-side-bar__site-logo"
+        color="black"
+      >
+        <v-img
+          :src="siteLogo"
+          class="right-side-bar__logo-image"
+          contain
+        ></v-img>
       </v-btn>
 
       <!-- Large screens and up - fixed text size -->
@@ -43,7 +52,9 @@
       </h1>
 
       <!-- Middle screens only - responsive text size-->
-      <h1 class="hidden-lg-and-up headline text-md-center text-responsive">
+      <h1
+        class="hidden-lg-and-up headline text-md-center right-side-bar__text-responsive"
+      >
         <span class="font-weight-regular text-uppercase">{{
           rusSiteName
         }}</span>
@@ -56,7 +67,7 @@
 
       <!-- Tag line -->
       <h2
-        class="subheading font-weight-light grey--text text--darken-1 text-md-center"
+        class="right-side-bar__subheader subheading font-weight-light grey--text text--darken-1 text-md-center"
       >
         ПОСЛЕДНИЕ
         <br />НОВОСТИ
@@ -89,17 +100,17 @@ export default {
 .right-side-bar {
   height: calc(100vh - 32px);
 
-  .site-logo-fixed {
+  .right-side-bar__site-logo {
     width: 100px;
     height: 100px;
 
-    .logo-image {
+    .right-side-bar__logo-image {
       width: 100px;
       height: 100px;
     }
   }
 
-  .text-responsive {
+  .right-side-bar__text-responsive {
     line-height: 2rem !important;
 
     span {
@@ -107,7 +118,7 @@ export default {
     }
   }
 
-  .subheading {
+  .right-side-bar__subheader {
     line-height: 1;
   }
 }

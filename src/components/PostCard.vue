@@ -4,7 +4,7 @@
     raised
     ripple
     dark
-    class="site-card grey"
+    class="post-card grey"
   >
     <v-layout>
       <v-img
@@ -14,14 +14,14 @@
         :aspect-ratio="16 / 9"
       ></v-img>
 
-      <div class="site-info">
-        <v-card-title class="site-title">
+      <div class="post-card__site-info">
+        <v-card-title class="post-card__site-title">
           <h3 class="subheading" v-html="post.title"></h3>
         </v-card-title>
 
-        <v-card-text class="post-details font-weight-light">
+        <v-card-text class="post-card__post-details font-weight-light">
           <v-layout justify-space-between>
-            <span class="grey--text post-date font-italic">
+            <span class="grey--text post-card__post-date font-italic">
               {{ getDate(post.date) }}
             </span>
             <span class="body-1 grey--text">
@@ -36,7 +36,7 @@
         :to="'/' + post.siteName"
         fab
         raised
-        class="color-point ma-0"
+        class="post-card__color-point ma-0"
         :style="'background-color: ' + getSiteColor(post.siteName)"
       ></v-btn>
     </v-layout>
@@ -77,8 +77,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.site-card {
-  .color-point {
+.post-card {
+  .post-card__color-point {
     position: absolute;
     left: 16px;
     top: 16px;
@@ -86,19 +86,19 @@ export default {
     height: 32px;
   }
 
-  .site-info {
+  .post-card__site-info {
     position: absolute;
     bottom: 0;
     width: 100%;
 
-    .site-title {
+    .post-card__site-title {
       padding-bottom: 5px;
     }
 
-    .post-details {
+    .post-card__post-details {
       padding: 10px 16px;
 
-      .post-date {
+      .post-card__post-date {
         font-family: 'Noto Serif', serif;
       }
     }
