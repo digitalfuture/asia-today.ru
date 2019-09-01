@@ -71,7 +71,7 @@ export default {
         // console.log('country:', country)
 
         const currentCountry =
-          Array.from(document.body.classList).indexOf(country.name) !== -1
+          window.location.hostname.indexOf(country.name) !== -1
 
         // console.log('current country?', currentCountry)
 
