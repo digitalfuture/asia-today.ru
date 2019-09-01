@@ -104,12 +104,12 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-vietnam-round.png"
   },
   {
-    "revision": "424a3c0d6089f26871b2e9ba6ea8c0d0",
-    "url": "/shared/img/logo-thailand-white.png"
-  },
-  {
     "revision": "7187a5db3deeb6737ecb75e9f72c7974",
     "url": "/shared/img/logo-thailand.png"
+  },
+  {
+    "revision": "424a3c0d6089f26871b2e9ba6ea8c0d0",
+    "url": "/shared/img/logo-thailand-white.png"
   },
   {
     "revision": "b049833ce3215b09a15ec4652db6dbba",
@@ -136,6 +136,10 @@ self.__precacheManifest = [
     "url": "/404.html"
   },
   {
+    "revision": "18cfdf35d14c6bba65017a41ca724352",
+    "url": "/shared/img/logo-nepal-white.png"
+  },
+  {
     "revision": "51f33a757ae1aebf2a0b73417fc5d025",
     "url": "/shared/img/logo-nepal.png"
   },
@@ -148,23 +152,19 @@ self.__precacheManifest = [
     "url": "/img/logo-today-transparent.1368337c.png"
   },
   {
-    "revision": "e9add3ce514a971f182d91b094feebb3",
-    "url": "/shared/img/logo-nepal-round.png"
+    "revision": "1e88ad39dad4fc0b71a9285e5ad256d2",
+    "url": "/shared/img/logo-nepal-icon.png"
   },
   {
     "revision": "736a0e7da2ed5c23f348aac127953a02",
     "url": "/shared/img/logo-nepal-transparent.png"
   },
   {
-    "revision": "18cfdf35d14c6bba65017a41ca724352",
-    "url": "/shared/img/logo-nepal-white.png"
+    "revision": "e9add3ce514a971f182d91b094feebb3",
+    "url": "/shared/img/logo-nepal-round.png"
   },
   {
-    "revision": "1e88ad39dad4fc0b71a9285e5ad256d2",
-    "url": "/shared/img/logo-nepal-icon.png"
-  },
-  {
-    "revision": "d0d14fb38cbb421ad339a5fd554449bc",
+    "revision": "c7acd955f40113a15f7fc407706e499c",
     "url": "/shared/css/style.css"
   },
   {
