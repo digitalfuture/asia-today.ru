@@ -19,10 +19,10 @@
           <div class="site-container__logo-text">
             <span
               v-html="article.ruCountryName"
-              class="site-container__logo-text--bold"
+              class="site-container__logo-text_bold"
             ></span>
             <br />
-            <span class="site-container__logo-text--thin">СЕГОДНЯ</span>
+            <span class="site-container__logo-text_thin">СЕГОДНЯ</span>
           </div>
         </div>
         <div v-html="article.title" class="site-container__info"></div>
@@ -174,10 +174,10 @@ export default {
   text-transform: uppercase;
 }
 
-.site-container__logo-text--bold {
+.site-container__logo-text_bold {
   font-weight: 400;
 }
-.site-container__logo-text--thin {
+.site-container__logo-text_thin {
   font-weight: 100;
 }
 

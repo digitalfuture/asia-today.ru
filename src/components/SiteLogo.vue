@@ -28,7 +28,7 @@
           text-xs-left
           align-center
           py-2
-          class="site-logo__logo-text site-logo__logo-text--border-left"
+          class="site-logo__logo-text site-logo__logo-text_border-left"
         >
           <h1 class="headline">
             <span
@@ -95,7 +95,7 @@ export default {
     height: 64px;
   }
 
-  .site-logo__logo-text--border-left {
+  .site-logo__logo-text_border-left {
     border-left: 4px solid #424242;
     padding-left: 16px;
   }
