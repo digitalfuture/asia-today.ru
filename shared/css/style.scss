@@ -99,7 +99,7 @@
   height: 32px;
   margin-top: 10px;
   margin-right: 7px;
-  margin-left: 7px;
+  margin-left: 2px;
 }
 .footer-social-wrap a[title='ZEN'] {
   background-image: url('https://asia-today.ru/shared/img/social/zen.svg');
@@ -110,12 +110,14 @@
   height: 32px;
   border-radius: 3px;
   display: inline-block;
+  filter: brightness(0) invert(1);
 }
 .footer-social-wrap a[title='ZEN']:hover {
   width: 32px;
   height: 32px;
   background-color: white;
   border-radius: 3px;
+  filter: none;
 }
 
 /* zen-mobile */
