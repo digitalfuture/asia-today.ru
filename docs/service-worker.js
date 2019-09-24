@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.7b9e990c956de149d23b9ebb1b65acaf.js"
+  "/precache-manifest.c849b0beb7dbb578f1851d0996a9a6a0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "asia-today.ru"});
