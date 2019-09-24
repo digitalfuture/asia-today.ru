@@ -1,18 +1,3 @@
-/* .header-banner-container {
-  display: flex;
-  width: 100%;
-}
-.header-banner-item {
-  flex-grow: 1;
-  text-align: center;
-  margin: 12px;
-}
-.header-banner-item img {
-  width: 90px;
-  display: inline-block;
-  margin: auto;
-} */
-
 /* Fix top footer banner section */
 .td-a-rec {
   display: initial;
@@ -30,26 +15,30 @@
 .td-related-title .td-related-left {
   border-radius: 3px;
 }
+
 .td-related-title .td-related-right {
   display: none;
 }
 
 /*button odnoklassniki*/
 /*odnoklassniki-header*/
-.td-header-top-menu a[title='OK'] {
-  background-image: url('https://asia-today.ru/shared/img/social/ok-orange.png');
+.td-header-top-menu a[title=OK] {
+  background-image: url("https://asia-today.ru/shared/img/social/ok-orange.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   line-height: 14px;
   height: 14;
 }
-.td-header-top-menu a[title='OK'] {
+
+.td-header-top-menu a[title=OK] {
   filter: brightness(0) invert(1);
 }
-.td-header-top-menu a[title='OK']:hover {
+
+.td-header-top-menu a[title=OK]:hover {
   filter: none;
 }
+
 /*odnoklassniki-footer*/
 .span-ok {
   display: inline-block;
@@ -59,8 +48,9 @@
   margin-right: 7px;
   margin-left: 7px;
 }
-.footer-social-wrap a[title='OK'] {
-  background-image: url('https://asia-today.ru/shared/img/social/ok-white.png');
+
+.footer-social-wrap a[title=OK] {
+  background-image: url("https://asia-today.ru/shared/img/social/ok-white.png");
   background-position: center;
   background-size: 35%;
   background-repeat: no-repeat;
@@ -69,25 +59,30 @@
   border-radius: 3px;
   display: inline-block;
 }
-.footer-social-wrap a[title='OK']:hover {
+
+.footer-social-wrap a[title=OK]:hover {
   width: 32px;
   height: 32px;
   background-color: #ee8208;
   border-radius: 3px;
 }
+
 .footer-social-wrap {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .footer-social-wrap .td-icon-telegram:hover {
   background-color: #0088cc;
 }
+
 .td-menu-socials {
   display: flex;
 }
-.td-mobile-container .td-menu-socials .span-ok-mobile a[title='OK'] {
-  background-image: url('https://asia-today.ru/shared/img/social/ok-white.png');
+
+.td-mobile-container .td-menu-socials .span-ok-mobile a[title=OK] {
+  background-image: url("https://asia-today.ru/shared/img/social/ok-white.png");
   background-position: bottom;
   background-size: 35%;
   background-repeat: no-repeat;
@@ -113,6 +108,7 @@
   border-radius: 0 25px 25px 0;
   z-index: 999;
 }
+
 .telegram-icon {
   width: 36px;
   margin-right: 4px;
@@ -122,6 +118,7 @@
 .td-post-views {
   display: none;
 }
+
 /*articleFooter Banner2*/
 .articleFooterBanner2 {
   margin-top: 25px;
@@ -133,58 +130,57 @@
   margin-bottom: 30px !important;
 }
 
-/* Vietnam specified */
 .vietnam .td-post-content p a,
 .vietnam .td-post-content li a,
 .vietnam .td-post-content p a:visited,
 .vietnam .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(104, 215, 88, 0.3);
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
   text-decoration: none !important;
   color: #424242;
 }
+
 .vietnam .td-post-content p a:hover,
 .vietnam .td-post-content li a:hover,
 .vietnam .td-post-content p a:active,
 .vietnam .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(104, 215, 88, 1);
+  border-bottom: 5px solid #03dac6;
 }
 
-/* Thailand specified */
-.thailand .td-post-content p a,
-.thailand .td-post-content li a,
-.thailand .td-post-content p a:visited,
-.thailand .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(187, 134, 252, 0.3);
-  text-decoration: none !important;
-  color: #424242;
-}
-.thailand .td-post-content p a:hover,
-.thailand .td-post-content li a:hover,
-.thailand .td-post-content p a:active,
-.thailand .td-post-content li a:active {
-  text-decoration: none !important;
-  border-bottom: 5px solid rgba(187, 134, 252, 1);
-}
-
-/* Nepal specified */
 .nepal .td-post-content p a,
 .nepal .td-post-content li a,
 .nepal .td-post-content p a:visited,
 .nepal .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(77, 178, 236, 0.3);
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
   text-decoration: none !important;
   color: #424242;
 }
+
 .nepal .td-post-content p a:hover,
 .nepal .td-post-content li a:hover,
 .nepal .td-post-content p a:active,
 .nepal .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(77, 178, 236, 1);
+  border-bottom: 5px solid #03dac6;
 }
 
-/* Philippines specified */
+.thailand .td-post-content p a,
+.thailand .td-post-content li a,
+.thailand .td-post-content p a:visited,
+.thailand .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.thailand .td-post-content p a:hover,
+.thailand .td-post-content li a:hover,
+.thailand .td-post-content p a:active,
+.thailand .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
 .philippines .td-post-content p a,
 .philippines .td-post-content li a,
 .philippines .td-post-content p a:visited,
@@ -193,10 +189,149 @@
   text-decoration: none !important;
   color: #424242;
 }
+
 .philippines .td-post-content p a:hover,
 .philippines .td-post-content li a:hover,
 .philippines .td-post-content p a:active,
 .philippines .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(3, 218, 198, 1);
+  border-bottom: 5px solid #03dac6;
 }
+
+.japan .td-post-content p a,
+.japan .td-post-content li a,
+.japan .td-post-content p a:visited,
+.japan .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.japan .td-post-content p a:hover,
+.japan .td-post-content li a:hover,
+.japan .td-post-content p a:active,
+.japan .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.china .td-post-content p a,
+.china .td-post-content li a,
+.china .td-post-content p a:visited,
+.china .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.china .td-post-content p a:hover,
+.china .td-post-content li a:hover,
+.china .td-post-content p a:active,
+.china .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.cambodia .td-post-content p a,
+.cambodia .td-post-content li a,
+.cambodia .td-post-content p a:visited,
+.cambodia .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.cambodia .td-post-content p a:hover,
+.cambodia .td-post-content li a:hover,
+.cambodia .td-post-content p a:active,
+.cambodia .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.sri-lanka .td-post-content p a,
+.sri-lanka .td-post-content li a,
+.sri-lanka .td-post-content p a:visited,
+.sri-lanka .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.sri-lanka .td-post-content p a:hover,
+.sri-lanka .td-post-content li a:hover,
+.sri-lanka .td-post-content p a:active,
+.sri-lanka .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.india .td-post-content p a,
+.india .td-post-content li a,
+.india .td-post-content p a:visited,
+.india .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.india .td-post-content p a:hover,
+.india .td-post-content li a:hover,
+.india .td-post-content p a:active,
+.india .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.singapore .td-post-content p a,
+.singapore .td-post-content li a,
+.singapore .td-post-content p a:visited,
+.singapore .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.singapore .td-post-content p a:hover,
+.singapore .td-post-content li a:hover,
+.singapore .td-post-content p a:active,
+.singapore .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.malaysia .td-post-content p a,
+.malaysia .td-post-content li a,
+.malaysia .td-post-content p a:visited,
+.malaysia .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.malaysia .td-post-content p a:hover,
+.malaysia .td-post-content li a:hover,
+.malaysia .td-post-content p a:active,
+.malaysia .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+.korea .td-post-content p a,
+.korea .td-post-content li a,
+.korea .td-post-content p a:visited,
+.korea .td-post-content li a:visited {
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  text-decoration: none !important;
+  color: #424242;
+}
+
+.korea .td-post-content p a:hover,
+.korea .td-post-content li a:hover,
+.korea .td-post-content p a:active,
+.korea .td-post-content li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid #03dac6;
+}
+
+/*# sourceMappingURL=style.css.map */

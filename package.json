@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "rm -rf public/shared/script/components/*.* && npm run build:components && npm run build:main && npm run build:shared",
+    "build": "rm -rf public/shared/script/components/*.* && npm run build:styles && npm run build:components && npm run build:main && npm run build:shared",
     "lint": "vue-cli-service lint",
     "build:components": "npm run build:components:article-grid && npm run build:post && npm run build:components:article-row && npm run build:post",
     "build:components:article-grid": "vue-cli-service build --target wc-async --name article-grid shared/script/components/article-grid.vue",
@@ -12,6 +12,7 @@
     "build:main": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
     "build:post": "mv docs/*.* public/shared/script/components/ -v",
     "build:shared": "parcel build -d docs/shared/script -o script.js shared/script/index.js",
+    "build:styles": "sass shared/css/style.scss public/shared/css/style.css",
     "capacitor-copy": "vue-cli-service capacitor-copy",
     "capacitor-init": "vue-cli-service capacitor-init",
     "capacitor-open": "vue-cli-service capacitor-open",
