@@ -1,3 +1,76 @@
 {
-  "countries": ["vietnam", "nepal", "philippines", "thailand"]
+  "countries": [
+    {
+      "name": "vietnam",
+      "zen": "//zen.yandex.ru/vietnam",
+      "ok": "//ok.ru/asiavietnam",
+      "telegram": "//t.me/AsiaVietnam"
+    },
+    {
+      "name": "nepal",
+      "zen": "//zen.yandex.ru/id/5cd74ea677f0d500b351417f",
+      "ok": "//ok.ru/group/54140198715589",
+      "telegram": "//t.me/AsiaNepal"
+    },
+    {
+      "name": "philippines",
+      "zen:": "//zen.yandex.ru/id/5cd74bae5a6e0400b34f51c2",
+      "ok": "//ok.ru/group/54222226456773",
+      "telegram": "//t.me/AsiaPhilippines"
+    },
+    {
+      "name": "thailand",
+      "zen": "//zen.yandex.ru/id/5cd74a830ae27d00b35edee3",
+      "ok": "//ok.ru/group/54222220034245",
+      "telegram": "//t.me/AsiaThailand"
+    },
+    {
+      "name": "japan",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "china",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "cambodia",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "sri-lanka",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "india",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "singapore",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "malaysia",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    },
+    {
+      "name": "korea",
+      "zen": "",
+      "ok": "",
+      "telegram": ""
+    }
+  ]
 }
