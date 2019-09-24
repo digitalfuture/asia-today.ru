@@ -134,7 +134,7 @@
 .vietnam .td-post-content li a,
 .vietnam .td-post-content p a:visited,
 .vietnam .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #68d758;
   text-decoration: none !important;
   color: #424242;
 }
@@ -144,14 +144,14 @@
 .vietnam .td-post-content p a:active,
 .vietnam .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(104, 215, 88, 0.3);
 }
 
 .nepal .td-post-content p a,
 .nepal .td-post-content li a,
 .nepal .td-post-content p a:visited,
 .nepal .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #4db2ec;
   text-decoration: none !important;
   color: #424242;
 }
@@ -161,14 +161,14 @@
 .nepal .td-post-content p a:active,
 .nepal .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(77, 178, 236, 0.3);
 }
 
 .thailand .td-post-content p a,
 .thailand .td-post-content li a,
 .thailand .td-post-content p a:visited,
 .thailand .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #bb86fc;
   text-decoration: none !important;
   color: #424242;
 }
@@ -178,14 +178,14 @@
 .thailand .td-post-content p a:active,
 .thailand .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(187, 134, 252, 0.3);
 }
 
 .philippines .td-post-content p a,
 .philippines .td-post-content li a,
 .philippines .td-post-content p a:visited,
 .philippines .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #03dac6;
   text-decoration: none !important;
   color: #424242;
 }
@@ -195,14 +195,14 @@
 .philippines .td-post-content p a:active,
 .philippines .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
 }
 
 .japan .td-post-content p a,
 .japan .td-post-content li a,
 .japan .td-post-content p a:visited,
 .japan .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #ffcccc;
   text-decoration: none !important;
   color: #424242;
 }
@@ -212,14 +212,14 @@
 .japan .td-post-content p a:active,
 .japan .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 204, 204, 0.3);
 }
 
 .china .td-post-content p a,
 .china .td-post-content li a,
 .china .td-post-content p a:visited,
 .china .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid red;
   text-decoration: none !important;
   color: #424242;
 }
@@ -229,14 +229,14 @@
 .china .td-post-content p a:active,
 .china .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 0, 0, 0.3);
 }
 
 .cambodia .td-post-content p a,
 .cambodia .td-post-content li a,
 .cambodia .td-post-content p a:visited,
 .cambodia .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid yellow;
   text-decoration: none !important;
   color: #424242;
 }
@@ -246,14 +246,14 @@
 .cambodia .td-post-content p a:active,
 .cambodia .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 255, 0, 0.3);
 }
 
 .sri-lanka .td-post-content p a,
 .sri-lanka .td-post-content li a,
 .sri-lanka .td-post-content p a:visited,
 .sri-lanka .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #ff6633;
   text-decoration: none !important;
   color: #424242;
 }
@@ -263,14 +263,14 @@
 .sri-lanka .td-post-content p a:active,
 .sri-lanka .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 102, 51, 0.3);
 }
 
 .india .td-post-content p a,
 .india .td-post-content li a,
 .india .td-post-content p a:visited,
 .india .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #ff9933;
   text-decoration: none !important;
   color: #424242;
 }
@@ -280,14 +280,14 @@
 .india .td-post-content p a:active,
 .india .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 153, 51, 0.3);
 }
 
 .singapore .td-post-content p a,
 .singapore .td-post-content li a,
 .singapore .td-post-content p a:visited,
 .singapore .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #ff0066;
   text-decoration: none !important;
   color: #424242;
 }
@@ -297,14 +297,14 @@
 .singapore .td-post-content p a:active,
 .singapore .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 0, 102, 0.3);
 }
 
 .malaysia .td-post-content p a,
 .malaysia .td-post-content li a,
 .malaysia .td-post-content p a:visited,
 .malaysia .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #00ccff;
   text-decoration: none !important;
   color: #424242;
 }
@@ -314,14 +314,14 @@
 .malaysia .td-post-content p a:active,
 .malaysia .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(0, 204, 255, 0.3);
 }
 
 .korea .td-post-content p a,
 .korea .td-post-content li a,
 .korea .td-post-content p a:visited,
 .korea .td-post-content li a:visited {
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid #ff99ff;
   text-decoration: none !important;
   color: #424242;
 }
@@ -331,7 +331,7 @@
 .korea .td-post-content p a:active,
 .korea .td-post-content li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid rgba(255, 153, 255, 0.3);
 }
 
 /*# sourceMappingURL=style.css.map */

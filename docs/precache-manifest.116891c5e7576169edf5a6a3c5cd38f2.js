@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "61b922643786f302213aded3d8e899ad",
-    "url": "/shared/img/logo-japan-white.png"
+    "revision": "1f7ddc1a095399ded3265aa097cf33fd",
+    "url": "/shared/img/logo-korea-white-bold.png"
   },
   {
     "revision": "f0987db832e74589ce2ec7000d7bdd73",
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/shared/script/components/demo.html"
   },
   {
-    "revision": "6e8340827234290bb81b1381be916b52",
-    "url": "/shared/img/logo-japan.png"
+    "revision": "ae9b938e1b6a0647d01e326d1f875800",
+    "url": "/shared/img/logo-korea-white.png"
   },
   {
     "revision": "eaac99fc5a55f3bf5bb49b2a4085bc2f",
@@ -48,19 +48,19 @@ self.__precacheManifest = [
     "url": "/shared/img/social/ok-orange.png"
   },
   {
-    "revision": "169f04ebdf1209b1cc996739b69ed33c",
-    "url": "/shared/img/social/vietnam-zen-banner.png"
+    "revision": "ea97caff9fee9845d76995ea065d920b",
+    "url": "/shared/img/social/thailand-zen-banner.png"
   },
   {
     "revision": "6e0fcfeba07116ef7a04",
     "url": "/js/chunk-vendors.5d765961.js"
   },
   {
-    "revision": "6706e6e5fb28926589b9df04f01553ca",
-    "url": "/shared/img/social/philippines-zen-banner.png"
+    "revision": "169f04ebdf1209b1cc996739b69ed33c",
+    "url": "/shared/img/social/vietnam-zen-banner.png"
   },
   {
-    "revision": "668cb6107b5830d4a6986ec563f7906c",
+    "revision": "04752f952bd414036eb7414c76239fee",
     "url": "/shared/css/style.css"
   },
   {
@@ -104,16 +104,16 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-sri-lanka-icon.png"
   },
   {
-    "revision": "602cfde1c23b50e33aee5602b7a32f5a",
-    "url": "/shared/img/logo-thailand-icon.png"
-  },
-  {
     "revision": "8b0db3a00f9cce4b8bad5c8a3354ba3d",
     "url": "/shared/img/logo-vietnam-icon.png"
   },
   {
     "revision": "de52b3ac9a1b2b86c967cdd8d15de13f",
     "url": "/shared/img/social/ok-white.png"
+  },
+  {
+    "revision": "602cfde1c23b50e33aee5602b7a32f5a",
+    "url": "/shared/img/logo-thailand-icon.png"
   },
   {
     "revision": "3cc698d58d912f60de6066856c2c375f",
@@ -124,20 +124,16 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-china.png"
   },
   {
-    "revision": "528cec684ebd38dd41bc3403992ed70b",
-    "url": "/shared/img/logo-china-white-bold.png"
-  },
-  {
-    "revision": "1cb72cec509afc184d044d7dd1f4d4f8",
-    "url": "/shared/img/logo-india-white-bold.png"
-  },
-  {
     "revision": "3e16a5e71e01600339c67f7e903c63f7",
     "url": "/shared/img/logo-china-white.png"
   },
   {
     "revision": "c99a5eaa22b4ca3eec670aa0be6d7b1b",
     "url": "/shared/img/logo-india-white.png"
+  },
+  {
+    "revision": "1cb72cec509afc184d044d7dd1f4d4f8",
+    "url": "/shared/img/logo-india-white-bold.png"
   },
   {
     "revision": "b7bb19cbeddf77fc1e0367d4f2e69952",
@@ -148,68 +144,60 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-japan-white-bold.png"
   },
   {
+    "revision": "61b922643786f302213aded3d8e899ad",
+    "url": "/shared/img/logo-japan-white.png"
+  },
+  {
     "revision": "c7f144eac1b7a37e6cd4",
     "url": "/js/app.8e5ddd19.js"
-  },
-  {
-    "revision": "1f7ddc1a095399ded3265aa097cf33fd",
-    "url": "/shared/img/logo-korea-white-bold.png"
-  },
-  {
-    "revision": "d649bde26aee345b3f1befc2ce37f3f6",
-    "url": "/shared/img/social/nepal-zen-banner.png"
-  },
-  {
-    "revision": "ae9b938e1b6a0647d01e326d1f875800",
-    "url": "/shared/img/logo-korea-white.png"
   },
   {
     "revision": "7feb1df6b91fa969d8fc52ab642c5308",
     "url": "/shared/img/logo-korea.png"
   },
   {
-    "revision": "05043be4f1f5f82b45cbe6db715ddda4",
-    "url": "/shared/img/logo-nepal-white.png"
+    "revision": "6706e6e5fb28926589b9df04f01553ca",
+    "url": "/shared/img/social/philippines-zen-banner.png"
   },
   {
     "revision": "96f31bc7c05c5d5a90e9a50c5433bbb8",
     "url": "/shared/img/logo-malaysia.png"
   },
   {
+    "revision": "6e8340827234290bb81b1381be916b52",
+    "url": "/shared/img/logo-japan.png"
+  },
+  {
     "revision": "0010481d186d4380b873e9f61bdc0af9",
     "url": "/shared/img/logo-nepal-white-bold.png"
+  },
+  {
+    "revision": "05043be4f1f5f82b45cbe6db715ddda4",
+    "url": "/shared/img/logo-nepal-white.png"
   },
   {
     "revision": "e9c7ca0ea98d34ecb9a1bdfd28278010",
     "url": "/shared/img/logo-nepal.png"
   },
   {
-    "revision": "208ea421d5d760fc0eea3f4bf1335920",
-    "url": "/shared/img/logo-philippines.png"
-  },
-  {
-    "revision": "27be7e74dc3eb2169375d0a97ed31be7",
-    "url": "/shared/img/logo-sri-lanka.png"
-  },
-  {
     "revision": "2f58ba58891037cad60ceb003e8c133e",
     "url": "/shared/img/logo-singapore.png"
+  },
+  {
+    "revision": "528cec684ebd38dd41bc3403992ed70b",
+    "url": "/shared/img/logo-china-white-bold.png"
   },
   {
     "revision": "96670351b882e75b829acc5eefb17c31",
     "url": "/shared/img/logo-thailand-white-bold.png"
   },
   {
-    "revision": "4dd873009cc01a345f5e09c20743c017",
-    "url": "/shared/img/logo-thailand.png"
-  },
-  {
     "revision": "657e1b21b3f27f95307a818ba44d5db6",
     "url": "/shared/img/logo-thailand-white.png"
   },
   {
-    "revision": "9e3972f4955ddc9f8a5317fd82423328",
-    "url": "/shared/img/logo-vietnam-white.png"
+    "revision": "4dd873009cc01a345f5e09c20743c017",
+    "url": "/shared/img/logo-thailand.png"
   },
   {
     "revision": "03f52b31129215628bd65d126314e6ee",
@@ -220,12 +208,16 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-vietnam.png"
   },
   {
+    "revision": "9e3972f4955ddc9f8a5317fd82423328",
+    "url": "/shared/img/logo-vietnam-white.png"
+  },
+  {
     "revision": "a0c3e8f9b968d344d85aca607b094800",
     "url": "/shared/script/components/article-grid.min.js"
   },
   {
-    "revision": "ea97caff9fee9845d76995ea065d920b",
-    "url": "/shared/img/social/thailand-zen-banner.png"
+    "revision": "d649bde26aee345b3f1befc2ce37f3f6",
+    "url": "/shared/img/social/nepal-zen-banner.png"
   },
   {
     "revision": "0ba78f6dc976c4adfaca4dc454e6544d",
@@ -240,6 +232,14 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-cambodia-white.png"
   },
   {
+    "revision": "27be7e74dc3eb2169375d0a97ed31be7",
+    "url": "/shared/img/logo-sri-lanka.png"
+  },
+  {
+    "revision": "208ea421d5d760fc0eea3f4bf1335920",
+    "url": "/shared/img/logo-philippines.png"
+  },
+  {
     "revision": "080abb188d554b3b0694bb601f4b8808",
     "url": "/shared/img/logo-malaysia-white.png"
   },
@@ -248,12 +248,12 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-malaysia-white-bold.png"
   },
   {
-    "revision": "6f6965b4c59f77f0dd5db81fbb5c289c",
-    "url": "/shared/img/logo-philippines-white-bold.png"
-  },
-  {
     "revision": "cd5059271aa5de110df75c52b45abf55",
     "url": "/shared/img/logo-philippines-white.png"
+  },
+  {
+    "revision": "6f6965b4c59f77f0dd5db81fbb5c289c",
+    "url": "/shared/img/logo-philippines-white-bold.png"
   },
   {
     "revision": "4720484166b659610e1e704c20a148f3",
