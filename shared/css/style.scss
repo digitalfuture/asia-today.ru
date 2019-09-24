@@ -104,7 +104,7 @@
 .footer-social-wrap a[title='ZEN'] {
   background-image: url('https://asia-today.ru/shared/img/social/zen.svg');
   background-position: center;
-  background-size: 35%;
+  background-size: 55%;
   background-repeat: no-repeat;
   width: 32px;
   height: 32px;
@@ -122,12 +122,12 @@
 .td-mobile-container .td-menu-socials .span-zen-mobile a[title='ZEN'] {
   background-image: url('https://asia-today.ru/shared/img/social/zen.svg');
   background-position: bottom;
-  background-size: 35%;
+  background-size: 55%;
   background-repeat: no-repeat;
   width: 26px;
   height: 26px;
   display: inline-block;
-  margin-left: 5px;
+  filter: brightness(0) invert(1);
 }
 
 //
