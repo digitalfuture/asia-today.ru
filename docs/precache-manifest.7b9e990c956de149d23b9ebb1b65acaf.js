@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "72d57bf5971a540aa46a5e5d7233e711",
-    "url": "/shared/img/logo-nepal-white-bold.png"
+    "revision": "51f33a757ae1aebf2a0b73417fc5d025",
+    "url": "/shared/img/logo-nepal.png"
   },
   {
     "revision": "c6e47f69d3be430902c0cf3757859708",
@@ -20,16 +20,16 @@ self.__precacheManifest = [
     "url": "/shared/img/social/vietnam-zen-banner.png"
   },
   {
-    "revision": "6706e6e5fb28926589b9df04f01553ca",
-    "url": "/shared/img/social/philippines-zen-banner.png"
-  },
-  {
     "revision": "ea97caff9fee9845d76995ea065d920b",
     "url": "/shared/img/social/thailand-zen-banner.png"
   },
   {
     "revision": "d649bde26aee345b3f1befc2ce37f3f6",
     "url": "/shared/img/social/nepal-zen-banner.png"
+  },
+  {
+    "revision": "6706e6e5fb28926589b9df04f01553ca",
+    "url": "/shared/img/social/philippines-zen-banner.png"
   },
   {
     "revision": "cd5059271aa5de110df75c52b45abf55",
@@ -64,24 +64,24 @@ self.__precacheManifest = [
     "url": "/shared/script/components/article-grid.min.js"
   },
   {
-    "revision": "73a22e7e7913d1ed2b2e1605d81ba684",
-    "url": "/shared/img/logo-vietnam-white.png"
-  },
-  {
     "revision": "99e025c3c6708afaf902c31de145718c",
     "url": "/shared/img/logo-vietnam.png"
+  },
+  {
+    "revision": "e89eba69210774c6d87313df6060f3ee",
+    "url": "/shared/img/logo-vietnam-white-bold.png"
   },
   {
     "revision": "602cfde1c23b50e33aee5602b7a32f5a",
     "url": "/shared/img/logo-thailand-icon.png"
   },
   {
-    "revision": "c46ebcf320894493763276ec94df96dc",
-    "url": "/shared/img/logo-thailand-transparent.png"
-  },
-  {
     "revision": "71fdf07b395b8245b506351ddecd6ce1",
     "url": "/shared/img/logo-vietnam-icon.png"
+  },
+  {
+    "revision": "c46ebcf320894493763276ec94df96dc",
+    "url": "/shared/img/logo-thailand-transparent.png"
   },
   {
     "revision": "327ed120b29dc3a23bff1991958ea17a",
@@ -96,16 +96,12 @@ self.__precacheManifest = [
     "url": "/shared/img/social/telegram.png"
   },
   {
-    "revision": "e89eba69210774c6d87313df6060f3ee",
-    "url": "/shared/img/logo-vietnam-white-bold.png"
+    "revision": "73a22e7e7913d1ed2b2e1605d81ba684",
+    "url": "/shared/img/logo-vietnam-white.png"
   },
   {
     "revision": "b2a260985019c3ea7c297557091071d5",
     "url": "/shared/img/logo-vietnam-round.png"
-  },
-  {
-    "revision": "424a3c0d6089f26871b2e9ba6ea8c0d0",
-    "url": "/shared/img/logo-thailand-white.png"
   },
   {
     "revision": "7187a5db3deeb6737ecb75e9f72c7974",
@@ -116,12 +112,16 @@ self.__precacheManifest = [
     "url": "/shared/img/logo-thailand-white-bold.png"
   },
   {
-    "revision": "208ea421d5d760fc0eea3f4bf1335920",
-    "url": "/shared/img/logo-philippines.png"
+    "revision": "424a3c0d6089f26871b2e9ba6ea8c0d0",
+    "url": "/shared/img/logo-thailand-white.png"
   },
   {
     "revision": "eadfbab0c03ad766a0ce99e5a7f90251",
     "url": "/shared/img/logo-thailand-round.png"
+  },
+  {
+    "revision": "208ea421d5d760fc0eea3f4bf1335920",
+    "url": "/shared/img/logo-philippines.png"
   },
   {
     "revision": "c7acd955f40113a15f7fc407706e499c",
@@ -136,12 +136,12 @@ self.__precacheManifest = [
     "url": "/404.html"
   },
   {
-    "revision": "18cfdf35d14c6bba65017a41ca724352",
-    "url": "/shared/img/logo-nepal-white.png"
+    "revision": "72d57bf5971a540aa46a5e5d7233e711",
+    "url": "/shared/img/logo-nepal-white-bold.png"
   },
   {
-    "revision": "51f33a757ae1aebf2a0b73417fc5d025",
-    "url": "/shared/img/logo-nepal.png"
+    "revision": "18cfdf35d14c6bba65017a41ca724352",
+    "url": "/shared/img/logo-nepal-white.png"
   },
   {
     "revision": "d35b4bb527ae1299b47ad5c8c5008a02",
@@ -152,16 +152,24 @@ self.__precacheManifest = [
     "url": "/img/logo-today-transparent.1368337c.png"
   },
   {
-    "revision": "4cb555b1e9432bfbf76a1abf7d10d96a",
-    "url": "/favicon-today.png"
+    "revision": "1e88ad39dad4fc0b71a9285e5ad256d2",
+    "url": "/shared/img/logo-nepal-icon.png"
+  },
+  {
+    "revision": "736a0e7da2ed5c23f348aac127953a02",
+    "url": "/shared/img/logo-nepal-transparent.png"
+  },
+  {
+    "revision": "e9add3ce514a971f182d91b094feebb3",
+    "url": "/shared/img/logo-nepal-round.png"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/robots.txt"
   },
   {
-    "revision": "e9add3ce514a971f182d91b094feebb3",
-    "url": "/shared/img/logo-nepal-round.png"
+    "revision": "6e0fcfeba07116ef7a04",
+    "url": "/js/chunk-vendors.5d765961.js"
   },
   {
     "revision": "c7f144eac1b7a37e6cd4",
@@ -172,10 +180,6 @@ self.__precacheManifest = [
     "url": "/index.html"
   },
   {
-    "revision": "1e88ad39dad4fc0b71a9285e5ad256d2",
-    "url": "/shared/img/logo-nepal-icon.png"
-  },
-  {
     "revision": "eaac99fc5a55f3bf5bb49b2a4085bc2f",
     "url": "/img/placeholder.eaac99fc.jpg"
   },
@@ -184,12 +188,8 @@ self.__precacheManifest = [
     "url": "/img/background-footer.7d1f9a14.png"
   },
   {
-    "revision": "6e0fcfeba07116ef7a04",
-    "url": "/js/chunk-vendors.5d765961.js"
-  },
-  {
-    "revision": "736a0e7da2ed5c23f348aac127953a02",
-    "url": "/shared/img/logo-nepal-transparent.png"
+    "revision": "4cb555b1e9432bfbf76a1abf7d10d96a",
+    "url": "/favicon-today.png"
   },
   {
     "revision": "6e0fcfeba07116ef7a04",
