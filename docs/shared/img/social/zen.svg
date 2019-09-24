@@ -1,14 +1,18 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="20" cy="20" r="14" fill="#2C3036"/>
-<circle cx="20" cy="20" r="14" fill="url(#paint0_linear)"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M33.9999 20.1545V19.9998V19.8456C27.8007 19.658 24.9658 19.5034 22.7048 17.295C20.497 15.0345 20.3418 12.1997 20.1547 6.00018H20H19.8452C19.6582 12.1997 19.5029 15.0345 17.2951 17.295C15.0341 19.5034 12.1992 19.658 6 19.8456V19.9998V20.1545C12.1992 20.3421 15.0341 20.4967 17.2951 22.7046C19.5029 24.9656 19.6582 27.8004 19.8452 33.9999H20H20.1547C20.3418 27.8004 20.497 24.9656 22.7048 22.7046C24.9658 20.4967 27.8007 20.3421 33.9999 20.1545" fill="white"/>
-<defs>
-<linearGradient id="paint0_linear" x1="34" y1="34" x2="34" y2="6" gradientUnits="userSpaceOnUse">
-<stop stop-color="white" stop-opacity="0.01"/>
-<stop offset="0.47509" stop-color="white" stop-opacity="0.01"/>
-<stop offset="0.76042" stop-color="white" stop-opacity="0.04271"/>
-<stop offset="0.99531" stop-color="white" stop-opacity="0.09855"/>
-<stop offset="1" stop-color="white" stop-opacity="0.1"/>
-</linearGradient>
-</defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2018 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2.38797in" height="2.38797in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 535.01 535.01"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#2C3036}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M535.01 264.55c-1.58,-145.41 -119.14,-262.98 -264.55,-264.55 3.58,118.45 6.55,172.62 48.73,215.81 43.21,42.2 97.38,45.16 215.82,48.74zm-270.47 -264.55c-145.41,1.58 -262.97,119.14 -264.55,264.55 118.44,-3.58 172.61,-6.54 215.81,-48.74 42.19,-43.2 45.16,-97.36 48.73,-215.81zm-264.55 270.46c1.58,145.41 119.14,262.97 264.55,264.55 -3.57,-118.44 -6.54,-172.62 -48.73,-215.82 -43.2,-42.19 -97.37,-45.15 -215.81,-48.73zm270.46 264.55c145.41,-1.58 262.98,-119.14 264.55,-264.55 -118.44,3.58 -172.61,6.54 -215.82,48.73 -42.19,43.2 -45.16,97.38 -48.73,215.82z"/>
+ </g>
 </svg>
