@@ -19,6 +19,7 @@
   display: none;
 }
 
+//
 /*button odnoklassniki*/
 /*odnoklassniki-header*/
 .td-header-top-menu a[title='OK'] {
@@ -45,6 +46,7 @@
   margin-left: 7px;
 }
 
+//
 /*button zen*/
 /*zen-header*/
 .td-header-top-menu a[title='ZEN'] {
@@ -61,7 +63,8 @@
 .td-header-top-menu a[title='ZEN']:hover {
   filter: none;
 }
-/*odnoklassniki-footer*/
+
+/*zen-footer*/
 .span-zen {
   display: inline-block;
   width: 32px;
@@ -70,9 +73,8 @@
   margin-right: 7px;
   margin-left: 7px;
 }
-
-.footer-social-wrap a[title='OK'] {
-  background-image: url('https://asia-today.ru/shared/img/social/ok-white.png');
+.footer-social-wrap a[title='ZEN'] {
+  background-image: url('https://asia-today.ru/shared/img/social/zen.svg');
   background-position: center;
   background-size: 35%;
   background-repeat: no-repeat;
@@ -81,24 +83,15 @@
   border-radius: 3px;
   display: inline-block;
 }
-.footer-social-wrap a[title='OK']:hover {
+.footer-social-wrap a[title='ZEN']:hover {
   width: 32px;
   height: 32px;
-  background-color: #ee8208;
+  background-color: white;
   border-radius: 3px;
 }
-.footer-social-wrap {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.footer-social-wrap .td-icon-telegram:hover {
-  background-color: #0088cc;
-}
-.td-menu-socials {
-  display: flex;
-}
-.td-mobile-container .td-menu-socials .span-ok-mobile a[title='OK'] {
+
+/* zen-mobile */
+.td-mobile-container .td-menu-socials .span-zen-mobile a[title='ZEN'] {
   background-image: url('https://asia-today.ru/shared/img/social/ok-white.png');
   background-position: bottom;
   background-size: 35%;
@@ -109,25 +102,20 @@
   margin-left: 5px;
 }
 
-/* Telegram channel floating button */
-.telegram-button {
-  line-height: 16px;
-  text-align: left;
-  position: fixed;
+//
+.footer-social-wrap {
   display: flex;
-  align-items: center;
-  width: 120px;
-  height: 50px;
-  left: 0;
-  bottom: 23px;
-  background-color: #fff;
-  color: grey;
-  border-radius: 0 25px 25px 0;
-  z-index: 999;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.telegram-icon {
-  width: 36px;
-  margin-right: 4px;
+
+// Telegram button color fix
+.footer-social-wrap .td-icon-telegram:hover {
+  background-color: #0088cc;
+}
+
+.td-menu-socials {
+  display: flex;
 }
 
 /* hide post views counter */
@@ -140,15 +128,12 @@
   display: block;
 }
 
-/* social-Sharing*/
+/* social-Sharing */
 #socialSharingButtons {
   margin-bottom: 30px !important;
 }
 
 // Country specific styles
-// $countries: vietnam, nepal, thailand, philippines, japan, china, cambodia,
-//   sri-lanka, india, singapore, malaysia, korea;
-
 $countries: (
   vietnam: (
     base-color: rgba(104, 215, 88, 1),
