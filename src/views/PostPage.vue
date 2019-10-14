@@ -25,7 +25,7 @@
       <v-layout>
         <v-flex xs0 sm1 md2></v-flex>
         <v-flex xs12 sm10 md8>
-          <PostGrid
+          <PostGrid4
             :siteName="siteName"
             :offset="0"
             :perPage="4"
@@ -55,15 +55,15 @@
 import AppHeader from '../components/AppHeader'
 import SiteLogo from '../components/SiteLogo'
 import Post from '../components/Post'
-import PostGrid from '../components/PostGrid'
-import PostList from '../components/PostList'
+import PostGrid4 from '../components/blocks/PostGrid4'
+import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
     AppHeader,
     SiteLogo,
     Post,
-    PostGrid,
+    PostGrid4,
     PostList
   },
   props: ['postSlug', 'siteName']

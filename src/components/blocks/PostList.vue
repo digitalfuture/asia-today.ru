@@ -44,7 +44,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 
-import SearchForm from './SearchForm'
+import SearchForm from '../SearchForm'
 import PostStripe from './PostStripe'
 
 export default {

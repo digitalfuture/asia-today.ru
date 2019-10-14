@@ -19,7 +19,7 @@
       <v-layout>
         <v-flex xs0 sm1 md2></v-flex>
         <v-flex xs12 sm10 md8>
-          <PostGrid :siteName="siteName" :offset="0" :perPage="4" />
+          <PostGrid4 :siteName="siteName" :offset="0" :perPage="4" />
         </v-flex>
         <v-flex xs0 sm1 md2></v-flex>
       </v-layout>
@@ -39,14 +39,14 @@
 import { mapState } from 'vuex'
 import AppHeader from '../components/AppHeader'
 import SiteLogo from '../components/SiteLogo'
-import PostGrid from '../components/PostGrid'
-import PostList from '../components/PostList'
+import PostGrid4 from '../components/blocks/PostGrid4'
+import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
     AppHeader,
     SiteLogo,
-    PostGrid,
+    PostGrid4,
     PostList
   },
   props: ['siteName'],

@@ -1,6 +1,7 @@
 <template>
   <!-- Post grid -->
   <v-flex class="post-grid">
+    <!--  -->
     <!-- Middle screen and up -->
     <v-layout
       class="hidden-sm-and-down"
@@ -13,6 +14,7 @@
       </v-flex>
     </v-layout>
 
+    <!--  -->
     <!-- Small screen and down -->
     <v-layout class="hidden-md-and-up" xs12 wrap>
       <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pb-2" xs12>

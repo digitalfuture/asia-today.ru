@@ -16,7 +16,7 @@
       <v-layout>
         <v-flex xs0 sm1 md2></v-flex>
         <v-flex xs12 sm10 md8>
-          <PostGridBig :offset="0" :perPage="1" />
+          <PostGrid5 :offset="0" :perPage="1" />
         </v-flex>
         <v-flex xs0 sm1 md2></v-flex>
       </v-layout>
@@ -34,13 +34,13 @@
 
 <script>
 import AppHeader from '../components/AppHeader'
-import PostGridBig from '../components/PostGridBig'
-import PostList from '../components/PostList'
+import PostGrid5 from '../components/blocks/PostGrid5'
+import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
     AppHeader,
-    PostGridBig,
+    PostGrid5,
     PostList
   }
 }
