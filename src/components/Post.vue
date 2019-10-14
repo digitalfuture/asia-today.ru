@@ -5,7 +5,8 @@
     <vue-headful :title="`${getTitle(title)} - ${rusSiteName} Сегодня`" />
 
     <v-layout v-show="img">
-      <v-card light class="pt-3 pb-2 px-3 post__post-content">
+      <v-card light class="pb-2 post__post-content">
+        <!--  -->
         <!-- Middle screens and up -->
         <v-img
           :src="img"
@@ -14,16 +15,15 @@
           gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
           :aspect-ratio="16 / 9"
         >
-          <v-flex mx-4>
-            <v-card-title>
-              <h1
-                class="display-2 font-weight-light white--text"
-                v-html="title"
-              ></h1>
-            </v-card-title>
-          </v-flex>
+          <v-card-title>
+            <h1
+              class="display-2 font-weight-light white--text"
+              v-html="title"
+            ></h1>
+          </v-card-title>
         </v-img>
 
+        <!--  -->
         <!-- Small screens and down -->
         <v-img
           :src="img"
@@ -32,25 +32,21 @@
           gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
           :aspect-ratio="16 / 9"
         >
-          <v-flex mx-4>
-            <v-card-title>
-              <h1
-                class="hidden-sm-and-up headline font-weight-light white--text"
-                v-html="title"
-              ></h1>
-              <h1
-                class="hidden-xs-only display-1 font-weight-light white--text"
-                v-html="title"
-              ></h1>
-            </v-card-title>
-          </v-flex>
+          <v-card-title>
+            <h1
+              class="hidden-sm-and-up headline font-weight-light white--text"
+              v-html="title"
+            ></h1>
+            <h1
+              class="hidden-xs-only display-1 font-weight-light white--text"
+              v-html="title"
+            ></h1>
+          </v-card-title>
         </v-img>
 
-        <v-flex mt-3>
-          <hr />
-        </v-flex>
+        <hr />
 
-        <v-card-text class="px-0">
+        <v-card-text>
           <div v-html="content"></div>
 
           <v-flex mt-4 mb-5>
@@ -337,9 +333,6 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
     * {
       font-size: 16px;
       font-weight: 400;
-
-      padding-left: 0;
-      padding-right: 0;
 
       ul,
       ol {
