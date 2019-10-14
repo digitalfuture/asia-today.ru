@@ -351,7 +351,7 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
       h5,
       h6 {
         font-family: 'Roboto Condensed', sans-serif;
-        margin: 24px 0;
+        margin: 36px 0 24px;
         line-height: 1.2;
         font-weight: normal;
         color: #424242;
