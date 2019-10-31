@@ -1,44 +1,40 @@
 <template>
   <!-- Post list -->
-  <v-flex class="post-list" py-4>
-    <SearchForm
-      :siteName="siteName"
-      :offset="сurrentOffsetSearch"
-      :perPage="perPage"
-    />
+  <section class="post-list">
+    <v-row>
+      <v-col>
+        <SearchForm
+          :siteName="siteName"
+          :offset="сurrentOffsetSearch"
+          :perPage="perPage"
+        />
+      </v-col>
+    </v-row>
 
-    <v-layout wrap>
-      <v-flex v-if="searchString" xs12>
-        <v-layout wrap>
-          <v-flex v-for="(post, i) in searchResults" :key="i" py-1 xs12>
-            <PostStripe :post="post" :siteName="post.siteName" />
-          </v-flex>
-        </v-layout>
+    <v-row v-if="searchString" dense>
+      <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
+        <PostStripe :post="post" :siteName="post.siteName" />
+      </v-col>
+    </v-row>
 
-        <v-layout v-if="searchResults.length" xs12 justify-center>
-          <v-btn @click="searchMore" fab flat>
-            <v-icon color="black" x-large>expand_more</v-icon>
-          </v-btn>
-        </v-layout>
-      </v-flex>
+    <v-row v-else dense>
+      <v-col v-for="(post, i) in filteredPosts" :key="i" cols="12">
+        <PostStripe :post="post" :siteName="post.siteName" />
+      </v-col>
+    </v-row>
 
-      <v-flex v-else xs12>
-        <v-layout xs12>
-          <v-layout xs12 wrap>
-            <v-flex v-for="(post, i) in filteredPosts" :key="i" py-1 xs12>
-              <PostStripe :post="post" :siteName="post.siteName" />
-            </v-flex>
-          </v-layout>
-        </v-layout>
+    <v-row v-if="searchString && searchResults.length" justify="center">
+      <v-btn @click="searchMore" fab text>
+        <v-icon color="black" x-large>mdi-chevron-down</v-icon>
+      </v-btn>
+    </v-row>
 
-        <v-layout xs12 justify-center>
-          <v-btn @click="loadMore" fab flat>
-            <v-icon color="black" x-large>expand_more</v-icon>
-          </v-btn>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-flex>
+    <v-row v-if="!searchString" justify="center">
+      <v-btn @click="loadMore" fab text>
+        <v-icon color="black" x-large>mdi-chevron-down</v-icon>
+      </v-btn>
+    </v-row>
+  </section>
 </template>
 
 <script>
@@ -107,41 +103,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getLastPosts']),
+    ...mapActions(['fetchLastPostsEmbed']),
     getSiteUrl(siteName) {
       return this.sites.find(site => site.name === siteName).url
-    },
-    getPosts() {
-      if (this.$route.name === 'homePage') {
-        this.sites.forEach(site =>
-          this.getLastPosts({
-            siteUrl: site.url,
-            page: this.page,
-            perPage: this.perPage,
-            offset: this.currentOffset
-          }).then(posts =>
-            posts.forEach(post =>
-              this.savePostData({
-                siteName: site.name,
-                data: post
-              })
-            )
-          )
-        )
-      } else {
-        this.getLastPosts({
-          siteUrl: this.getSiteUrl(this.siteName),
-          perPage: this.perPage,
-          offset: this.currentOffset
-        }).then(posts =>
-          posts.forEach(post =>
-            this.savePostData({
-              siteName: this.siteName,
-              data: post
-            })
-          )
-        )
-      }
     },
     savePostData({ siteName, data }) {
       this.posts.push({
@@ -151,8 +115,40 @@ export default {
         title: data.title.rendered,
         date: data.date,
         link: data.link,
-        content: data.content.rendered
+        content: data.content.rendered,
+        thumb:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+            .source_url
       })
+    },
+    getPosts() {
+      if (this.$route.name === 'homePage') {
+        this.sites.forEach(site =>
+          this.fetchLastPostsEmbed({
+            siteUrl: site.url,
+            offset: this.offset,
+            perPage: this.perPage
+          }).then(data =>
+            this.savePostData({
+              siteName: site.name,
+              data: data[0]
+            })
+          )
+        )
+      } else {
+        this.fetchLastPostsEmbed({
+          siteUrl: this.getSiteUrl(this.siteName),
+          offset: this.offset,
+          perPage: this.perPage
+        }).then(data =>
+          data.forEach(post =>
+            this.savePostData({
+              siteName: this.siteName,
+              data: post
+            })
+          )
+        )
+      }
     },
     loadMore() {
       this.currentOffset = this.currentOffset + this.perPage
@@ -166,9 +162,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-// .post-list {
-
-// }
-</style>

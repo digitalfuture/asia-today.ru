@@ -4,28 +4,27 @@
       v-show="isScrolled"
       raised
       fixed
-      right
       fab
+      right
+      bottom
       dark
       color="black"
       @click="scrollToTop"
       v-scroll="onScroll"
-      class="scroll-button"
     >
-      <v-icon>keyboard_arrow_up</v-icon>
+      <v-icon>mdi-chevron-up</v-icon>
     </v-btn>
   </v-slide-y-reverse-transition>
 </template>
 <script>
-import { mapActions } from 'vuex'
-
 export default {
-  props: ['color'],
   data: () => ({
     isScrolled: false
   }),
   methods: {
-    ...mapActions(['scrollToTop']),
+    scrollToTop() {
+      this.$vuetify.goTo('.scroll-up')
+    },
     onScroll() {
       window.scrollY > 600
         ? (this.isScrolled = true)

@@ -6,47 +6,47 @@
     dark
     class="post-card grey"
   >
-    <v-layout>
-      <v-img
-        :src="post.thumb"
-        :lazy-src="require('@/assets/placeholder.jpg')"
-        gradient="to top, rgba(0,0,0,.8), transparent 100%"
-        :aspect-ratio="16 / 9"
-      ></v-img>
+    <v-img
+      :src="post.thumb"
+      lazy-src="/img/placeholder.jpg"
+      gradient="to top, rgba(0,0,0,.8), transparent 100%"
+      :aspect-ratio="16 / 9"
+      class="align-end"
+    >
+      <v-container>
+        <v-btn
+          fab
+          raised
+          class="post-card__color-point ma-0"
+          :style="'background-color: ' + getSiteColor(post.siteName)"
+        ></v-btn>
 
-      <div class="post-card__site-info">
-        <v-card-title class="post-card__site-title">
-          <h3 class="subheading" v-html="post.title"></h3>
-        </v-card-title>
+        <v-row class="px-4">
+          <v-col>
+            <v-row>
+              <h3 class="subtitle-1 pb-4" v-html="post.title"></h3>
+            </v-row>
 
-        <v-card-text class="post-card__post-details font-weight-light">
-          <v-layout justify-space-between>
-            <span class="grey--text post-card__post-date font-italic">
-              {{ getDate(post.date) }}
-            </span>
-            <span class="body-1 grey--text">
-              {{ getRusSiteName(post.siteName) }}
-            </span>
-          </v-layout>
-        </v-card-text>
-      </div>
-
-      <!-- Site logo -->
-      <v-btn
-        :to="'/' + post.siteName"
-        fab
-        raised
-        class="post-card__color-point ma-0"
-        :style="'background-color: ' + getSiteColor(post.siteName)"
-      ></v-btn>
-    </v-layout>
+            <v-row justify="space-between" class="font-weight-light">
+              <span
+                class="font-weight-light grey--text post-card__post-date font-italic"
+                >{{ getDate(post.date) }}</span
+              >
+              <span class="body-1 grey--text">{{
+                getSiteNameRu(post.siteName)
+              }}</span>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-img>
   </v-card>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 import { DateTime } from 'luxon'
+
+import { mapState } from 'vuex'
 
 export default {
   props: ['post'],
@@ -54,17 +54,14 @@ export default {
     ...mapState(['sites'])
   },
   methods: {
-    getRusSiteName(siteName) {
-      return this.sites.find(site => site.name === siteName).rusName
+    getSiteNameRu(siteName) {
+      return this.sites.find(site => site.name === siteName).nameRu
     },
     getSiteColor(siteName) {
       return this.sites.find(site => site.name === siteName).color
     },
     getSiteLogo(siteName) {
       return this.sites.find(site => site.name === siteName).logo
-    },
-    getSiteLogo2(siteName) {
-      return this.sites.find(site => site.name === siteName).logo2
     },
     getDate(date) {
       if (!date) return ''
@@ -86,22 +83,8 @@ export default {
     height: 32px;
   }
 
-  .post-card__site-info {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    .post-card__site-title {
-      padding-bottom: 5px;
-    }
-
-    .post-card__post-details {
-      padding: 10px 16px;
-
-      .post-card__post-date {
-        font-family: 'Noto Serif', serif;
-      }
-    }
+  .post-card__post-date {
+    font-family: 'Noto Serif', serif;
   }
 }
 </style>

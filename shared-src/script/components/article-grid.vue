@@ -31,31 +31,32 @@
   </div>
 </template>
 <script>
+// Rebuild
 export default {
-  name: 'article-row',
   data: () => ({
+    name: 'article-grid',
     countries: [
       {
         name: 'vietnam',
-        ruName: 'Вьетнам'
+        nameRu: 'Вьетнам'
       },
       {
         name: 'thailand',
-        ruName: 'Таиланд'
+        nameRu: 'Таиланд'
       },
       {
         name: 'philippines',
-        ruName: 'Филиппины'
+        nameRu: 'Филиппины'
       },
       {
         name: 'nepal',
-        ruName: 'Непал'
+        nameRu: 'Непал'
       }
     ],
     articles: [
       // {
       // country: 'vietnam',
-      // ruName: 'Вьетнам',
+      // nameRu: 'Вьетнам',
       // title: '',
       // image: ''
       // link: ''
@@ -66,21 +67,7 @@ export default {
   computed: {},
   methods: {
     updateArticles() {
-      const countries = this.countries.filter(country => {
-        // console.log('country.name:', country.name)
-        // console.log('country:', country)
-
-        const currentCountry =
-          window.location.hostname.indexOf(country.name) !== -1
-
-        // console.log('current country?', currentCountry)
-
-        return !currentCountry
-      })
-
-      // console.log('countries after processing:', countries)
-
-      for (let country of countries) {
+      for (let country of this.countries) {
         fetch(
           `https://asia-${
             country.name
@@ -100,7 +87,7 @@ export default {
 
             this.articles.push({
               country: country.name,
-              ruCountryName: country.ruName,
+              ruCountryName: country.nameRu,
               title,
               image,
               logo,
@@ -126,7 +113,7 @@ export default {
 }
 .site-container__link {
   display: block;
-  width: 33.33%;
+  width: 50%;
   max-width: 100%;
 }
 .site-container__block {
@@ -153,7 +140,7 @@ export default {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
 }
 .site-container__image {
   position: absolute;

@@ -2,64 +2,35 @@
   <!-- Site page -->
   <section>
     <!-- Set title to page -->
-    <vue-headful :title="`${rusSiteName} Сегодня`" />
+    <vue-headful :title="`${siteNameRu} Сегодня`" />
 
-    <v-container pa-0>
-      <v-layout>
-        <v-flex xs0 sm1 md2 py-4>
-          <SiteLogo hasImage />
-        </v-flex>
-
-        <v-flex xs12 sm10 md8>
-          <AppHeader :siteName="siteName" />
-        </v-flex>
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
-
-      <v-layout>
-        <v-flex xs0 sm1 md2></v-flex>
-        <v-flex xs12 sm10 md8>
-          <PostGrid4 :siteName="siteName" :offset="0" :perPage="4" />
-        </v-flex>
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
-
-      <v-layout>
-        <v-flex xs0 sm1 md2></v-flex>
-        <v-flex xs12 sm10 md8>
-          <PostList :siteName="siteName" :offset="1" :perPage="10" />
-        </v-flex>
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
+    <v-container class="pa-0">
+      <v-row justify="center">
+        <v-col cols="12" sm="11" md="10">
+          <PostGrid5 :siteName="siteName" :offset="0" :perPage="4" />
+          <PostList :siteName="siteName" :offset="4" :perPage="10" />
+        </v-col>
+      </v-row>
     </v-container>
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import AppHeader from '../components/AppHeader'
-import SiteLogo from '../components/SiteLogo'
-import PostGrid4 from '../components/blocks/PostGrid4'
+import PostGrid5 from '../components/blocks/PostGrid5'
 import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
-    AppHeader,
-    SiteLogo,
-    PostGrid4,
+    PostGrid5,
     PostList
   },
   props: ['siteName'],
   computed: {
     ...mapState(['sites']),
-    rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName
+    siteNameRu() {
+      return this.sites.find(site => site.name === this.siteName).nameRu
     }
   }
 }
 </script>
-<style lang="scss" scoped>
-.scroll-button {
-  bottom: 16px !important;
-}
-</style>

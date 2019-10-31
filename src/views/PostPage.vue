@@ -1,73 +1,38 @@
 <template>
-  <!-- Post page -->
   <section>
-    <v-container pa-0>
-      <v-layout>
-        <v-flex xs0 sm1 md2 py-4>
-          <SiteLogo hasImage />
-        </v-flex>
+    <v-row justify="center">
+      <v-col cols="12" sm="11" md="10">
+        <Post :siteName="siteName" :postSlug="postSlug" class="mb-4" />
 
-        <v-flex xs12 sm10 md8>
-          <AppHeader :siteName="siteName" />
-        </v-flex>
+        <PostGrid5
+          :siteName="siteName"
+          :offset="0"
+          :perPage="4"
+          :postSlug="postSlug"
+        />
 
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
-
-      <v-layout>
-        <v-flex xs0 sm1 md2></v-flex>
-        <v-flex xs12 sm10 md8>
-          <Post :siteName="siteName" :postSlug="postSlug" />
-        </v-flex>
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
-
-      <v-layout>
-        <v-flex xs0 sm1 md2></v-flex>
-        <v-flex xs12 sm10 md8>
-          <PostGrid4
-            :siteName="siteName"
-            :offset="0"
-            :perPage="4"
-            :postSlug="postSlug"
-          />
-        </v-flex>
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
-
-      <v-layout>
-        <v-flex xs0 sm1 md2></v-flex>
-        <v-flex xs12 sm10 md8>
-          <PostList
-            :siteName="siteName"
-            :offset="4"
-            :perPage="10"
-            :postSlug="postSlug"
-          />
-        </v-flex>
-        <v-flex xs0 sm1 md2></v-flex>
-      </v-layout>
-    </v-container>
+        <PostList
+          :siteName="siteName"
+          :offset="4"
+          :perPage="10"
+          :postSlug="postSlug"
+        />
+      </v-col>
+    </v-row>
   </section>
 </template>
 
 <script>
-import AppHeader from '../components/AppHeader'
-import SiteLogo from '../components/SiteLogo'
 import Post from '../components/Post'
-import PostGrid4 from '../components/blocks/PostGrid4'
+import PostGrid5 from '../components/blocks/PostGrid5'
 import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
-    AppHeader,
-    SiteLogo,
     Post,
-    PostGrid4,
+    PostGrid5,
     PostList
   },
   props: ['postSlug', 'siteName']
 }
 </script>
-
-<style lang="scss" scoped></style>

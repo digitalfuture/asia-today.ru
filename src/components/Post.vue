@@ -1,107 +1,98 @@
 <template>
-  <!-- Content block -->
-  <v-flex class="post" :class="siteName" xs12 mb-4>
-    <!-- Set title to page -->
-    <vue-headful :title="`${getTitle(title)} - ${rusSiteName} Сегодня`" />
+  <v-row class="post">
+    <v-col :class="siteName" cols="12">
+      <!-- Set title to page -->
+      <vue-headful :title="`${getTitle(title)} - ${siteNameRu} Сегодня`" />
 
-    <v-layout v-show="img">
-      <v-card light class="pb-2 post__post-content">
+      <v-card v-show="img" light class="pb-2 post__post-content">
         <!--  -->
-        <!-- Middle screens and up -->
         <v-img
           :src="img"
-          :lazy-src="require('@/assets/placeholder.jpg')"
-          class="post__post-content__post-img white--text hidden-sm-and-down"
-          gradient="to bottom, rgba(0,0,0,.8), transparent 50%"
+          lazy-src="/img/placeholder.jpg"
+          class="post__post-content__post-img white--text align-end"
+          gradient="to top, rgba(0,0,0,.8), transparent 100%"
           :aspect-ratio="16 / 9"
         >
-          <v-card-title>
-            <h1
-              class="display-2 font-weight-light white--text"
-              v-html="title"
-            ></h1>
-          </v-card-title>
-        </v-img>
-
-        <!--  -->
-        <!-- Small screens and down -->
-        <v-img
-          :src="img"
-          :lazy-src="require('@/assets/placeholder.jpg')"
-          class="post__post-content__post-img white--text hidden-md-and-up"
-          gradient="to bottom, rgba(0,0,0,.8), transparent 100%"
-          :aspect-ratio="16 / 9"
-        >
-          <v-card-title>
-            <h1
-              class="hidden-sm-and-up headline font-weight-light white--text"
-              v-html="title"
-            ></h1>
-            <h1
-              class="hidden-xs-only display-1 font-weight-light white--text"
-              v-html="title"
-            ></h1>
-          </v-card-title>
+          <v-container>
+            <v-row>
+              <v-col class="px-2 px-sm-4 px-md-8">
+                <!-- Extra small screens only -->
+                <h1
+                  class="d-inline d-sm-none headline font-weight-light white--text"
+                  v-html="title"
+                ></h1>
+                <!-- Small screens only -->
+                <h1
+                  class="d-none d-sm-inline d-md-none display-1 font-weight-light white--text"
+                  v-html="title"
+                ></h1>
+                <!-- Middle screens and up -->
+                <h1
+                  class="d-none d-md-inline display-2 font-weight-light white--text"
+                  v-html="title"
+                ></h1>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-img>
 
         <hr />
 
-        <v-card-text>
+        <v-card-text class="px-2 px-sm-4 px-md-8">
           <div v-html="content"></div>
 
-          <v-flex mt-4 mb-5>
-            <hr />
-          </v-flex>
+          <v-row class="mt-8 mb-5">
+            <v-col>
+              <hr />
+            </v-col>
+          </v-row>
 
-          <div
-            class="post__post-content__site-date font-italic font-weight-light"
-          >
-            <v-layout justify-space-between wrap>
-              <v-flex xs12 sm6 pb-4>
-                <span class="grey--text subheading">{{ date }}</span>
-              </v-flex>
+          <v-row justify="space-between">
+            <v-col cols="12" sm="6" class="pb-4">
+              <span
+                class="post__post-content__site-date font-italic font-weight-light grey--text subheading"
+                >{{ date }}</span
+              >
+            </v-col>
 
-              <v-flex xs12 sm6>
-                <!-- Extra small screens - align left -->
-                <v-layout justify-start class="hidden-sm-and-up">
-                  <yandex-share
-                    :services="[
-                      'vkontakte',
-                      'facebook',
-                      'twitter',
-                      'odnoklassniki',
-                      'tumblr',
-                      'viber',
-                      'telegram'
-                    ]"
-                    counter
-                    :description="title"
-                  />
-                </v-layout>
+            <v-col cols="12" sm="6">
+              <v-row justify="start" class="d-block d-sm-none">
+                <yandex-share
+                  :services="[
+                    'vkontakte',
+                    'facebook',
+                    'twitter',
+                    'odnoklassniki',
+                    'tumblr',
+                    'viber',
+                    'telegram'
+                  ]"
+                  counter
+                  :description="title"
+                />
+              </v-row>
 
-                <!-- Small screens and up - align right -->
-                <v-layout justify-end class="hidden-xs-only">
-                  <yandex-share
-                    :services="[
-                      'vkontakte',
-                      'facebook',
-                      'twitter',
-                      'odnoklassniki',
-                      'tumblr',
-                      'viber',
-                      'telegram'
-                    ]"
-                    counter
-                    :description="title"
-                  />
-                </v-layout>
-              </v-flex>
-            </v-layout>
-          </div>
+              <v-row justify="end" class="d-none d-sm-flex">
+                <yandex-share
+                  :services="[
+                    'vkontakte',
+                    'facebook',
+                    'twitter',
+                    'odnoklassniki',
+                    'tumblr',
+                    'viber',
+                    'telegram'
+                  ]"
+                  counter
+                  :description="title"
+                />
+              </v-row>
+            </v-col>
+          </v-row>
         </v-card-text>
       </v-card>
-    </v-layout>
-  </v-flex>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -128,12 +119,12 @@ export default {
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url
     },
-    rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName
+    siteNameRu() {
+      return this.sites.find(site => site.name === this.siteName).nameRu
     }
   },
   methods: {
-    ...mapActions(['getPostBySlug', 'getMedia']),
+    ...mapActions(['fetchPostBySlug', 'getMedia']),
     getTitle(title) {
       const div = document.createElement('div')
       div.innerHTML = title
@@ -227,7 +218,7 @@ export default {
     }
   },
   mounted() {
-    this.getPostBySlug({
+    this.fetchPostBySlug({
       siteUrl: this.siteUrl,
       postSlug: this.postSlug
     }).then(data => this.savePostData(data))
@@ -236,79 +227,73 @@ export default {
 </script>
 
 <style lang="scss">
-$vietnam-color: rgba(104, 215, 88, 1);
-$vietnam-color-light: rgba(104, 215, 88, 0.3);
+$countries: (
+  vietnam: (
+    base-color: rgba(104, 215, 88, 1),
+    light-color: rgba(104, 215, 88, 0.3)
+  ),
+  nepal: (
+    base-color: rgba(77, 178, 236, 1),
+    light-color: rgba(77, 178, 236, 0.3)
+  ),
+  thailand: (
+    base-color: rgba(187, 134, 252, 1),
+    light-color: rgba(187, 134, 252, 0.3)
+  ),
+  philippines: (
+    base-color: rgba(3, 218, 198, 1),
+    light-color: rgba(3, 218, 198, 0.3)
+  ),
+  japan: (
+    base-color: rgba(255, 204, 204, 1),
+    light-color: rgba(255, 204, 204, 0.3)
+  ),
+  china: (
+    base-color: rgba(255, 0, 0, 1),
+    light-color: rgba(255, 0, 0, 0.3)
+  ),
+  cambodia: (
+    base-color: rgba(255, 255, 0, 1),
+    light-color: rgba(255, 255, 0, 0.3)
+  ),
+  sri-lanka: (
+    base-color: rgba(255, 102, 51, 1),
+    light-color: rgba(255, 102, 51, 0.3)
+  ),
+  india: (
+    base-color: rgba(255, 153, 51, 1),
+    light-color: rgba(255, 153, 51, 0.3)
+  ),
+  singapore: (
+    base-color: rgba(255, 0, 102, 1),
+    light-color: rgba(255, 0, 102, 0.3)
+  ),
+  malaysia: (
+    base-color: rgba(0, 204, 255, 1),
+    light-color: rgba(0, 204, 255, 0.3)
+  ),
+  korea: (
+    base-color: rgba(255, 153, 255, 1),
+    light-color: rgba(255, 153, 255, 0.3)
+  )
+);
 
-$thailand-color: rgba(187, 134, 252, 1);
-$thailand-color-light: rgba(187, 134, 252, 0.3);
+@each $country, $colors in $countries {
+  .#{$country} {
+    blockquote,
+    blockquote * {
+      color: map-get($colors, base-color);
+    }
 
-$nepal-color: rgba(77, 178, 236, 1);
-$nepal-color-light: rgba(77, 178, 236, 0.3);
+    a {
+      border-bottom: 5px solid map-get($colors, light-color);
+    }
 
-$philippines-color: rgba(3, 218, 198, 1);
-$philippines-color-light: rgba(3, 218, 198, 0.3);
-
-// siteName based styles
-.vietnam {
-  blockquote,
-  blockquote * {
-    color: $vietnam-color;
-  }
-
-  a {
-    border-bottom: 5px solid $vietnam-color-light;
-  }
-
-  a:hover,
-  a:visited {
-    text-decoration: none;
-    border-bottom: 5px solid $vietnam-color;
-  }
-}
-
-.thailand {
-  blockquote {
-    color: $thailand-color;
-  }
-
-  a {
-    border-bottom: 5px solid $thailand-color-light;
-  }
-
-  a:hover,
-  a:visited {
-    text-decoration: none;
-    border-bottom: 5px solid $thailand-color;
-  }
-}
-
-.philippines {
-  blockquote {
-    color: $philippines-color;
-  }
-  a {
-    border-bottom: 5px solid $philippines-color-light;
-  }
-
-  a:hover,
-  a:visited {
-    text-decoration: none;
-    border-bottom: 5px solid $philippines-color;
-  }
-}
-
-.nepal {
-  blockquote {
-    color: $nepal-color;
-  }
-  a {
-    border-bottom: 5px solid $nepal-color-light;
-  }
-
-  a:hover,
-  a:visited {
-    text-decoration: none;
-    border-bottom: 5px solid $nepal-color;
+    a:hover,
+    a:visited {
+      text-decoration: none;
+      border-bottom: 5px solid map-get($colors, base-color);
+    }
   }
 }
 
@@ -327,9 +312,11 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
 
   .post__post-content {
     min-height: 100vh;
+
     a {
-      color: #424242;
+      color: rgba(0, 0, 0, 0.54);
     }
+
     * {
       font-size: 16px;
       font-weight: 400;
@@ -392,7 +379,6 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
         text-align: center;
         font-family: 'Noto Serif', serif;
         font-size: 1.3em;
-        // font-weight: bold;
         margin: 48px 0;
         line-height: 1.2;
       }
@@ -436,7 +422,8 @@ $philippines-color-light: rgba(3, 218, 198, 0.3);
     }
   }
   .ya-share2__list.ya-share2__list_direction_horizontal {
-    padding-left: 0;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 </style>

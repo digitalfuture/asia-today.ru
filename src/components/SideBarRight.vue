@@ -1,6 +1,6 @@
 <template>
   <!-- Right side bar -->
-  <v-flex class="right-side-bar hidden-sm-and-down" md2 px-2 py-5>
+  <v-flex class="px-2 py-5" md2>
     <!-- For home page only -->
     <v-layout
       v-if="$route.name === 'homePage'"
@@ -44,9 +44,7 @@
 
       <!-- Large screens and up - fixed text size -->
       <h1 class="hidden-md-and-down headline text-md-center">
-        <span class="font-weight-regular text-uppercase">{{
-          rusSiteName
-        }}</span>
+        <span class="font-weight-regular text-uppercase">{{ siteNameRu }}</span>
         <br />
         <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
       </h1>
@@ -55,9 +53,7 @@
       <h1
         class="hidden-lg-and-up headline text-md-center right-side-bar__text-responsive"
       >
-        <span class="font-weight-regular text-uppercase">{{
-          rusSiteName
-        }}</span>
+        <span class="font-weight-regular text-uppercase">{{ siteNameRu }}</span>
         <br />
         <span class="font-weight-thin text-md-center">СЕГОДНЯ</span>
       </h1>
@@ -90,8 +86,8 @@ export default {
     siteLogo() {
       return this.sites.find(site => site.name === this.siteName).logo
     },
-    rusSiteName() {
-      return this.sites.find(site => site.name === this.siteName).rusName
+    siteNameRu() {
+      return this.sites.find(site => site.name === this.siteName).nameRu
     }
   }
 }

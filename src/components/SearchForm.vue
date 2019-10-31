@@ -1,19 +1,21 @@
 <template>
-  <v-flex xs12>
-    <v-text-field
-      light
-      solo
-      clearable
-      single-line
-      color="grey"
-      prepend-inner-icon="search"
-      :suffix="suffixString"
-      @click:clear="clearSearchResults"
-      v-model="searchString"
-      @keyup.enter="search"
-      @input="clearSearchResults"
-    ></v-text-field>
-  </v-flex>
+  <v-row>
+    <v-col cols="12">
+      <v-text-field
+        light
+        solo
+        clearable
+        single-line
+        color="grey"
+        prepend-inner-icon="mdi-magnify"
+        :suffix="suffixString"
+        @click:clear="clearSearchResult"
+        v-model="searchString"
+        @keyup.enter="search"
+        @input="clearSearchResult"
+      ></v-text-field>
+    </v-col>
+  </v-row>
 </template>
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
@@ -43,8 +45,8 @@ export default {
   methods: {
     ...mapMutations([
       'updateSearchString',
-      'updateSearchResults',
-      'clearSearchResults'
+      'updateSearchResult',
+      'clearSearchResult'
     ]),
     ...mapActions(['searchPosts']),
     search() {
@@ -65,7 +67,7 @@ export default {
             content: post.content.rendered
           }))
 
-          this.updateSearchResults(data)
+          this.updateSearchResult(data)
         })
       } else {
         this.sites.forEach(site => {
@@ -85,7 +87,7 @@ export default {
               content: post.content.rendered
             }))
 
-            this.updateSearchResults(data)
+            this.updateSearchResult(data)
           })
         })
       }

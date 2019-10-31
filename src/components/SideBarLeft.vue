@@ -1,5 +1,5 @@
 <template>
-  <v-flex class="left-side-bar hidden-sm-and-down" md2 px-2 py-5>
+  <v-flex class="left-side-bar hidden-sm-and-down px-2 py-5" md2>
     <!-- Left side bar -->
     <v-layout column align-center fill-height justify-space-between>
       <!-- Rounded site logo -->

@@ -1185,20 +1185,20 @@ var web_dom_iterable = __webpack_require__("ac6a");
   data: () => ({
     countries: [{
       name: 'vietnam',
-      ruName: 'Вьетнам'
+      nameRu: 'Вьетнам'
     }, {
       name: 'thailand',
-      ruName: 'Таиланд'
+      nameRu: 'Таиланд'
     }, {
       name: 'philippines',
-      ruName: 'Филиппины'
+      nameRu: 'Филиппины'
     }, {
       name: 'nepal',
-      ruName: 'Непал'
+      nameRu: 'Непал'
     }],
     articles: [// {
       // country: 'vietnam',
-      // ruName: 'Вьетнам',
+      // nameRu: 'Вьетнам',
       // title: '',
       // image: ''
       // link: ''
@@ -1238,7 +1238,7 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
             _this.articles.push({
               country: country.name,
-              ruCountryName: country.ruName,
+              ruCountryName: country.nameRu,
               title,
               image,
               logo,

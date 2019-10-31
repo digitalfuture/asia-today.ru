@@ -1,128 +1,91 @@
 <template>
   <!-- Footer -->
-  <v-footer class="app-footer scroll-down pa-3" height="auto" light>
-    <v-layout justify-space-between xs12 fill-height wrap>
-      <v-flex
-        xs12
-        sm8
-        md4
-        align-space-between
-        justify-space-between
-        column
-        fill-height
-      >
-        <!-- All logos block -->
-        <v-layout xs12 wrap py-5 class="hidden-sm-and-up">
-          <v-flex v-for="(site, i) in sites" :key="i">
-            <SiteLogo hasImage :siteName="site.name" />
-          </v-flex>
-        </v-layout>
+  <v-footer class="app-footer pa-3" height="auto" light>
+    <v-row justify="space-between">
+      <!-- All logos block - extra small screen only -->
+      <v-col cols="12" class="hidden-sm-and-up py-5">
+        <v-row justify="center" align="center">
+          <SiteLogo
+            v-for="(site, i) in sites"
+            :key="i"
+            :siteName="site.name"
+            class="ma-2"
+          />
+        </v-row>
+      </v-col>
 
-        <!-- Asia Today block -->
-        <v-layout
-          align-center
-          justify-space-between
-          column
-          fill-height
-          text-xs-center
-          xs12
+      <!-- Asia Today block -->
+      <v-col cols="12" sm="6" md="4" class="text-center">
+        <v-btn to="/" fab class="app-footer__logo" raised color="black">
+          <v-img
+            src="/img/logo-today-transparent.png"
+            width="200"
+            height="200"
+            contain
+          ></v-img>
+        </v-btn>
+
+        <h2 xs12 class="app-footer__title display-1 py-8">
+          <span class="font-weight-medium">АЗИЯ</span>
+          <br />
+          <span class="font-weight-light">СЕГОДНЯ</span>
+        </h2>
+
+        <v-icon class="grey--text text--lighten-1 py-3"
+          >mdi-checkbox-blank-circle</v-icon
         >
-          <!-- Footer info -->
-          <v-flex py-3>
-            <v-btn
-              to="/"
-              fab
-              class="app-footer__logo"
-              raised
-              pa-2
-              color="black"
-            >
-              <v-img
-                :src="require('@/assets/logo-today-transparent.png')"
-                width="200"
-                height="200"
-                contain
-              ></v-img>
-            </v-btn>
-          </v-flex>
 
-          <v-flex py-3>
-            <h1 xs12 class="app-footer__title display-1">
-              <span class="font-weight-medium">АЗИЯ</span>
-              <br />
-              <span class="font-weight-light">СЕГОДНЯ</span>
-            </h1>
-          </v-flex>
+        <h2 class="app-footer__subtitle title grey--text text--darken-2 py-3">
+          НОВОСТИ СТРАН
+          <br />АЗИАТСКОГО РЕГИОНА
+        </h2>
 
-          <v-flex py-3>
-            <v-icon class="grey--text text--lighten-1"
-              >fiber_manual_record</v-icon
-            >
-          </v-flex>
-
-          <v-flex py-3>
-            <h2
-              xs12
-              class="app-footer__subtitle title grey--text text--darken-2"
-            >
-              НОВОСТИ СТРАН
-              <br />АЗИАТСКОГО РЕГИОНА
-            </h2>
-          </v-flex>
-
+        <v-row justify="center">
           <hr width="10%" class="app-footer__divider" />
+        </v-row>
 
-          <v-flex pb-5 pt-3>
-            <p xs12 class="body-2">
-              Все самое интересное и важное в одном месте. Бизнес. Туризм.
-              Происшествия. Полезная информация.
-            </p>
-          </v-flex>
+        <p cols="12" class="body-2 pb-5 pt-3">
+          Все самое интересное и важное в одном месте. Бизнес. Туризм.
+          Происшествия. Полезная информация.
+        </p>
 
-          <v-flex>
-            <address xs12 class="app-footer__address grey--text text--darken-1">
-              email:
-              <a
-                href="mailto:info@asia-today.ru"
-                class="grey--text text--darken-4"
-                >info@asia-today.ru</a
-              >
-            </address>
+        <address class="mb-8 app-footer__address grey--text text--darken-1">
+          email:
+          <a href="mailto:info@asia-today.ru" class="grey--text text--darken-4"
+            >info@asia-today.ru</a
+          >
+        </address>
 
-            <div class="caption grey--text text--darken-1">
-              &copy; {{ new Date().getFullYear() }} АЗИЯ СЕГОДНЯ
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-flex>
+        <div class="caption grey--text text--darken-1">
+          &copy; {{ new Date().getFullYear() }} АЗИЯ СЕГОДНЯ
+        </div>
+      </v-col>
 
-      <!-- All logos block -->
-      <v-flex xs0 sm4 md8>
-        <v-layout
-          class="hidden-xs-only"
-          align-center
-          justify-center
-          fill-height
-        >
-          <!-- Rounded site logos -->
-          <div>
-            <v-layout wrap>
-              <v-flex v-for="(site, i) in sites" :key="i">
-                <SiteLogo hasImage :siteName="site.name" />
-              </v-flex>
-            </v-layout>
-          </div>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+      <!-- All logos block - small screen amd up -->
+      <v-col sm="6" md="8" class="hidden-xs-only py-5">
+        <v-row align="center" class="fill-height">
+          <v-row justify="center">
+            <SiteLogo
+              v-for="(site, i) in sites"
+              :key="i"
+              :siteName="site.name"
+              class="ma-2"
+            />
+          </v-row>
+        </v-row>
+      </v-col>
+    </v-row>
+    <ScrollButton />
   </v-footer>
 </template>
 <script>
 import { mapState } from 'vuex'
+import ScrollButton from '../components/ScrollButton'
 import SiteLogo from '../components/SiteLogo'
 
 export default {
   components: {
+    ScrollButton,
     SiteLogo
   },
   computed: {
@@ -132,16 +95,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .app-footer {
-  background-image: url('../assets/background-footer.png') !important;
+  background-image: url('/img/background-footer.png') !important;
   background-size: contain !important;
   background-position: right top !important;
   background-repeat: no-repeat !important;
+  background-color: #ffff;
 
   min-height: 100vh;
 
   .app-footer__title {
     border-radius: 25px;
-    background: rgba(245, 245, 245, 0.5);
     padding: 12px;
   }
 

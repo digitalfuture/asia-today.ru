@@ -1,27 +1,10 @@
 <template>
   <!-- Post grid -->
-  <v-flex class="post-grid">
-    <!--  -->
-    <!-- Middle screen and up -->
-    <v-layout
-      class="hidden-sm-and-down"
-      align-content-center
-      justify-start
-      wrap
-    >
-      <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pa-1" md6>
-        <PostCard :post="post" />
-      </v-flex>
-    </v-layout>
-
-    <!--  -->
-    <!-- Small screen and down -->
-    <v-layout class="hidden-md-and-up" xs12 wrap>
-      <v-flex v-for="(post, i) in sortedPosts" :key="i" class="pb-2" xs12>
-        <PostCard :post="post" />
-      </v-flex>
-    </v-layout>
-  </v-flex>
+  <v-row class="post-grid" dense>
+    <v-col v-for="(post, i) in sortedPosts" :key="i" cols="12" md="6">
+      <PostCard :post="post" />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -58,7 +41,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getLastPostsEmbed', 'getMedia']),
+    ...mapActions(['fetchLastPostsEmbed', 'getMedia']),
     getSiteUrl(siteName) {
       return this.sites.find(site => site.name === siteName).url
     },
@@ -79,7 +62,7 @@ export default {
     getPosts() {
       if (this.$route.name === 'homePage') {
         this.sites.forEach(site =>
-          this.getLastPostsEmbed({
+          this.fetchLastPostsEmbed({
             siteUrl: site.url,
             offset: this.offset,
             perPage: this.perPage
@@ -91,7 +74,7 @@ export default {
           )
         )
       } else {
-        this.getLastPostsEmbed({
+        this.fetchLastPostsEmbed({
           siteUrl: this.getSiteUrl(this.siteName),
           offset: this.offset,
           perPage: this.perPage

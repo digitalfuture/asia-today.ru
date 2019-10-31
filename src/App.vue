@@ -1,41 +1,36 @@
 <template>
   <v-app dark>
-    <v-container align-content-center fluid pa-0 class="app-container">
+    <AppHeader />
+
+    <v-container align-content-center fluid class="app-container pa-0" dark>
       <v-content>
         <router-view :key="$route.path"></router-view>
       </v-content>
-      <AppFooter />
     </v-container>
 
-    <ScrollButton />
+    <AppFooter />
   </v-app>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import AppHeader from './components/AppHeader'
 import AppFooter from './components/AppFooter'
-import ScrollButton from './components/ScrollButton'
 
 export default {
   name: 'App',
   components: {
-    AppFooter,
-    ScrollButton
+    AppHeader,
+    AppFooter
   },
   methods: {
-    ...mapMutations(['clearSearchString', 'clearSearchResults'])
+    ...mapMutations(['clearSearchString', 'clearSearchResult'])
   },
   watch: {
     $route() {
       this.clearSearchString()
-      this.clearSearchResults()
+      this.clearSearchResult()
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.scroll-button {
-  bottom: 16px !important;
-}
-</style>

@@ -1,38 +1,63 @@
 <template>
   <v-card
-    class="site-card"
     :to="'/' + post.siteName + '/' + post.slug"
     raised
     ripple
     dark
+    class="post-stripe"
   >
-    <v-layout>
-      <!-- Site color point -->
+    <div class="d-flex">
+      <v-avatar
+        tile
+        width="200"
+        height="150"
+        left
+        class="d-none d-sm-flex flex-shrink-0"
+      >
+        <v-img
+          :src="post.thumb"
+          lazy-src="/img/placeholder.jpg"
+          gradient="to top, rgba(0,0,0,.8), transparent 100%"
+          height="150"
+        >
+          <v-btn
+            fab
+            raised
+            :style="'background-color: ' + getSiteColor(post.siteName)"
+            width="16"
+            height="16"
+            class="mx-3 mx-md-4 my-4 my-md-5"
+          ></v-btn>
+        </v-img>
+      </v-avatar>
+
       <v-btn
-        :to="'/' + post.siteName"
         fab
         raised
-        class="site-card__color-point ma-3"
         :style="'background-color: ' + getSiteColor(post.siteName)"
+        width="16"
+        height="16"
+        class="d-flex d-sm-none mx-2 my-3"
       ></v-btn>
 
-      <v-flex class="site-card__site-info">
-        <v-card-title class="site-card__site-title">
-          <h3 class="subheading" v-html="post.title"></h3>
-        </v-card-title>
+      <div
+        class="d-flex flex-column flex-grow-1 justify-space-between pa-2 pa-sm-3 pa-md-4"
+      >
+        <div class="subtitle-1" v-html="post.title"></div>
 
-        <v-card-text class="site-card__post-details font-weight-light">
-          <v-layout justify-space-between>
-            <span class="grey--text site-card__post-date font-italic">
-              {{ getDate(post.date) }}
-            </span>
-            <span class="body-1 grey--text">
-              {{ getRusSiteName(post.siteName) }}
-            </span>
-          </v-layout>
-        </v-card-text>
-      </v-flex>
-    </v-layout>
+        <div class="d-flex">
+          <div
+            class="flex-grow-1 font-weight-light grey--text post-stripe__post-date font-italic"
+          >
+            {{ getDate(post.date) }}
+          </div>
+
+          <div class="body-1 grey--text">
+            {{ getSiteNameRu(post.siteName) }}
+          </div>
+        </div>
+      </div>
+    </div>
   </v-card>
 </template>
 
@@ -46,17 +71,11 @@ export default {
     ...mapState(['sites'])
   },
   methods: {
-    getRusSiteName(siteName) {
-      return this.sites.find(site => site.name === siteName).rusName
+    getSiteNameRu(siteName) {
+      return this.sites.find(site => site.name === siteName).nameRu
     },
     getSiteColor(siteName) {
       return this.sites.find(site => site.name === siteName).color
-    },
-    getSiteLogo(siteName) {
-      return this.sites.find(site => site.name === siteName).logo
-    },
-    getSiteLogo2(siteName) {
-      return this.sites.find(site => site.name === siteName).logo2
     },
     getDate(date) {
       if (!date) return ''
@@ -69,28 +88,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.site-card {
-  .site-card__color-point {
-    width: 32px;
-    height: 32px;
-  }
-
-  .site-card__site-info {
-    bottom: 0;
-    left: 48px;
-    width: 100%;
-
-    .site-card__site-title {
-      padding-bottom: 5px;
-    }
-
-    .site-card__post-details {
-      padding: 10px 16px;
-
-      .site-card__post-date {
-        font-family: 'Noto Serif', serif;
-      }
-    }
+.post-stripe {
+  .post-stripe__post-date {
+    font-family: 'Noto Serif', serif;
   }
 }
 </style>

@@ -170,28 +170,20 @@ $countries: (
     light-color: rgba(104, 215, 88, 0.3)
   ),
   nepal: (
-    (
-      base-color: rgba(77, 178, 236, 1),
-      light-color: rgba(77, 178, 236, 0.3)
-    )
+    base-color: rgba(77, 178, 236, 1),
+    light-color: rgba(77, 178, 236, 0.3)
   ),
   thailand: (
-    (
-      base-color: rgba(187, 134, 252, 1),
-      light-color: rgba(187, 134, 252, 0.3)
-    )
+    base-color: rgba(187, 134, 252, 1),
+    light-color: rgba(187, 134, 252, 0.3)
   ),
   philippines: (
-    (
-      base-color: rgba(3, 218, 198, 1),
-      light-color: rgba(3, 218, 198, 0.3)
-    )
+    base-color: rgba(3, 218, 198, 1),
+    light-color: rgba(3, 218, 198, 0.3)
   ),
   japan: (
-    (
-      base-color: rgba(255, 204, 204, 1),
-      light-color: rgba(255, 204, 204, 0.3)
-    )
+    base-color: rgba(255, 204, 204, 1),
+    light-color: rgba(255, 204, 204, 0.3)
   ),
   china: (
     base-color: rgba(255, 0, 0, 1),
@@ -224,16 +216,16 @@ $countries: (
 );
 
 @each $country, $colors in $countries {
-  .#{$country} .td-post-content p a,
-  .#{$country} .td-post-content li a,
+  .#{$country} .td-post-content p a:hover,
+  .#{$country} .td-post-content li a:hover,
   .#{$country} .td-post-content p a:visited,
   .#{$country} .td-post-content li a:visited {
     border-bottom: 5px solid map-get($colors, base-color);
     text-decoration: none !important;
     color: #424242;
   }
-  .#{$country} .td-post-content p a:hover,
-  .#{$country} .td-post-content li a:hover,
+  .#{$country} .td-post-content p a,
+  .#{$country} .td-post-content li a,
   .#{$country} .td-post-content p a:active,
   .#{$country} .td-post-content li a:active {
     text-decoration: none !important;

@@ -22,32 +22,82 @@ export default new Vuex.Store({
     sites: [
       {
         name: 'vietnam',
-        rusName: 'Вьетнам',
+        nameRu: 'Вьетнам',
         url: 'https://asia-vietnam.ru',
-        logo: require('@/assets/logo-vietnam-icon.png'),
         color: '#68D758'
       },
       {
         name: 'nepal',
-        rusName: 'Непал',
-        url: 'https://asia-nepal.ru',
-        logo: require('@/assets/logo-nepal-icon.png'),
+        nameRu: 'Непал',
+        url: '//asia-nepal.ru',
         color: '#4DB2EC'
       },
       {
         name: 'thailand',
-        rusName: 'Таиланд',
-        url: 'https://asia-thailand.ru',
-        logo: require('@/assets/logo-thailand-icon.png'),
+        nameRu: 'Таиланд',
+        url: '//asia-thailand.ru',
         color: '#BB86FC'
       },
       {
         name: 'philippines',
-        rusName: 'Филиппины',
-        url: 'https://asia-philippines.ru',
-        logo: require('@/assets/logo-philippines-icon.png'),
+        nameRu: 'Филиппины',
+        url: '//asia-philippines.ru',
         color: '#03DAC6'
       }
+      // {
+      //   name: 'china',
+      //   nameRu: 'Китай',
+      //   url: '//asia-china.ru',
+      //   color: '#FF0000'
+      // },
+      // {
+      //   name: 'japan',
+      //   nameRu: 'Япония',
+      //   url: '//asia-japan.ru',
+      //   color: '#FFCCCC'
+      // },
+      // {
+      //   name: 'korea',
+      //   nameRu: 'Корея',
+      //   url: '//asia-korea.ru',
+      //   color: '#FF99FF'
+      // },
+      // {
+      //   name: 'sri-lanka',
+      //   nameRu: 'Шри-Ланка',
+      //   url: '//asia-sri-lanka.ru',
+      //   color: '#FF6633'
+      // },
+      // {
+      //   name: 'india',
+      //   nameRu: 'Индия',
+      //   url: '//asia-india.ru',
+      //   color: '#FF9933'
+      // },
+      // {
+      //   name: 'cambodia',
+      //   nameRu: 'Камбоджа',
+      //   url: '//asia-cambodia.ru',
+      //   color: '#FFFF00'
+      // },
+      // {
+      //   name: 'malaysia',
+      //   nameRu: 'Малайзия',
+      //   url: '//asia-malaysia.ru',
+      //   color: '#00CCFF'
+      // },
+      // {
+      //   name: 'singapore',
+      //   nameRu: 'Сингапур',
+      //   url: '//asia-singapore.ru',
+      //   color: '#FF0066'
+      // },
+      // {
+      //   name: 'myanmar',
+      //   nameRu: 'Мьянма',
+      //   url: '//asia-myanmar.ru',
+      //   color: '#FFCC00'
+      // }
     ]
   },
   mutations: {
@@ -62,7 +112,7 @@ export default new Vuex.Store({
     updateSearchString(state, text) {
       state.searchString = text
     },
-    updateSearchResults(state, data) {
+    updateSearchResult(state, data) {
       // console.log("update data:", data);
       // console.log("before update:", state.searchResults);
       data.forEach(post => state.searchResults.push(post))
@@ -72,15 +122,12 @@ export default new Vuex.Store({
     clearSearchString(state) {
       state.searchString = ''
     },
-    clearSearchResults(state) {
+    clearSearchResult(state) {
       state.searchResults = []
     }
   },
   actions: {
-    scrollToTop() {
-      Vue.prototype.$vuetify.goTo('.scroll-up')
-    },
-    getLastPosts(context, { siteUrl, perPage, offset }) {
+    fetchLastPosts(context, { siteUrl, perPage, offset }) {
       context.commit('startLoading')
 
       return axios
@@ -94,7 +141,7 @@ export default new Vuex.Store({
           return data
         })
     },
-    getLastPostsEmbed(context, { siteUrl, perPage, offset }) {
+    fetchLastPostsEmbed(context, { siteUrl, perPage, offset }) {
       context.commit('startLoading')
 
       return axios
@@ -108,7 +155,7 @@ export default new Vuex.Store({
           return data
         })
     },
-    getPostById(context, { siteUrl, postId }) {
+    fetchPostById(context, { siteUrl, postId }) {
       context.commit('startLoading')
 
       return axios
@@ -120,7 +167,7 @@ export default new Vuex.Store({
           return data
         })
     },
-    getPostBySlug(context, { siteUrl, postSlug }) {
+    fetchPostBySlug(context, { siteUrl, postSlug }) {
       context.commit('startLoading')
 
       return axios
