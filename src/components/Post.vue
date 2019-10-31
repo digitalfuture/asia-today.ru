@@ -345,6 +345,7 @@ $countries: (
       }
 
       h2 {
+        margin-top: 24px;
         font-size: 1.4em;
       }
 
