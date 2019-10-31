@@ -62,7 +62,8 @@ export default {
         //   date,
         //   link,
         //   content,
-        //   thumb
+        //   thumb,
+        //   excerpt
         // }
       ]
     }
@@ -115,7 +116,7 @@ export default {
         title: data.title.rendered,
         date: data.date,
         link: data.link,
-        content: data.content.rendered,
+        excerpt: data.excerpt.rendered,
         thumb:
           data._embedded['wp:featuredmedia'][0].media_details.sizes.full
             .source_url

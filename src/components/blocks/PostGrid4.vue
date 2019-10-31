@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchLastPostsEmbed', 'getMedia']),
+    ...mapActions(['fetchLastPostsEmbed']),
     getSiteUrl(siteName) {
       return this.sites.find(site => site.name === siteName).url
     },

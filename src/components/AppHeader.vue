@@ -3,7 +3,8 @@
   <v-app-bar hide-on-scroll app class="scroll-up" dark>
     <v-btn
       v-show="$route.path !== '/'"
-      @click="$router.go(-1)"
+      :to="goBack"
+      exact
       fab
       text
       width="48"
@@ -39,6 +40,13 @@ export default {
     ...mapState(['sites', 'loadingCount']),
     isLoading() {
       return this.loadingCount > 0
+    },
+    goBack() {
+      if (this.$route.name === 'postPage') {
+        return `/${this.$route.params.siteName}`
+      } else {
+        return '/'
+      }
     }
   }
 }

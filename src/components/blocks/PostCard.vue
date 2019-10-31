@@ -24,7 +24,7 @@
         <v-row class="px-4">
           <v-col>
             <v-row>
-              <h3 class="subtitle-1 pb-4" v-html="post.title"></h3>
+              <div class="pb-4" v-html="post.title"></div>
             </v-row>
 
             <v-row justify="space-between" class="font-weight-light">

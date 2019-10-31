@@ -329,7 +329,7 @@ $countries: (
       p,
       ul,
       ol {
-        margin-bottom: 16px;
+        margin-top: 16px;
       }
 
       h2,
@@ -424,6 +424,7 @@ $countries: (
   .ya-share2__list.ya-share2__list_direction_horizontal {
     padding-left: 12px;
     padding-right: 12px;
+    margin: 0;
   }
 }
 </style>

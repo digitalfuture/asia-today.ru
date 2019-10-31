@@ -7,7 +7,7 @@
     <v-container class="px-0">
       <v-row justify="center">
         <v-col cols="12" sm="11" md="10">
-          <PostGrid5 :offset="0" :perPage="1" />
+          <PostGrid4 :offset="0" :perPage="1" />
           <PostList :offset="1" :perPage="3" />
         </v-col>
       </v-row>
@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import PostGrid5 from '../components/blocks/PostGrid5'
+import PostGrid4 from '../components/blocks/PostGrid4'
 import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
-    PostGrid5,
+    PostGrid4,
     PostList
   }
 }

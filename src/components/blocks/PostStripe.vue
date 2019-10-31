@@ -5,31 +5,27 @@
     ripple
     dark
     class="post-stripe"
+    max-height="150"
   >
     <div class="d-flex">
-      <v-avatar
-        tile
-        width="200"
+      <v-img
+        :src="post.thumb"
+        lazy-src="/img/placeholder.jpg"
         height="150"
-        left
-        class="d-none d-sm-flex flex-shrink-0"
+        max-height="150"
+        width="200"
+        max-width="200"
+        class="d-none d-sm-flex"
       >
-        <v-img
-          :src="post.thumb"
-          lazy-src="/img/placeholder.jpg"
-          gradient="to top, rgba(0,0,0,.8), transparent 100%"
-          height="150"
-        >
-          <v-btn
-            fab
-            raised
-            :style="'background-color: ' + getSiteColor(post.siteName)"
-            width="16"
-            height="16"
-            class="mx-3 mx-md-4 my-4 my-md-5"
-          ></v-btn>
-        </v-img>
-      </v-avatar>
+        <v-btn
+          fab
+          raised
+          :style="'background-color: ' + getSiteColor(post.siteName)"
+          width="16"
+          height="16"
+          class="mx-sm-3 mx-md-4 my-4 my-md-5"
+        ></v-btn>
+      </v-img>
 
       <v-btn
         fab
@@ -41,9 +37,19 @@
       ></v-btn>
 
       <div
-        class="d-flex flex-column flex-grow-1 justify-space-between pa-2 pa-sm-3 pa-md-4"
+        class="d-flex flex-column flex-grow-1 justify-space-between px-3 px-sm-4 px-md-5 py-2 py-sm-3 py-md-4"
       >
-        <div class="subtitle-1" v-html="post.title"></div>
+        <div v-html="post.title"></div>
+
+        <div
+          class="d-none d-md-flex d-lg-none flex-grow-1 font-weight-light grey--text body-2 pt-2"
+          v-html="excerpt.slice(0, 100) + '...'"
+        ></div>
+
+        <div
+          class="d-none d-lg-flex flex-grow-1 font-weight-light grey--text body-2 pt-2"
+          v-html="excerpt.slice(0, 200) + '...'"
+        ></div>
 
         <div class="d-flex">
           <div
@@ -68,7 +74,10 @@ import { mapState } from 'vuex'
 export default {
   props: ['post'],
   computed: {
-    ...mapState(['sites'])
+    ...mapState(['sites']),
+    excerpt() {
+      return this.post.excerpt.split('<p>')[1].split('</p>')[0]
+    }
   },
   methods: {
     getSiteNameRu(siteName) {
