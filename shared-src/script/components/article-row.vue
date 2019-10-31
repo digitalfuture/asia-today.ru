@@ -82,9 +82,7 @@ export default {
 
       for (let country of countries) {
         fetch(
-          `https://asia-${
-            country.name
-          }.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
+          `https://asia-${country.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
           .then(response => response.json())
           .then(data => ({
@@ -92,9 +90,7 @@ export default {
             imageUrl: data[0]._embedded['wp:featuredmedia'][0].link
           }))
           .then(({ title, imageUrl }) => {
-            const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${
-              country.name
-            }-icon.png)`
+            const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${country.name}-icon.png)`
             const link = `https://asia-${country.name}.ru`
             const image = `background: url(${imageUrl}) center center`
 
