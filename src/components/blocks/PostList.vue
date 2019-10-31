@@ -126,7 +126,7 @@ export default {
         this.sites.forEach(site =>
           this.fetchLastPostsEmbed({
             siteUrl: site.url,
-            offset: this.offset,
+            offset: this.currentOffset,
             perPage: this.perPage
           }).then(data =>
             this.savePostData({
@@ -138,7 +138,7 @@ export default {
       } else {
         this.fetchLastPostsEmbed({
           siteUrl: this.getSiteUrl(this.siteName),
-          offset: this.offset,
+          offset: this.currentOffset,
           perPage: this.perPage
         }).then(data =>
           data.forEach(post =>
@@ -151,10 +151,10 @@ export default {
       }
     },
     loadMore() {
-      this.currentOffset = this.currentOffset + this.perPage
+      this.currentOffset += this.perPage
     },
     searchMore() {
-      this.сurrentOffsetSearch = this.сurrentOffsetSearch + this.perPage
+      this.сurrentOffsetSearch += this.perPage
     }
   },
   created() {
