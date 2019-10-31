@@ -64,7 +64,10 @@ export default {
             title: post.title.rendered,
             date: post.date,
             link: post.link,
-            content: post.content.rendered
+            excerpt: post.excerpt.rendered,
+            thumb:
+              post._embedded['wp:featuredmedia'][0].media_details.sizes.full
+                .source_url
           }))
 
           this.updateSearchResult(data)
@@ -84,7 +87,10 @@ export default {
               title: post.title.rendered,
               date: post.date,
               link: post.link,
-              content: post.content.rendered
+              excerpt: post.excerpt.rendered,
+              thumb:
+                post._embedded['wp:featuredmedia'][0].media_details.sizes.full
+                  .source_url
             }))
 
             this.updateSearchResult(data)

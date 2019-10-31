@@ -185,7 +185,7 @@ export default new Vuex.Store({
       //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
       return axios
         .get(
-          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${perPage}&offset=${offset}`
+          `${siteUrl}/wp-json/wp/v2/posts?search=${searchString}&per_page=${perPage}&offset=${offset}&_embed`
         )
         .then(response => response.data)
         .then(data => {

@@ -2,7 +2,7 @@
   <!-- Header -->
   <v-app-bar hide-on-scroll app class="scroll-up" dark>
     <v-btn
-      v-show="$route.path !== '/'"
+      v-if="$route.path !== '/'"
       :to="goBack"
       exact
       fab
@@ -12,6 +12,8 @@
     >
       <v-icon color="black" x-large>mdi-arrow-left</v-icon>
     </v-btn>
+
+    <v-btn v-else exact disabled fab text width="48" height="48"></v-btn>
 
     <SiteLogo
       hasText
