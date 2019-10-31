@@ -15,7 +15,7 @@
         max-height="150"
         width="200"
         max-width="200"
-        class="d-none d-sm-flex"
+        class="d-none d-sm-flex post-stripe__post-image"
       >
         <v-btn
           fab
@@ -98,6 +98,9 @@ export default {
 
 <style lang="scss" scoped>
 .post-stripe {
+  .post-stripe__post-image {
+    border-radius: 4px 0 0 4px;
+  }
   .post-stripe__post-date {
     font-family: 'Noto Serif', serif;
   }
