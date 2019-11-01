@@ -1,6 +1,6 @@
 <template>
   <!-- Post list -->
-  <v-container class="post-list">
+  <v-container class="post-list px-0">
     <!-- Search form -->
     <v-row>
       <v-col>
@@ -109,6 +109,8 @@ export default {
 
       return this.posts.filter(post => {
         if (post.id === prevPostId) {
+          return false
+        } else if (this.$route.name === 'postPage' && post.slug === this.slug) {
           return false
         } else {
           prevPostId = post.id

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="px-0">
     <v-row v-if="sortedPosts.length" class="post-grid" dense>
       <v-col v-for="(post, i) in sortedPosts" :key="i" cols="12" md="6">
         <PostCard :post="post" />

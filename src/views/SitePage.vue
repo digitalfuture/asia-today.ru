@@ -21,6 +21,7 @@ import PostGrid4 from '../components/blocks/PostGrid4'
 import PostList from '../components/blocks/PostList'
 
 export default {
+  name: 'SitePage',
   components: {
     PostGrid4,
     PostList
