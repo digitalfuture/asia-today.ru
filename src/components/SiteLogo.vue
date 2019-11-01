@@ -11,7 +11,7 @@
           color="black"
         >
           <v-img
-            :src="siteName ? siteLogo : '/img/logo-today-transparent.png'"
+            :src="siteName ? siteLogo : '/shared/img/logo-asia-icon.png'"
             class="site-logo__logo-image"
             width="48"
             height="48"

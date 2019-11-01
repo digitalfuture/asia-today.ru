@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/404.html"
   },
   {
-    "revision": "156625495bff57bb60dc",
-    "url": "/css/app.e4729236.css"
+    "revision": "4027dfe03e22c8c3481c",
+    "url": "/css/app.74f16c32.css"
   },
   {
     "revision": "d23812f3c63ebd11ffc2",
@@ -28,12 +28,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/placeholder.jpg"
   },
   {
-    "revision": "eadc93c806e88df4879ea514753eb0b1",
+    "revision": "746d98bc7fc7530ebe81c7da970fef9c",
     "url": "/index.html"
   },
   {
-    "revision": "156625495bff57bb60dc",
-    "url": "/js/app.6cbc277e.js"
+    "revision": "4027dfe03e22c8c3481c",
+    "url": "/js/app.72139542.js"
   },
   {
     "revision": "d23812f3c63ebd11ffc2",
@@ -50,6 +50,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7f4fe24dd7640c33110cd81476248617",
     "url": "/shared/css/style.css"
+  },
+  {
+    "revision": "3311e71043774475252bdc3a2c70d3c0",
+    "url": "/shared/img/logo-asia-icon.png"
   },
   {
     "revision": "273ef66d7e87e717ace137461c66af0e",

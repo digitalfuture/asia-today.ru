@@ -34,7 +34,7 @@
     </v-row>
 
     <!-- Skeleton list -->
-    <v-row v-else dense>
+    <v-row v-if="!searchString && !posts.length" dense>
       <v-col v-for="i in 4" :key="i" cols="12">
         <v-skeleton-loader
           type="list-item-avatar-three-line"
