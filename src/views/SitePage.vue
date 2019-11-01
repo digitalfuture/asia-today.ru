@@ -7,7 +7,7 @@
     <v-container class="pa-0">
       <v-row justify="center">
         <v-col cols="12" sm="11" md="10">
-          <PostGrid5 :siteName="siteName" :offset="0" :perPage="4" />
+          <PostGrid4 :siteName="siteName" :offset="0" :perPage="4" />
           <PostList :siteName="siteName" :offset="4" :perPage="10" />
         </v-col>
       </v-row>
@@ -17,12 +17,12 @@
 
 <script>
 import { mapState } from 'vuex'
-import PostGrid5 from '../components/blocks/PostGrid5'
+import PostGrid4 from '../components/blocks/PostGrid4'
 import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
-    PostGrid5,
+    PostGrid4,
     PostList
   },
   props: ['siteName'],

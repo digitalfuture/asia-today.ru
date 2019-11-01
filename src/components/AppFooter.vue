@@ -99,7 +99,6 @@ export default {
   background-size: contain !important;
   background-position: right top !important;
   background-repeat: no-repeat !important;
-  background-color: #ffff;
 
   min-height: 100vh;
 
