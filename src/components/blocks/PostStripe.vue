@@ -48,7 +48,7 @@
 
         <div
           class="d-none d-lg-flex flex-grow-1 font-weight-light grey--text body-2 pt-2"
-          v-html="excerpt.slice(0, 200) + '...'"
+          v-html="excerpt.slice(0, 150) + '...'"
         ></div>
 
         <div class="d-flex">

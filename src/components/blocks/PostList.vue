@@ -1,6 +1,7 @@
 <template>
   <!-- Post list -->
-  <section class="post-list">
+  <v-container class="post-list">
+    <!-- Search form -->
     <v-row>
       <v-col>
         <SearchForm
@@ -11,30 +12,43 @@
       </v-col>
     </v-row>
 
+    <!-- Search result -->
     <v-row v-if="searchString" dense>
       <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
         <PostStripe :post="post" :siteName="post.siteName" />
       </v-col>
     </v-row>
 
-    <v-row v-else dense>
-      <v-col v-for="(post, i) in filteredPosts" :key="i" cols="12">
-        <PostStripe :post="post" :siteName="post.siteName" />
-      </v-col>
-    </v-row>
-
+    <!-- Search more button -->
     <v-row v-if="searchString && searchResults.length" justify="center">
       <v-btn @click="searchMore" fab text>
         <v-icon color="black" x-large>mdi-chevron-down</v-icon>
       </v-btn>
     </v-row>
 
+    <!-- Post list -->
+    <v-row v-if="!searchString && filteredPosts.length" dense>
+      <v-col v-for="(post, i) in filteredPosts" :key="i" cols="12">
+        <PostStripe :post="post" :siteName="post.siteName" />
+      </v-col>
+    </v-row>
+
+    <!-- Skeleton list -->
+    <v-row v-else dense>
+      <v-col v-for="i in 4" :key="i" cols="12">
+        <v-skeleton-loader
+          type="list-item-avatar-three-line"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+
+    <!-- Load more button -->
     <v-row v-if="!searchString" justify="center">
       <v-btn @click="loadMore" fab text>
         <v-icon color="black" x-large>mdi-chevron-down</v-icon>
       </v-btn>
     </v-row>
-  </section>
+  </v-container>
 </template>
 
 <script>

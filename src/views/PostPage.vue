@@ -2,9 +2,9 @@
   <section>
     <v-row justify="center">
       <v-col cols="12" sm="11" md="10">
-        <Post :siteName="siteName" :postSlug="postSlug" class="mb-4" />
+        <SitePost :siteName="siteName" :postSlug="postSlug" class="mb-4" />
 
-        <PostGrid5
+        <PostGrid4
           :siteName="siteName"
           :offset="0"
           :perPage="4"
@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import Post from '../components/Post'
-import PostGrid5 from '../components/blocks/PostGrid5'
+import SitePost from '../components/SitePost'
+import PostGrid4 from '../components/blocks/PostGrid4'
 import PostList from '../components/blocks/PostList'
 
 export default {
   components: {
-    Post,
-    PostGrid5,
+    SitePost,
+    PostGrid4,
     PostList
   },
   props: ['postSlug', 'siteName']

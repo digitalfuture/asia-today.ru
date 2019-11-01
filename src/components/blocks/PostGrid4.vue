@@ -1,10 +1,17 @@
 <template>
-  <!-- Post grid -->
-  <v-row class="post-grid" dense>
-    <v-col v-for="(post, i) in sortedPosts" :key="i" cols="12" md="6">
-      <PostCard :post="post" />
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row v-if="sortedPosts.length" class="post-grid" dense>
+      <v-col v-for="(post, i) in sortedPosts" :key="i" cols="12" md="6">
+        <PostCard :post="post" />
+      </v-col>
+    </v-row>
+
+    <v-row v-else class="post-grid" dense>
+      <v-col v-for="i in 4" :key="i" cols="12" md="6">
+        <v-skeleton-loader type="card"></v-skeleton-loader>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
