@@ -1,6 +1,6 @@
 <template>
   <!-- Header -->
-  <v-app-bar hide-on-scroll app class="scroll-up" dark>
+  <v-app-bar hide-on-scroll app id="header" dark>
     <v-btn
       v-if="$route.path !== '/'"
       :to="goBack"
@@ -10,7 +10,7 @@
       width="48"
       height="48"
     >
-      <v-icon color="black" x-large>mdi-arrow-left</v-icon>
+      <v-icon color="grey" x-large>mdi-arrow-left</v-icon>
     </v-btn>
 
     <v-btn v-else exact disabled fab text width="48" height="48"></v-btn>
@@ -19,7 +19,20 @@
       hasText
       :sites="sites"
       :siteName="$route.name === 'homePage' ? null : $route.params.siteName"
+      class="ml-12"
     ></SiteLogo>
+
+    <v-btn
+      @click="$vuetify.goTo('#search')"
+      exact
+      fab
+      text
+      width="48"
+      height="48"
+      class="ml-auto"
+    >
+      <v-icon color="grey" x-large>search</v-icon>
+    </v-btn>
 
     <v-progress-linear
       :active="isLoading"

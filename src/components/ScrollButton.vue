@@ -23,7 +23,7 @@ export default {
   }),
   methods: {
     scrollToTop() {
-      this.$vuetify.goTo('.scroll-up')
+      this.$vuetify.goTo('#header')
     },
     onScroll() {
       window.scrollY > 600

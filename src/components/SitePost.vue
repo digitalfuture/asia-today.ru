@@ -15,7 +15,7 @@
         >
           <v-container>
             <v-row>
-              <v-col class="px-2 px-sm-4 px-md-8">
+              <v-col class="px-4 px-md-8">
                 <!-- Extra small screens only -->
                 <h1
                   class="d-inline d-sm-none headline font-weight-light white--text"
@@ -38,7 +38,7 @@
 
         <hr />
 
-        <v-card-text class="px-2 px-sm-4 px-md-8">
+        <v-card-text class="px-4 px-md-8">
           <div v-html="content"></div>
 
           <v-row class="mt-8 mb-5">
@@ -229,56 +229,7 @@ export default {
 </script>
 
 <style lang="scss">
-$countries: (
-  vietnam: (
-    base-color: rgba(104, 215, 88, 1),
-    light-color: rgba(104, 215, 88, 0.3)
-  ),
-  nepal: (
-    base-color: rgba(77, 178, 236, 1),
-    light-color: rgba(77, 178, 236, 0.3)
-  ),
-  thailand: (
-    base-color: rgba(187, 134, 252, 1),
-    light-color: rgba(187, 134, 252, 0.3)
-  ),
-  philippines: (
-    base-color: rgba(3, 218, 198, 1),
-    light-color: rgba(3, 218, 198, 0.3)
-  ),
-  japan: (
-    base-color: rgba(255, 204, 204, 1),
-    light-color: rgba(255, 204, 204, 0.3)
-  ),
-  china: (
-    base-color: rgba(255, 0, 0, 1),
-    light-color: rgba(255, 0, 0, 0.3)
-  ),
-  cambodia: (
-    base-color: rgba(255, 255, 0, 1),
-    light-color: rgba(255, 255, 0, 0.3)
-  ),
-  sri-lanka: (
-    base-color: rgba(255, 102, 51, 1),
-    light-color: rgba(255, 102, 51, 0.3)
-  ),
-  india: (
-    base-color: rgba(255, 153, 51, 1),
-    light-color: rgba(255, 153, 51, 0.3)
-  ),
-  singapore: (
-    base-color: rgba(255, 0, 102, 1),
-    light-color: rgba(255, 0, 102, 0.3)
-  ),
-  malaysia: (
-    base-color: rgba(0, 204, 255, 1),
-    light-color: rgba(0, 204, 255, 0.3)
-  ),
-  korea: (
-    base-color: rgba(255, 153, 255, 1),
-    light-color: rgba(255, 153, 255, 0.3)
-  )
-);
+@import '../styles';
 
 @each $country, $colors in $countries {
   .#{$country} {

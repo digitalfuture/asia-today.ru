@@ -1,21 +1,23 @@
 <template>
-  <v-row>
-    <v-col cols="12">
-      <v-text-field
-        light
-        solo
-        clearable
-        single-line
-        color="grey"
-        prepend-inner-icon="mdi-magnify"
-        :suffix="suffixString"
-        @click:clear="clearSearchResult"
-        v-model="searchString"
-        @keyup.enter="search"
-        @input="clearSearchResult"
-      ></v-text-field>
-    </v-col>
-  </v-row>
+  <v-container class="px-0" id="search">
+    <v-row>
+      <v-col cols="12">
+        <v-text-field
+          light
+          solo
+          clearable
+          single-line
+          color="grey"
+          prepend-inner-icon="mdi-magnify"
+          :suffix="suffixString"
+          @click:clear="clearSearchResult"
+          v-model="searchString"
+          @keyup.enter="search"
+          @input="clearSearchResult"
+        ></v-text-field>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'

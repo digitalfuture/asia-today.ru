@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/404.html"
   },
   {
-    "revision": "a2be9dc0e5d83778bf01",
-    "url": "/css/app.5dae91fc.css"
+    "revision": "1c1b0333a16f4be1d425",
+    "url": "/css/app.4a3a7ba2.css"
   },
   {
     "revision": "d23812f3c63ebd11ffc2",
@@ -20,6 +20,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/background-footer.png"
   },
   {
+    "revision": "3311e71043774475252bdc3a2c70d3c0",
+    "url": "/img/logo-asia-icon.png"
+  },
+  {
     "revision": "777f7a350ff4c42f0c36081fea0bad55",
     "url": "/img/logo-today-transparent.png"
   },
@@ -28,12 +32,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/placeholder.jpg"
   },
   {
-    "revision": "31b1fc4a6e2a9a26388d6e5e81857dd5",
+    "revision": "7f186835b152ccc6bc59117a62bd7cd7",
     "url": "/index.html"
   },
   {
-    "revision": "a2be9dc0e5d83778bf01",
-    "url": "/js/app.ea8213a2.js"
+    "revision": "1c1b0333a16f4be1d425",
+    "url": "/js/app.e5a2802f.js"
   },
   {
     "revision": "d23812f3c63ebd11ffc2",
@@ -50,10 +54,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7f4fe24dd7640c33110cd81476248617",
     "url": "/shared/css/style.css"
-  },
-  {
-    "revision": "3311e71043774475252bdc3a2c70d3c0",
-    "url": "/shared/img/logo-asia-icon.png"
   },
   {
     "revision": "273ef66d7e87e717ace137461c66af0e",
@@ -154,6 +154,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3b088845405a1f83aba3de2af1aaaf6a",
     "url": "/shared/img/logo-korea.png"
+  },
+  {
+    "revision": "274291ae68c329bd3a83080628f73691",
+    "url": "/shared/img/logo-laos-bold.png"
+  },
+  {
+    "revision": "5da1562de9ed5636f0461715f6114690",
+    "url": "/shared/img/logo-laos-icon.png"
+  },
+  {
+    "revision": "45c585e931a2e0aae799352d4141f1be",
+    "url": "/shared/img/logo-laos-white-bold.png"
+  },
+  {
+    "revision": "d6680b6f59f1775440075fbdd68ed375",
+    "url": "/shared/img/logo-laos.png"
   },
   {
     "revision": "942fe99b6b7d852ac1a37612ff3ea306",
