@@ -10,7 +10,7 @@
       width="48"
       height="48"
     >
-      <v-icon color="grey" x-large>mdi-arrow-left</v-icon>
+      <v-icon color="grey">mdi-arrow-left</v-icon>
     </v-btn>
 
     <v-btn v-else exact disabled fab text width="48" height="48"></v-btn>
@@ -31,7 +31,7 @@
       height="48"
       class="ml-auto"
     >
-      <v-icon color="grey" x-large>search</v-icon>
+      <v-icon color="grey">search</v-icon>
     </v-btn>
 
     <v-progress-linear
