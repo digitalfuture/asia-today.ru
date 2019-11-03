@@ -6,12 +6,18 @@
     clearable
     single-line
     color="grey"
+    class="text--normal"
     prepend-inner-icon="mdi-magnify"
     :suffix="suffixString"
     @click:clear="clearSearchResult"
     v-model="searchString"
     @keyup.enter="search"
     @input="clearSearchResult"
+    :placeholder="
+      $route.name === 'homePage'
+        ? ' ИСКАТЬ ПО ВСЕМ СТРАНАМ'
+        : ' ИСКАТЬ ТОЛЬКО ПО СТРАНИЦЕ ' + siteNameRu.toUpperCase() + ' СЕГОДНЯ'
+    "
   ></v-text-field>
 </template>
 <script>
@@ -29,6 +35,9 @@ export default {
     },
     suffixString() {
       return this.searchResults.length ? '' + this.searchResults.length : ''
+    },
+    siteNameRu() {
+      return this.sites.find(site => site.name === this.siteName).nameRu
     }
   },
   watch: {
