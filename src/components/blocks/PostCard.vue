@@ -1,6 +1,7 @@
 <template>
   <v-card
     :to="'/' + post.siteName + '/' + post.slug"
+    @click.native="rememberCurrentPost"
     raised
     ripple
     dark
@@ -32,9 +33,9 @@
                 class="font-weight-light grey--text post-card__post-date font-italic"
                 >{{ getDate(post.date) }}</span
               >
-              <span class="body-1 grey--text">{{
-                getSiteNameRu(post.siteName)
-              }}</span>
+              <span class="body-1 grey--text">
+                {{ getSiteNameRu(post.siteName) }}
+              </span>
             </v-row>
           </v-col>
         </v-row>
@@ -46,7 +47,7 @@
 <script>
 import { DateTime } from 'luxon'
 
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   props: ['post'],
@@ -54,6 +55,7 @@ export default {
     ...mapState(['sites'])
   },
   methods: {
+    ...mapMutations(['rememberPost']),
     getSiteNameRu(siteName) {
       return this.sites.find(site => site.name === siteName).nameRu
     },
@@ -68,6 +70,9 @@ export default {
       return DateTime.fromISO(date, { locale: 'ru' }).toLocaleString(
         DateTime.DATE_FULL
       )
+    },
+    rememberCurrentPost() {
+      this.rememberPost(this.post)
     }
   }
 }

@@ -2,10 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+import sites from './sites'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    sites: sites.slice(0, 4),
     searchString: '',
     loadingCount: 0,
     searchResults: [
@@ -16,89 +19,11 @@ export default new Vuex.Store({
       //   title,
       //   date,
       //   link,
-      //   content
+      //   content,
+      //   thumb
       // }
     ],
-    sites: [
-      {
-        name: 'vietnam',
-        nameRu: 'Вьетнам',
-        url: 'https://asia-vietnam.ru',
-        color: '#68D758'
-      },
-      {
-        name: 'nepal',
-        nameRu: 'Непал',
-        url: '//asia-nepal.ru',
-        color: '#4DB2EC'
-      },
-      {
-        name: 'thailand',
-        nameRu: 'Таиланд',
-        url: '//asia-thailand.ru',
-        color: '#BB86FC'
-      },
-      {
-        name: 'philippines',
-        nameRu: 'Филиппины',
-        url: '//asia-philippines.ru',
-        color: '#03DAC6'
-      }
-      // {
-      //   name: 'china',
-      //   nameRu: 'Китай',
-      //   url: '//asia-china.ru',
-      //   color: '#FF0000'
-      // },
-      // {
-      //   name: 'japan',
-      //   nameRu: 'Япония',
-      //   url: '//asia-japan.ru',
-      //   color: '#FFCCCC'
-      // },
-      // {
-      //   name: 'korea',
-      //   nameRu: 'Корея',
-      //   url: '//asia-korea.ru',
-      //   color: '#FF99FF'
-      // },
-      // {
-      //   name: 'sri-lanka',
-      //   nameRu: 'Шри-Ланка',
-      //   url: '//asia-sri-lanka.ru',
-      //   color: '#FF6633'
-      // },
-      // {
-      //   name: 'india',
-      //   nameRu: 'Индия',
-      //   url: '//asia-india.ru',
-      //   color: '#FF9933'
-      // },
-      // {
-      //   name: 'cambodia',
-      //   nameRu: 'Камбоджа',
-      //   url: '//asia-cambodia.ru',
-      //   color: '#FFFF00'
-      // },
-      // {
-      //   name: 'malaysia',
-      //   nameRu: 'Малайзия',
-      //   url: '//asia-malaysia.ru',
-      //   color: '#00CCFF'
-      // },
-      // {
-      //   name: 'singapore',
-      //   nameRu: 'Сингапур',
-      //   url: '//asia-singapore.ru',
-      //   color: '#FF0066'
-      // },
-      // {
-      //   name: 'myanmar',
-      //   nameRu: 'Мьянма',
-      //   url: '//asia-myanmar.ru',
-      //   color: '#FFCC00'
-      // }
-    ]
+    currentPost: null
   },
   mutations: {
     startLoading(state) {
@@ -124,6 +49,12 @@ export default new Vuex.Store({
     },
     clearSearchResult(state) {
       state.searchResults = []
+    },
+    rememberPost(state, post) {
+      state.currentPost = post
+    },
+    forgetPost(state) {
+      state.currentPost = null
     }
   },
   actions: {

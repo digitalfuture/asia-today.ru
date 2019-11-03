@@ -1,18 +1,16 @@
 <template>
-  <section>
-    <v-row justify="center">
-      <v-col cols="12" sm="11" md="10">
-        <SitePost :siteName="siteName" :postSlug="postSlug" class="mb-4" />
+  <div class="post-page d-flex justify-center py-12">
+    <v-col cols="12" sm="11" md="9">
+      <SitePost :siteName="siteName" :postSlug="postSlug" class="mb-4" />
 
-        <PostList
-          :siteName="siteName"
-          :offset="4"
-          :perPage="10"
-          :postSlug="postSlug"
-        />
-      </v-col>
-    </v-row>
-  </section>
+      <PostList
+        :siteName="siteName"
+        :offset="4"
+        :perPage="10"
+        :postSlug="postSlug"
+      />
+    </v-col>
+  </div>
 </template>
 
 <script>

@@ -3,7 +3,7 @@
   <v-app-bar hide-on-scroll app id="header" dark>
     <v-btn
       v-if="$route.path !== '/'"
-      :to="goBack"
+      :to="upperLevel"
       exact
       fab
       text
@@ -56,7 +56,7 @@ export default {
     isLoading() {
       return this.loadingCount > 0
     },
-    goBack() {
+    upperLevel() {
       if (this.$route.name === 'postPage') {
         return `/${this.$route.params.siteName}`
       } else {

@@ -1,9 +1,9 @@
 <template>
   <!-- Post list -->
-  <v-container class="post-list px-0">
+  <section class="post-list">
     <!-- Search form -->
     <v-row>
-      <v-col>
+      <v-col cols="12">
         <SearchForm
           :siteName="siteName"
           :offset="сurrentOffsetSearch"
@@ -48,7 +48,7 @@
         <v-icon color="black" x-large>mdi-chevron-down</v-icon>
       </v-btn>
     </v-row>
-  </v-container>
+  </section>
 </template>
 
 <script>
@@ -86,6 +86,9 @@ export default {
     currentOffset() {
       this.getPosts()
     }
+    // posts2() {
+    //   console.log(this.posts2)
+    // }
   },
   computed: {
     ...mapState(['sites', 'searchString', 'searchResults']),

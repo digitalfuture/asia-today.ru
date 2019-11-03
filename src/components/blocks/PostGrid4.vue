@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-0">
+  <section fluid class="post-grid-4">
     <v-row v-if="sortedPosts.length" class="post-grid" dense>
       <v-col v-for="(post, i) in sortedPosts" :key="i" cols="12" md="6">
         <PostCard :post="post" />
@@ -11,7 +11,7 @@
         <v-skeleton-loader type="card"></v-skeleton-loader>
       </v-col>
     </v-row>
-  </v-container>
+  </section>
 </template>
 
 <script>

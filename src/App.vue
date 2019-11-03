@@ -1,13 +1,7 @@
 <template>
   <v-app dark>
     <AppHeader />
-
-    <v-container align-content="center" class="app-container pa-0" dark>
-      <v-content>
-        <router-view :key="$route.path"></router-view>
-      </v-content>
-    </v-container>
-
+    <router-view :key="$route.path"></router-view>
     <AppFooter />
   </v-app>
 </template>

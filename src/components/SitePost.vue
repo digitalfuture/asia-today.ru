@@ -1,104 +1,109 @@
 <template>
-  <v-row class="post">
-    <v-col :class="siteName" cols="12">
-      <!-- Set title to page -->
-      <vue-headful :title="`${getTitle(title)} - ${siteNameRu} Сегодня`" />
+  <section class="sitePost">
+    <v-row>
+      <v-col :class="siteName" cols="12">
+        <!-- Set title to page -->
+        <vue-headful :title="`${getTitle(title)} - ${siteNameRu} Сегодня`" />
 
-      <v-card v-show="img" light class="pb-2 post__post-content">
-        <!--  -->
-        <v-img
-          :src="img"
-          lazy-src="/img/placeholder.jpg"
-          class="post__post-content__post-img white--text align-end"
-          gradient="to top, rgba(0,0,0,.8), transparent 100%"
-          :aspect-ratio="16 / 9"
-        >
-          <v-container>
-            <v-row>
-              <v-col class="px-4 px-md-8">
-                <!-- Extra small screens only -->
-                <h1
-                  class="d-inline d-sm-none headline font-weight-light white--text"
-                  v-html="title"
-                ></h1>
-                <!-- Small screens only -->
-                <h1
-                  class="d-none d-sm-inline d-md-none display-1 font-weight-light white--text"
-                  v-html="title"
-                ></h1>
-                <!-- Middle screens and up -->
-                <h1
-                  class="d-none d-md-inline display-2 font-weight-light white--text"
-                  v-html="title"
-                ></h1>
+        <v-card v-show="img" light class="pb-2 post__post-content">
+          <!--  -->
+          <v-img
+            :src="img"
+            lazy-src="/img/placeholder.jpg"
+            class="post__post-content__post-img white--text align-end"
+            gradient="to top, rgba(0,0,0,.8), transparent 100%"
+            :aspect-ratio="16 / 9"
+          >
+            <v-container>
+              <v-row>
+                <v-col class="px-4 px-md-8">
+                  <!-- Extra small screens only -->
+                  <h1
+                    class="d-inline d-sm-none headline font-weight-light white--text"
+                    v-html="title"
+                  ></h1>
+                  <!-- Small screens only -->
+                  <h1
+                    class="d-none d-sm-inline d-md-none display-1 font-weight-light white--text"
+                    v-html="title"
+                  ></h1>
+                  <!-- Middle screens and up -->
+                  <h1
+                    class="d-none d-md-inline display-2 font-weight-light white--text"
+                    v-html="title"
+                  ></h1>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-img>
+
+          <hr />
+
+          <v-card-text class="px-4 px-md-8">
+            <div v-html="content"></div>
+
+            <v-row class="mt-8 mb-5">
+              <v-col>
+                <hr />
               </v-col>
             </v-row>
-          </v-container>
-        </v-img>
 
-        <hr />
+            <v-row justify="space-between">
+              <v-col cols="12" sm="6" class="pb-4">
+                <span
+                  class="post__post-content__site-date font-italic font-weight-light grey--text subheading"
+                  >{{ date }}</span
+                >
+              </v-col>
 
-        <v-card-text class="px-4 px-md-8">
-          <div v-html="content"></div>
+              <v-col cols="12" sm="6">
+                <v-row justify="start" class="d-block d-sm-none">
+                  <yandex-share
+                    :services="[
+                      'vkontakte',
+                      'facebook',
+                      'twitter',
+                      'odnoklassniki',
+                      'tumblr',
+                      'viber',
+                      'telegram'
+                    ]"
+                    counter
+                    :description="title"
+                  />
+                </v-row>
 
-          <v-row class="mt-8 mb-5">
-            <v-col>
-              <hr />
-            </v-col>
-          </v-row>
+                <v-row justify="end" class="d-none d-sm-flex">
+                  <yandex-share
+                    :services="[
+                      'vkontakte',
+                      'facebook',
+                      'twitter',
+                      'odnoklassniki',
+                      'tumblr',
+                      'viber',
+                      'telegram'
+                    ]"
+                    counter
+                    :description="title"
+                  />
+                </v-row>
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
 
-          <v-row justify="space-between">
-            <v-col cols="12" sm="6" class="pb-4">
-              <span
-                class="post__post-content__site-date font-italic font-weight-light grey--text subheading"
-                >{{ date }}</span
-              >
-            </v-col>
-
-            <v-col cols="12" sm="6">
-              <v-row justify="start" class="d-block d-sm-none">
-                <yandex-share
-                  :services="[
-                    'vkontakte',
-                    'facebook',
-                    'twitter',
-                    'odnoklassniki',
-                    'tumblr',
-                    'viber',
-                    'telegram'
-                  ]"
-                  counter
-                  :description="title"
-                />
-              </v-row>
-
-              <v-row justify="end" class="d-none d-sm-flex">
-                <yandex-share
-                  :services="[
-                    'vkontakte',
-                    'facebook',
-                    'twitter',
-                    'odnoklassniki',
-                    'tumblr',
-                    'viber',
-                    'telegram'
-                  ]"
-                  counter
-                  :description="title"
-                />
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card>
-
-      <v-skeleton-loader v-if="!img" type="image, article"></v-skeleton-loader>
-    </v-col>
-  </v-row>
+        <v-skeleton-loader
+          v-if="!img"
+          type="image, article"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+  </section>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 import { DateTime } from 'luxon'
 import YandexShare from '@cookieseater/vue-yandex-share'
 
@@ -117,7 +122,7 @@ export default {
     thumb: ''
   }),
   computed: {
-    ...mapState(['sites']),
+    ...mapState(['sites', 'currentPost']),
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url
     },
@@ -126,6 +131,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['forgetPost']),
     ...mapActions(['fetchPostBySlug', 'getMedia']),
     getTitle(title) {
       const div = document.createElement('div')
@@ -220,10 +226,17 @@ export default {
     }
   },
   mounted() {
-    this.fetchPostBySlug({
-      siteUrl: this.siteUrl,
-      postSlug: this.postSlug
-    }).then(data => this.savePostData(data))
+    if (this.currentPost) {
+      this.post = this.currentPost
+    } else {
+      this.fetchPostBySlug({
+        siteUrl: this.siteUrl,
+        postSlug: this.postSlug
+      }).then(data => this.savePostData(data))
+    }
+  },
+  beforeDestroy() {
+    this.forgetPost()
   }
 }
 </script>
@@ -251,7 +264,7 @@ export default {
 }
 
 //
-.post {
+.sitePost {
   hr {
     height: 12px;
     color: #f5f5f5;

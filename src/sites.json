@@ -1,0 +1,86 @@
+[
+  {
+    "name": "vietnam",
+    "nameRu": "Вьетнам",
+    "url": "//asia-vietnam.ru",
+    "color": "#68D758"
+  },
+  {
+    "name": "nepal",
+    "nameRu": "Непал",
+    "url": "//asia-nepal.ru",
+    "color": "#4DB2EC"
+  },
+  {
+    "name": "thailand",
+    "nameRu": "Таиланд",
+    "url": "//asia-thailand.ru",
+    "color": "#BB86FC"
+  },
+  {
+    "name": "philippines",
+    "nameRu": "Филиппины",
+    "url": "//asia-philippines.ru",
+    "color": "#03DAC6"
+  },
+  {
+    "name": "china",
+    "nameRu": "Китай",
+    "url": "//asia-china.ru",
+    "color": "#FF0000"
+  },
+  {
+    "name": "japan",
+    "nameRu": "Япония",
+    "url": "//asia-japan.ru",
+    "color": "#FFCCCC"
+  },
+  {
+    "name": "korea",
+    "nameRu": "Корея",
+    "url": "//asia-korea.ru",
+    "color": "#FF99FF"
+  },
+  {
+    "name": "sri-lanka",
+    "nameRu": "Шри-Ланка",
+    "url": "//asia-sri-lanka.ru",
+    "color": "#FF6633"
+  },
+  {
+    "name": "india",
+    "nameRu": "Индия",
+    "url": "//asia-india.ru",
+    "color": "#FF9933"
+  },
+  {
+    "name": "cambodia",
+    "nameRu": "Камбоджа",
+    "url": "//asia-cambodia.ru",
+    "color": "#FFFF00"
+  },
+  {
+    "name": "malaysia",
+    "nameRu": "Малайзия",
+    "url": "//asia-malaysia.ru",
+    "color": "#00CCFF"
+  },
+  {
+    "name": "singapore",
+    "nameRu": "Сингапур",
+    "url": "//asia-singapore.ru",
+    "color": "#FF0066"
+  },
+  {
+    "name": "myanmar",
+    "nameRu": "Мьянма",
+    "url": "//asia-myanmar.ru",
+    "color": "#FFCC00"
+  },
+  {
+    "name": "laos",
+    "nameRu": "Лаос",
+    "url": "//asia-laos.ru",
+    "color": "#99CCCC"
+  }
+]
