@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "15e1":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("24fb")(false);
-// Imports
-exports.push([module.i, "@import url(//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);", ""]);
-// Module
-exports.push([module.i, ".country-list[data-v-435d7b1c]{-ms-flex-wrap:wrap;flex-wrap:wrap}.country-list[data-v-435d7b1c],.country-list__country-container[data-v-435d7b1c]{display:-webkit-box;display:-ms-flexbox;display:flex}.country-list__country-container[data-v-435d7b1c]{padding:8px;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}.country-list__country-wrapper[data-v-435d7b1c]{width:250px;max-width:250px}.country-list__country-logo[data-v-435d7b1c]{display:block}", ""]);
-
-
-/***/ }),
-
 /***/ "24fb":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -303,18 +291,6 @@ function addStyle (obj /* StyleObjectPart */, shadowRoot) {
   }
 }
 
-
-/***/ }),
-
-/***/ "43fc":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_435d7b1c_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8e79");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_435d7b1c_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_435d7b1c_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_435d7b1c_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_435d7b1c_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_435d7b1c_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -715,14 +691,17 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"298b00e5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared-src/script/components/country-list.vue?vue&type=template&id=435d7b1c&scoped=true&shadow
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"country-list"},_vm._l((_vm.sites),function(site,i){return _c('div',{key:i,staticClass:"country-list__country-container"},[_c('div',{staticClass:"country-list__country-wrapper"},[_c('a',{staticClass:"country-list__country-logo",attrs:{"href":site.url}},[_c('img',{attrs:{"src":site.logo,"height":"50"}})])])])}),0)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"298b00e5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared-src/script/components/country-list.vue?vue&type=template&id=3c67835e&scoped=true&shadow
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"country-list"},[_c('h3',{staticClass:"country-list__title"},[_vm._v("НАШИ ПРОЕКТЫ")]),_c('div',{staticClass:"country-list__container"},_vm._l((_vm.sites),function(site,i){return _c('div',{key:i,staticClass:"country-list__country-container"},[_c('div',{staticClass:"country-list__country-wrapper"},[_c('a',{staticClass:"country-list__country-logo",attrs:{"href":site.url}},[_c('img',{attrs:{"src":site.logo,"height":"50"}})])])])}),0)])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./shared-src/script/components/country-list.vue?vue&type=template&id=435d7b1c&scoped=true&shadow
+// CONCATENATED MODULE: ./shared-src/script/components/country-list.vue?vue&type=template&id=3c67835e&scoped=true&shadow
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared-src/script/components/country-list.vue?vue&type=script&lang=js&shadow
+//
+//
+//
 //
 //
 //
@@ -773,79 +752,88 @@ var staticRenderFns = []
       zen: '//zen.yandex.ru/id/5cd74a830ae27d00b35edee3',
       ok: '//ok.ru/group/54222220034245',
       telegram: '//t.me/AsiaThailand'
-    }, {
-      name: 'japan',
-      nameRu: 'Япония',
-      url: '//asia-japan.ru',
-      logo: '//asia-today.ru/shared/img/logo-japan.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'china',
-      nameRu: 'Китай',
-      url: '//asia-china.ru',
-      logo: '//asia-today.ru/shared/img/logo-china.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'cambodia',
-      nameRu: 'Камбоджа',
-      url: '//asia-cambodia.ru',
-      logo: '//asia-today.ru/shared/img/logo-cambodia.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'sri-lanka',
-      nameRu: 'Шри-Ланка',
-      url: '//asia-sri-lanka.ru',
-      logo: '//asia-today.ru/shared/img/logo-sri-lanka.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'india',
-      nameRu: 'Индия',
-      url: '//asia-india.ru',
-      logo: '//asia-today.ru/shared/img/logo-india.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'singapore',
-      nameRu: 'Сингапур',
-      url: '//asia-singapore.ru',
-      logo: '//asia-today.ru/shared/img/logo-singapore.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'malaysia',
-      nameRu: 'Малайзия',
-      url: '//asia-malaysia.ru',
-      logo: '//asia-today.ru/shared/img/logo-malaysia.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'korea',
-      nameRu: 'Корея',
-      url: '//asia-korea.ru',
-      logo: '//asia-today.ru/shared/img/logo-korea.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }, {
-      name: 'myanmar',
-      nameRu: 'Мьянма',
-      url: '//asia-myanmar.ru',
-      logo: '//asia-today.ru/shared/img/logo-myanmar.png',
-      zen: '',
-      ok: '',
-      telegram: ''
-    }]
+    } // {
+    //   name: 'japan',
+    //   nameRu: 'Япония',
+    //   url: '//asia-japan.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-japan.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'china',
+    //   nameRu: 'Китай',
+    //   url: '//asia-china.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-china.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'cambodia',
+    //   nameRu: 'Камбоджа',
+    //   url: '//asia-cambodia.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-cambodia.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'sri-lanka',
+    //   nameRu: 'Шри-Ланка',
+    //   url: '//asia-sri-lanka.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-sri-lanka.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'india',
+    //   nameRu: 'Индия',
+    //   url: '//asia-india.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-india.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'singapore',
+    //   nameRu: 'Сингапур',
+    //   url: '//asia-singapore.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-singapore.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'malaysia',
+    //   nameRu: 'Малайзия',
+    //   url: '//asia-malaysia.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-malaysia.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'korea',
+    //   nameRu: 'Корея',
+    //   url: '//asia-korea.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-korea.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // },
+    // {
+    //   name: 'myanmar',
+    //   nameRu: 'Мьянма',
+    //   url: '//asia-myanmar.ru',
+    //   logo: '//asia-today.ru/shared/img/logo-myanmar.png',
+    //   zen: '',
+    //   ok: '',
+    //   telegram: ''
+    // }
+    ]
   }),
   computed: {},
   methods: {//
@@ -863,7 +851,7 @@ var staticRenderFns = []
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__("43fc")
+  var style0 = __webpack_require__("6f2a")
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -876,7 +864,7 @@ var component = normalizeComponent(
   staticRenderFns,
   false,
   injectStyles,
-  "435d7b1c",
+  "3c67835e",
   null
   ,true
 )
@@ -897,6 +885,30 @@ window.customElements.define('country-list', vue_wc_wrapper(external_Vue_default
 
 /***/ }),
 
+/***/ "6f2a":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_3c67835e_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("bada");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_3c67835e_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_3c67835e_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_3c67835e_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_3c67835e_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_ref_6_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_node_modules_vuetify_loader_lib_loader_js_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_country_list_vue_vue_type_style_index_0_id_3c67835e_scoped_true_lang_css_shadow__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "818f":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("24fb")(false);
+// Imports
+exports.push([module.i, "@import url(//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);", ""]);
+// Module
+exports.push([module.i, ".country-list[data-v-3c67835e]{padding:12px;font-family:Roboto;font-weight:700;font-size:xx-large}.country-list__title[data-v-3c67835e]{text-align:center}.country-list__container[data-v-3c67835e]{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}.country-list__country-container[data-v-3c67835e]{padding:8px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}.country-list__country-wrapper[data-v-3c67835e]{width:250px;max-width:250px}.country-list__country-logo[data-v-3c67835e]{display:block}", ""]);
+
+
+/***/ }),
+
 /***/ "8bbf":
 /***/ (function(module, exports) {
 
@@ -904,19 +916,19 @@ module.exports = Vue;
 
 /***/ }),
 
-/***/ "8e79":
+/***/ "bada":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("15e1");
+var content = __webpack_require__("818f");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to Shadow Root
 var add = __webpack_require__("35d6").default
 module.exports.__inject__ = function (shadowRoot) {
-  add("3872a10e", content, shadowRoot)
+  add("f710fc82", content, shadowRoot)
 };
 
 /***/ }),
