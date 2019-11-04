@@ -14,13 +14,10 @@
 </template>
 
 <script>
-import SitePost from '../components/SitePost'
-import PostList from '../components/blocks/PostList'
-
 export default {
   components: {
-    SitePost,
-    PostList
+    SitePost: import('../components/SitePost'),
+    PostList: import('../components/blocks/PostList')
   },
   props: ['postSlug', 'siteName']
 }
