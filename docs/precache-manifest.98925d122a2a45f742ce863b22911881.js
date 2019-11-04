@@ -348,11 +348,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/shared/img/social/zen.svg"
   },
   {
-    "revision": "314ec3173deee24811b22a97c6dbe64e",
+    "revision": "c61b191c6432c91660b57a3ade1db7d0",
+    "url": "/shared/script/components/article-grid.js"
+  },
+  {
+    "revision": "ee11b2fcf10ef937c890b6c2b123bcd0",
+    "url": "/shared/script/components/article-grid.min.js"
+  },
+  {
+    "revision": "6e5f249516f8ddc8f2050843ee98ba40",
+    "url": "/shared/script/components/article-row.js"
+  },
+  {
+    "revision": "744d75b2e753f030be5eecc523b68588",
+    "url": "/shared/script/components/article-row.min.js"
+  },
+  {
+    "revision": "bcd70ea862c648e49e1716dcca2c8129",
     "url": "/shared/script/components/country-list.js"
   },
   {
-    "revision": "d1d8c9dac291df880a0d55f2672e2e52",
+    "revision": "a761fde8e6617988db7bed2fee989c2f",
     "url": "/shared/script/components/country-list.min.js"
   },
   {
