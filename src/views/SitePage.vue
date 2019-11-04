@@ -4,7 +4,7 @@
     <!-- Set title to page -->
     <vue-headful :title="`${siteNameRu} Сегодня`" />
 
-    <v-col cols="12" sm="11" md="9" class="px-0">
+    <v-col cols="12" sm="11" md="9">
       <PostGrid4 :siteName="siteName" :offset="0" :perPage="4" />
       <PostList :siteName="siteName" :offset="4" :perPage="10" />
     </v-col>

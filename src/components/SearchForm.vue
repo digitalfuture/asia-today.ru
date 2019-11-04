@@ -6,7 +6,6 @@
     clearable
     single-line
     color="grey"
-    class="text--normal"
     prepend-inner-icon="mdi-magnify"
     :suffix="suffixString"
     @click:clear="clearSearchResult"
@@ -15,8 +14,8 @@
     @input="clearSearchResult"
     :placeholder="
       $route.name === 'homePage'
-        ? ' ИСКАТЬ ПО ВСЕМ СТРАНАМ'
-        : ' ИСКАТЬ ТОЛЬКО ПО СТРАНИЦЕ ' + siteNameRu.toUpperCase() + ' СЕГОДНЯ'
+        ? 'Искать по всем странам'
+        : 'Страна поиска: ' + siteNameRu
     "
   ></v-text-field>
 </template>

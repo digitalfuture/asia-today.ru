@@ -2,7 +2,7 @@
   <!-- Home page -->
   <div class="home-page d-flex justify-center py-12">
     <!-- Set title to page -->
-    <vue-headful title="Азия Сегодня" />
+    <vue-headful title="Азия сегодня" />
 
     <v-col cols="12" sm="11" md="9">
       <PostGrid4 :offset="0" :perPage="1" />

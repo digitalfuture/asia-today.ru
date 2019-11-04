@@ -1,6 +1,6 @@
 <template>
   <div class="post-page d-flex justify-center py-12">
-    <v-col cols="12" sm="11" md="9" class="px-0 pt-4">
+    <v-col cols="12" sm="11" md="9" class="pt-4">
       <SitePost :siteName="siteName" :postSlug="postSlug" class="mb-4" />
 
       <PostList
