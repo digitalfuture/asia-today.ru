@@ -1,6 +1,6 @@
 <template>
   <section class="country-list">
-    <h3 class="country-list__title">НАШИ ПРОЕКТЫ</h3>
+    <div class="country-list__title">НАШИ ПРОЕКТЫ</div>
     <div class="country-list__container">
       <div
         v-for="(site, i) in sites"
@@ -154,13 +154,15 @@ export default {
 @import url('//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
 .country-list {
-  padding: 12px;
-  font-family: Roboto;
-  font-weight: bold;
-  font-size: xx-large;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .country-list__title {
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 48px;
+  padding-bottom: 48px;
   text-align: center;
 }
 
@@ -172,7 +174,7 @@ export default {
 .country-list__country-container {
   padding: 8px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   flex-grow: 1;
 }
 
