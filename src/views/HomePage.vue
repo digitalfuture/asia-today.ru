@@ -10,12 +10,14 @@
     </v-col>
   </div>
 </template>
-
 <script>
+import PostGrid4 from '../components/blocks/PostGrid4'
+import PostList from '../components/blocks/PostList'
+
 export default {
   components: {
-    PostGrid4: import('../components/blocks/PostGrid4'),
-    PostList: import('../components/blocks/PostList')
+    PostGrid4,
+    PostList
   }
 }
 </script>
