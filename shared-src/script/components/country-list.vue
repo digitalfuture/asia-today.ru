@@ -151,7 +151,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic');
 
 .country-list {
   padding-top: 48px;
@@ -159,7 +159,7 @@ export default {
 }
 
 .country-list__title {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 48px;
   padding-bottom: 48px;
