@@ -37,6 +37,7 @@
     <v-row v-if="!searchString && !posts.length" dense>
       <v-col v-for="i in 4" :key="i" cols="12">
         <v-skeleton-loader
+          tile
           type="list-item-avatar-three-line"
         ></v-skeleton-loader>
       </v-col>
@@ -52,7 +53,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 import SearchForm from '../SearchForm'
 import PostStripe from './PostStripe'
@@ -62,7 +63,7 @@ export default {
     SearchForm,
     PostStripe
   },
-  props: ['siteName', 'offset', 'perPage'],
+  props: ['siteName', 'offset', 'perPage', 'tagId', 'categoryId'],
   data() {
     return {
       currentOffset: this.offset,
@@ -88,12 +89,10 @@ export default {
     currentOffset() {
       this.getPosts()
     }
-    // posts2() {
-    //   console.log(this.posts2)
-    // }
   },
   computed: {
     ...mapState(['sites', 'searchString', 'searchResults']),
+    ...mapGetters(['getSiteUrl']),
     sortedPosts() {
       const posts = [...this.posts]
       const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -125,10 +124,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchLastPostsEmbed']),
-    getSiteUrl(siteName) {
-      return this.sites.find(site => site.name === siteName).url
-    },
+    ...mapActions([
+      'fetchLastPostsEmbed',
+      'fetchPostsByTagId',
+      'fetchPostsByCategoryId'
+    ]),
     savePostData({ siteName, data }) {
       this.posts.push({
         id: data.id,
@@ -159,11 +159,42 @@ export default {
             })
           )
         )
-      } else {
+      } else if (
+        this.$route.name === 'sitePage' ||
+        this.$route.name === 'postPage'
+      ) {
         this.fetchLastPostsEmbed({
           siteUrl: this.getSiteUrl(this.siteName),
           offset: this.currentOffset,
           perPage: this.perPage
+        }).then(data =>
+          data.forEach(post =>
+            this.savePostData({
+              siteName: this.siteName,
+              data: post
+            })
+          )
+        )
+      } else if (this.$route.name === 'tagPage') {
+        this.fetchPostsByTagId({
+          siteUrl: this.getSiteUrl(this.siteName),
+          offset: this.currentOffset,
+          perPage: this.perPage,
+          tagId: this.tagId
+        }).then(data =>
+          data.forEach(post =>
+            this.savePostData({
+              siteName: this.siteName,
+              data: post
+            })
+          )
+        )
+      } else if (this.$route.name === 'categoryPage') {
+        this.fetchPostsByCategoryId({
+          siteUrl: this.getSiteUrl(this.siteName),
+          offset: this.currentOffset,
+          perPage: this.perPage,
+          categoryId: this.categoryId
         }).then(data =>
           data.forEach(post =>
             this.savePostData({

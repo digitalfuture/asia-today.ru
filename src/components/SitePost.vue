@@ -1,7 +1,7 @@
 <template>
-  <section class="sitePost">
+  <section class="site-post" :class="siteName">
     <v-row>
-      <v-col :class="siteName" cols="12">
+      <v-col cols="12">
         <!-- Set title to page -->
         <vue-headful
           :title="
@@ -11,18 +11,30 @@
           "
         />
 
-        <v-card v-if="currentPost" light class="pb-2 post__post-content">
+        <v-card v-if="currentPost" light class="pb-2">
           <!--  -->
           <v-img
             :src="currentPost.img"
             lazy-src="/img/placeholder.jpg"
-            class="post__post-content__post-img white--text align-end"
+            class="site-post__thumb white--text align-end"
             gradient="to top, rgba(0,0,0,.8), transparent 100%"
             :aspect-ratio="16 / 9"
           >
             <v-container>
               <v-row>
                 <v-col class="px-4 px-md-8">
+                  <!-- Post categories -->
+                  <div class="d-flex flex-wrap site-post__categories pa-4">
+                    <v-chip
+                      v-for="(category, i) in currentPost.categories"
+                      :key="i"
+                      :to="'/' + siteName + '/category/' + category.id"
+                      dark
+                      small
+                      class="ml-1 mb-1"
+                      >{{ category.name.toUpperCase() }}</v-chip
+                    >
+                  </div>
                   <!-- Extra small screens only -->
                   <h1
                     class="d-inline d-sm-none headline font-weight-light white--text"
@@ -46,18 +58,26 @@
           <hr />
 
           <v-card-text class="px-4 px-md-8">
-            <div v-html="currentPost.content"></div>
+            <div v-html="currentPost.content" class="site-post__content"></div>
 
-            <div class="mt-12">
-              <v-chip
-                v-for="(tag, i) in currentPost.tags"
-                :key="i"
-                small
-                class="mr-1"
-                >{{ tag.name.toUpperCase() }}</v-chip
-              >
+            <!-- Post tags -->
+            <div class="site-post__tags d-flex mt-12">
+              <div>
+                <v-chip dark small class="mr-1 mb-1">Теги</v-chip>
+              </div>
+              <div class="d-flex flex-wrap">
+                <v-chip
+                  v-for="(tag, i) in currentPost.tags"
+                  :key="i"
+                  :to="'/' + siteName + '/tag/' + tag.id"
+                  small
+                  class="mr-1 mb-1"
+                  >{{ tag.name.toUpperCase() }}</v-chip
+                >
+              </div>
             </div>
 
+            <!-- Divider -->
             <v-row class="mt-8 mb-5">
               <v-col>
                 <hr />
@@ -67,11 +87,12 @@
             <v-row justify="space-between">
               <v-col cols="12" sm="6" class="pb-4">
                 <span
-                  class="post__post-content__site-date font-italic font-weight-light grey--text subheading"
+                  class="site-post__site-date font-italic font-weight-light grey--text subheading"
                   >{{ currentPost.date }}</span
                 >
               </v-col>
 
+              <!-- Share buttons -->
               <v-col cols="12" sm="6">
                 <v-row justify="start" class="d-block d-sm-none">
                   <yandex-share
@@ -109,7 +130,11 @@
           </v-card-text>
         </v-card>
 
-        <v-skeleton-loader v-else type="image, article"></v-skeleton-loader>
+        <v-skeleton-loader
+          v-else
+          tile
+          type="image, article"
+        ></v-skeleton-loader>
       </v-col>
     </v-row>
   </section>
@@ -212,7 +237,7 @@ export default {
       const iframes = template.querySelectorAll('iframe')
 
       for (const iframe of iframes) {
-        iframe.parentNode.classList.add('post__post-content__aspect-ratio')
+        iframe.parentNode.classList.add('site-post__content__aspect-ratio')
       }
 
       return template.innerHTML
@@ -252,26 +277,28 @@ export default {
 @import '../styles';
 
 @each $country, $colors in $countries {
-  .#{$country} {
-    blockquote,
-    blockquote * {
-      color: map-get($colors, base-color);
-    }
+  .#{$country}.site-post {
+    .site-post__content {
+      blockquote,
+      blockquote * {
+        color: map-get($colors, base-color);
+      }
 
-    a {
-      border-bottom: 5px solid map-get($colors, light-color);
-    }
+      a {
+        border-bottom: 5px solid map-get($colors, light-color);
+      }
 
-    a:hover,
-    a:visited {
-      text-decoration: none;
-      border-bottom: 5px solid map-get($colors, base-color);
+      a:hover,
+      a:visited {
+        text-decoration: none;
+        border-bottom: 5px solid map-get($colors, base-color);
+      }
     }
   }
 }
 
 //
-.sitePost {
+.site-post {
   hr {
     height: 12px;
     color: #f5f5f5;
@@ -283,9 +310,13 @@ export default {
     text-decoration: none;
   }
 
-  .post__post-content {
-    min-height: 100vh;
+  .site-post__categories {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
+  .site-post__content {
     a {
       color: rgba(0, 0, 0, 0.54);
     }
@@ -293,108 +324,109 @@ export default {
     * {
       font-size: 16px;
       font-weight: 400;
+    }
 
-      ul,
-      ol {
-        padding-left: 24px;
-      }
+    ul,
+    ol {
+      padding-left: 24px;
+    }
 
-      p,
-      ul,
-      ol {
-        margin-top: 16px;
-      }
+    p,
+    ul,
+    ol {
+      margin-top: 16px;
+    }
 
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: 'Roboto Condensed', sans-serif;
-        margin: 36px 0 24px;
-        line-height: 1.2;
-        font-weight: normal;
-        color: black;
-      }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Roboto Condensed', sans-serif;
+      margin: 36px 0 24px;
+      line-height: 1.2;
+      font-weight: normal;
+      color: black;
+    }
 
-      h2 {
-        margin-top: 24px;
-        font-size: 1.4em;
-      }
+    h2 {
+      margin-top: 24px;
+      font-size: 1.4em;
+    }
 
-      h3 {
-        font-size: 1.3em;
-      }
+    h3 {
+      font-size: 1.3em;
+    }
 
-      h4 {
-        font-size: 1.2em;
-      }
+    h4 {
+      font-size: 1.2em;
+    }
 
-      h5 {
-        font-size: 1.15em;
-      }
+    h5 {
+      font-size: 1.15em;
+    }
 
-      h6 {
-        font-size: 1.1em;
-      }
+    h6 {
+      font-size: 1.1em;
+    }
 
-      em {
-        font-family: 'Noto Serif', serif;
-      }
+    em {
+      font-family: 'Noto Serif', serif;
+    }
 
-      p > em:first-child,
-      div > em:first-child {
-        display: inline-block;
-        margin-top: 32px;
-      }
+    p > em:first-child,
+    div > em:first-child {
+      display: inline-block;
+      margin-top: 32px;
+    }
 
-      blockquote,
-      blockquote * {
-        text-align: center;
-        font-family: 'Noto Serif', serif;
-        font-size: 1.3em;
-        margin: 48px 0;
-        line-height: 1.2;
-      }
+    blockquote,
+    blockquote * {
+      text-align: center;
+      font-family: 'Noto Serif', serif;
+      font-size: 1.3em;
+      margin: 48px 0;
+      line-height: 1.2;
+    }
 
-      .post__post-content__aspect-ratio {
-        position: relative;
+    .site-post__content__aspect-ratio {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 51%;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 16px;
+
+      iframe {
+        position: absolute;
         width: 100%;
-        height: 0;
-        padding-bottom: 51%;
+        height: 100%;
+        left: 0;
+        top: 0;
         border-radius: 2px;
-        overflow: hidden;
-        margin-bottom: 16px;
-
-        iframe {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          left: 0;
-          top: 0;
-          border-radius: 2px;
-        }
-      }
-
-      .post__post-content__site-date {
-        font-family: 'Noto Serif', serif;
-        margin-top: 16px;
-      }
-
-      img,
-      figure,
-      .post__post-content__post-img {
-        width: 100% !important;
-        height: auto;
-        border-radius: 2px;
-      }
-
-      figure {
-        font-family: 'Noto Serif', serif;
-        padding-bottom: 24px;
       }
     }
+
+    img,
+    figure,
+    .site_post__content__post-img {
+      width: 100% !important;
+      height: auto;
+      border-radius: 2px;
+    }
+
+    figure {
+      font-family: 'Noto Serif', serif;
+      padding-bottom: 24px;
+    }
   }
+
+  .site-post__site-date {
+    font: 16px 'Noto Serif', serif;
+    margin-top: 16px;
+  }
+
   .ya-share2__list.ya-share2__list_direction_horizontal {
     padding-left: 12px;
     padding-right: 12px;

@@ -98,11 +98,39 @@ export default new Vuex.Store({
           return data
         })
     },
+    fetchPostsByTagId(context, { siteUrl, tagId, offset }) {
+      context.commit('startLoading')
+
+      return axios
+        .get(
+          `${siteUrl}/wp-json/wp/v2/posts?tags=${tagId}&offset=${offset}&_embed`
+        )
+        .then(response => response.data)
+        .then(data => {
+          context.commit('stopLoading')
+          // console.log('post:', data)
+          return data
+        })
+    },
+    fetchPostsByCategoryId(context, { siteUrl, categoryId, offset }) {
+      context.commit('startLoading')
+
+      return axios
+        .get(
+          `${siteUrl}/wp-json/wp/v2/posts?categories=${categoryId}&offset=${offset}&_embed`
+        )
+        .then(response => response.data)
+        .then(data => {
+          context.commit('stopLoading')
+          // console.log('post:', data)
+          return data
+        })
+    },
     fetchPostBySlug(context, { siteUrl, postSlug }) {
       context.commit('startLoading')
 
       return axios
-        .get(siteUrl + '/wp-json/wp/v2/posts?slug=' + postSlug + '&_embed')
+        .get(`${siteUrl}/wp-json/wp/v2/posts?slug=${postSlug}&_embed`)
         .then(response => response.data[0])
         .then(data => {
           context.commit('stopLoading')
@@ -124,6 +152,37 @@ export default new Vuex.Store({
           // console.log("post:", data);
           return data
         })
+    },
+    getTagInfo(context, { siteUrl, tagId }) {
+      context.commit('startLoading')
+
+      //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
+      return axios
+        .get(`${siteUrl}/wp-json/wp/v2/tags/${tagId}`)
+        .then(response => response.data)
+        .then(data => {
+          context.commit('stopLoading')
+          // console.log("post:", data);
+          return data
+        })
+    },
+    getCategoryInfo(context, { siteUrl, categoryId }) {
+      context.commit('startLoading')
+
+      //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
+      return axios
+        .get(`${siteUrl}/wp-json/wp/v2/categories/${categoryId}`)
+        .then(response => response.data)
+        .then(data => {
+          context.commit('stopLoading')
+          // console.log("post:", data);
+          return data
+        })
+    }
+  },
+  getters: {
+    getSiteUrl: state => siteName => {
+      return state.sites.find(site => site.name === siteName).url
     }
   }
 })

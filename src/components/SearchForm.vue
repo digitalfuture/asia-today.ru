@@ -15,7 +15,7 @@
     :placeholder="
       $route.name === 'homePage'
         ? 'Искать по всем странам'
-        : 'Страна поиска: ' + siteNameRu
+        : 'Искать по стране ' + siteNameRu
     "
   ></v-text-field>
 </template>
