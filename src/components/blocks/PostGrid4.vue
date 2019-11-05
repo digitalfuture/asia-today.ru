@@ -34,7 +34,9 @@ export default {
       //   date,
       //   link,
       //   content,
-      //   thumb
+      //   thumb,
+      //   tags,
+      //   categories
       // }
     ]
   }),
@@ -63,7 +65,9 @@ export default {
         content: data.content.rendered,
         thumb:
           data._embedded['wp:featuredmedia'][0].media_details.sizes.full
-            .source_url
+            .source_url,
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
       })
     },
     getPosts() {

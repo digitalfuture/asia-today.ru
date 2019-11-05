@@ -77,7 +77,9 @@ export default {
         //   link,
         //   content,
         //   thumb,
-        //   excerpt
+        //   excerpt,
+        //   tags,
+        //   categories
         // }
       ]
     }
@@ -137,8 +139,10 @@ export default {
         link: data.link,
         excerpt: data.excerpt.rendered,
         thumb:
-          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
-            .source_url
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.td_537x360
+            .source_url,
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
       })
     },
     getPosts() {

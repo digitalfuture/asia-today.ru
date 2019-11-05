@@ -3,12 +3,18 @@
     <v-row>
       <v-col :class="siteName" cols="12">
         <!-- Set title to page -->
-        <vue-headful :title="`${getTitle(title)} - ${siteNameRu} Сегодня`" />
+        <vue-headful
+          :title="
+            currentPost
+              ? `${getTitle(currentPost.title)} - ${siteNameRu} Сегодня`
+              : `${siteNameRu} Сегодня`
+          "
+        />
 
-        <v-card v-show="img" light class="pb-2 post__post-content">
+        <v-card v-if="currentPost" light class="pb-2 post__post-content">
           <!--  -->
           <v-img
-            :src="img"
+            :src="currentPost.img"
             lazy-src="/img/placeholder.jpg"
             class="post__post-content__post-img white--text align-end"
             gradient="to top, rgba(0,0,0,.8), transparent 100%"
@@ -20,17 +26,17 @@
                   <!-- Extra small screens only -->
                   <h1
                     class="d-inline d-sm-none headline font-weight-light white--text"
-                    v-html="title"
+                    v-html="currentPost.title"
                   ></h1>
                   <!-- Small screens only -->
                   <h1
                     class="d-none d-sm-inline d-md-none display-1 font-weight-light white--text"
-                    v-html="title"
+                    v-html="currentPost.title"
                   ></h1>
                   <!-- Middle screens and up -->
                   <h1
                     class="d-none d-md-inline display-2 font-weight-light white--text"
-                    v-html="title"
+                    v-html="currentPost.title"
                   ></h1>
                 </v-col>
               </v-row>
@@ -40,7 +46,17 @@
           <hr />
 
           <v-card-text class="px-4 px-md-8">
-            <div v-html="content"></div>
+            <div v-html="currentPost.content"></div>
+
+            <div class="mt-12">
+              <v-chip
+                v-for="(tag, i) in currentPost.tags"
+                :key="i"
+                small
+                class="mr-1"
+                >{{ tag.name.toUpperCase() }}</v-chip
+              >
+            </div>
 
             <v-row class="mt-8 mb-5">
               <v-col>
@@ -52,7 +68,7 @@
               <v-col cols="12" sm="6" class="pb-4">
                 <span
                   class="post__post-content__site-date font-italic font-weight-light grey--text subheading"
-                  >{{ date }}</span
+                  >{{ currentPost.date }}</span
                 >
               </v-col>
 
@@ -69,7 +85,7 @@
                       'telegram'
                     ]"
                     counter
-                    :description="title"
+                    :description="currentPost.title"
                   />
                 </v-row>
 
@@ -85,7 +101,7 @@
                       'telegram'
                     ]"
                     counter
-                    :description="title"
+                    :description="currentPost.title"
                   />
                 </v-row>
               </v-col>
@@ -93,34 +109,23 @@
           </v-card-text>
         </v-card>
 
-        <v-skeleton-loader
-          v-if="!img"
-          type="image, article"
-        ></v-skeleton-loader>
+        <v-skeleton-loader v-else type="image, article"></v-skeleton-loader>
       </v-col>
     </v-row>
   </section>
 </template>
 
 <script>
+import YandexShare from '@cookieseater/vue-yandex-share'
+
 import { mapState, mapMutations, mapActions } from 'vuex'
 import { DateTime } from 'luxon'
-import YandexShare from '@cookieseater/vue-yandex-share'
 
 export default {
   components: {
     YandexShare
   },
   props: ['postSlug', 'siteName'],
-  data: () => ({
-    id: '',
-    slug: '',
-    title: '',
-    content: '',
-    date: '',
-    img: '',
-    thumb: ''
-  }),
   computed: {
     ...mapState(['sites', 'currentPost']),
     siteUrl() {
@@ -131,7 +136,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['forgetPost']),
+    ...mapMutations(['rememberPost', 'forgetPost']),
     ...mapActions(['fetchPostBySlug', 'getMedia']),
     getTitle(title) {
       const div = document.createElement('div')
@@ -139,21 +144,23 @@ export default {
       return div.innerText
     },
     savePostData(data) {
-      this.id = data.id
-      this.slug = data.slug
-      this.title = data.title.rendered
-      this.content = this.processContent(data.content.rendered)
-      this.date = DateTime.fromISO(data.date, {
-        locale: 'ru'
-      }).toLocaleString(DateTime.DATE_FULL)
-      this.thumb =
-        data._embedded[
-          'wp:featuredmedia'
-        ][0].media_details.sizes.td_537x360.source_url
-      this.img =
-        data._embedded[
-          'wp:featuredmedia'
-        ][0].media_details.sizes.full.source_url
+      this.rememberPost({
+        id: data.id,
+        slug: data.slug,
+        title: data.title.rendered,
+        content: this.processContent(data.content.rendered),
+        date: DateTime.fromISO(data.date, {
+          locale: 'ru'
+        }).toLocaleString(DateTime.DATE_FULL),
+        thumb:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.td_537x360
+            .source_url,
+        img:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+            .source_url,
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
+      })
     },
     processContent(data) {
       data = this.removeClasses(data)
@@ -227,7 +234,7 @@ export default {
   },
   mounted() {
     if (this.currentPost) {
-      this.post = this.currentPost
+      return
     } else {
       this.fetchPostBySlug({
         siteUrl: this.siteUrl,
