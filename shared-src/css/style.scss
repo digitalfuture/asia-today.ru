@@ -163,6 +163,12 @@
   margin-bottom: 30px !important;
 }
 
+.td-top-menu-full .td-header-sp-top-widget {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 // Country specific styles
 $countries: (
   vietnam: (
