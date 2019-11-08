@@ -185,6 +185,7 @@
 .vietnam li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(104, 215, 88, 0.3) !important;
+  color: #424242 !important;
 }
 
 .nepal p a:hover,
@@ -202,6 +203,7 @@
 .nepal li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(77, 178, 236, 0.3) !important;
+  color: #424242 !important;
 }
 
 .thailand p a:hover,
@@ -219,6 +221,7 @@
 .thailand li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(187, 134, 252, 0.3) !important;
+  color: #424242 !important;
 }
 
 .philippines p a:hover,
@@ -236,6 +239,7 @@
 .philippines li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(3, 218, 198, 0.3) !important;
+  color: #424242 !important;
 }
 
 .japan p a:hover,
@@ -253,6 +257,7 @@
 .japan li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 204, 204, 0.3) !important;
+  color: #424242 !important;
 }
 
 .china p a:hover,
@@ -270,6 +275,7 @@
 .china li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 0, 0, 0.3) !important;
+  color: #424242 !important;
 }
 
 .cambodia p a:hover,
@@ -287,6 +293,7 @@
 .cambodia li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 255, 0, 0.3) !important;
+  color: #424242 !important;
 }
 
 .sri-lanka p a:hover,
@@ -304,6 +311,7 @@
 .sri-lanka li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 102, 51, 0.3) !important;
+  color: #424242 !important;
 }
 
 .india p a:hover,
@@ -321,6 +329,7 @@
 .india li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 153, 51, 0.3) !important;
+  color: #424242 !important;
 }
 
 .singapore p a:hover,
@@ -338,6 +347,7 @@
 .singapore li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 0, 102, 0.3) !important;
+  color: #424242 !important;
 }
 
 .malaysia p a:hover,
@@ -355,6 +365,7 @@
 .malaysia li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(0, 204, 255, 0.3) !important;
+  color: #424242 !important;
 }
 
 .korea p a:hover,
@@ -372,6 +383,7 @@
 .korea li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(255, 153, 255, 0.3) !important;
+  color: #424242 !important;
 }
 
 .laos p a:hover,
@@ -389,6 +401,7 @@
 .laos li a:active {
   text-decoration: none !important;
   border-bottom: 5px solid rgba(154, 204, 204, 0.3) !important;
+  color: #424242 !important;
 }
 
 /*# sourceMappingURL=style.css.map */
