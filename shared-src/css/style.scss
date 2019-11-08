@@ -224,15 +224,15 @@ $countries: (
   .#{$country} li a:hover,
   .#{$country} p a:visited,
   .#{$country} li a:visited {
-    border-bottom: 5px solid map-get($colors, base-color);
+    border-bottom: 5px solid map-get($colors, base-color) !important;
     text-decoration: none !important;
-    color: #424242;
+    color: #424242 !important;
   }
   .#{$country} p a,
   .#{$country} li a,
   .#{$country} p a:active,
   .#{$country} li a:active {
     text-decoration: none !important;
-    border-bottom: 5px solid map-get($colors, light-color);
+    border-bottom: 5px solid map-get($colors, light-color) !important;
   }
 }

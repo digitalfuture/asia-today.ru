@@ -174,9 +174,9 @@
 .vietnam li a:hover,
 .vietnam p a:visited,
 .vietnam li a:visited {
-  border-bottom: 5px solid #68d758;
+  border-bottom: 5px solid #68d758 !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .vietnam p a,
@@ -184,16 +184,16 @@
 .vietnam p a:active,
 .vietnam li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(104, 215, 88, 0.3);
+  border-bottom: 5px solid rgba(104, 215, 88, 0.3) !important;
 }
 
 .nepal p a:hover,
 .nepal li a:hover,
 .nepal p a:visited,
 .nepal li a:visited {
-  border-bottom: 5px solid #4db2ec;
+  border-bottom: 5px solid #4db2ec !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .nepal p a,
@@ -201,16 +201,16 @@
 .nepal p a:active,
 .nepal li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(77, 178, 236, 0.3);
+  border-bottom: 5px solid rgba(77, 178, 236, 0.3) !important;
 }
 
 .thailand p a:hover,
 .thailand li a:hover,
 .thailand p a:visited,
 .thailand li a:visited {
-  border-bottom: 5px solid #bb86fc;
+  border-bottom: 5px solid #bb86fc !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .thailand p a,
@@ -218,16 +218,16 @@
 .thailand p a:active,
 .thailand li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(187, 134, 252, 0.3);
+  border-bottom: 5px solid rgba(187, 134, 252, 0.3) !important;
 }
 
 .philippines p a:hover,
 .philippines li a:hover,
 .philippines p a:visited,
 .philippines li a:visited {
-  border-bottom: 5px solid #03dac6;
+  border-bottom: 5px solid #03dac6 !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .philippines p a,
@@ -235,16 +235,16 @@
 .philippines p a:active,
 .philippines li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(3, 218, 198, 0.3);
+  border-bottom: 5px solid rgba(3, 218, 198, 0.3) !important;
 }
 
 .japan p a:hover,
 .japan li a:hover,
 .japan p a:visited,
 .japan li a:visited {
-  border-bottom: 5px solid #ffcccc;
+  border-bottom: 5px solid #ffcccc !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .japan p a,
@@ -252,16 +252,16 @@
 .japan p a:active,
 .japan li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 204, 204, 0.3);
+  border-bottom: 5px solid rgba(255, 204, 204, 0.3) !important;
 }
 
 .china p a:hover,
 .china li a:hover,
 .china p a:visited,
 .china li a:visited {
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid red !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .china p a,
@@ -269,16 +269,16 @@
 .china p a:active,
 .china li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 0, 0, 0.3);
+  border-bottom: 5px solid rgba(255, 0, 0, 0.3) !important;
 }
 
 .cambodia p a:hover,
 .cambodia li a:hover,
 .cambodia p a:visited,
 .cambodia li a:visited {
-  border-bottom: 5px solid yellow;
+  border-bottom: 5px solid yellow !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .cambodia p a,
@@ -286,16 +286,16 @@
 .cambodia p a:active,
 .cambodia li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 255, 0, 0.3);
+  border-bottom: 5px solid rgba(255, 255, 0, 0.3) !important;
 }
 
 .sri-lanka p a:hover,
 .sri-lanka li a:hover,
 .sri-lanka p a:visited,
 .sri-lanka li a:visited {
-  border-bottom: 5px solid #ff6633;
+  border-bottom: 5px solid #ff6633 !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .sri-lanka p a,
@@ -303,16 +303,16 @@
 .sri-lanka p a:active,
 .sri-lanka li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 102, 51, 0.3);
+  border-bottom: 5px solid rgba(255, 102, 51, 0.3) !important;
 }
 
 .india p a:hover,
 .india li a:hover,
 .india p a:visited,
 .india li a:visited {
-  border-bottom: 5px solid #ff9933;
+  border-bottom: 5px solid #ff9933 !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .india p a,
@@ -320,16 +320,16 @@
 .india p a:active,
 .india li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 153, 51, 0.3);
+  border-bottom: 5px solid rgba(255, 153, 51, 0.3) !important;
 }
 
 .singapore p a:hover,
 .singapore li a:hover,
 .singapore p a:visited,
 .singapore li a:visited {
-  border-bottom: 5px solid #ff0066;
+  border-bottom: 5px solid #ff0066 !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .singapore p a,
@@ -337,16 +337,16 @@
 .singapore p a:active,
 .singapore li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 0, 102, 0.3);
+  border-bottom: 5px solid rgba(255, 0, 102, 0.3) !important;
 }
 
 .malaysia p a:hover,
 .malaysia li a:hover,
 .malaysia p a:visited,
 .malaysia li a:visited {
-  border-bottom: 5px solid #00ccff;
+  border-bottom: 5px solid #00ccff !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .malaysia p a,
@@ -354,16 +354,16 @@
 .malaysia p a:active,
 .malaysia li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(0, 204, 255, 0.3);
+  border-bottom: 5px solid rgba(0, 204, 255, 0.3) !important;
 }
 
 .korea p a:hover,
 .korea li a:hover,
 .korea p a:visited,
 .korea li a:visited {
-  border-bottom: 5px solid #ff99ff;
+  border-bottom: 5px solid #ff99ff !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .korea p a,
@@ -371,16 +371,16 @@
 .korea p a:active,
 .korea li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(255, 153, 255, 0.3);
+  border-bottom: 5px solid rgba(255, 153, 255, 0.3) !important;
 }
 
 .laos p a:hover,
 .laos li a:hover,
 .laos p a:visited,
 .laos li a:visited {
-  border-bottom: 5px solid #9acccc;
+  border-bottom: 5px solid #9acccc !important;
   text-decoration: none !important;
-  color: #424242;
+  color: #424242 !important;
 }
 
 .laos p a,
@@ -388,7 +388,7 @@
 .laos p a:active,
 .laos li a:active {
   text-decoration: none !important;
-  border-bottom: 5px solid rgba(154, 204, 204, 0.3);
+  border-bottom: 5px solid rgba(154, 204, 204, 0.3) !important;
 }
 
 /*# sourceMappingURL=style.css.map */
