@@ -221,17 +221,17 @@ $countries: (
 
 @each $country, $colors in $countries {
   .#{$country} p a:hover,
-  .#{$country} li a:hover,
+  .#{$country} p li a:hover,
   .#{$country} p a:visited,
-  .#{$country} li a:visited {
+  .#{$country} p li a:visited {
     border-bottom: 5px solid map-get($colors, base-color) !important;
     text-decoration: none !important;
     color: #424242 !important;
   }
   .#{$country} p a,
-  .#{$country} li a,
+  .#{$country} p li a,
   .#{$country} p a:active,
-  .#{$country} li a:active {
+  .#{$country} p li a:active {
     text-decoration: none !important;
     border-bottom: 5px solid map-get($colors, light-color) !important;
     color: #424242 !important;
