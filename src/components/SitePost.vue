@@ -32,7 +32,8 @@
                       dark
                       small
                       class="ml-1 mb-1"
-                    >{{ category.name.toUpperCase() }}</v-chip>
+                      >{{ category.name.toUpperCase() }}</v-chip
+                    >
                   </div>
                   <!-- Extra small screens only -->
                   <h1
@@ -71,7 +72,8 @@
                   :to="'/' + siteName + '/tag/' + tag.id"
                   small
                   class="mr-1 mb-1"
-                >{{ tag.name.toUpperCase() }}</v-chip>
+                  >{{ tag.name.toUpperCase() }}</v-chip
+                >
               </div>
             </div>
 
@@ -87,7 +89,8 @@
               <v-col cols="12" sm="6" class="pb-4">
                 <span
                   class="site-post__site-date font-italic font-weight-light grey--text subheading"
-                >{{ currentPost.date }}</span>
+                  >{{ currentPost.date }}</span
+                >
               </v-col>
 
               <!-- Share buttons -->
@@ -129,39 +132,43 @@
         </v-card>
 
         <!-- Post skeleton placeholder -->
-        <v-skeleton-loader v-else tile type="image, article"></v-skeleton-loader>
+        <v-skeleton-loader
+          v-else
+          tile
+          type="image, article"
+        ></v-skeleton-loader>
       </v-col>
     </v-row>
   </section>
 </template>
 
 <script>
-import YandexShare from "@cookieseater/vue-yandex-share";
+import YandexShare from '@cookieseater/vue-yandex-share'
 
-import { mapState, mapMutations, mapActions } from "vuex";
-import { DateTime } from "luxon";
+import { mapState, mapMutations, mapActions } from 'vuex'
+import { DateTime } from 'luxon'
 
 export default {
   components: {
     YandexShare
   },
-  props: ["postSlug", "siteName"],
+  props: ['postSlug', 'siteName'],
   computed: {
-    ...mapState(["sites", "currentPost"]),
+    ...mapState(['sites', 'currentPost']),
     siteUrl() {
-      return this.sites.find(site => site.name === this.siteName).url;
+      return this.sites.find(site => site.name === this.siteName).url
     },
     siteNameRu() {
-      return this.sites.find(site => site.name === this.siteName).nameRu;
+      return this.sites.find(site => site.name === this.siteName).nameRu
     }
   },
   methods: {
-    ...mapMutations(["rememberPost", "forgetPost"]),
-    ...mapActions(["fetchPostBySlug", "getMedia"]),
+    ...mapMutations(['rememberPost', 'forgetPost']),
+    ...mapActions(['fetchPostBySlug', 'getMedia']),
     getTitle(title) {
-      const div = document.createElement("div");
-      div.innerHTML = title;
-      return div.innerText;
+      const div = document.createElement('div')
+      div.innerHTML = title
+      return div.innerText
     },
     savePostData(data) {
       this.rememberPost({
@@ -170,106 +177,106 @@ export default {
         title: data.title.rendered,
         content: this.processContent(data.content.rendered),
         date: DateTime.fromISO(data.date, {
-          locale: "ru"
+          locale: 'ru'
         }).toLocaleString(DateTime.DATE_FULL),
         thumb:
-          data._embedded["wp:featuredmedia"][0].media_details.sizes.td_537x360
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.td_537x360
             .source_url,
         img:
-          data._embedded["wp:featuredmedia"][0].media_details.sizes.full
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
             .source_url,
-        categories: data._embedded["wp:term"][0],
-        tags: data._embedded["wp:term"][1]
-      });
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
+      })
     },
     processContent(data) {
-      data = this.removeClasses(data);
-      data = this.processLinks(data);
-      data = this.processIframes(data);
-      data = this.processImages(data);
+      data = this.removeClasses(data)
+      data = this.processLinks(data)
+      data = this.processIframes(data)
+      data = this.processImages(data)
 
-      return data;
+      return data
     },
     removeClasses(data) {
-      const template = document.createElement("div");
-      template.innerHTML = data;
+      const template = document.createElement('div')
+      template.innerHTML = data
 
-      const elements = template.querySelectorAll("*");
+      const elements = template.querySelectorAll('*')
 
       for (const element of elements) {
-        element.classList = [];
+        element.classList = []
       }
 
-      return template.innerHTML;
+      return template.innerHTML
     },
     processLinks(data) {
-      const template = document.createElement("div");
+      const template = document.createElement('div')
 
-      template.innerHTML = data;
-      const links = template.querySelectorAll("a");
+      template.innerHTML = data
+      const links = template.querySelectorAll('a')
 
       this.sites.forEach(site => {
         for (const link of links) {
-          const domainName = site.name.split("//").reverse()[0];
+          const domainName = site.name.split('//').reverse()[0]
 
           if (link.href.search(domainName) !== -1) {
-            const linkFragments = link.href.split("/").reverse();
+            const linkFragments = link.href.split('/').reverse()
 
-            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1];
+            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
 
-            link.href = `/${site.name}/${slug}`;
-            link.target = "";
+            link.href = `/${site.name}/${slug}`
+            link.target = ''
           }
         }
-      });
+      })
 
-      return template.innerHTML;
+      return template.innerHTML
     },
     processIframes(data) {
-      const template = document.createElement("div");
+      const template = document.createElement('div')
 
-      template.innerHTML = data;
-      const iframes = template.querySelectorAll("iframe");
+      template.innerHTML = data
+      const iframes = template.querySelectorAll('iframe')
 
       for (const iframe of iframes) {
-        iframe.parentNode.classList.add("site-post__content__aspect-ratio");
+        iframe.parentNode.classList.add('site-post__content__aspect-ratio')
       }
 
-      return template.innerHTML;
+      return template.innerHTML
     },
     processImages(data) {
-      const template = document.createElement("div");
-      template.innerHTML = data;
+      const template = document.createElement('div')
+      template.innerHTML = data
 
-      const images = template.querySelectorAll("img");
+      const images = template.querySelectorAll('img')
 
       for (const image of images) {
         if (image.src.startsWith(window.location.origin)) {
-          image.src = image.src.replace(window.location.origin, this.siteUrl);
+          image.src = image.src.replace(window.location.origin, this.siteUrl)
         }
       }
 
-      return template.innerHTML;
+      return template.innerHTML
     }
   },
   mounted() {
     if (this.currentPost) {
-      return;
+      return
     } else {
       this.fetchPostBySlug({
         siteUrl: this.siteUrl,
         postSlug: this.postSlug
-      }).then(data => this.savePostData(data));
+      }).then(data => this.savePostData(data))
     }
   },
   beforeDestroy() {
-    this.forgetPost();
+    this.forgetPost()
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "../styles";
+@import '../styles';
 
 @each $country, $colors in $countries {
   .#{$country}.site-post {
@@ -337,7 +344,7 @@ export default {
     h4,
     h5,
     h6 {
-      font-family: "Roboto Condensed", sans-serif;
+      font-family: 'Roboto Condensed', sans-serif;
       margin: 36px 0 24px;
       line-height: 1.2;
       font-weight: normal;
@@ -366,7 +373,7 @@ export default {
     }
 
     em {
-      font-family: "Noto Serif", serif;
+      font-family: 'Noto Serif', serif;
     }
 
     p > em:first-child,
@@ -378,7 +385,7 @@ export default {
     blockquote,
     blockquote * {
       text-align: center;
-      font-family: "Noto Serif", serif;
+      font-family: 'Noto Serif', serif;
       font-size: 1.3em;
       margin: 48px 0;
       line-height: 1.2;
@@ -412,13 +419,13 @@ export default {
     }
 
     figure {
-      font-family: "Noto Serif", serif;
+      font-family: 'Noto Serif', serif;
       padding-bottom: 24px;
     }
   }
 
   .site-post__site-date {
-    font: 16px "Noto Serif", serif;
+    font: 16px 'Noto Serif', serif;
     margin-top: 16px;
   }
 
