@@ -392,6 +392,24 @@
   color: #424242 !important;
 }
 
+.myanmar p a:hover,
+.myanmar p li a:hover,
+.myanmar p a:visited,
+.myanmar p li a:visited {
+  border-bottom: 5px solid #ffcc00 !important;
+  text-decoration: none !important;
+  color: #424242 !important;
+}
+
+.myanmar p a,
+.myanmar p li a,
+.myanmar p a:active,
+.myanmar p li a:active {
+  text-decoration: none !important;
+  border-bottom: 5px solid rgba(255, 204, 0, 0.3) !important;
+  color: #424242 !important;
+}
+
 .laos p a:hover,
 .laos p li a:hover,
 .laos p a:visited,
