@@ -11,7 +11,7 @@
           color="black"
         >
           <v-img
-            :src="siteName ? siteLogo : '/img/logo-asia-icon.png'"
+            :src="siteName ? siteLogo : '/img/icons/android-icon-192x192.png'"
             class="site-logo__logo-image"
             width="48"
             height="48"
