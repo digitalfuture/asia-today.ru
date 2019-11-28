@@ -1,6 +1,6 @@
 # asia-today.ru
 
-![Responsive Design Showcase](//asia-today.ru/shared/img/github/showcase.png)
+![Responsive Design Showcase](https://asia-today.ru/shared/img/github/showcase.png)
 
 ## Project setup
 
