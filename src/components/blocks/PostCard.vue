@@ -15,12 +15,28 @@
       class="align-end"
     >
       <v-container>
-        <v-btn
-          fab
-          raised
-          class="post-card__color-point ma-0"
-          :style="'background-color: ' + getSiteColor(post.siteName)"
-        ></v-btn>
+        <div
+          class="post-card__color-point px-2 px-sm-4 py-0 py-sm-4"
+          width="16"
+          height="16"
+        >
+          <v-btn
+            fab
+            raised
+            width="16"
+            height="16"
+            class="hidden-sm-and-up"
+            :style="'background-color: ' + getSiteColor(post.siteName)"
+          ></v-btn>
+          <v-btn
+            fab
+            raised
+            width="32"
+            height="32"
+            class="hidden-xs-only"
+            :style="'background-color: ' + getSiteColor(post.siteName)"
+          ></v-btn>
+        </div>
 
         <v-row class="px-4">
           <v-col>
@@ -33,9 +49,9 @@
                 class="font-weight-light grey--text post-card__post-date font-italic"
                 >{{ getDate(post.date) }}</span
               >
-              <span class="body-1 grey--text">
-                {{ getSiteNameRu(post.siteName) }}
-              </span>
+              <span class="body-1 grey--text">{{
+                getSiteNameRu(post.siteName)
+              }}</span>
             </v-row>
           </v-col>
         </v-row>
@@ -82,10 +98,8 @@ export default {
 .post-card {
   .post-card__color-point {
     position: absolute;
-    left: 16px;
-    top: 16px;
-    width: 32px;
-    height: 32px;
+    left: 0px;
+    top: 0px;
   }
 
   .post-card__post-date {

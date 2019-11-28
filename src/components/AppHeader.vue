@@ -19,7 +19,7 @@
       hasText
       :sites="sites"
       :siteName="$route.name === 'homePage' ? null : $route.params.siteName"
-      class="ml-12"
+      class="ml-sm-12"
     ></SiteLogo>
 
     <v-btn
