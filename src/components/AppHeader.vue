@@ -29,7 +29,7 @@
       text
       width="48"
       height="48"
-      class="ml-auto"
+      class="ml-auto hidden-xs-only"
     >
       <v-icon color="grey">search</v-icon>
     </v-btn>

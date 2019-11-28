@@ -16,7 +16,7 @@
     >
       <v-container>
         <div
-          class="post-card__color-point px-2 px-sm-4 py-0 py-sm-4"
+          class="post-card__color-point px-4 py-0 py-sm-4"
           width="16"
           height="16"
         >
@@ -49,9 +49,9 @@
                 class="font-weight-light grey--text post-card__post-date font-italic"
                 >{{ getDate(post.date) }}</span
               >
-              <span class="body-1 grey--text">{{
-                getSiteNameRu(post.siteName)
-              }}</span>
+              <span class="body-1 grey--text">
+                {{ getSiteNameRu(post.siteName) }}
+              </span>
             </v-row>
           </v-col>
         </v-row>
