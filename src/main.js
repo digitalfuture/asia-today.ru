@@ -7,6 +7,7 @@ import store from './store'
 
 import YandexShare from '@cookieseater/vue-yandex-share'
 import VueAnalytics from 'vue-analytics'
+import VueYandexMetrika from 'vue-yandex-metrika'
 import vueHeadful from 'vue-headful'
 import './registerServiceWorker'
 import vuetify from './plugins/vuetify'
@@ -17,6 +18,13 @@ Vue.use(VueAnalytics, {
   debug: {
     // sendHitTask: false
   }
+})
+
+Vue.use(VueYandexMetrika, {
+  id: 51568292,
+  router: router,
+  env: process.env.NODE_ENV
+  // other options
 })
 
 Vue.component('yandex-share', YandexShare)

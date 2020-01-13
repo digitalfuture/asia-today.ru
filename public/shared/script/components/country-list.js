@@ -691,7 +691,7 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"31610dc4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared-src/script/components/country-list.vue?vue&type=template&id=17721ab9&scoped=true&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"62871fde-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vuetify-loader/lib/loader.js!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./shared-src/script/components/country-list.vue?vue&type=template&id=17721ab9&scoped=true&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"country-list"},[_c('div',{staticClass:"country-list__title"},[_vm._v("НАШИ ПРОЕКТЫ")]),_c('div',{staticClass:"country-list__container"},_vm._l((_vm.sites),function(site,i){return _c('div',{key:i,staticClass:"country-list__country-container"},[_c('div',{staticClass:"country-list__country-wrapper"},[_c('a',{staticClass:"country-list__country-logo",attrs:{"href":site.url}},[_c('img',{attrs:{"src":site.logo,"height":"50"}})])])])}),0)])}
 var staticRenderFns = []
 

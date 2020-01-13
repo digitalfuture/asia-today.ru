@@ -4,12 +4,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/404.html"
   },
   {
-    "revision": "383c71c4a95363944b0c",
+    "revision": "c129eefc02e61e39abde",
     "url": "/css/app.aeeb9a51.css"
   },
   {
-    "revision": "c84c9931bbf46d4ff18d",
-    "url": "/css/chunk-vendors.e3b17e84.css"
+    "revision": "b15880408c886edbe9b3",
+    "url": "/css/chunk-vendors.e8e0e8a9.css"
   },
   {
     "revision": "dccd947b8d5cf4290079da3b943135c9",
@@ -28,16 +28,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/placeholder.jpg"
   },
   {
-    "revision": "9d8ff09ba1bbf00d3c5db368ebe00205",
+    "revision": "5423975843cae2ee66981cf5214d559a",
     "url": "/index.html"
   },
   {
-    "revision": "383c71c4a95363944b0c",
-    "url": "/js/app.f78cee55.js"
+    "revision": "c129eefc02e61e39abde",
+    "url": "/js/app.a7b2d513.js"
   },
   {
-    "revision": "c84c9931bbf46d4ff18d",
-    "url": "/js/chunk-vendors.f0a4df96.js"
+    "revision": "b15880408c886edbe9b3",
+    "url": "/js/chunk-vendors.bde4b55a.js"
   },
   {
     "revision": "05c3fa36c48fefe50eb7d33d1f3f0d46",
@@ -348,7 +348,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/shared/img/social/zen.svg"
   },
   {
-    "revision": "2578b5f069bbee9f6b3cc21f41273707",
+    "revision": "b0097ad19a4bd1ce19f673040c3eaf3d",
     "url": "/shared/script/components/article-grid.js"
   },
   {
@@ -356,7 +356,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/shared/script/components/article-grid.min.js"
   },
   {
-    "revision": "5b3cd71da2f833c143cb775c64cf6d8a",
+    "revision": "676e0e34f4a184d9ec90900f680fdd86",
     "url": "/shared/script/components/article-row.js"
   },
   {
@@ -364,7 +364,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/shared/script/components/article-row.min.js"
   },
   {
-    "revision": "85f6563f19a13305e7d64210ce4bdb97",
+    "revision": "f990e470cb34ffedcbd60b60b54bee7c",
     "url": "/shared/script/components/country-list.js"
   },
   {
