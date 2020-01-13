@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/shared/css/style.css"
   },
   {
-    "revision": "8caede149cf68c5c651e1655204ee4d8",
+    "revision": "1f33568301800e5bbdfbb94c745205ce",
     "url": "/shared/img/github/showcase.png"
   },
   {
