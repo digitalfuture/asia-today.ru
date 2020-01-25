@@ -3,7 +3,7 @@ module.exports = {
   publicPath: '/',
   configureWebpack: {
     devtool: 'source-map',
-    mode: 'production'
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development'
   },
   transpileDependencies: ['vuetify']
 }

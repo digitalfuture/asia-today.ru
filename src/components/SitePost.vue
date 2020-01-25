@@ -217,11 +217,10 @@ export default {
 
       this.sites.forEach(site => {
         for (const link of links) {
-          const domainName = site.name.split('//').reverse()[0]
+          const domainName = site.url.split('//')[1]
 
           if (link.href.search(domainName) !== -1) {
             const linkFragments = link.href.split('/').reverse()
-
             const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
 
             link.href = `/${site.name}/${slug}`
