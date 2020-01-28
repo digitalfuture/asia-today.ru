@@ -24,6 +24,12 @@
     "color": "#03DAC6"
   },
   {
+    "name": "sri-lanka",
+    "nameRu": "Шри-Ланка",
+    "url": "//asia-sri-lanka.ru",
+    "color": "#FF6633"
+  },
+  {
     "name": "china",
     "nameRu": "Китай",
     "url": "//asia-china.ru",
@@ -40,12 +46,6 @@
     "nameRu": "Корея",
     "url": "//asia-korea.ru",
     "color": "#FF99FF"
-  },
-  {
-    "name": "sri-lanka",
-    "nameRu": "Шри-Ланка",
-    "url": "//asia-sri-lanka.ru",
-    "color": "#FF6633"
   },
   {
     "name": "india",

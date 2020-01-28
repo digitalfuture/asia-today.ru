@@ -153,10 +153,12 @@ export default {
             offset: this.currentOffset,
             perPage: this.perPage
           }).then(data =>
-            this.savePostData({
-              siteName: site.name,
-              data: data[0]
-            })
+            data.length
+              ? this.savePostData({
+                  siteName: site.name,
+                  data: data[0]
+                })
+              : false
           )
         )
       } else if (

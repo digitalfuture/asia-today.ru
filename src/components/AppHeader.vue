@@ -10,7 +10,7 @@
       width="48"
       height="48"
     >
-      <v-icon color="grey">mdi-arrow-left</v-icon>
+      <v-icon color="grey">mdi-arrow-top-left</v-icon>
     </v-btn>
 
     <v-btn v-else exact disabled fab text width="48" height="48"></v-btn>
