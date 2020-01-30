@@ -12,7 +12,7 @@
     "build:components:article-row": "vue-cli-service build --target wc-async --name article-row shared-src/script/components/article-row.vue && npm run build:components:post-install",
     "build:components:country-list": "vue-cli-service build --target wc-async --name country-list shared-src/script/components/country-list.vue && npm run build:components:post-install",
     "build:components:post-install": "mv docs/*.* public/shared/script/components/ -v",
-    "build:main": "vue-cli-service build && echo asia-today.ru > ./docs/CNAME",
+    "build:main": "vue-cli-service build --mode production && echo asia-today.ru > ./docs/CNAME",
     "build:shared": "parcel build -d docs/shared/script -o script.js shared-src/script/index.js",
     "capacitor-copy": "vue-cli-service capacitor-copy",
     "capacitor-init": "vue-cli-service capacitor-init",
