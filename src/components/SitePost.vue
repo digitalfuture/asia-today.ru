@@ -286,13 +286,20 @@ export default {
       }
 
       a {
-        border-bottom: 5px solid map-get($colors, light-color);
-      }
+        background-image: linear-gradient(
+          120deg,
+          map-get($colors, light-color) 0%,
+          map-get($colors, base-color) 100%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 0.2em;
+        background-position: 0 88%;
+        transition: background-size 0.25s ease-in;
 
-      a:hover,
-      a:visited {
-        text-decoration: none;
-        border-bottom: 5px solid map-get($colors, base-color);
+        &:hover,
+        &:visited {
+          background-size: 100% 88%;
+        }
       }
     }
   }

@@ -7,7 +7,7 @@
         :title="
           `${
             category ? 'Категория: ' + category.name.toUpperCase() + ' -' : ''
-          } ${siteNameRu} Сегодня`
+          } ${site.nameRu} Сегодня`
         "
       />
 
@@ -24,47 +24,143 @@
         </div>
 
         <PostList
+          :posts="postListPosts"
           :siteName="siteName"
-          :offset="0"
-          :perPage="10"
-          :categoryId="categoryId"
+          :loadMore="loadMore"
         />
+
+        <!-- Search form -->
+        <v-row>
+          <v-col cols="12">
+            <SearchForm :siteName="siteName" />
+          </v-col>
+        </v-row>
       </v-col>
     </div>
   </section>
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import PostList from '../components/blocks/PostList'
+import SearchForm from '../components/SearchForm'
 
 export default {
   name: 'CategoryPage',
-  data() {
-    return {
-      category: null
-    }
-  },
   components: {
-    PostList
+    PostList,
+    SearchForm
   },
-  props: ['categoryId', 'categoryName', 'siteName'],
+  props: ['categoryId', 'siteName'],
+  data: () => ({
+    posts: [
+      // {
+      //   id,
+      //   slug,
+      //   siteName,
+      //   title,
+      //   date,
+      //   link,
+      //   content,
+      //   thumb,
+      //   tags,
+      //   categories
+      // }
+    ],
+    currentOffset: 0,
+    perPage: 10,
+    category: null
+  }),
   computed: {
-    ...mapState(['sites']),
-    ...mapGetters(['getSiteUrl']),
-    siteNameRu() {
-      return this.sites.find(site => site.name === this.siteName).nameRu
+    ...mapState(['sites', 'searchString']),
+    site() {
+      return this.sites.find(site => site.name === this.siteName)
+    },
+    postListPosts() {
+      return this.posts
     }
   },
   methods: {
-    ...mapActions(['getCategoryInfo'])
+    ...mapActions(['fetchPostsByCategoryId', 'getCategoryInfo']),
+    getPosts() {
+      this.fetchPostsByCategoryId({
+        siteUrl: this.site.url,
+        offset: this.currentOffset,
+        perPage: this.perPage,
+        categoryId: this.categoryId
+      }).then(data =>
+        data.forEach(post =>
+          this.savePostData({
+            siteName: this.siteName,
+            data: post
+          })
+        )
+      )
+    },
+    savePostData({ siteName, data }) {
+      this.posts.push({
+        id: data.id,
+        content: data.content.rendered,
+        slug: data.slug,
+        siteName: siteName,
+        title: data.title.rendered,
+        date: data.date,
+        link: data.link,
+        excerpt: data.excerpt.rendered,
+        thumb:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+            .source_url,
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
+      })
+    },
+    loadMore() {
+      this.currentOffset += this.perPage
+      this.getPosts()
+    }
+  },
+  created() {
+    this.getPosts()
   },
   mounted() {
     this.getCategoryInfo({
-      siteUrl: this.getSiteUrl(this.siteName),
+      siteUrl: this.site.url,
       categoryId: this.categoryId
     }).then(category => (this.category = category))
   }
 }
+
+// import { mapState, mapActions, mapGetters } from 'vuex'
+
+// import PostList from '../components/blocks/PostList'
+
+// export default {
+//   name: 'CategoryPage',
+//   data() {
+//     return {
+//       category: null
+//     }
+//   },
+//   components: {
+//     PostList
+//   },
+//   props: ['categoryId', 'categoryName', 'siteName'],
+//   computed: {
+//     ...mapState(['sites']),
+//     ...mapGetters(['getSiteUrl']),
+//     siteNameRu() {
+//       return this.sites.find(site => site.name === this.siteName).nameRu
+//     }
+//   },
+//   methods: {
+//     ...mapActions(['getCategoryInfo'])
+//   },
+//   mounted() {
+//     this.getCategoryInfo({
+//       siteUrl: this.getSiteUrl(this.siteName),
+//       categoryId: this.categoryId
+//     }).then(category => (this.category = category))
+//   }
+// }
 </script>

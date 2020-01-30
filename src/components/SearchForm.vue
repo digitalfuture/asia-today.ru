@@ -1,34 +1,55 @@
 <template>
-  <v-text-field
-    id="search"
-    light
-    solo
-    clearable
-    single-line
-    color="grey"
-    prepend-inner-icon="mdi-magnify"
-    :suffix="suffixString"
-    @click:clear="clearSearchResult"
-    v-model="searchString"
-    @keyup.enter="search"
-    @input="clearSearchResult"
-    :placeholder="
-      $route.name === 'homePage'
-        ? 'Искать по всем странам'
-        : 'Искать по стране ' + siteNameRu
-    "
-  ></v-text-field>
+  <section id="search">
+    <v-text-field
+      light
+      solo
+      clearable
+      single-line
+      color="grey"
+      prepend-inner-icon="mdi-magnify"
+      :suffix="suffixString"
+      @click:clear="clearSearchResult"
+      v-model="text"
+      @keyup.enter="search"
+      @input="clearSearchResult"
+      :placeholder="
+        $route.name === 'homePage'
+          ? 'Искать по всем странам'
+          : 'Искать по стране ' + siteNameRu
+      "
+    ></v-text-field>
+
+    <!-- Search result -->
+    <v-row v-if="searchString" dense>
+      <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
+        <PostStripe :post="post" :siteName="post.siteName" />
+      </v-col>
+    </v-row>
+
+    <!-- Search more button -->
+    <v-row v-if="searchString && searchResults.length" justify="center">
+      <v-btn @click="searchMore" fab text>
+        <v-icon color="black" x-large>mdi-chevron-down</v-icon>
+      </v-btn>
+    </v-row>
+  </section>
 </template>
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
 
+import PostStripe from './blocks/PostStripe'
+
 export default {
-  props: ['siteName', 'offset', 'perPage'],
+  components: {
+    PostStripe
+  },
+  props: ['siteName'],
   data: () => ({
-    searchString: ''
+    offset: 0,
+    perPage: 5
   }),
   computed: {
-    ...mapState(['sites', 'searchResults']),
+    ...mapState(['sites', 'searchResults', 'searchString']),
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url
     },
@@ -37,14 +58,14 @@ export default {
     },
     siteNameRu() {
       return this.sites.find(site => site.name === this.siteName).nameRu
-    }
-  },
-  watch: {
-    searchString() {
-      this.updateSearchString(this.searchString)
     },
-    offset() {
-      this.search()
+    text: {
+      get() {
+        return this.searchString
+      },
+      set(value) {
+        this.updateSearchString(value)
+      }
     }
   },
   methods: {
@@ -102,6 +123,10 @@ export default {
           })
         })
       }
+    },
+    searchMore() {
+      this.offset += this.perPage
+      this.search()
     }
   }
 }

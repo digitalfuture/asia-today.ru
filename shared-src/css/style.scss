@@ -229,21 +229,46 @@ $countries: (
   )
 );
 
+// @each $country, $colors in $countries {
+//   .#{$country} p a:hover,
+//   .#{$country} p li a:hover,
+//   .#{$country} p a:visited,
+//   .#{$country} p li a:visited {
+//     border-bottom: 5px solid map-get($colors, base-color) !important;
+//     text-decoration: none !important;
+//     color: #424242 !important;
+//   }
+//   .#{$country} p a,
+//   .#{$country} p li a,
+//   .#{$country} p a:active,
+//   .#{$country} p li a:active {
+//     text-decoration: none !important;
+//     border-bottom: 5px solid map-get($colors, light-color) !important;
+//     color: #424242 !important;
+//   }
+// }
+
 @each $country, $colors in $countries {
-  .#{$country} p a:hover,
-  .#{$country} p li a:hover,
-  .#{$country} p a:visited,
-  .#{$country} p li a:visited {
-    border-bottom: 5px solid map-get($colors, base-color) !important;
-    text-decoration: none !important;
-    color: #424242 !important;
-  }
   .#{$country} p a,
   .#{$country} p li a,
   .#{$country} p a:active,
   .#{$country} p li a:active {
     text-decoration: none !important;
-    border-bottom: 5px solid map-get($colors, light-color) !important;
+    text-decoration: none !important;
+    background-image: linear-gradient(
+      120deg,
+      map-get($colors, light-color) 0%,
+      map-get($colors, base-color) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
     color: #424242 !important;
+    
+    &:hover,
+    &:visited {
+      background-size: 100% 88%;
+    }
   }
 }

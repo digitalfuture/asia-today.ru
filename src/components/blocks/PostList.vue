@@ -1,40 +1,15 @@
 <template>
   <!-- Post list -->
   <section class="post-list">
-    <!-- Search form -->
-    <v-row>
-      <v-col cols="12">
-        <SearchForm
-          :siteName="siteName"
-          :offset="сurrentOffsetSearch"
-          :perPage="perPage"
-        />
-      </v-col>
-    </v-row>
-
-    <!-- Search result -->
-    <v-row v-if="searchString" dense>
-      <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
-        <PostStripe :post="post" :siteName="post.siteName" />
-      </v-col>
-    </v-row>
-
-    <!-- Search more button -->
-    <v-row v-if="searchString && searchResults.length" justify="center">
-      <v-btn @click="searchMore" fab text>
-        <v-icon color="black" x-large>mdi-chevron-down</v-icon>
-      </v-btn>
-    </v-row>
-
     <!-- Post list -->
-    <v-row v-if="!searchString && filteredPosts.length" dense>
-      <v-col v-for="(post, i) in filteredPosts" :key="i" cols="12">
+    <v-row v-if="posts.length" dense>
+      <v-col v-for="(post, i) in posts" :key="i" cols="12">
         <PostStripe :post="post" :siteName="post.siteName" />
       </v-col>
     </v-row>
 
     <!-- Skeleton list -->
-    <v-row v-if="!searchString && !posts.length" dense>
+    <v-row v-if="!posts.length" dense>
       <v-col v-for="i in 4" :key="i" cols="12">
         <v-skeleton-loader
           tile
@@ -44,7 +19,7 @@
     </v-row>
 
     <!-- Load more button -->
-    <v-row v-if="!searchString" justify="center">
+    <v-row justify="center">
       <v-btn @click="loadMore" fab text>
         <v-icon color="black" x-large>mdi-chevron-down</v-icon>
       </v-btn>
@@ -53,169 +28,12 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
-
-import SearchForm from '../SearchForm'
 import PostStripe from './PostStripe'
 
 export default {
   components: {
-    SearchForm,
     PostStripe
   },
-  props: ['siteName', 'offset', 'perPage', 'tagId', 'categoryId'],
-  data() {
-    return {
-      currentOffset: this.offset,
-      сurrentOffsetSearch: 0,
-      posts: [
-        // {
-        //   id,
-        //   slug,
-        //   siteName,
-        //   title,
-        //   date,
-        //   link,
-        //   content,
-        //   thumb,
-        //   excerpt,
-        //   tags,
-        //   categories
-        // }
-      ]
-    }
-  },
-  watch: {
-    currentOffset() {
-      this.getPosts()
-    }
-  },
-  computed: {
-    ...mapState(['sites', 'searchString', 'searchResults']),
-    ...mapGetters(['getSiteUrl']),
-    sortedPosts() {
-      const posts = [...this.posts]
-      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date))
-
-      let prevPostId = null
-
-      return sorted.filter(post => {
-        if (post.id === prevPostId) {
-          return false
-        } else {
-          prevPostId = post.id
-          return true
-        }
-      })
-    },
-    filteredPosts() {
-      let prevPostId = null
-
-      return this.posts.filter(post => {
-        if (post.id === prevPostId) {
-          return false
-        } else if (this.$route.name === 'postPage' && post.slug === this.slug) {
-          return false
-        } else {
-          prevPostId = post.id
-          return true
-        }
-      })
-    }
-  },
-  methods: {
-    ...mapActions([
-      'fetchLastPostsEmbed',
-      'fetchPostsByTagId',
-      'fetchPostsByCategoryId'
-    ]),
-    savePostData({ siteName, data }) {
-      this.posts.push({
-        id: data.id,
-        slug: data.slug,
-        siteName: siteName,
-        title: data.title.rendered,
-        date: data.date,
-        link: data.link,
-        excerpt: data.excerpt.rendered,
-        thumb:
-          data._embedded['wp:featuredmedia'][0].media_details.sizes.td_537x360
-            .source_url,
-        categories: data._embedded['wp:term'][0],
-        tags: data._embedded['wp:term'][1]
-      })
-    },
-    getPosts() {
-      if (this.$route.name === 'homePage') {
-        this.sites.forEach(site =>
-          this.fetchLastPostsEmbed({
-            siteUrl: site.url,
-            offset: this.currentOffset,
-            perPage: this.perPage
-          }).then(data =>
-            data.length
-              ? this.savePostData({
-                  siteName: site.name,
-                  data: data[0]
-                })
-              : false
-          )
-        )
-      } else if (
-        this.$route.name === 'sitePage' ||
-        this.$route.name === 'postPage'
-      ) {
-        this.fetchLastPostsEmbed({
-          siteUrl: this.getSiteUrl(this.siteName),
-          offset: this.currentOffset,
-          perPage: this.perPage
-        }).then(data =>
-          data.forEach(post =>
-            this.savePostData({
-              siteName: this.siteName,
-              data: post
-            })
-          )
-        )
-      } else if (this.$route.name === 'tagPage') {
-        this.fetchPostsByTagId({
-          siteUrl: this.getSiteUrl(this.siteName),
-          offset: this.currentOffset,
-          perPage: this.perPage,
-          tagId: this.tagId
-        }).then(data =>
-          data.forEach(post =>
-            this.savePostData({
-              siteName: this.siteName,
-              data: post
-            })
-          )
-        )
-      } else if (this.$route.name === 'categoryPage') {
-        this.fetchPostsByCategoryId({
-          siteUrl: this.getSiteUrl(this.siteName),
-          offset: this.currentOffset,
-          perPage: this.perPage,
-          categoryId: this.categoryId
-        }).then(data =>
-          data.forEach(post =>
-            this.savePostData({
-              siteName: this.siteName,
-              data: post
-            })
-          )
-        )
-      }
-    },
-    loadMore() {
-      this.currentOffset += this.perPage
-    },
-    searchMore() {
-      this.сurrentOffsetSearch += this.perPage
-    }
-  },
-  created() {
-    this.getPosts()
-  }
+  props: ['posts', 'loadMore']
 }
 </script>

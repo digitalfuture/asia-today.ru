@@ -5,9 +5,9 @@
       <!-- Set title to page -->
       <vue-headful
         :title="
-          `${
-            tag ? 'Тег: ' + tag.name.toUpperCase() + ' -' : ''
-          } ${siteNameRu} Сегодня`
+          `${tag ? 'Тег: ' + tag.name.toUpperCase() + ' -' : ''} ${
+            site.nameRu
+          } Сегодня`
         "
       />
 
@@ -22,45 +22,108 @@
         </div>
 
         <PostList
+          :posts="postListPosts"
           :siteName="siteName"
-          :offset="0"
-          :perPage="10"
-          :tagId="tagId"
+          :loadMore="loadMore"
         />
+
+        <!-- Search form -->
+        <v-row>
+          <v-col cols="12">
+            <SearchForm :siteName="siteName" />
+          </v-col>
+        </v-row>
       </v-col>
     </div>
   </section>
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import PostList from '../components/blocks/PostList'
+import SearchForm from '../components/SearchForm'
 
 export default {
   name: 'TagPage',
-  data() {
-    return {
-      tag: null
-    }
-  },
   components: {
-    PostList
+    PostList,
+    SearchForm
   },
-  props: ['tagId', 'tagName', 'siteName'],
+  props: ['tagId', 'siteName'],
+  data: () => ({
+    posts: [
+      // {
+      //   id,
+      //   slug,
+      //   siteName,
+      //   title,
+      //   date,
+      //   link,
+      //   content,
+      //   thumb,
+      //   tags,
+      //   categories
+      // }
+    ],
+    currentOffset: 0,
+    perPage: 10,
+    tag: null
+  }),
   computed: {
-    ...mapState(['sites']),
-    ...mapGetters(['getSiteUrl']),
-    siteNameRu() {
-      return this.sites.find(site => site.name === this.siteName).nameRu
+    ...mapState(['sites', 'searchString']),
+    site() {
+      return this.sites.find(site => site.name === this.siteName)
+    },
+    postListPosts() {
+      return this.posts
     }
   },
   methods: {
-    ...mapActions(['getTagInfo'])
+    ...mapActions(['fetchPostsByTagId', 'getTagInfo']),
+    getPosts() {
+      this.fetchPostsByTagId({
+        siteUrl: this.site.url,
+        offset: this.currentOffset,
+        perPage: this.perPage,
+        tagId: this.tagId
+      }).then(data =>
+        data.forEach(post =>
+          this.savePostData({
+            siteName: this.siteName,
+            data: post
+          })
+        )
+      )
+    },
+    savePostData({ siteName, data }) {
+      this.posts.push({
+        id: data.id,
+        content: data.content.rendered,
+        slug: data.slug,
+        siteName: siteName,
+        title: data.title.rendered,
+        date: data.date,
+        link: data.link,
+        excerpt: data.excerpt.rendered,
+        thumb:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+            .source_url,
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
+      })
+    },
+    loadMore() {
+      this.currentOffset += this.perPage
+      this.getPosts()
+    }
+  },
+  created() {
+    this.getPosts()
   },
   mounted() {
     this.getTagInfo({
-      siteUrl: this.getSiteUrl(this.siteName),
+      siteUrl: this.site.url,
       tagId: this.tagId
     }).then(tag => (this.tag = tag))
   }

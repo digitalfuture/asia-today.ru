@@ -7,6 +7,7 @@ import sites from './sites'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  strict: true,
   state: {
     sites: sites.slice(0, 5),
     searchString: '',
