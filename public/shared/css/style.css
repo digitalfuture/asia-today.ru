@@ -181,7 +181,6 @@
 .vietnam p a:active,
 .vietnam p li a:active {
   text-decoration: none !important;
-  text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(104, 215, 88, 0.3) 0%, #68d758 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
@@ -197,13 +196,13 @@
 .vietnam p li a:active:hover,
 .vietnam p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .nepal p a,
 .nepal p li a,
 .nepal p a:active,
 .nepal p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(77, 178, 236, 0.3) 0%, #4db2ec 100%);
   background-repeat: no-repeat;
@@ -220,13 +219,13 @@
 .nepal p li a:active:hover,
 .nepal p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .thailand p a,
 .thailand p li a,
 .thailand p a:active,
 .thailand p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(187, 134, 252, 0.3) 0%, #bb86fc 100%);
   background-repeat: no-repeat;
@@ -243,13 +242,13 @@
 .thailand p li a:active:hover,
 .thailand p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .philippines p a,
 .philippines p li a,
 .philippines p a:active,
 .philippines p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(3, 218, 198, 0.3) 0%, #03dac6 100%);
   background-repeat: no-repeat;
@@ -266,13 +265,13 @@
 .philippines p li a:active:hover,
 .philippines p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .japan p a,
 .japan p li a,
 .japan p a:active,
 .japan p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 204, 0.3) 0%, #ffcccc 100%);
   background-repeat: no-repeat;
@@ -289,13 +288,13 @@
 .japan p li a:active:hover,
 .japan p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .china p a,
 .china p li a,
 .china p a:active,
 .china p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 0, 0, 0.3) 0%, red 100%);
   background-repeat: no-repeat;
@@ -312,13 +311,13 @@
 .china p li a:active:hover,
 .china p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .cambodia p a,
 .cambodia p li a,
 .cambodia p a:active,
 .cambodia p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 255, 0, 0.3) 0%, yellow 100%);
   background-repeat: no-repeat;
@@ -335,13 +334,13 @@
 .cambodia p li a:active:hover,
 .cambodia p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .sri-lanka p a,
 .sri-lanka p li a,
 .sri-lanka p a:active,
 .sri-lanka p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 102, 51, 0.3) 0%, #ff6633 100%);
   background-repeat: no-repeat;
@@ -358,13 +357,13 @@
 .sri-lanka p li a:active:hover,
 .sri-lanka p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .india p a,
 .india p li a,
 .india p a:active,
 .india p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 153, 51, 0.3) 0%, #ff9933 100%);
   background-repeat: no-repeat;
@@ -381,13 +380,13 @@
 .india p li a:active:hover,
 .india p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .singapore p a,
 .singapore p li a,
 .singapore p a:active,
 .singapore p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 0, 102, 0.3) 0%, #ff0066 100%);
   background-repeat: no-repeat;
@@ -404,13 +403,13 @@
 .singapore p li a:active:hover,
 .singapore p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .malaysia p a,
 .malaysia p li a,
 .malaysia p a:active,
 .malaysia p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(0, 204, 255, 0.3) 0%, #00ccff 100%);
   background-repeat: no-repeat;
@@ -427,13 +426,13 @@
 .malaysia p li a:active:hover,
 .malaysia p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .korea p a,
 .korea p li a,
 .korea p a:active,
 .korea p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 153, 255, 0.3) 0%, #ff99ff 100%);
   background-repeat: no-repeat;
@@ -450,13 +449,13 @@
 .korea p li a:active:hover,
 .korea p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .myanmar p a,
 .myanmar p li a,
 .myanmar p a:active,
 .myanmar p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 0, 0.3) 0%, #ffcc00 100%);
   background-repeat: no-repeat;
@@ -473,13 +472,13 @@
 .myanmar p li a:active:hover,
 .myanmar p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 .laos p a,
 .laos p li a,
 .laos p a:active,
 .laos p li a:active {
-  text-decoration: none !important;
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(154, 204, 204, 0.3) 0%, #9acccc 100%);
   background-repeat: no-repeat;
@@ -496,6 +495,7 @@
 .laos p li a:active:hover,
 .laos p li a:active:visited {
   background-size: 100% 88%;
+  text-decoration: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

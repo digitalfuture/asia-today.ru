@@ -235,21 +235,21 @@ $countries: (
   .#{$country} p a:active,
   .#{$country} p li a:active {
     text-decoration: none !important;
-    text-decoration: none !important;
     background-image: linear-gradient(
       120deg,
       map-get($colors, light-color) 0%,
       map-get($colors, base-color) 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 100% 0.2em;
-    background-position: 0 88%;
-    transition: background-size 0.25s ease-in;
-    color: #424242 !important;
-    
-    &:hover,
-    &:visited {
-      background-size: 100% 88%;
+      );
+      background-repeat: no-repeat;
+      background-size: 100% 0.2em;
+      background-position: 0 88%;
+      transition: background-size 0.25s ease-in;
+      color: #424242 !important;
+      
+      &:hover,
+      &:visited {
+        background-size: 100% 88%;
+        text-decoration: none !important;
     }
   }
 }
