@@ -55,20 +55,18 @@ export default {
   }),
   computed: {
     ...mapState(['sites', 'searchString']),
+    postsSorted() {
+      return [...this.posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+    },
     postGrid4Posts() {
-      return [...this.posts]
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 4)
+      return this.postsSorted.slice(0, 4)
     },
     postListPosts() {
-      return this.posts.slice(4)
+      return this.postsSorted.slice(4)
     }
   },
   methods: {
     ...mapActions(['fetchLastPostsEmbed']),
-    getSiteUrl(siteName) {
-      return this.sites.find(site => site.name === siteName).url
-    },
     getPosts() {
       this.sites.forEach(site =>
         this.fetchLastPostsEmbed({
@@ -103,7 +101,7 @@ export default {
       })
     },
     loadMore() {
-      this.currentOffset++
+      this.currentOffset += this.perPage
       this.getPosts()
     }
   },

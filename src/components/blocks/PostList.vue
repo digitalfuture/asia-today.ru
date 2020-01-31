@@ -20,8 +20,8 @@
 
     <!-- Load more button -->
     <v-row justify="center">
-      <v-btn @click="loadMore" fab text>
-        <v-icon color="black" x-large>mdi-chevron-down</v-icon>
+      <v-btn @click="loadMore" fab>
+        <v-icon x-large>mdi-chevron-down</v-icon>
       </v-btn>
     </v-row>
   </section>
