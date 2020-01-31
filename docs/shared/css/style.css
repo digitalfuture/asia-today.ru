@@ -319,7 +319,7 @@
 .cambodia p a:active,
 .cambodia p li a:active {
   text-decoration: none !important;
-  background-image: linear-gradient(120deg, yellow 0%, yellow 100%);
+  background-image: linear-gradient(120deg, yellow 0%, #ffcc99 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
   background-position: 0 88%;
