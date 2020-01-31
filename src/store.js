@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   strict: true,
   state: {
-    sites: sites,
+    sites: sites.slice(0, 7),
     searchString: '',
     loadingCount: 0,
     searchResults: [

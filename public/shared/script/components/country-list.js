@@ -464,7 +464,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack
     name: 'site-list'
   }),
   computed: {
-    countries() {
+    sites() {
       return _config_json__WEBPACK_IMPORTED_MODULE_0__["sites"];
     }
 
@@ -500,7 +500,7 @@ var render = function() {
               "a",
               {
                 staticClass: "site-list__site-logo",
-                attrs: { href: _vm.country.url }
+                attrs: { href: site.url }
               },
               [
                 _c("img", {

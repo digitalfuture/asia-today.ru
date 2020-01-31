@@ -8,7 +8,7 @@
         class="site-list__site-container"
       >
         <div class="site-list__site-wrapper">
-          <a :href="country.url" class="site-list__site-logo">
+          <a :href="site.url" class="site-list__site-logo">
             <img
               :src="`//asia-today.ru/shared/img/logo-${site.name}.png`"
               height="50"
@@ -27,7 +27,7 @@ export default {
     name: 'site-list'
   }),
   computed: {
-    countries() {
+    sites() {
       return sites
     }
   }
