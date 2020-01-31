@@ -445,12 +445,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.iterator */ "./node_modules/core-js/modules/es.array.iterator.js");
 /* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.promise */ "./node_modules/core-js/modules/es.promise.js");
-/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.slice */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_array_sort__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.sort */ "./node_modules/core-js/modules/es.array.sort.js");
+/* harmony import */ var core_js_modules_es_array_sort__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_sort__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.promise */ "./node_modules/core-js/modules/es.promise.js");
+/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _config_json__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../config.json */ "./shared-src/script/config.json");
+var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../config.json */ "./shared-src/script/config.json", 1);
 
 
 
@@ -459,6 +465,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 //
 //
 //
@@ -491,22 +499,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'article-row',
   data: () => ({
-    countries: [{
-      name: 'vietnam',
-      nameRu: 'Вьетнам'
-    }, {
-      name: 'thailand',
-      nameRu: 'Таиланд'
-    }, {
-      name: 'philippines',
-      nameRu: 'Филиппины'
-    }, {
-      name: 'nepal',
-      nameRu: 'Непал'
-    }],
     articles: [// {
       // country: 'vietnam',
       // nameRu: 'Вьетнам',
@@ -517,18 +513,15 @@ __webpack_require__.r(__webpack_exports__);
       // }
     ]
   }),
-  computed: {},
+  computed: {
+    filteredArticles() {
+      return this.articles.filter(article => window.location.href.indexOf(article.country) === -1).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
+    }
+
+  },
   methods: {
     updateArticles() {
       var _this = this;
-
-      var countries = this.countries.filter(country => {
-        // console.log('country.name:', country.name)
-        // console.log('country:', country)
-        var currentCountry = window.location.hostname.indexOf(country.name) !== -1; // console.log('current country?', currentCountry)
-
-        return !currentCountry;
-      }); // console.log('countries after processing:', countries)
 
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
@@ -549,7 +542,7 @@ __webpack_require__.r(__webpack_exports__);
 
             _this.articles.push({
               country: country.name,
-              ruCountryName: country.nameRu,
+              countryNameRu: country.nameRu,
               title,
               image,
               logo,
@@ -558,7 +551,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         };
 
-        for (var _iterator = countries[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = _config_json__WEBPACK_IMPORTED_MODULE_10__["countries"][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           _loop();
         }
       } catch (err) {
@@ -605,7 +598,7 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "site-container" },
-    _vm._l(_vm.articles, function(article) {
+    _vm._l(_vm.filteredArticles, function(article) {
       return _c(
         "a",
         {
@@ -632,7 +625,7 @@ var render = function() {
                 _c("div", { staticClass: "site-container__logo-text" }, [
                   _c("span", {
                     staticClass: "site-container__logo-text_bold",
-                    domProps: { innerHTML: _vm._s(article.ruCountryName) }
+                    domProps: { innerHTML: _vm._s(article.countryNameRu) }
                   }),
                   _c("br"),
                   _c(
@@ -1232,6 +1225,28 @@ module.exports = function (bitmap, value) {
     writable: !(bitmap & 4),
     value: value
   };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/create-property.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/create-property.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ "./node_modules/core-js/internals/to-primitive.js");
+var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
+var createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ "./node_modules/core-js/internals/create-property-descriptor.js");
+
+module.exports = function (object, key, value) {
+  var propertyKey = toPrimitive(key);
+  if (propertyKey in object) definePropertyModule.f(object, propertyKey, createPropertyDescriptor(0, value));
+  else object[propertyKey] = value;
 };
 
 
@@ -3465,6 +3480,111 @@ addToUnscopables('entries');
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.array.slice.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.slice.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var isArray = __webpack_require__(/*! ../internals/is-array */ "./node_modules/core-js/internals/is-array.js");
+var toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ "./node_modules/core-js/internals/to-absolute-index.js");
+var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
+var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
+var createProperty = __webpack_require__(/*! ../internals/create-property */ "./node_modules/core-js/internals/create-property.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
+var arrayMethodUsesToLength = __webpack_require__(/*! ../internals/array-method-uses-to-length */ "./node_modules/core-js/internals/array-method-uses-to-length.js");
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
+var USES_TO_LENGTH = arrayMethodUsesToLength('slice', { ACCESSORS: true, 0: 0, 1: 2 });
+
+var SPECIES = wellKnownSymbol('species');
+var nativeSlice = [].slice;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGTH }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = toLength(O.length);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (typeof Constructor == 'function' && (Constructor === Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === Array || Constructor === undefined) {
+        return nativeSlice.call(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
+  }
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.array.sort.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.sort.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var aFunction = __webpack_require__(/*! ../internals/a-function */ "./node_modules/core-js/internals/a-function.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ "./node_modules/core-js/internals/array-method-is-strict.js");
+
+var test = [];
+var nativeSort = test.sort;
+
+// IE8-
+var FAILS_ON_UNDEFINED = fails(function () {
+  test.sort(undefined);
+});
+// V8 bug
+var FAILS_ON_NULL = fails(function () {
+  test.sort(null);
+});
+// Old WebKit
+var STRICT_METHOD = arrayMethodIsStrict('sort');
+
+var FORCED = FAILS_ON_UNDEFINED || !FAILS_ON_NULL || !STRICT_METHOD;
+
+// `Array.prototype.sort` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.sort
+$({ target: 'Array', proto: true, forced: FORCED }, {
+  sort: function sort(comparefn) {
+    return comparefn === undefined
+      ? nativeSort.call(toObject(this))
+      : nativeSort.call(toObject(this), aFunction(comparefn));
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.object.to-string.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js/modules/es.object.to-string.js ***!
@@ -4889,6 +5009,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_cache_loader_dist_cjs_js_cacheDirectory_node_modules_cache_vue_loader_cacheIdentifier_4357f9b0_vue_loader_template_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vuetify_loader_lib_loader_js_ref_18_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_article_row_vue_vue_type_template_id_25451f76_shadow__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./shared-src/script/config.json":
+/*!***************************************!*\
+  !*** ./shared-src/script/config.json ***!
+  \***************************************/
+/*! exports provided: countries, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"countries\":[{\"name\":\"vietnam\",\"nameRu\":\"Вьетнам\",\"url\":\"//asia-vietnam.ru\",\"zen\":\"//zen.yandex.ru/vietnam\",\"ok\":\"//ok.ru/asiavietnam\",\"telegram\":\"//t.me/AsiaVietnam\"},{\"name\":\"nepal\",\"nameRu\":\"Непал\",\"url\":\"//asia-nepal.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74ea677f0d500b351417f\",\"ok\":\"//ok.ru/group/54140198715589\",\"telegram\":\"//t.me/AsiaNepal\"},{\"name\":\"philippines\",\"nameRu\":\"Филиппины\",\"url\":\"//asia-philippines.ru\",\"zen:\":\"//zen.yandex.ru/id/5daf045a97b5d400b22302cc\",\"ok\":\"//ok.ru/group/54222226456773\",\"telegram\":\"//t.me/AsiaPhilippines\"},{\"name\":\"thailand\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-thailand.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"//ok.ru/group/54222220034245\",\"telegram\":\"//t.me/AsiaThailand\"},{\"name\":\"sri-lanka\",\"nameRu\":\"Шри-Ланка\",\"url\":\"//asia-sri-lanka.ru\",\"zen\":\"//zen.yandex.ru/id/5d904944e3062c00aee5cb1a\",\"ok\":\"//ok.ru/group/55929866027205\",\"telegram\":\"//t.me/AsiaSriLanka\"},{\"name\":\"japan\",\"nameRu\":\"Япония\",\"url\":\"//asia-japan.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"china\",\"nameRu\":\"Китай\",\"url\":\"//asia-china.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"cambodia\",\"nameRu\":\"Камбоджа\",\"url\":\"//asia-cambodia.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"india\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-india.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"singapore\",\"nameRu\":\"Сингапур\",\"url\":\"//asia-singapore.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"malaysia\",\"nameRu\":\"Малайзия\",\"url\":\"//asia-malaysia.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"korea\",\"nameRu\":\"Корея\",\"url\":\"//asia-korea.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"myanmar\",\"nameRu\":\"Мьянма\",\"url\":\"//asia-myanmar.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"laos\",\"nameRu\":\"Лаос\",\"url\":\"//asia-laos.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"}]}");
 
 /***/ }),
 

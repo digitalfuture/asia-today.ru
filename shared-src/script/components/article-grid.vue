@@ -1,7 +1,7 @@
 <template>
   <div class="site-container">
     <a
-      v-for="article in articles"
+      v-for="article in filteredArticles"
       v-bind:key="article.country"
       :href="article.link"
       class="site-container__link"
@@ -31,28 +31,11 @@
   </div>
 </template>
 <script>
-// Rebuild
+import { countries } from '../config.json'
+
 export default {
   data: () => ({
     name: 'article-grid',
-    countries: [
-      {
-        name: 'vietnam',
-        nameRu: 'Вьетнам'
-      },
-      {
-        name: 'thailand',
-        nameRu: 'Таиланд'
-      },
-      {
-        name: 'philippines',
-        nameRu: 'Филиппины'
-      },
-      {
-        name: 'nepal',
-        nameRu: 'Непал'
-      }
-    ],
     articles: [
       // {
       // country: 'vietnam',
@@ -64,10 +47,17 @@ export default {
       // }
     ]
   }),
-  computed: {},
+  computed: {
+    filteredArticles() {
+      return this.articles
+        .filter(article => window.location.href.indexOf(article.country) === -1)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 4)
+    }
+  },
   methods: {
     updateArticles() {
-      for (let country of this.countries) {
+      for (let country of countries) {
         fetch(
           `https://asia-${country.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
