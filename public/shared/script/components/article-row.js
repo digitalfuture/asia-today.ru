@@ -515,7 +515,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
   }),
   computed: {
     filteredArticles() {
-      return this.articles.filter(article => window.location.href.indexOf(article.country) === -1).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
+      return this.articles.filter(article => window.location.href.indexOf(article.site) === -1).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
     }
 
   },
@@ -529,29 +529,32 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
 
       try {
         var _loop = function _loop() {
-          var country = _step.value;
-          fetch("https://asia-".concat(country.name, ".ru/wp-json/wp/v2/posts?&per_page=1&_embed")).then(response => response.json()).then(data => ({
+          var site = _step.value;
+          fetch("https://asia-".concat(site.name, ".ru/wp-json/wp/v2/posts?&per_page=1&_embed")).then(response => response.json()).then(data => ({
             title: data[0].title.rendered,
-            imageUrl: data[0]._embedded['wp:featuredmedia'][0].link
+            imageUrl: data[0]._embedded['wp:featuredmedia'][0].link,
+            date: data[0].date
           })).then((_ref) => {
             var title = _ref.title,
-                imageUrl = _ref.imageUrl;
-            var logo = "background-image: url(https://asia-today.ru/shared/img/logo-".concat(country.name, "-icon.png)");
-            var link = "https://asia-".concat(country.name, ".ru");
+                imageUrl = _ref.imageUrl,
+                date = _ref.date;
+            var logo = "background-image: url(https://asia-today.ru/shared/img/logo-".concat(site.name, "-icon.png)");
+            var link = "https://asia-".concat(site.name, ".ru");
             var image = "background: url(".concat(imageUrl, ") center center");
 
             _this.articles.push({
-              country: country.name,
-              countryNameRu: country.nameRu,
+              site: site.name,
+              nameRu: site.nameRu,
               title,
               image,
               logo,
-              link
+              link,
+              date
             });
           });
         };
 
-        for (var _iterator = _config_json__WEBPACK_IMPORTED_MODULE_10__["countries"][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           _loop();
         }
       } catch (err) {
@@ -602,7 +605,7 @@ var render = function() {
       return _c(
         "a",
         {
-          key: article.country,
+          key: article.site,
           staticClass: "site-container__link",
           attrs: { href: article.link, target: "_blank" }
         },
@@ -625,7 +628,7 @@ var render = function() {
                 _c("div", { staticClass: "site-container__logo-text" }, [
                   _c("span", {
                     staticClass: "site-container__logo-text_bold",
-                    domProps: { innerHTML: _vm._s(article.countryNameRu) }
+                    domProps: { innerHTML: _vm._s(article.nameRu) }
                   }),
                   _c("br"),
                   _c(
@@ -5016,10 +5019,10 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************!*\
   !*** ./shared-src/script/config.json ***!
   \***************************************/
-/*! exports provided: countries, default */
+/*! exports provided: sites, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"countries\":[{\"name\":\"vietnam\",\"nameRu\":\"Вьетнам\",\"url\":\"//asia-vietnam.ru\",\"zen\":\"//zen.yandex.ru/vietnam\",\"ok\":\"//ok.ru/asiavietnam\",\"telegram\":\"//t.me/AsiaVietnam\"},{\"name\":\"nepal\",\"nameRu\":\"Непал\",\"url\":\"//asia-nepal.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74ea677f0d500b351417f\",\"ok\":\"//ok.ru/group/54140198715589\",\"telegram\":\"//t.me/AsiaNepal\"},{\"name\":\"philippines\",\"nameRu\":\"Филиппины\",\"url\":\"//asia-philippines.ru\",\"zen:\":\"//zen.yandex.ru/id/5daf045a97b5d400b22302cc\",\"ok\":\"//ok.ru/group/54222226456773\",\"telegram\":\"//t.me/AsiaPhilippines\"},{\"name\":\"thailand\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-thailand.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"//ok.ru/group/54222220034245\",\"telegram\":\"//t.me/AsiaThailand\"},{\"name\":\"sri-lanka\",\"nameRu\":\"Шри-Ланка\",\"url\":\"//asia-sri-lanka.ru\",\"zen\":\"//zen.yandex.ru/id/5d904944e3062c00aee5cb1a\",\"ok\":\"//ok.ru/group/55929866027205\",\"telegram\":\"//t.me/AsiaSriLanka\"},{\"name\":\"japan\",\"nameRu\":\"Япония\",\"url\":\"//asia-japan.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"china\",\"nameRu\":\"Китай\",\"url\":\"//asia-china.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"cambodia\",\"nameRu\":\"Камбоджа\",\"url\":\"//asia-cambodia.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"india\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-india.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"singapore\",\"nameRu\":\"Сингапур\",\"url\":\"//asia-singapore.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"malaysia\",\"nameRu\":\"Малайзия\",\"url\":\"//asia-malaysia.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"korea\",\"nameRu\":\"Корея\",\"url\":\"//asia-korea.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"myanmar\",\"nameRu\":\"Мьянма\",\"url\":\"//asia-myanmar.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"laos\",\"nameRu\":\"Лаос\",\"url\":\"//asia-laos.ru\",\"zen\":\"\",\"ok\":\"\",\"telegram\":\"\"}]}");
+module.exports = JSON.parse("{\"sites\":[{\"name\":\"vietnam\",\"nameRu\":\"Вьетнам\",\"url\":\"//asia-vietnam.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"//ok.ru/asiavietnam\",\"telegram\":\"//t.me/AsiaVietnam\"},{\"name\":\"nepal\",\"nameRu\":\"Непал\",\"url\":\"//asia-nepal.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"//ok.ru/group/54140198715589\",\"telegram\":\"//t.me/AsiaNepal\"},{\"name\":\"philippines\",\"nameRu\":\"Филиппины\",\"url\":\"//asia-philippines.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"//ok.ru/group/54222226456773\",\"telegram\":\"//t.me/AsiaPhilippines\"},{\"name\":\"thailand\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-thailand.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"//ok.ru/group/54222220034245\",\"telegram\":\"//t.me/AsiaThailand\"},{\"name\":\"sri-lanka\",\"nameRu\":\"Шри-Ланка\",\"url\":\"//asia-sri-lanka.ru\",\"zen\":\"//zen.yandex.ru/id/5e2efa291a860800af3bdf46\",\"ok\":\"//ok.ru/group/55929866027205\",\"telegram\":\"//t.me/AsiaSriLanka\"},{\"name\":\"cambodia\",\"nameRu\":\"Камбоджа\",\"url\":\"//asia-cambodia.ru\",\"zen\":\"//zen.yandex.ru/id/5e2efa291a860800af3bdf46\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"japan\",\"nameRu\":\"Япония\",\"url\":\"//asia-japan.ru\",\"zen\":\"//zen.yandex.ru/id/5e2efa291a860800af3bdf46\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"china\",\"nameRu\":\"Китай\",\"url\":\"//asia-china.ru\",\"zen\":\"//zen.yandex.ru/id/5e2efa291a860800af3bdf46\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"india\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-india.ru\",\"zen\":\"//zen.yandex.ru/id/5e2efa291a860800af3bdf46\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"singapore\",\"nameRu\":\"Сингапур\",\"url\":\"//asia-singapore.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"malaysia\",\"nameRu\":\"Малайзия\",\"url\":\"//asia-malaysia.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"korea\",\"nameRu\":\"Корея\",\"url\":\"//asia-korea.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"myanmar\",\"nameRu\":\"Мьянма\",\"url\":\"//asia-myanmar.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"\",\"telegram\":\"\"},{\"name\":\"laos\",\"nameRu\":\"Лаос\",\"url\":\"//asia-laos.ru\",\"zen\":\"//zen.yandex.ru/id/5cd74a830ae27d00b35edee3\",\"ok\":\"\",\"telegram\":\"\"}]}");
 
 /***/ }),
 

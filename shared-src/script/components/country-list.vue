@@ -1,16 +1,16 @@
 <template>
-  <section class="country-list">
-    <div class="country-list__title">НАШИ ПРОЕКТЫ</div>
-    <div class="country-list__container">
+  <section class="site-list">
+    <div class="site-list__title">НАШИ ПРОЕКТЫ</div>
+    <div class="site-list__container">
       <div
-        v-for="(country, i) in countries"
+        v-for="(site, i) in sites"
         :key="i"
-        class="country-list__country-container"
+        class="site-list__site-container"
       >
-        <div class="country-list__country-wrapper">
-          <a :href="country.url" class="country-list__country-logo">
+        <div class="site-list__site-wrapper">
+          <a :href="country.url" class="site-list__site-logo">
             <img
-              :src="`//asia-today.ru/shared/img/logo-${country.name}.png`"
+              :src="`//asia-today.ru/shared/img/logo-${site.name}.png`"
               height="50"
             />
           </a>
@@ -20,22 +20,16 @@
   </section>
 </template>
 <script>
-import { countries } from '../config.json'
+import { sites } from '../config.json'
 
 export default {
   data: () => ({
-    name: 'country-list'
+    name: 'site-list'
   }),
   computed: {
     countries() {
-      return countries.slice(0, 5)
+      return sites
     }
-  },
-  methods: {
-    //
-  },
-  mounted() {
-    //
   }
 }
 </script>
@@ -43,12 +37,12 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic');
 
-.country-list {
+.site-list {
   padding-top: 48px;
   padding-bottom: 48px;
 }
 
-.country-list__title {
+.site-list__title {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 48px;
@@ -56,24 +50,24 @@ export default {
   text-align: center;
 }
 
-.country-list__container {
+.site-list__container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.country-list__country-container {
+.site-list__site-container {
   padding: 8px;
   display: flex;
   justify-content: center;
   flex-grow: 1;
 }
 
-.country-list__country-wrapper {
+.site-list__site-wrapper {
   width: 250px;
   max-width: 250px;
 }
 
-.country-list__country-logo {
+.site-list__site-logo {
   display: block;
 }
 </style>

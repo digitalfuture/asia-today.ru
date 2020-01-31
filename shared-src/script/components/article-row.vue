@@ -2,7 +2,7 @@
   <div class="site-container">
     <a
       v-for="article in filteredArticles"
-      v-bind:key="article.country"
+      v-bind:key="article.site"
       :href="article.link"
       class="site-container__link"
       target="_blank"
@@ -18,7 +18,7 @@
           </div>
           <div class="site-container__logo-text">
             <span
-              v-html="article.countryNameRu"
+              v-html="article.nameRu"
               class="site-container__logo-text_bold"
             ></span>
             <br />
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import { countries } from '../config.json'
+import { sites } from '../config.json'
 
 export default {
   name: 'article-row',
@@ -50,34 +50,36 @@ export default {
   computed: {
     filteredArticles() {
       return this.articles
-        .filter(article => window.location.href.indexOf(article.country) === -1)
+        .filter(article => window.location.href.indexOf(article.site) === -1)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 4)
     }
   },
   methods: {
     updateArticles() {
-      for (let country of countries) {
+      for (let site of sites) {
         fetch(
-          `https://asia-${country.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
+          `https://asia-${site.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
           .then(response => response.json())
           .then(data => ({
             title: data[0].title.rendered,
-            imageUrl: data[0]._embedded['wp:featuredmedia'][0].link
+            imageUrl: data[0]._embedded['wp:featuredmedia'][0].link,
+            date: data[0].date
           }))
-          .then(({ title, imageUrl }) => {
-            const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${country.name}-icon.png)`
-            const link = `https://asia-${country.name}.ru`
+          .then(({ title, imageUrl, date }) => {
+            const logo = `background-image: url(https://asia-today.ru/shared/img/logo-${site.name}-icon.png)`
+            const link = `https://asia-${site.name}.ru`
             const image = `background: url(${imageUrl}) center center`
 
             this.articles.push({
-              country: country.name,
-              countryNameRu: country.nameRu,
+              site: site.name,
+              nameRu: site.nameRu,
               title,
               image,
               logo,
-              link
+              link,
+              date
             })
           })
       }

@@ -1,11 +1,11 @@
-import { countries } from './config.json'
+import { sites } from './config.json'
 
 export default function createZenButtons() {
   let zenLink = ''
 
-  for (const country of countries) {
-    if (window.location.href.indexOf(country.name) === -1) continue
-    zenLink = country.zen
+  for (const site of sites) {
+    if (window.location.href.indexOf(site.name) === -1) continue
+    zenLink = site.zen
   }
 
   // header

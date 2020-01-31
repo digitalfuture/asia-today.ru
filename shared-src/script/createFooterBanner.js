@@ -1,4 +1,4 @@
-import { countries } from './config.json'
+import { sites } from './config.json'
 
 export default function createFooterBanner() {
   fetch('./header.html')
@@ -8,12 +8,10 @@ export default function createFooterBanner() {
     .then(data => {
       document.querySelector('header').innerHTML = data
 
-      for (let country of countries) {
-        console.log(country)
+      for (let site of sites) {
+        // console.log(site)
 
-        fetch(
-          `https://asia-${country}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
-        )
+        fetch(`https://asia-${site}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`)
           .then(response => response.json())
           .then(data => ({
             title: data[0].title.rendered,
@@ -22,10 +20,10 @@ export default function createFooterBanner() {
           .then(({ title, image }) => {
             console.log(image)
             document.querySelector(
-              `.site-container__${country} .site-container__info`
+              `.site-container__${site} .site-container__info`
             ).textContent = title
             document.querySelector(
-              `.site-container__${country} .site-container__image`
+              `.site-container__${site} .site-container__image`
             ).style.background = `url(${image}) center`
           })
       }

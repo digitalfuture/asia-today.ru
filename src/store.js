@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-import sites from './sites'
+import { sites } from './config'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   strict: true,
   state: {
-    sites: sites.slice(0, 5),
+    sites: sites,
     searchString: '',
     loadingCount: 0,
     searchResults: [
