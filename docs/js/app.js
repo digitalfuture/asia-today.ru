@@ -801,6 +801,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -3061,9 +3063,11 @@ var render = function() {
                 ])
               },
               [
-                _c("v-chip", { attrs: { dark: "", small: "" } }, [
-                  _vm._v(_vm._s(_vm.siteNameRu.toUpperCase()))
-                ])
+                _vm.siteName
+                  ? _c("v-chip", { attrs: { dark: "", small: "" } }, [
+                      _vm._v(_vm._s(_vm.siteNameRu.toUpperCase()))
+                    ])
+                  : _vm._e()
               ],
               1
             )
