@@ -29,7 +29,7 @@
               ></v-img>
             </v-btn>
           </template>
-          <v-chip dark>{{ siteNameRu.toUpperCase() }}</v-chip>
+          <v-chip dark small>{{ siteNameRu.toUpperCase() }}</v-chip>
         </v-tooltip>
       </div>
 
