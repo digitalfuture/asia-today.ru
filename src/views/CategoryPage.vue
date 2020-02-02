@@ -130,37 +130,4 @@ export default {
     }).then(category => (this.category = category))
   }
 }
-
-// import { mapState, mapActions, mapGetters } from 'vuex'
-
-// import PostList from '../components/blocks/PostList'
-
-// export default {
-//   name: 'CategoryPage',
-//   data() {
-//     return {
-//       category: null
-//     }
-//   },
-//   components: {
-//     PostList
-//   },
-//   props: ['categoryId', 'categoryName', 'siteName'],
-//   computed: {
-//     ...mapState(['sites']),
-//     ...mapGetters(['getSiteUrl']),
-//     siteNameRu() {
-//       return this.sites.find(site => site.name === this.siteName).nameRu
-//     }
-//   },
-//   methods: {
-//     ...mapActions(['getCategoryInfo'])
-//   },
-//   mounted() {
-//     this.getCategoryInfo({
-//       siteUrl: this.getSiteUrl(this.siteName),
-//       categoryId: this.categoryId
-//     }).then(category => (this.category = category))
-//   }
-// }
 </script>

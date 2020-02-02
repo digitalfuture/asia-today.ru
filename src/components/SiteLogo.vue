@@ -4,20 +4,33 @@
     <v-row align="center" justify="center">
       <!-- Site logo -->
       <div class="pl-4 pr-3">
-        <v-btn
-          :to="siteName ? '/' + siteName : '/'"
-          fab
-          class="site-logo__logo-wrapper"
-          color="black"
+        <v-tooltip
+          top
+          :disabled="!siteName || hasText"
+          color="rgba(255, 255, 255, 0)"
+          content-class="site-logo__tooltip"
         >
-          <v-img
-            :src="siteName ? siteLogo : '/img/icons/android-icon-192x192.png'"
-            class="site-logo__logo-image"
-            width="48"
-            height="48"
-            contain
-          ></v-img>
-        </v-btn>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              :to="siteName ? '/' + siteName : '/'"
+              fab
+              class="site-logo__logo-wrapper"
+              color="black"
+              v-on="siteName ? on : false"
+            >
+              <v-img
+                :src="
+                  siteName ? siteLogo : '/img/icons/android-icon-192x192.png'
+                "
+                class="site-logo__logo-image"
+                width="48"
+                height="48"
+                contain
+              ></v-img>
+            </v-btn>
+          </template>
+          <v-chip dark>{{ siteNameRu.toUpperCase() }}</v-chip>
+        </v-tooltip>
       </div>
 
       <!-- Site title -->
@@ -67,6 +80,9 @@ export default {
     height: 48px;
     border-left: 2px solid #525252;
     padding-left: 16px;
+  }
+
+  .site-logo__tooltip {
   }
 }
 </style>
