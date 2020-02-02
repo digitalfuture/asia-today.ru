@@ -4,7 +4,7 @@ export default function createOdnoklassnikiButtons() {
   let okLink = ''
 
   for (const site of sites) {
-    if (window.location.href.indexOf(site.name) === -1) continue
+    if (window.location.href.indexOf(site.url) === -1) continue
     okLink = site.ok
   }
 
