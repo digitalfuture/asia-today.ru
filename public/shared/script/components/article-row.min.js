@@ -515,7 +515,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
   }),
   computed: {
     filteredArticles() {
-      return this.articles.filter(article => window.location.href.indexOf(article.site) === -1).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
+      return this.articles.filter(article => window.location.href.indexOf(article.site) === -1).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 7);
     }
 
   },
