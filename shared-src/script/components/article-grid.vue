@@ -52,7 +52,7 @@ export default {
       return this.articles
         .filter(article => window.location.href.indexOf(article.site) === -1)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 4)
+        .slice(0, 7)
     }
   },
   methods: {
