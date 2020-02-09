@@ -52,12 +52,11 @@ export default {
       return this.articles
         .filter(article => window.location.href.indexOf(article.site) === -1)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 6)
     }
   },
   methods: {
     updateArticles() {
-      for (let site of sites) {
+      for (let site of sites.slice(0, 6)) {
         fetch(
           `https://asia-${site.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
