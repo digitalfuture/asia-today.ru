@@ -1,34 +1,47 @@
 <template>
-  <section class="site-list">
-    <div class="site-list__title">НАШИ ПРОЕКТЫ</div>
-    <div class="site-list__container">
-      <div
-        v-for="(site, i) in sites"
-        :key="i"
-        class="site-list__site-container"
-      >
-        <div class="site-list__site-wrapper">
-          <a :href="site.url" class="site-list__site-logo">
-            <img
-              :src="`//asia-today.ru/shared/img/logo-${site.name}.png`"
-              height="50"
-            />
-          </a>
+  <div class="site-container">
+    <a
+      v-for="site in sites"
+      v-bind:key="site.name"
+      :href="`//${site.url}`"
+      class="site-container__link"
+      target="_blank"
+    >
+      <div class="site-container__block">
+        <div class="site-container__wrapper">
+          <div class="site-container__logo-wrapper">
+            <div
+              class="site-container__logo site-container__logo"
+              :style="
+                `background-image: url(https://asia-today.ru/shared/img/logo-${site.name}-icon.png)`
+              "
+            ></div>
+          </div>
+          <div class="site-container__logo-text">
+            <span
+              v-html="site.nameRu"
+              class="site-container__logo-text_bold"
+            ></span>
+            <br />
+            <span class="site-container__logo-text_thin">СЕГОДНЯ</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </a>
+  </div>
 </template>
 <script>
 import { sites } from '../config.json'
 
 export default {
   data: () => ({
-    name: 'site-list'
+    name: 'country-list'
   }),
   computed: {
     sites() {
       return sites
+        .slice(0, 7)
+        .filter(site => window.location.href.indexOf(site.url) === -1)
     }
   }
 }
@@ -37,37 +50,60 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic');
 
-.site-list {
-  padding-top: 48px;
-  padding-bottom: 48px;
-}
-
-.site-list__title {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 48px;
-  padding-bottom: 48px;
-  text-align: center;
-}
-
-.site-list__container {
+.site-container {
   display: flex;
   flex-wrap: wrap;
-}
-
-.site-list__site-container {
-  padding: 8px;
-  display: flex;
   justify-content: center;
-  flex-grow: 1;
 }
-
-.site-list__site-wrapper {
-  width: 250px;
-  max-width: 250px;
-}
-
-.site-list__site-logo {
+.site-container__link {
   display: block;
+  width: 50%;
+  max-width: 100%;
+}
+.site-container__block {
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  height: 80px;
+  position: relative;
+}
+.site-container__wrapper {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 6px;
+}
+.site-container__logo-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.site-container__logo {
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  background-color: #000;
+  border-color: #000;
+  margin: 6px 15px 6px 0px;
+  justify-content: center;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.site-container__logo-text {
+  text-align: left;
+  padding: 4px 16px;
+  border-left: 2px solid grey;
+  text-transform: uppercase;
+}
+
+.site-container__logo-text_bold {
+  font-weight: 400;
+}
+.site-container__logo-text_thin {
+  font-weight: 100;
 }
 </style>

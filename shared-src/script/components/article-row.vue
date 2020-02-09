@@ -7,7 +7,7 @@
       class="site-container__link"
       target="_blank"
     >
-      <div class="site-container__block site-container__thailand">
+      <div class="site-container__block">
         <div class="site-container__image" :style="article.image"></div>
         <div class="site-container__wrapper">
           <div class="site-container__logo-wrapper">
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     updateArticles() {
-      for (let site of sites.slice(0, 6)) {
+      for (let site of sites.slice(0, 4)) {
         fetch(
           `https://asia-${site.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
