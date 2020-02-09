@@ -57,8 +57,7 @@ export default {
 }
 .site-container__link {
   display: block;
-  width: 50%;
-  max-width: 100%;
+  width: 250px;
 }
 .site-container__block {
   color: #fff;
@@ -72,8 +71,9 @@ export default {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-  margin: 6px;
+  justify-content: start;
+  width: 250px;
+  padding: 16px;
 }
 .site-container__logo-wrapper {
   display: flex;
