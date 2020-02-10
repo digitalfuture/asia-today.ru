@@ -96,7 +96,7 @@ export default {
 .site-container__logo-text {
   text-align: left;
   padding: 4px 16px;
-  border-left: 2px solid grey;
+  border-left: 2px solid #424242;
   text-transform: uppercase;
 }
 

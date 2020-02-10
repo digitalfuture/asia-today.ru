@@ -52,6 +52,7 @@ export default {
       return this.articles
         .filter(article => window.location.href.indexOf(article.site) === -1)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3)
     }
   },
   methods: {
@@ -127,7 +128,7 @@ export default {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
 }
 .site-container__image {
   position: absolute;
@@ -156,8 +157,8 @@ export default {
 }
 .site-container__logo-text {
   text-align: left;
-  padding-left: 16px;
-  border-left: 4px solid #424242;
+  padding: 4px 16px;
+  border-left: 2px solid #424242;
   text-transform: uppercase;
 }
 

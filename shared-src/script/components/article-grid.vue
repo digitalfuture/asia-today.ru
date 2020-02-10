@@ -159,7 +159,7 @@ export default {
 .site-container__logo-text {
   text-align: left;
   padding-left: 16px;
-  border-left: 4px solid #424242;
+  border-left: 2px solid #424242;
   text-transform: uppercase;
 }
 
