@@ -504,7 +504,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
   name: 'article-row',
   data: () => ({
     articles: [// {
-      // country: 'vietnam',
+      // siteUrl: '//asia-vietnam.ru',
       // nameRu: 'Вьетнам',
       // title: '',
       // image: ''
@@ -515,7 +515,11 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
   }),
   computed: {
     filteredArticles() {
-      return this.articles.filter(article => window.location.href.indexOf(article.site) === -1).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+      return [...this.articles].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+    },
+
+    filteredSites() {
+      return _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"].slice(0, 7).filter(site => window.location.href.indexOf(site.url) === -1);
     }
 
   },
@@ -543,7 +547,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
             var image = "background: url(".concat(imageUrl, ") center center");
 
             _this.articles.push({
-              site: site.name,
+              siteUrl: site.url,
               nameRu: site.nameRu,
               title,
               image,
@@ -554,7 +558,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
           });
         };
 
-        for (var _iterator = _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"].slice(0, 7)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = this.filteredSites[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           _loop();
         }
       } catch (err) {
@@ -605,7 +609,7 @@ var render = function() {
       return _c(
         "a",
         {
-          key: article.site,
+          key: article.siteUrl,
           staticClass: "site-container__link",
           attrs: { href: article.link, target: "_blank" }
         },

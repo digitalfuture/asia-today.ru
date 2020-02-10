@@ -2,7 +2,7 @@
   <div class="site-container">
     <a
       v-for="article in filteredArticles"
-      v-bind:key="article.site"
+      v-bind:key="article.siteUrl"
       :href="article.link"
       class="site-container__link"
       target="_blank"
@@ -38,7 +38,7 @@ export default {
   data: () => ({
     articles: [
       // {
-      // country: 'vietnam',
+      // siteUrl: '//asia-vietnam.ru',
       // nameRu: 'Вьетнам',
       // title: '',
       // image: ''
@@ -49,15 +49,19 @@ export default {
   }),
   computed: {
     filteredArticles() {
-      return this.articles
-        .filter(article => window.location.href.indexOf(article.site) === -1)
+      return [...this.articles]
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 3)
+    },
+    filteredSites() {
+      return sites
+        .slice(0, 7)
+        .filter(site => window.location.href.indexOf(site.url) === -1)
     }
   },
   methods: {
     updateArticles() {
-      for (let site of sites.slice(0, 7)) {
+      for (let site of this.filteredSites) {
         fetch(
           `https://asia-${site.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
@@ -73,7 +77,7 @@ export default {
             const image = `background: url(${imageUrl}) center center`
 
             this.articles.push({
-              site: site.name,
+              siteUrl: site.url,
               nameRu: site.nameRu,
               title,
               image,
