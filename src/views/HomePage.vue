@@ -56,7 +56,8 @@ export default {
   computed: {
     ...mapState(['sites', 'searchString']),
     postsSorted() {
-      return [...this.posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+      return [...this.posts]
+      // .sort((a, b) => new Date(b.date) - new Date(a.date))
     },
     postGrid4Posts() {
       return this.postsSorted.slice(0, 4)
@@ -68,20 +69,30 @@ export default {
   methods: {
     ...mapActions(['fetchLastPostsEmbed']),
     getPosts() {
+      const promises = []
+
       this.sites.forEach(site =>
-        this.fetchLastPostsEmbed({
-          siteUrl: site.url,
-          offset: this.currentOffset,
-          perPage: this.perPage
-        }).then(data =>
-          data.length
-            ? this.savePostData({
-                siteName: site.name,
-                data: data[0]
-              })
-            : false
+        promises.push(
+          new Promise(resolve => {
+            this.fetchLastPostsEmbed({
+              siteUrl: site.url,
+              offset: this.currentOffset,
+              perPage: this.perPage
+            }).then(data => {
+              data.length
+                ? this.savePostData({
+                    siteName: site.name,
+                    data: data[0]
+                  })
+                : false
+
+              resolve()
+            })
+          })
         )
       )
+
+      return Promise.all(promises)
     },
     savePostData({ siteName, data }) {
       this.posts.push({
@@ -105,8 +116,8 @@ export default {
       this.getPosts()
     }
   },
-  created() {
-    this.getPosts()
+  async created() {
+    await this.getPosts()
     this.loadMore()
   }
 }
