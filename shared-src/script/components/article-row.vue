@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     updateArticles() {
-      for (let site of sites.slice(0, 4)) {
+      for (let site of sites.slice(0, 7)) {
         fetch(
           `https://asia-${site.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
@@ -166,6 +166,12 @@ export default {
 }
 .site-container__logo-text_thin {
   font-weight: 100;
+}
+
+@media (max-width: 900px) {
+  .site-container__link {
+    width: 50%;
+  }
 }
 
 @media (max-width: 600px) {
