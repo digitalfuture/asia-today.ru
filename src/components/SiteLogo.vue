@@ -11,7 +11,7 @@
       <div class="pl-4 pr-3">
         <v-btn
           fab
-          class="site-logo__logo-wrapper"
+          class="site-logo__logo-wrapper black"
           :to="siteName ? '/' + siteName : '/'"
         >
           <v-img
@@ -47,7 +47,7 @@
           <template v-slot:activator="{ on }">
             <v-btn
               fab
-              class="site-logo__logo-wrapper"
+              class="site-logo__logo-wrapper black"
               v-on="siteName ? on : false"
               :to="siteName ? '/' + siteName : '/'"
             >

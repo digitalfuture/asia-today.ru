@@ -3143,7 +3143,7 @@ var render = function() {
                   _c(
                     "v-btn",
                     {
-                      staticClass: "site-logo__logo-wrapper",
+                      staticClass: "site-logo__logo-wrapper black",
                       attrs: {
                         fab: "",
                         to: _vm.siteName ? "/" + _vm.siteName : "/"
@@ -3213,7 +3213,7 @@ var render = function() {
                               "v-btn",
                               _vm._g(
                                 {
-                                  staticClass: "site-logo__logo-wrapper",
+                                  staticClass: "site-logo__logo-wrapper black",
                                   attrs: {
                                     fab: "",
                                     to: _vm.siteName ? "/" + _vm.siteName : "/"
