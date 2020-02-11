@@ -1,22 +1,55 @@
 <template>
-  <div class="d-flex site-logo align-center justify-center">
-    <!-- Logo with image -->
-    <v-row align="center" justify="center">
-      <!-- Site logo -->
+  <div class="site-logo">
+    <!-- Logo with text -->
+    <v-row
+      v-if="hasText"
+      align="center"
+      justify="start"
+      class="site-logo_full pa-2"
+    >
+      <!-- logo icon -->
+      <div class="pl-4 pr-3">
+        <v-btn
+          fab
+          class="site-logo__logo-wrapper"
+          :to="siteName ? '/' + siteName : '/'"
+        >
+          <v-img
+            :src="siteName ? siteLogo : '/img/icons/android-icon-192x192.png'"
+            class="site-logo__logo-image"
+            width="48"
+            height="48"
+            contain
+          ></v-img>
+        </v-btn>
+      </div>
+
+      <!-- Logo text -->
+      <div class="site-logo_full__logo-text text-left pl-4" align="center">
+        <div
+          class="font-weight-regular text-uppercase"
+          v-text="siteName ? siteNameRu : 'АЗИЯ'"
+        ></div>
+        <div class="font-weight-thin">СЕГОДНЯ</div>
+      </div>
+    </v-row>
+
+    <!-- Logo icon only -->
+    <v-row v-else align="center" justify="center">
+      <!-- logo icon -->
       <div class="pl-4 pr-3">
         <v-tooltip
           top
-          :disabled="!siteName || hasText"
+          :disabled="!siteName"
           color="rgba(255, 255, 255, 0)"
           content-class="site-logo__tooltip"
         >
           <template v-slot:activator="{ on }">
             <v-btn
-              :to="siteName ? '/' + siteName : '/'"
               fab
               class="site-logo__logo-wrapper"
-              color="black"
               v-on="siteName ? on : false"
+              :to="siteName ? '/' + siteName : '/'"
             >
               <v-img
                 :src="
@@ -34,19 +67,6 @@
           }}</v-chip>
         </v-tooltip>
       </div>
-
-      <!-- Site title -->
-      <div
-        v-if="hasText"
-        class="site-logo__logo-text text-left pl-4"
-        align="center"
-      >
-        <div
-          class="font-weight-regular text-uppercase"
-          v-text="siteName ? siteNameRu : 'АЗИЯ'"
-        ></div>
-        <div class="font-weight-thin">СЕГОДНЯ</div>
-      </div>
     </v-row>
   </div>
 </template>
@@ -57,7 +77,9 @@ import { mapState } from 'vuex'
 export default {
   props: {
     siteName: { type: String, default: null },
-    hasText: { type: Boolean, default: false }
+    hasText: { type: Boolean, default: false },
+    backgroundColor: { type: String, default: 'transparent' },
+    flat: { type: Boolean, default: false }
   },
   computed: {
     ...mapState(['sites']),
@@ -78,13 +100,14 @@ export default {
     height: 48px;
   }
 
-  .site-logo__logo-text {
-    height: 48px;
-    border-left: 2px solid #525252;
-    padding-left: 16px;
-  }
+  .site-logo_full {
+    width: 220px;
 
-  .site-logo__tooltip {
+    &__logo-text {
+      height: 48px;
+      border-left: 2px solid #525252;
+      padding-left: 16px;
+    }
   }
 }
 </style>

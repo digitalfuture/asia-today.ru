@@ -17,6 +17,9 @@ export default {
     AppHeader,
     AppFooter
   },
+  metaInfo: {
+    title: 'Азия cегодня'
+  },
   methods: {
     ...mapMutations(['clearSearchString', 'clearSearchResult'])
   },

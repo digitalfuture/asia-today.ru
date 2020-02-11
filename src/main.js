@@ -8,7 +8,7 @@ import store from './store'
 import YandexShare from '@cookieseater/vue-yandex-share'
 import VueAnalytics from 'vue-analytics'
 import VueYandexMetrika from 'vue-yandex-metrika'
-import vueHeadful from 'vue-headful'
+import VueMeta from 'vue-meta'
 import './registerServiceWorker'
 import vuetify from './plugins/vuetify'
 
@@ -27,8 +27,12 @@ Vue.use(VueYandexMetrika, {
   // other options
 })
 
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true
+})
+
 Vue.component('yandex-share', YandexShare)
-Vue.component('vue-headful', vueHeadful)
 
 Vue.config.productionTip = false
 // Vue.config.errorHandler = function(err, vm, info) {

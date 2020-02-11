@@ -2,15 +2,6 @@
   <section class="site-post" :class="siteName">
     <v-row>
       <v-col cols="12">
-        <!-- Set title to page -->
-        <vue-headful
-          :title="
-            currentPost
-              ? `${getTitle(currentPost.title)} - ${siteNameRu} Сегодня`
-              : `${siteNameRu} Сегодня`
-          "
-        />
-
         <v-card v-if="currentPost" light class="pb-2">
           <!--  -->
           <v-img
@@ -88,7 +79,7 @@
             <v-row justify="space-between">
               <v-col cols="12" sm="6" class="pb-4">
                 <span
-                  class="site-post__site-date font-italic font-weight-light grey--text subheading"
+                  class="site-post__site-date font-italic font-weight-light subheading"
                   >{{ currentPost.date }}</span
                 >
               </v-col>
@@ -152,6 +143,16 @@ export default {
   components: {
     YandexShare
   },
+  metaInfo() {
+    const titleTemplate = document.createElement('div')
+    titleTemplate.innerHTML = this.currentPost
+      ? `${this.currentPost.title} - ${this.siteNameRu} сегодня: `
+      : ''
+
+    return {
+      title: titleTemplate.innerText
+    }
+  },
   props: ['postSlug', 'siteName'],
   computed: {
     ...mapState(['sites', 'currentPost']),
@@ -168,7 +169,7 @@ export default {
     getTitle(title) {
       const div = document.createElement('div')
       div.innerHTML = title
-      return div.innerText
+      return `${div.innerText} - ${this.siteNameRu} Сегодня`
     },
     savePostData(data) {
       this.rememberPost({
@@ -279,6 +280,10 @@ export default {
 
 @each $country, $colors in $countries {
   .#{$country}.site-post {
+    hr {
+      background-color: map-get($colors, light-color);
+    }
+
     .site-post__content {
       blockquote,
       blockquote * {
@@ -288,7 +293,7 @@ export default {
       a {
         background-image: linear-gradient(
           120deg,
-          map-get($colors, accent-color) 0%,
+          map-get($colors, light-color) 0%,
           map-get($colors, light-color) 100%
         );
         background-repeat: no-repeat;
@@ -309,8 +314,6 @@ export default {
 .site-post {
   hr {
     height: 12px;
-    color: #f5f5f5;
-    background-color: #f5f5f5;
     border: none;
   }
 
@@ -330,6 +333,7 @@ export default {
     }
 
     * {
+      font-family: 'Roboto Slab', serif;
       font-size: 16px;
       font-weight: 400;
     }
@@ -380,6 +384,7 @@ export default {
 
     em {
       font-family: 'Noto Serif', serif;
+      color: slategrey;
     }
 
     p > em:first-child,
@@ -426,7 +431,8 @@ export default {
 
     figure {
       font-family: 'Noto Serif', serif;
-      padding-bottom: 24px;
+      margin-bottom: 24px;
+      margin-top: 24px;
     }
   }
 

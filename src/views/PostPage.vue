@@ -28,6 +28,9 @@ export default {
     PostList,
     SearchForm
   },
+  metaInfo() {
+    return { title: `${this.site.nameRu} cегодня` }
+  },
   props: ['postSlug'],
   data: () => ({
     posts: [

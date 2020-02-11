@@ -2,7 +2,7 @@
   <!-- Header -->
   <v-app-bar hide-on-scroll app id="header" dark>
     <v-btn
-      v-if="$route.path !== '/'"
+      v-if="$route.name === 'postPage'"
       :to="upperLevel"
       exact
       fab
@@ -13,13 +13,19 @@
       <v-icon color="grey">mdi-arrow-top-left</v-icon>
     </v-btn>
 
-    <v-btn v-else exact disabled fab text width="48" height="48"></v-btn>
+    <v-hover v-slot:default="{ hover }">
+      <SiteLogo
+        v-if="$route.name === 'sitePage'"
+        :class="{ dimmed: !hover }"
+        flat
+      ></SiteLogo>
+    </v-hover>
 
     <SiteLogo
       hasText
-      :sites="sites"
       :siteName="$route.name === 'homePage' ? null : $route.params.siteName"
       class="ml-sm-12"
+      flat
     ></SiteLogo>
 
     <v-btn
@@ -69,5 +75,9 @@ export default {
 <style lang="scss">
 .progress-bar {
   bottom: -4px !important;
+}
+
+.dimmed {
+  filter: brightness(0.5);
 }
 </style>

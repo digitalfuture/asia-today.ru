@@ -1,9 +1,6 @@
 <template>
   <!-- Home page -->
   <div class="home-page d-flex justify-center py-12">
-    <!-- Set title to page -->
-    <vue-headful title="Азия сегодня" />
-
     <v-col cols="12" sm="11" md="9">
       <PostGrid4 :posts="postGrid4Posts" />
 
@@ -34,6 +31,9 @@ export default {
     PostGrid4,
     PostList,
     SearchForm
+  },
+  metaInfo: {
+    title: 'Азия сегодня'
   },
   data: () => ({
     posts: [

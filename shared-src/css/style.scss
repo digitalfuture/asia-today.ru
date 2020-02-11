@@ -251,7 +251,7 @@ $countries: (
     text-decoration: none !important;
     background-image: linear-gradient(
       120deg,
-      map-get($colors, accent-color) 0%,
+      map-get($colors, light-color) 0%,
       map-get($colors, light-color) 100%
       );
       background-repeat: no-repeat;

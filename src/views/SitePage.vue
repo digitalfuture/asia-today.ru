@@ -1,9 +1,6 @@
 <template>
   <!-- Site page -->
   <div class="site-page d-flex justify-center py-12">
-    <!-- Set title to page -->
-    <vue-headful :title="`${site.nameRu} Сегодня`" />
-
     <v-col cols="12" sm="11" md="9">
       <PostGrid4 :posts="postGrid4Posts" />
 
@@ -35,6 +32,9 @@ export default {
     PostGrid4,
     PostList,
     SearchForm
+  },
+  metaInfo() {
+    return { title: `${this.site.nameRu} cегодня` }
   },
   props: ['siteName'],
   data: () => ({

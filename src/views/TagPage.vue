@@ -2,15 +2,6 @@
   <!-- Site page -->
   <section class="tag-page">
     <div class="d-flex justify-center py-12">
-      <!-- Set title to page -->
-      <vue-headful
-        :title="
-          `${tag ? 'Тег: ' + tag.name.toUpperCase() + ' -' : ''} ${
-            site.nameRu
-          } Сегодня`
-        "
-      />
-
       <v-col cols="12" sm="11" md="9">
         <v-chip v-if="tag" dark disabled class="my-12 mr-1">Тег</v-chip>
         <v-chip v-if="tag" dark class="my-12">{{
@@ -49,6 +40,13 @@ export default {
   components: {
     PostList,
     SearchForm
+  },
+  metaInfo() {
+    return {
+      title: `${this.tag ? 'Тег: ' + this.tag.name.toUpperCase() + ' -' : ''} ${
+        this.site.nameRu
+      } Сегодня`
+    }
   },
   props: ['tagId', 'siteName'],
   data: () => ({
