@@ -79,7 +79,7 @@
             <v-row justify="space-between">
               <v-col cols="12" sm="6" class="pb-4">
                 <span
-                  class="site-post__site-date font-italic font-weight-light subheading"
+                  class="site-post__site-date font-italic font-weight-light blue-grey--text text--lighten-2 subheading"
                   >{{ currentPost.date }}</span
                 >
               </v-col>

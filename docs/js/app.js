@@ -3192,7 +3192,7 @@ var render = function() {
         : _c("v-row", { attrs: { align: "center", justify: "center" } }, [
             _c(
               "div",
-              { staticClass: "pl-4 pr-3" },
+              { staticClass: "pl-4 pr-2" },
               [
                 _c(
                   "v-tooltip",
@@ -3455,7 +3455,7 @@ var render = function() {
                                     "span",
                                     {
                                       staticClass:
-                                        "site-post__site-date font-italic font-weight-light subheading"
+                                        "site-post__site-date font-italic font-weight-light blue-grey--text text--lighten-2 subheading"
                                     },
                                     [_vm._v(_vm._s(_vm.currentPost.date))]
                                   )
@@ -3914,7 +3914,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "flex-grow-1 font-weight-light grey--text post-stripe__post-date font-italic"
+                      "flex-grow-1 font-weight-light blue-grey--text text--darken-2 post-stripe__post-date font-italic"
                   },
                   [_vm._v(" " + _vm._s(_vm.getDate(_vm.post.date)) + " ")]
                 ),
@@ -4411,7 +4411,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".post-stripe .post-stripe__post-image[data-v-58e96276] {\n  border-radius: 4px 0 0 4px;\n}\n.post-stripe .post-stripe__post-date[data-v-58e96276] {\n  font-family: \"Noto Serif\", serif;\n}", ""]);
+exports.push([module.i, ".post-stripe .post-stripe__post-image[data-v-58e96276] {\n  border-radius: 4px 0 0 4px;\n}\n.post-stripe .post-stripe__post-date[data-v-58e96276] {\n  font-family: \"Noto Serif\", serif;\n  color: slategrey;\n}", ""]);
 // Exports
 module.exports = exports;
 

@@ -37,7 +37,7 @@
     <!-- Logo icon only -->
     <v-row v-else align="center" justify="center">
       <!-- logo icon -->
-      <div class="pl-4 pr-3">
+      <div class="pl-4 pr-2">
         <v-tooltip
           top
           :disabled="!siteName"

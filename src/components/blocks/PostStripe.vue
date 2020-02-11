@@ -54,7 +54,7 @@
 
         <div class="d-flex">
           <div
-            class="flex-grow-1 font-weight-light grey--text post-stripe__post-date font-italic"
+            class="flex-grow-1 font-weight-light blue-grey--text text--darken-2 post-stripe__post-date font-italic"
           >
             {{ getDate(post.date) }}
           </div>
@@ -108,6 +108,7 @@ export default {
   }
   .post-stripe__post-date {
     font-family: 'Noto Serif', serif;
+    color: slategrey;
   }
 }
 </style>
