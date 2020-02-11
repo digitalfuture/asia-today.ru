@@ -78,7 +78,6 @@ export default {
   props: {
     siteName: { type: String, default: null },
     hasText: { type: Boolean, default: false },
-    backgroundColor: { type: String, default: 'transparent' },
     flat: { type: Boolean, default: false }
   },
   computed: {

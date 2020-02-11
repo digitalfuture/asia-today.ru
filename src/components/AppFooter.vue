@@ -10,7 +10,6 @@
           hasText
           :siteName="site.name"
           class="ma-2 "
-          backgroundColor="grey"
           dark
         />
       </v-row>
@@ -20,7 +19,7 @@
       <v-row justify="space-between">
         <!-- Asia Today block -->
         <v-col cols="12" sm="6" md="4" class="text-center">
-          <v-btn to="/" fab class="app-footer__logo" raised color="black">
+          <v-btn to="/" fab class="app-footer__logo black" raised>
             <v-img
               src="/img/logo-today-transparent.png"
               width="200"

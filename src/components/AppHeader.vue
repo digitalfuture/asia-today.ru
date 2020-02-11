@@ -1,16 +1,20 @@
 <template>
   <!-- Header -->
-  <v-app-bar hide-on-scroll app id="header" dark>
+  <v-app-bar hide-on-scroll app id="header" class="app-header" dark>
     <v-btn
-      v-if="$route.name === 'postPage'"
+      v-if="$route.name !== 'sitePage'"
       :to="upperLevel"
       exact
       fab
       text
       width="48"
       height="48"
+      :disabled="$route.name === 'sitePage'"
+      active-class="disabled"
     >
-      <v-icon color="grey">mdi-arrow-top-left</v-icon>
+      <v-icon v-if="$route.name === 'postPage'" color="grey"
+        >mdi-arrow-top-left</v-icon
+      >
     </v-btn>
 
     <v-hover v-slot:default="{ hover }">
@@ -73,11 +77,17 @@ export default {
 }
 </script>
 <style lang="scss">
-.progress-bar {
-  bottom: -4px !important;
-}
+.app-header {
+  .progress-bar {
+    bottom: -4px !important;
+  }
 
-.dimmed {
-  filter: brightness(0.5);
+  .dimmed {
+    filter: brightness(0.5);
+  }
+
+  .disabled {
+    opacity: 0;
+  }
 }
 </style>

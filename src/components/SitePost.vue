@@ -328,6 +328,8 @@ export default {
   }
 
   .site-post__content {
+    line-height: initial;
+
     a {
       color: rgba(0, 0, 0, 0.54);
     }
