@@ -2,34 +2,68 @@
   <!-- Home page -->
   <div class="home-page d-flex justify-center py-12">
     <v-col cols="12" sm="11" md="9">
-      <PostGrid4 :posts="postGrid4Posts" />
+      <PostGrid5 :posts="posts.slice(0, 5)" />
 
       <!-- Search form -->
-      <v-row>
-        <v-col cols="12">
-          <SearchForm :perPage="1" />
-        </v-col>
-      </v-row>
+      <SearchForm :perPage="1" class="my-8" />
+
+      <PostList
+        class="my-8"
+        v-if="!searchString"
+        :posts="posts.slice(5, 8)"
+        :loadMore="loadMore"
+      />
+
+      <PostGrid3
+        v-if="!searchString"
+        :posts="posts.slice(8, 11)"
+        class="my-8"
+      />
 
       <PostList
         v-if="!searchString"
-        :posts="postListPosts"
-        :loadMore="loadMore"
+        :posts="posts.slice(11, 14)"
+        class="my-8"
       />
+
+      <PostGrid4
+        v-if="!searchString"
+        :posts="posts.slice(14, 18)"
+        class="my-8"
+      />
+
+      <PostList v-if="!searchString" :posts="posts.slice(18)" class="my-8" />
+
+      <load-more-button :loadMore="loadMore" />
+
+      <!-- 
+      <WeatherCard
+        v-for="site of sites.slice(0, 1)"
+        :key="site.name"
+        :site="site"
+      /> -->
     </v-col>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 
+import PostGrid3 from '../components/blocks/PostGrid3'
 import PostGrid4 from '../components/blocks/PostGrid4'
+import PostGrid5 from '../components/blocks/PostGrid5'
 import PostList from '../components/blocks/PostList'
+import LoadMoreButton from '../components/LoadMoreButton'
+// import WeatherCard from '../components/blocks/WeatherCard'
 import SearchForm from '../components/SearchForm'
 
 export default {
   components: {
+    PostGrid3,
     PostGrid4,
+    PostGrid5,
     PostList,
+    LoadMoreButton,
+    // WeatherCard,
     SearchForm
   },
   metaInfo: {
@@ -54,17 +88,7 @@ export default {
     perPage: 1
   }),
   computed: {
-    ...mapState(['sites', 'searchString']),
-    postsSorted() {
-      return [...this.posts]
-      // .sort((a, b) => new Date(b.date) - new Date(a.date))
-    },
-    postGrid4Posts() {
-      return this.postsSorted.slice(0, 4)
-    },
-    postListPosts() {
-      return this.postsSorted.slice(4)
-    }
+    ...mapState(['sites', 'searchString'])
   },
   methods: {
     ...mapActions(['fetchLastPostsEmbed']),
@@ -113,12 +137,13 @@ export default {
     },
     loadMore() {
       this.currentOffset += this.perPage
-      this.getPosts()
+      return this.getPosts()
     }
   },
   async created() {
     await this.getPosts()
-    this.loadMore()
+    await this.loadMore()
+    await this.loadMore()
   }
 }
 </script>

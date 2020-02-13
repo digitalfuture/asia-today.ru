@@ -2,19 +2,20 @@
   <!-- Site page -->
   <div class="site-page d-flex justify-center py-12">
     <v-col cols="12" sm="11" md="9">
-      <PostGrid4 :posts="postGrid4Posts" />
+      <PostGrid5 :posts="sortedPosts.slice(0, 5)" />
 
-      <!-- Search form -->
-      <v-row>
-        <v-col cols="12">
-          <SearchForm :siteName="siteName" />
-        </v-col>
-      </v-row>
+      <SearchForm :siteName="siteName" class="my-8" />
 
       <PostList
         v-if="!searchString"
-        :posts="postListPosts"
+        :posts="sortedPosts.slice(5)"
+        class="my-8"
+      />
+
+      <load-more-button
+        v-if="!searchString && sortedPosts.slice(5).length"
         :loadMore="loadMore"
+        class="my-8"
       />
     </v-col>
   </div>
@@ -23,14 +24,16 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 
-import PostGrid4 from '../components/blocks/PostGrid4'
+import PostGrid5 from '../components/blocks/PostGrid5'
+import LoadMoreButton from '../components/LoadMoreButton'
 import PostList from '../components/blocks/PostList'
 import SearchForm from '../components/SearchForm'
 
 export default {
   components: {
-    PostGrid4,
+    PostGrid5,
     PostList,
+    LoadMoreButton,
     SearchForm
   },
   metaInfo() {
@@ -60,13 +63,8 @@ export default {
     site() {
       return this.sites.find(site => site.name === this.siteName)
     },
-    postGrid4Posts() {
-      return [...this.posts]
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 4)
-    },
-    postListPosts() {
-      return this.posts.slice(4)
+    sortedPosts() {
+      return [...this.posts].sort((a, b) => new Date(b.date) - new Date(a.date))
     }
   },
   methods: {

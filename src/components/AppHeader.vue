@@ -33,7 +33,7 @@
     ></SiteLogo>
 
     <v-btn
-      @click="$vuetify.goTo('#search')"
+      @click="$vuetify.goTo('.search-form')"
       exact
       fab
       text

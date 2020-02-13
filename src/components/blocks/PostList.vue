@@ -17,13 +17,6 @@
         ></v-skeleton-loader>
       </v-col>
     </v-row>
-
-    <!-- Load more button -->
-    <v-row justify="center">
-      <v-btn @click="loadMore" fab>
-        <v-icon x-large>mdi-chevron-down</v-icon>
-      </v-btn>
-    </v-row>
   </section>
 </template>
 
@@ -34,6 +27,6 @@ export default {
   components: {
     PostStripe
   },
-  props: ['posts', 'loadMore']
+  props: ['posts']
 }
 </script>

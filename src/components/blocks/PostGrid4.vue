@@ -6,9 +6,9 @@
       </v-col>
     </v-row>
 
-    <v-row v-else class="post-grid" dense>
+    <v-row v-else class="post-grid-4" dense>
       <v-col v-for="i in 4" :key="i" cols="12" md="6">
-        <v-skeleton-loader tile type="card"></v-skeleton-loader>
+        <v-skeleton-loader tile type="image"></v-skeleton-loader>
       </v-col>
     </v-row>
   </section>
@@ -18,6 +18,7 @@
 import PostCard from './PostCard'
 
 export default {
+  name: 'post-grid-4',
   components: {
     PostCard
   },

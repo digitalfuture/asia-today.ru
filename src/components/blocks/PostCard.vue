@@ -5,16 +5,19 @@
     raised
     ripple
     dark
-    class="post-card grey"
+    class="post-card"
+    grey
+    height="100%"
   >
     <v-img
       :src="post.thumb"
       lazy-src="/img/placeholder.jpg"
       gradient="to top, rgba(0,0,0,.8), transparent 100%"
-      :aspect-ratio="16 / 9"
       class="align-end"
+      :aspect-ratio="aspectRatio"
+      height="100%"
     >
-      <v-container>
+      <v-container :class="{ 'pb-0': $vuetify.breakpoint.lgAndUp }">
         <div
           class="post-card__color-point px-4 py-0 py-sm-4"
           width="16"
@@ -31,8 +34,8 @@
           <v-btn
             fab
             raised
-            width="32"
-            height="32"
+            :width="compact ? 16 : 32"
+            :height="compact ? 16 : 32"
             class="hidden-xs-only"
             :style="'background-color: ' + getSiteColor(post.siteName)"
           ></v-btn>
@@ -41,15 +44,26 @@
         <v-row class="px-4">
           <v-col>
             <v-row>
-              <div class="pb-4" v-html="post.title"></div>
+              <div
+                :class="{
+                  'pb-4': !compact || $vuetify.breakpoint.mdAndDown,
+                  'body-2': compact && $vuetify.breakpoint.lgAndUp,
+                  title: !compact || $vuetify.breakpoint.mdAndDown
+                }"
+                v-html="post.title"
+              ></div>
             </v-row>
 
             <v-row justify="space-between" class="font-weight-light">
               <span
-                class="font-weight-light grey--text post-card__post-date font-italic"
+                v-if="!compact || $vuetify.breakpoint.mdAndDown"
+                class="font-weight-light blue-grey--text text--lighten-1 post-card__post-date font-italic"
                 >{{ getDate(post.date) }}</span
               >
-              <span class="body-1 grey--text">
+              <span
+                v-if="!compact || $vuetify.breakpoint.mdAndDown"
+                class="body-1 grey--text"
+              >
                 {{ getSiteNameRu(post.siteName) }}
               </span>
             </v-row>
@@ -66,7 +80,11 @@ import { DateTime } from 'luxon'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  props: ['post'],
+  props: {
+    post: { type: Object },
+    aspectRatio: { type: Number },
+    compact: { type: Boolean, default: false }
+  },
   computed: {
     ...mapState(['sites'])
   },

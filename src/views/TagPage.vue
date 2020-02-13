@@ -12,18 +12,11 @@
           <v-skeleton-loader class="my-12" type="chip"></v-skeleton-loader>
         </div>
 
-        <PostList
-          :posts="postListPosts"
-          :siteName="siteName"
-          :loadMore="loadMore"
-        />
+        <PostList :posts="postListPosts" :siteName="siteName" class="my-8" />
 
-        <!-- Search form -->
-        <v-row>
-          <v-col cols="12">
-            <SearchForm :siteName="siteName" />
-          </v-col>
-        </v-row>
+        <load-more-button :loadMore="loadMore" class="my-8" />
+
+        <SearchForm :siteName="siteName" class="my-8" />
       </v-col>
     </div>
   </section>
@@ -33,12 +26,14 @@
 import { mapState, mapActions } from 'vuex'
 
 import PostList from '../components/blocks/PostList'
+import LoadMoreButton from '../components/LoadMoreButton'
 import SearchForm from '../components/SearchForm'
 
 export default {
   name: 'TagPage',
   components: {
     PostList,
+    LoadMoreButton,
     SearchForm
   },
   metaInfo() {

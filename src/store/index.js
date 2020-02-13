@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-import { sites } from './config'
+import { sites } from '../config'
 
 Vue.use(Vuex)
 

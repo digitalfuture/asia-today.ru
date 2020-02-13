@@ -1,103 +1,66 @@
 <template>
-  <v-container fluid class="post-grid-4">
-    <v-row v-if="sortedPosts.length" class="post-grid" dense>
-      <v-col v-for="(post, i) in sortedPosts" :key="i" cols="12" md="6">
-        <PostCard :post="post" />
+  <section fluid class="post-grid-5 py-4">
+    <v-row v-if="posts.length" dense>
+      <v-col cols="12" lg="6">
+        <v-row dense class="post-grid-5__full-height" align="stretch">
+          <v-col>
+            <PostCard :post="posts[0]" />
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col cols="12" lg="6">
+        <v-row dense>
+          <v-col v-for="(post, i) in posts.slice(1)" :key="i" cols="12" lg="6">
+            <PostCard :post="post" :aspectRatio="4 / 3" compact />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
 
-    <v-row v-else class="post-grid" dense>
-      <v-col v-for="i in 4" :key="i" cols="12" md="6">
-        <v-skeleton-loader tile type="card"></v-skeleton-loader>
+    <v-row v-else dense>
+      <v-col cols="12" lg="6">
+        <v-row dense class="post-grid-5__full-height" align="stretch">
+          <v-col>
+            <v-skeleton-loader
+              class="post-grid-5__full-height"
+              type="image"
+              height="100%"
+            ></v-skeleton-loader>
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col cols="12" lg="6">
+        <v-row dense>
+          <v-col v-for="i in 4" :key="i" cols="12" lg="6">
+            <v-skeleton-loader type="image"></v-skeleton-loader>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
-  </v-container>
+  </section>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-
 import PostCard from './PostCard'
 
 export default {
+  name: 'post-grid-5',
   components: {
     PostCard
   },
-  props: ['siteName', 'offset', 'perPage'],
-  data: () => ({
-    posts: [
-      // {
-      //   id,
-      //   slug,
-      //   siteName,
-      //   title,
-      //   date,
-      //   link,
-      //   content,
-      //   thumb
-      // }
-    ]
-  }),
-  computed: {
-    ...mapState(['sites']),
-    sortedPosts() {
-      const posts = [...this.posts]
-      const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date))
-
-      return sorted
-    }
-  },
-  methods: {
-    ...mapActions(['fetchLastPostsEmbed']),
-    getSiteUrl(siteName) {
-      return this.sites.find(site => site.name === siteName).url
-    },
-    savePostData({ siteName, data }) {
-      this.posts.push({
-        id: data.id,
-        slug: data.slug,
-        siteName: siteName,
-        title: data.title.rendered,
-        date: data.date,
-        link: data.link,
-        content: data.content.rendered,
-        thumb:
-          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
-            .source_url
-      })
-    },
-    getPosts() {
-      if (this.$route.name === 'homePage') {
-        this.sites.forEach(site =>
-          this.fetchLastPostsEmbed({
-            siteUrl: site.url,
-            offset: this.offset,
-            perPage: this.perPage
-          }).then(data =>
-            this.savePostData({
-              siteName: site.name,
-              data: data[0]
-            })
-          )
-        )
-      } else {
-        this.fetchLastPostsEmbed({
-          siteUrl: this.getSiteUrl(this.siteName),
-          offset: this.offset,
-          perPage: this.perPage
-        }).then(data =>
-          data.forEach(post =>
-            this.savePostData({
-              siteName: this.siteName,
-              data: post
-            })
-          )
-        )
-      }
-    }
-  },
-  created() {
-    this.getPosts()
-  }
+  props: ['posts']
 }
 </script>
+<style lang="scss">
+.post-grid-5 {
+  .post-grid-5__full-height {
+    height: 100%;
+
+    .v-skeleton-loader__bone {
+      height: 100%;
+    }
+  }
+}
+</style>

@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from './views/HomePage'
-import SitePage from './views/SitePage'
-import PostPage from './views/PostPage'
-import TagPage from './views/TagPage'
-import CategoryPage from './views/CategoryPage'
+import HomePage from '../views/HomePage'
+import SitePage from '../views/SitePage'
+import PostPage from '../views/PostPage'
+import TagPage from '../views/TagPage'
+import CategoryPage from '../views/CategoryPage'
 
 Vue.use(Router)
 

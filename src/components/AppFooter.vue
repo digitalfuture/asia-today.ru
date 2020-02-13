@@ -2,7 +2,7 @@
   <section>
     <!-- Footer -->
     <!-- All logos block - extra small screen only -->
-    <v-col cols="12" class="hidden-sm-and-up py-5">
+    <v-col cols="12" class="hidden-sm-and-up my-8">
       <v-row justify="space-around" align="center">
         <SiteLogo
           v-for="(site, i) in sites"
@@ -67,7 +67,7 @@
         </v-col>
 
         <!-- All logos block - small screen amd up -->
-        <v-col sm="6" md="8" class="hidden-xs-only py-5">
+        <v-col sm="6" md="8" class="hidden-xs-only my-8 px-6">
           <v-row align="center" class="fill-height">
             <v-row justify="center">
               <SiteLogo

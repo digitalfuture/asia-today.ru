@@ -3,14 +3,11 @@
     <v-col cols="12" sm="11" md="9" class="pt-4">
       <SitePost :siteName="siteName" :postSlug="postSlug" class="mb-4" />
 
-      <!-- Search form -->
-      <v-row>
-        <v-col cols="12">
-          <SearchForm :siteName="siteName" />
-        </v-col>
-      </v-row>
+      <SearchForm :siteName="siteName" class="my-8" />
 
-      <PostList v-if="!searchString" :posts="posts" :loadMore="loadMore" />
+      <PostList v-if="!searchString" :posts="filteredPosts" class="my-8" />
+
+      <load-more-button :loadMore="loadMore" class="my-8" />
     </v-col>
   </div>
 </template>
@@ -20,12 +17,14 @@ import { mapState, mapActions } from 'vuex'
 
 import SitePost from '../components/SitePost'
 import PostList from '../components/blocks/PostList'
+import LoadMoreButton from '../components/LoadMoreButton'
 import SearchForm from '../components/SearchForm'
 
 export default {
   components: {
     SitePost,
     PostList,
+    LoadMoreButton,
     SearchForm
   },
   metaInfo() {
@@ -51,15 +50,15 @@ export default {
     perPage: 10
   }),
   computed: {
-    ...mapState(['sites', 'searchString']),
+    ...mapState(['sites', 'searchString', 'currentPost']),
     siteName() {
       return this.$route.params.siteName
     },
     site() {
       return this.sites.find(site => site.name === this.siteName)
     },
-    postListPosts() {
-      return this.posts.slice(4)
+    filteredPosts() {
+      return this.posts.filter(post => post.id !== this.currentPost.id)
     }
   },
   methods: {

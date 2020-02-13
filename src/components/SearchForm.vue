@@ -1,38 +1,40 @@
 <template>
-  <section id="search">
-    <v-text-field
-      light
-      solo
-      clearable
-      single-line
-      color="grey"
-      prepend-inner-icon="mdi-magnify"
-      :suffix="suffixString"
-      @click:clear="clearSearchResult"
-      v-model="text"
-      @keyup.enter="search"
-      @input="clearSearchResult"
-      :placeholder="
-        $route.name === 'homePage'
-          ? 'Искать по всем странам'
-          : 'Искать по стране ' + siteNameRu
-      "
-    ></v-text-field>
+  <v-row class="search-form">
+    <v-col cols="12">
+      <v-text-field
+        light
+        solo
+        clearable
+        single-line
+        color="grey"
+        prepend-inner-icon="mdi-magnify"
+        :suffix="suffixString"
+        @click:clear="clearSearchResult"
+        v-model="text"
+        @keyup.enter="search"
+        @input="clearSearchResult"
+        :placeholder="
+          $route.name === 'homePage'
+            ? 'Искать по всем странам'
+            : 'Страна поиска: ' + siteNameRu
+        "
+      ></v-text-field>
 
-    <!-- Search result -->
-    <v-row v-if="searchString" dense>
-      <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
-        <PostStripe :post="post" :siteName="post.siteName" />
-      </v-col>
-    </v-row>
+      <!-- Search result -->
+      <v-row v-if="searchString" dense>
+        <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
+          <PostStripe :post="post" :siteName="post.siteName" />
+        </v-col>
+      </v-row>
 
-    <!-- Search more button -->
-    <v-row v-if="searchString && searchResults.length" justify="center">
-      <v-btn @click="searchMore" fab text>
-        <v-icon color="black" x-large>mdi-chevron-down</v-icon>
-      </v-btn>
-    </v-row>
-  </section>
+      <!-- Search more button -->
+      <v-row v-if="searchString && searchResults.length" justify="center">
+        <v-btn @click="searchMore" fab text>
+          <v-icon color="black" x-large>mdi-chevron-down</v-icon>
+        </v-btn>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
@@ -132,9 +134,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.v-text-field__suffix {
-  font-style: italic;
-  color: grey;
-  margin-right: 5px;
+.searh-form {
+  .v-text-field__suffix {
+    font-style: italic;
+    color: grey;
+    margin-right: 5px;
+  }
 }
 </style>
