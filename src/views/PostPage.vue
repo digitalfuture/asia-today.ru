@@ -1,15 +1,17 @@
 <template>
-  <div class="post-page d-flex justify-center py-12">
-    <v-col cols="12" sm="11" md="9" class="pt-4">
-      <SitePost :siteName="siteName" :postSlug="postSlug" class="mb-4" />
+  <v-container class="post-page">
+    <v-row class="my-6" justify="center">
+      <v-col cols="12" sm="11" md="9">
+        <SitePost :siteName="siteName" :postSlug="postSlug" class="my-8" />
 
-      <SearchForm :siteName="siteName" class="my-8" />
+        <SearchForm :siteName="siteName" class="my-8" />
 
-      <PostList v-if="!searchString" :posts="filteredPosts" class="my-8" />
+        <PostList v-if="!searchString" :posts="filteredPosts" class="my-8" />
 
-      <load-more-button :loadMore="loadMore" class="my-8" />
-    </v-col>
-  </div>
+        <loadMoreButton :loadMore="loadMore" class="my-8" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

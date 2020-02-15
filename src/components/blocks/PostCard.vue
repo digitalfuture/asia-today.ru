@@ -1,5 +1,6 @@
 <template>
   <v-card
+    v-if="post"
     :to="'/' + post.siteName + '/' + post.slug"
     @click.native="rememberCurrentPost"
     raised
@@ -46,10 +47,11 @@
             <v-row>
               <div
                 :class="{
-                  'pb-4': !compact || $vuetify.breakpoint.mdAndDown,
-                  'body-2': compact && $vuetify.breakpoint.lgAndUp,
-                  title: !compact || $vuetify.breakpoint.mdAndDown
+                  'pb-lg-0': compact && $vuetify.breakpoint.lg,
+                  'post-card__post-title':
+                    !compact || $vuetify.breakpoint.mdAndDown
                 }"
+                class="pb-4"
                 v-html="post.title"
               ></div>
             </v-row>
@@ -81,7 +83,7 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
   props: {
-    post: { type: Object },
+    post: { type: Object, default: null },
     aspectRatio: { type: Number },
     compact: { type: Boolean, default: false }
   },
@@ -118,6 +120,11 @@ export default {
     position: absolute;
     left: 0px;
     top: 0px;
+  }
+
+  .post-card__post-title {
+    font-size: 20px;
+    line-height: 1.4;
   }
 
   .post-card__post-date {

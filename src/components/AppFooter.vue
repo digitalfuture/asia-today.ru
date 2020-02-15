@@ -39,8 +39,9 @@
           >
 
           <h2 class="app-footer__subtitle title grey--text text--darken-2 py-3">
-            НОВОСТИ СТРАН
-            <br />АЗИАТСКОГО РЕГИОНА
+            НОВОСТИ АЗИИ
+            <br />
+            <br />
           </h2>
 
           <v-row justify="center">

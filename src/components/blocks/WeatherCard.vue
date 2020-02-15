@@ -1,81 +1,90 @@
 <template>
-  <v-card raised ripple dark class="weather-card mx-auto" max-width="400">
+  <v-card raised ripple dark class="weather-card mx-auto">
     <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-title class="headline"
-          >{{ rawData.name
-          }}<span class="grey--text weather-card__country font-weight-thin">
+        <v-list-item-title class="title"
+          >{{ city }}
+          <span class="grey--text weather-card__country font-weight-thin">
             / {{ site.nameRu }}</span
           ></v-list-item-title
         >
         <v-list-item-subtitle
-          >{{ date }},
-          <span v-for="(weather, index) of rawData.weather" :key="weather.id">{{
-            `${weather.description}${
-              index === rawData.weather.length ? '' : ','
-            }`
-          }}</span>
+          ><div
+            class="font-weight-light blue-grey--text text--darken-1 weather-card__date font-italic"
+          >
+            {{ dateTime }}
+          </div>
+          <div v-for="(item, index) of weather" :key="item.id" class="mt-5">
+            {{
+              `${item.description.toUpperCase()}${
+                index === weather.length - 1 ? '' : ','
+              }`
+            }}
+          </div>
         </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 
-    <v-card-text>
-      <v-row align="center">
-        <v-col class="display-3" cols="6">
-          23&deg;C
+    <v-container>
+      <v-row align="start" no-gutters class="pb-3">
+        <v-col cols="9">
+          <v-list-item two-line class="pr-0">
+            <v-list-item-content>
+              <v-list-item-title class="display-3">
+                {{ temp }}&deg;C
+              </v-list-item-title>
+
+              <v-list-item-subtitle>
+                <span>{{ feelsLike }}&deg;C</span>
+                <span class="grey--text text--darken-2"> ОЩУЩАЕТСЯ</span>
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
         </v-col>
 
-        <v-col v-for="weather of rawData.weather" :key="weather.id" cols="3">
-          <v-img
-            :src="getIcon(weather.icon)"
-            alt="Weather icon"
-            width="92"
-          ></v-img>
+        <v-col cols="3">
+          <v-tooltip
+            v-for="item of weather"
+            :key="item.id"
+            cols="12"
+            class="pl-0"
+            top
+            color="rgba(255, 255, 255, 0)"
+            content-class="weather-card__tooltip"
+          >
+            <template v-slot:activator="{ on }">
+              <v-img
+                :src="getIcon(item.icon)"
+                :alt="`${item.description}`"
+                height="80"
+                width="80"
+                v-on="on"
+              ></v-img>
+            </template>
+            <v-chip dark small>{{ item.description }}</v-chip>
+          </v-tooltip>
         </v-col>
       </v-row>
-    </v-card-text>
 
-    <v-list-item>
-      <v-list-item-icon>
-        <v-icon>mdi-weather-windy</v-icon>
-      </v-list-item-icon>
-      <v-list-item-subtitle>23 km/h</v-list-item-subtitle>
-    </v-list-item>
+      <v-divider />
 
-    <v-list-item>
-      <v-list-item-icon>
-        <v-icon>mdi-cloud-download</v-icon>
-      </v-list-item-icon>
-      <v-list-item-subtitle>48%</v-list-item-subtitle>
-    </v-list-item>
+      <v-row no-gutters class="mt-5 subtitle-2">
+        <v-col cols="12">
+          <span class="grey--text text--darken-2">ВЕТЕР: </span>{{ wind }}
+          <span class="grey--text text--darken-2">КМ/Ч</span>
+        </v-col>
 
-    <v-slider
-      v-model="time"
-      :max="6"
-      :tick-labels="labels"
-      class="mx-4"
-      ticks
-    ></v-slider>
+        <v-col cols="12">
+          <span class="grey--text text--darken-2">ДАВЛЕНИЕ: </span>
+          {{ pressure }}<span class="grey--text text--darken-2"> ПА</span>
+        </v-col>
 
-    <v-list class="transparent">
-      <v-list-item v-for="item in forecast" :key="item.day">
-        <v-list-item-title>{{ item.day }}</v-list-item-title>
-
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-subtitle class="text-right">
-          {{ item.temp }}
-        </v-list-item-subtitle>
-      </v-list-item>
-    </v-list>
-
-    <v-divider></v-divider>
-
-    <v-card-actions>
-      <v-btn text>Full Report</v-btn>
-    </v-card-actions>
+        <v-col cols="12">
+          <span class="grey--text text--darken-2">ВЛАЖНОСТЬ: </span>
+          {{ humidity }}%
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
@@ -89,17 +98,24 @@ export default {
     return {
       apiKey: 'd7deed3aab5da688488c3b612441e5d6',
       baseUrl: 'https://api.openweathermap.org/data/2.5/',
-      rawData: {}
-    }
-  },
-  computed: {
-    date() {
-      return DateTime.fromISO(new Date(), { locale: 'ru' }).toLocaleString(
-        DateTime.DATE_FULL
-      )
+      dateTime: '',
+      city: '',
+      temp: '',
+      feelsLike: '',
+      raw: {},
+      weather: [],
+      pressure: '',
+      wind: '',
+      humidity: ''
     }
   },
   methods: {
+    getDate(timezone) {
+      return DateTime.utc()
+        .plus({ seconds: timezone })
+        .setLocale('ru')
+        .toLocaleString(DateTime.DATETIME_MED)
+    },
     getIcon(id) {
       return `http://openweathermap.org/img/wn/${id}@2x.png`
     },
@@ -111,7 +127,15 @@ export default {
         .then(this.setResults)
     },
     setResults(results) {
-      this.rawData = results
+      this.raw = results
+      this.dateTime = this.getDate(results.timezone)
+      this.city = results.name
+      this.temp = Math.round(results.main.temp)
+      this.feelsLike = results.main.feels_like
+      this.pressure = results.main.pressure
+      this.wind = results.wind.speed
+      this.humidity = results.main.humidity
+      this.weather = results.weather
     }
   },
   created() {
@@ -121,8 +145,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .weather-card {
-//   .weather-card__country {
-//   }
-// }
+.weather-card {
+  .weather-card__date {
+    font-family: 'Noto Serif', serif;
+  }
+}
 </style>

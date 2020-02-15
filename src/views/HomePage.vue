@@ -1,59 +1,51 @@
 <template>
   <!-- Home page -->
-  <div class="home-page d-flex justify-center py-12">
-    <v-col cols="12" sm="11" md="9">
-      <PostGrid5 :posts="posts.slice(0, 5)" />
+  <v-container class="home-page">
+    <v-row justify="center" class="my-6">
+      <v-col cols="12" sm="11">
+        <PostGrid5 :posts="posts.slice(0, 5)" class="my-8" />
 
-      <!-- Search form -->
-      <SearchForm :perPage="1" class="my-8" />
+        <SearchForm :perPage="1" />
 
-      <PostList
-        class="my-8"
-        v-if="!searchString"
-        :posts="posts.slice(5, 8)"
-        :loadMore="loadMore"
-      />
+        <v-row v-if="!searchString" align="start" dense>
+          <v-col cols="12" lg="9">
+            <PostList :posts="posts.slice(5, 8)" class="mb-8" />
 
-      <PostGrid3
-        v-if="!searchString"
-        :posts="posts.slice(8, 11)"
-        class="my-8"
-      />
+            <PostGrid3 :posts="posts.slice(8, 11)" class="my-8" />
 
-      <PostList
-        v-if="!searchString"
-        :posts="posts.slice(11, 14)"
-        class="my-8"
-      />
+            <PostGrid4Mix :posts="posts.slice(0, 4)" class="my-8" />
 
-      <PostGrid4
-        v-if="!searchString"
-        :posts="posts.slice(14, 18)"
-        class="my-8"
-      />
+            <PostList :posts="posts.slice(11, 14)" class="my-8" />
 
-      <PostList v-if="!searchString" :posts="posts.slice(18)" class="my-8" />
+            <PostGrid4 :posts="posts.slice(14, 18)" class="my-8" />
 
-      <load-more-button :loadMore="loadMore" />
+            <PostList :posts="posts.slice(18)" class="my-8" />
 
-      <!-- 
-      <WeatherCard
-        v-for="site of sites.slice(0, 1)"
-        :key="site.name"
-        :site="site"
-      /> -->
-    </v-col>
-  </div>
+            <loadMoreButton :loadMore="loadMore" />
+          </v-col>
+
+          <v-col cols="3" class="d-none d-lg-flex">
+            <v-row dense>
+              <v-col v-for="site of sites" :key="site.name">
+                <WeatherCard :site="site" />
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 
 import PostGrid3 from '../components/blocks/PostGrid3'
 import PostGrid4 from '../components/blocks/PostGrid4'
+import PostGrid4Mix from '../components/blocks/PostGrid4Mix'
 import PostGrid5 from '../components/blocks/PostGrid5'
 import PostList from '../components/blocks/PostList'
 import LoadMoreButton from '../components/LoadMoreButton'
-// import WeatherCard from '../components/blocks/WeatherCard'
+import WeatherCard from '../components/blocks/WeatherCard'
 import SearchForm from '../components/SearchForm'
 
 export default {
@@ -61,9 +53,10 @@ export default {
     PostGrid3,
     PostGrid4,
     PostGrid5,
+    PostGrid4Mix,
     PostList,
     LoadMoreButton,
-    // WeatherCard,
+    WeatherCard,
     SearchForm
   },
   metaInfo: {

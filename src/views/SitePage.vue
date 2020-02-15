@@ -1,24 +1,24 @@
 <template>
-  <!-- Site page -->
-  <div class="site-page d-flex justify-center py-12">
-    <v-col cols="12" sm="11" md="9">
-      <PostGrid5 :posts="sortedPosts.slice(0, 5)" />
+  <v-container class="site-page">
+    <v-row class="my-6" justify="center">
+      <v-col cols="12" sm="11" md="9">
+        <PostGrid5 :posts="sortedPosts.slice(0, 5)" class="my-8" />
+        <SearchForm :siteName="siteName" class="my-8" />
 
-      <SearchForm :siteName="siteName" class="my-8" />
+        <PostList
+          v-if="!searchString"
+          :posts="sortedPosts.slice(5)"
+          class="my-8"
+        />
 
-      <PostList
-        v-if="!searchString"
-        :posts="sortedPosts.slice(5)"
-        class="my-8"
-      />
-
-      <load-more-button
-        v-if="!searchString && sortedPosts.slice(5).length"
-        :loadMore="loadMore"
-        class="my-8"
-      />
-    </v-col>
-  </div>
+        <loadMoreButton
+          v-if="!searchString"
+          :loadMore="loadMore"
+          class="my-8"
+        />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

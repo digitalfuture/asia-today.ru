@@ -25,7 +25,7 @@
 
         <PostList :posts="postListPosts" :siteName="siteName" class="my-8" />
 
-        <load-more-button :loadMore="loadMore" class="my-8" />
+        <loadMoreButton :loadMore="loadMore" class="my-8" />
 
         <SearchForm :siteName="siteName" class="my-8" />
       </v-col>

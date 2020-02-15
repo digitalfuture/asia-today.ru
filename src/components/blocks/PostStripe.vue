@@ -43,13 +43,15 @@
         <div v-html="post.title"></div>
 
         <div
-          class="d-none d-md-flex d-lg-none flex-grow-1 font-weight-light grey--text body-2 pt-2"
-          v-html="excerpt.slice(0, 100) + '...'"
+          v-if="!compact"
+          class="d-none d-md-none flex-grow-1 font-weight-light grey--text body-2 pt-2"
+          v-html="excerpt.slice(0, 70) + '...'"
         ></div>
 
         <div
+          v-if="!compact"
           class="d-none d-lg-flex flex-grow-1 font-weight-light grey--text body-2 pt-2"
-          v-html="excerpt.slice(0, 150) + '...'"
+          v-html="excerpt.slice(0, 120) + '...'"
         ></div>
 
         <div class="d-flex">
@@ -73,7 +75,10 @@ import { DateTime } from 'luxon'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  props: ['post'],
+  props: {
+    post: Object,
+    compact: { type: Boolean, default: false }
+  },
   computed: {
     ...mapState(['sites']),
     excerpt() {
@@ -101,7 +106,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .post-stripe {
   .post-stripe__post-image {
     border-radius: 4px 0 0 4px;

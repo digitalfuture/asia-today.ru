@@ -1,5 +1,5 @@
 <template>
-  <v-row class="search-form">
+  <v-row class="search-form" dense>
     <v-col cols="12">
       <v-text-field
         light
@@ -18,7 +18,7 @@
             ? 'Искать по всем странам'
             : 'Страна поиска: ' + siteNameRu
         "
-      ></v-text-field>
+      />
 
       <!-- Search result -->
       <v-row v-if="searchString" dense>

@@ -1,12 +1,8 @@
 <template>
-  <section fluid class="post-grid-5 py-4">
+  <div class="post-grid-5">
     <v-row v-if="posts.length" dense>
-      <v-col cols="12" lg="6">
-        <v-row dense class="post-grid-5__full-height" align="stretch">
-          <v-col>
-            <PostCard :post="posts[0]" />
-          </v-col>
-        </v-row>
+      <v-col cols="12" lg="6" class="py-0 py-lg-2">
+        <PostCard :post="posts[0]" />
       </v-col>
 
       <v-col cols="12" lg="6">
@@ -19,16 +15,8 @@
     </v-row>
 
     <v-row v-else dense>
-      <v-col cols="12" lg="6">
-        <v-row dense class="post-grid-5__full-height" align="stretch">
-          <v-col>
-            <v-skeleton-loader
-              class="post-grid-5__full-height"
-              type="image"
-              height="100%"
-            ></v-skeleton-loader>
-          </v-col>
-        </v-row>
+      <v-col cols="12" lg="6" class="py-0 py-lg-2">
+        <v-skeleton-loader class="full-height" type="image" height="100%" />
       </v-col>
 
       <v-col cols="12" lg="6">
@@ -39,7 +27,7 @@
         </v-row>
       </v-col>
     </v-row>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -55,7 +43,7 @@ export default {
 </script>
 <style lang="scss">
 .post-grid-5 {
-  .post-grid-5__full-height {
+  .full-height {
     height: 100%;
 
     .v-skeleton-loader__bone {

@@ -1,5 +1,5 @@
 <template>
-  <section fluid class="post-grid-3 py-4">
+  <div class="post-grid-3 py-4">
     <v-row v-if="posts.length" dense>
       <v-col v-for="(post, i) in posts" :key="i" cols="12" md="4">
         <PostCard :post="post" :aspectRatio="aspectRatio" />
@@ -8,10 +8,10 @@
 
     <v-row v-else dense>
       <v-col v-for="i in 3" :key="i" cols="12" md="4">
-        <v-skeleton-loader type="image"></v-skeleton-loader>
+        <v-skeleton-loader type="image" />
       </v-col>
     </v-row>
-  </section>
+  </div>
 </template>
 
 <script>
