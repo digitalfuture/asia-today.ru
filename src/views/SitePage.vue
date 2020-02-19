@@ -13,8 +13,6 @@
             class="mt-5 mt-sm-8 mt-md-9 mb-8"
           />
 
-          <SearchForm :siteName="siteName" class="my-8" />
-
           <PostList :posts="sortedPosts.slice(5)" class="my-8" />
 
           <loadMoreButton :loadMore="loadMore" class="my-8" />

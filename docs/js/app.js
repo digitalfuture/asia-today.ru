@@ -2888,8 +2888,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
-//
-//
 
 
 
@@ -5365,94 +5363,89 @@ var render = function() {
                           title: "Последние новости"
                         }
                       }),
-                      !_vm.isSearch
-                        ? _c(
-                            "v-row",
-                            { attrs: { align: "start" } },
+                      _c(
+                        "v-row",
+                        { attrs: { align: "start" } },
+                        [
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", lg: "9" } },
+                            [
+                              _c("PostList", {
+                                staticClass: "mb-12",
+                                attrs: { posts: _vm.lastPosts.slice(5, 7) }
+                              }),
+                              _c("PostGrid4", {
+                                staticClass: "my-12",
+                                attrs: {
+                                  posts: _vm.categoryTourism.slice(0, 4),
+                                  title: "Туризм"
+                                }
+                              }),
+                              _c("PostGrid4Mix", {
+                                staticClass: "my-12",
+                                attrs: {
+                                  posts: _vm.categoryBusiness.slice(0, 4),
+                                  title: "Бизнес"
+                                }
+                              }),
+                              _c("PostGrid3", {
+                                staticClass: "my-12",
+                                attrs: {
+                                  posts: _vm.categoryIncidents.slice(0, 3),
+                                  title: "Происшествия"
+                                }
+                              }),
+                              _c("PostGrid4", {
+                                staticClass: "my-12",
+                                attrs: {
+                                  posts: _vm.categoryFood.slice(0, 4),
+                                  title: "Еда"
+                                }
+                              }),
+                              _vm.lastPosts.slice(7).length
+                                ? _c("PostList", {
+                                    staticClass: "mb-12",
+                                    attrs: { posts: _vm.lastPosts.slice(7) }
+                                  })
+                                : _vm._e(),
+                              _c("loadMoreButton", {
+                                staticClass: "mb-12",
+                                attrs: { loadMore: _vm.loadMore }
+                              })
+                            ],
+                            1
+                          ),
+                          _c(
+                            "v-col",
+                            {
+                              staticClass: "d-none d-lg-flex",
+                              attrs: { cols: "3" }
+                            },
                             [
                               _c(
-                                "v-col",
-                                { attrs: { cols: "12", lg: "9" } },
-                                [
-                                  _c("PostList", {
-                                    staticClass: "mb-12",
-                                    attrs: { posts: _vm.lastPosts.slice(5, 7) }
-                                  }),
-                                  _c("PostGrid4", {
-                                    staticClass: "my-12",
-                                    attrs: {
-                                      posts: _vm.categoryTourism.slice(0, 4),
-                                      title: "Туризм"
-                                    }
-                                  }),
-                                  _c("PostGrid4Mix", {
-                                    staticClass: "my-12",
-                                    attrs: {
-                                      posts: _vm.categoryBusiness.slice(0, 4),
-                                      title: "Бизнес"
-                                    }
-                                  }),
-                                  _c("PostGrid3", {
-                                    staticClass: "my-12",
-                                    attrs: {
-                                      posts: _vm.categoryIncidents.slice(0, 3),
-                                      title: "Происшествия"
-                                    }
-                                  }),
-                                  _c("PostGrid4", {
-                                    staticClass: "my-12",
-                                    attrs: {
-                                      posts: _vm.categoryFood.slice(0, 4),
-                                      title: "Еда"
-                                    }
-                                  }),
-                                  _vm.lastPosts.slice(7).length
-                                    ? _c("PostList", {
-                                        staticClass: "mb-12",
-                                        attrs: { posts: _vm.lastPosts.slice(7) }
+                                "v-row",
+                                { attrs: { dense: "" } },
+                                _vm._l(_vm.sites, function(site) {
+                                  return _c(
+                                    "v-col",
+                                    { key: site.name, attrs: { cols: "12" } },
+                                    [
+                                      _c("WeatherCard", {
+                                        attrs: { site: site }
                                       })
-                                    : _vm._e(),
-                                  _c("loadMoreButton", {
-                                    staticClass: "mb-12",
-                                    attrs: { loadMore: _vm.loadMore }
-                                  })
-                                ],
-                                1
-                              ),
-                              _c(
-                                "v-col",
-                                {
-                                  staticClass: "d-none d-lg-flex",
-                                  attrs: { cols: "3" }
-                                },
-                                [
-                                  _c(
-                                    "v-row",
-                                    { attrs: { dense: "" } },
-                                    _vm._l(_vm.sites, function(site) {
-                                      return _c(
-                                        "v-col",
-                                        {
-                                          key: site.name,
-                                          attrs: { cols: "12" }
-                                        },
-                                        [
-                                          _c("WeatherCard", {
-                                            attrs: { site: site }
-                                          })
-                                        ],
-                                        1
-                                      )
-                                    }),
+                                    ],
                                     1
                                   )
-                                ],
+                                }),
                                 1
                               )
                             ],
                             1
                           )
-                        : _vm._e()
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -5576,10 +5569,6 @@ var render = function() {
                           posts: _vm.sortedPosts.slice(0, 5),
                           title: "Последние новости"
                         }
-                      }),
-                      _c("SearchForm", {
-                        staticClass: "my-8",
-                        attrs: { siteName: _vm.siteName }
                       }),
                       _c("PostList", {
                         staticClass: "my-8",

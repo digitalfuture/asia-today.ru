@@ -14,7 +14,7 @@
             class="mt-5 mt-sm-8 mt-md-9 mb-8"
           />
 
-          <v-row v-if="!isSearch" align="start">
+          <v-row align="start">
             <v-col cols="12" lg="9">
               <PostList :posts="lastPosts.slice(5, 7)" class="mb-12" />
 
