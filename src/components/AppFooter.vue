@@ -1,6 +1,5 @@
 <template>
-  <section>
-    <!-- Footer -->
+  <section class="app-footer ">
     <!-- All logos block - extra small screen only -->
     <v-col cols="12" class="hidden-sm-and-up my-8">
       <v-row justify="space-around" align="center">
@@ -15,7 +14,7 @@
       </v-row>
     </v-col>
 
-    <v-footer class="app-footer pa-3" height="auto" light>
+    <v-footer class="pa-3" height="auto" light>
       <v-row justify="space-between">
         <!-- Asia Today block -->
         <v-col cols="12" sm="6" md="4" class="text-center">
@@ -28,17 +27,21 @@
             ></v-img>
           </v-btn>
 
-          <h2 xs12 class="app-footer__title display-1 py-8">
+          <h2 xs12 class="app-footer__title display-1 my-8 pa-0">
             <span class="font-weight-medium">АЗИЯ</span>
             <br />
             <span class="font-weight-light">СЕГОДНЯ</span>
           </h2>
 
-          <v-icon class="grey--text text--lighten-1 py-3"
-            >mdi-checkbox-blank-circle</v-icon
-          >
+          <div class="my-8">
+            <v-icon class="grey--text text--lighten-1"
+              >mdi-checkbox-blank-circle</v-icon
+            >
+          </div>
 
-          <h2 class="app-footer__subtitle title grey--text text--darken-2 py-3">
+          <h2
+            class="app-footer__subtitle title grey--text text--darken-2 mt-8 mb-4"
+          >
             НОВОСТИ АЗИИ
             <br />
           </h2>
@@ -99,7 +102,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .app-footer {
   background-image: url('/img/background-footer.png') !important;
   background-size: contain !important;

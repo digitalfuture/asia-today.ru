@@ -88,9 +88,6 @@ export default {
     LoadMoreButton,
     SearchForm
   },
-  metaInfo: {
-    title: 'Азия сегодня'
-  },
   data: () => ({
     lastPosts: [
       // {
