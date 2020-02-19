@@ -1,21 +1,24 @@
 <template>
   <v-container class="site-page">
-    <v-row class="my-6" justify="center">
-      <v-col cols="12" sm="11" md="9">
-        <PostGrid5 :posts="sortedPosts.slice(0, 5)" class="my-8" />
-        <SearchForm :siteName="siteName" class="my-8" />
+    <v-row justify="center" class="my-12">
+      <v-col cols="12" sm="11" class="px-0 px-sm-3">
+        <section v-if="isSearch">
+          <SearchForm />
+        </section>
 
-        <PostList
-          v-if="!searchString"
-          :posts="sortedPosts.slice(5)"
-          class="my-8"
-        />
+        <section v-else>
+          <PostGrid5
+            :posts="sortedPosts.slice(0, 5)"
+            title="Последние новости"
+            class="mt-5 mt-sm-8 mt-md-9 mb-8"
+          />
 
-        <loadMoreButton
-          v-if="!searchString"
-          :loadMore="loadMore"
-          class="my-8"
-        />
+          <SearchForm :siteName="siteName" class="my-8" />
+
+          <PostList :posts="sortedPosts.slice(5)" class="my-8" />
+
+          <loadMoreButton :loadMore="loadMore" class="my-8" />
+        </section>
       </v-col>
     </v-row>
   </v-container>
@@ -27,7 +30,7 @@ import { mapState, mapActions } from 'vuex'
 import PostGrid5 from '../components/blocks/PostGrid5'
 import LoadMoreButton from '../components/LoadMoreButton'
 import PostList from '../components/blocks/PostList'
-import SearchForm from '../components/SearchForm'
+import SearchForm from '../components/blocks/SearchForm'
 
 export default {
   components: {
@@ -59,7 +62,7 @@ export default {
     perPage: 10
   }),
   computed: {
-    ...mapState(['sites', 'searchString']),
+    ...mapState(['sites', 'isSearch']),
     site() {
       return this.sites.find(site => site.name === this.siteName)
     },

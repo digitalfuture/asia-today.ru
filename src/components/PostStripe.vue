@@ -5,7 +5,7 @@
     raised
     ripple
     dark
-    class="post-stripe"
+    class="post-stripe transparent"
     max-height="150"
   >
     <div class="d-flex">
@@ -38,7 +38,7 @@
       ></v-btn>
 
       <div
-        class="d-flex flex-column flex-grow-1 justify-space-between px-3 px-sm-4 px-md-5 py-2 py-sm-3 py-md-4"
+        class="d-flex flex-column flex-grow-1 justify-space-between post-stripe__post-title px-3 px-sm-4 px-md-5 py-2 py-sm-3 py-md-4"
       >
         <div v-html="post.title"></div>
 
@@ -54,14 +54,14 @@
           v-html="excerpt.slice(0, 120) + '...'"
         ></div>
 
-        <div class="d-flex">
+        <div class="d-flex font-weight-light">
           <div
             class="flex-grow-1 font-weight-light blue-grey--text text--darken-1 post-stripe__post-date font-italic"
           >
             {{ getDate(post.date) }}
           </div>
 
-          <div class="body-1 grey--text">
+          <div class="grey--text">
             {{ getSiteNameRu(post.siteName) }}
           </div>
         </div>
@@ -110,6 +110,10 @@ export default {
 .post-stripe {
   .post-stripe__post-image {
     border-radius: 4px 0 0 4px;
+  }
+
+  .post-stripe__post-title {
+    font-weight: 300;
   }
   .post-stripe__post-date {
     font-family: 'Noto Serif', serif;

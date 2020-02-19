@@ -1,8 +1,19 @@
 <template>
   <div class="post-grid-4-mix">
     <v-row v-if="posts.length" dense>
+      <v-col
+        v-if="title"
+        cols="12 display-1 text--darken-1 font-weight-thin pb-6"
+        >{{ title }}
+
+        <v-divider class="pb-2"></v-divider>
+      </v-col>
+
       <v-col cols="12" lg="4" class="py-0 py-lg-2">
-        <PostCard :post="posts[0]" />
+        <PostCard
+          :post="posts[0]"
+          :aspectRatio="$vuetify.breakpoint.md ? 16 / 9 : null"
+        />
       </v-col>
 
       <v-col cols="12" lg="8">
@@ -11,6 +22,14 @@
     </v-row>
 
     <v-row v-else dense>
+      <v-col
+        v-if="title"
+        cols="12 display-1 text--darken-1 font-weight-thin pb-6"
+        >{{ title }}
+
+        <v-divider class="pb-2"></v-divider>
+      </v-col>
+
       <v-col cols="12" lg="4" class="py-0 py-lg-2">
         <v-skeleton-loader type="image" class="full-height" />
       </v-col>
@@ -28,7 +47,7 @@
 
 <script>
 import PostList from './PostList'
-import PostCard from './PostCard'
+import PostCard from '../PostCard'
 
 export default {
   name: 'post-grid-4-mix',
@@ -36,7 +55,7 @@ export default {
     PostList,
     PostCard
   },
-  props: ['posts']
+  props: ['posts', 'title']
 }
 </script>
 <style lang="scss">

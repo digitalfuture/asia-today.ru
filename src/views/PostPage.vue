@@ -1,14 +1,22 @@
 <template>
   <v-container class="post-page">
-    <v-row class="my-6" justify="center">
-      <v-col cols="12" sm="11" md="9">
-        <SitePost :siteName="siteName" :postSlug="postSlug" class="my-8" />
+    <v-row justify="center" class="my-3">
+      <v-col cols="12" sm="11" class="px-0 px-sm-3">
+        <section v-if="isSearch">
+          <SearchForm class="my-12" />
+        </section>
 
-        <SearchForm :siteName="siteName" class="my-8" />
+        <section v-else>
+          <SitePost
+            :siteName="siteName"
+            :postSlug="postSlug"
+            class="mt-5 mt-sm-8 mt-md-9 mb-8"
+          />
 
-        <PostList v-if="!searchString" :posts="filteredPosts" class="my-8" />
+          <PostList :posts="filteredPosts" class="my-8" />
 
-        <loadMoreButton :loadMore="loadMore" class="my-8" />
+          <loadMoreButton :loadMore="loadMore" class="my-8" />
+        </section>
       </v-col>
     </v-row>
   </v-container>
@@ -20,7 +28,7 @@ import { mapState, mapActions } from 'vuex'
 import SitePost from '../components/SitePost'
 import PostList from '../components/blocks/PostList'
 import LoadMoreButton from '../components/LoadMoreButton'
-import SearchForm from '../components/SearchForm'
+import SearchForm from '../components/blocks/SearchForm'
 
 export default {
   components: {
@@ -52,7 +60,7 @@ export default {
     perPage: 10
   }),
   computed: {
-    ...mapState(['sites', 'searchString', 'currentPost']),
+    ...mapState(['sites', 'searchString', 'currentPost', 'isSearch']),
     siteName() {
       return this.$route.params.siteName
     },

@@ -1,5 +1,5 @@
 <template>
-  <v-row class="search-form" dense>
+  <v-row class="search-form">
     <v-col cols="12">
       <v-text-field
         light
@@ -21,17 +21,17 @@
       />
 
       <!-- Search result -->
-      <v-row v-if="searchString" dense>
-        <v-col v-for="(post, i) in searchResults" :key="i" cols="12">
-          <PostStripe :post="post" :siteName="post.siteName" />
-        </v-col>
-      </v-row>
+      <v-row v-if="searchResults.length" dense>
+        <v-col cols="12">
+          <PostList :posts="searchResults" class="mb-12" />
 
-      <!-- Search more button -->
-      <v-row v-if="searchString && searchResults.length" justify="center">
-        <v-btn @click="searchMore" fab text>
-          <v-icon color="black" x-large>mdi-chevron-down</v-icon>
-        </v-btn>
+          <!-- Search more button -->
+          <loadMoreButton
+            v-if="searchResults.length"
+            :loadMore="searchMore"
+            class="mb-12"
+          />
+        </v-col>
       </v-row>
     </v-col>
   </v-row>
@@ -39,19 +39,23 @@
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
 
-import PostStripe from './blocks/PostStripe'
+import PostList from './PostList'
+import LoadMoreButton from '../LoadMoreButton'
 
 export default {
   components: {
-    PostStripe
+    PostList,
+    LoadMoreButton
   },
-  props: ['siteName'],
   data: () => ({
     offset: 0,
     perPage: 5
   }),
   computed: {
     ...mapState(['sites', 'searchResults', 'searchString']),
+    siteName() {
+      return this.$route.params.siteName
+    },
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url
     },
@@ -134,7 +138,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.searh-form {
+.search-form {
   .v-text-field__suffix {
     font-style: italic;
     color: grey;

@@ -9,10 +9,10 @@
       text
       width="48"
       height="48"
-      :disabled="$route.name === 'sitePage'"
+      :disabled="$route.name === 'homePage'"
       active-class="disabled"
     >
-      <v-icon v-if="$route.name === 'postPage'" color="grey"
+      <v-icon v-if="$route.name !== 'homePage'" color="grey"
         >mdi-arrow-top-left</v-icon
       >
     </v-btn>
@@ -33,13 +33,12 @@
     ></SiteLogo>
 
     <v-btn
-      @click="$vuetify.goTo('.search-form')"
-      exact
+      @click="handleSearchClick"
       fab
       text
       width="48"
       height="48"
-      class="ml-auto hidden-xs-only"
+      class="ml-auto"
     >
       <v-icon color="grey">search</v-icon>
     </v-btn>
@@ -56,13 +55,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import SiteLogo from './SiteLogo'
 
 export default {
   components: { SiteLogo },
   computed: {
-    ...mapState(['sites', 'loadingCount']),
+    ...mapState(['sites', 'loadingCount', 'isSearch']),
     isLoading() {
       return this.loadingCount > 0
     },
@@ -72,6 +71,13 @@ export default {
       } else {
         return '/'
       }
+    }
+  },
+  methods: {
+    ...mapMutations(['switchSearch']),
+    handleSearchClick() {
+      this.switchSearch()
+      this.$nextTick(() => this.$vuetify.goTo('.app-header'))
     }
   }
 }

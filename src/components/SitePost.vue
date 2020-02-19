@@ -123,11 +123,7 @@
         </v-card>
 
         <!-- Post skeleton placeholder -->
-        <v-skeleton-loader
-          v-else
-          tile
-          type="image, article"
-        ></v-skeleton-loader>
+        <v-skeleton-loader v-else type="image"></v-skeleton-loader>
       </v-col>
     </v-row>
   </section>
@@ -364,8 +360,7 @@ export default {
     }
 
     h2 {
-      margin-top: 24px;
-      font-size: 1.4em;
+      font-size: 30px;
     }
 
     h3 {

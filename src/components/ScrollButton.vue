@@ -8,7 +8,6 @@
       right
       bottom
       dark
-      color="black"
       @click="scrollToTop"
       v-scroll="onScroll"
     >

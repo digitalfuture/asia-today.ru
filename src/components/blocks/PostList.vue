@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import PostStripe from './PostStripe'
+import PostStripe from '../PostStripe'
 
 export default {
   name: 'post-list',

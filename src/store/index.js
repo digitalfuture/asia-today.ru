@@ -12,6 +12,7 @@ export default new Vuex.Store({
     sites: sites.slice(0, 7),
     searchString: '',
     loadingCount: 0,
+    isSearch: false,
     searchResults: [
       // {
       //   id,
@@ -56,6 +57,9 @@ export default new Vuex.Store({
     },
     forgetPost(state) {
       state.currentPost = null
+    },
+    switchSearch(state) {
+      state.isSearch = !state.isSearch
     }
   },
   actions: {
@@ -113,12 +117,15 @@ export default new Vuex.Store({
           return data
         })
     },
-    fetchPostsByCategoryId(context, { siteUrl, categoryId, offset }) {
+    fetchPostsByCategoryId(
+      context,
+      { siteUrl, categoryId, perPage = 1, offset = 0 }
+    ) {
       context.commit('startLoading')
 
       return axios
         .get(
-          `${siteUrl}/wp-json/wp/v2/posts?categories=${categoryId}&offset=${offset}&_embed`
+          `${siteUrl}/wp-json/wp/v2/posts?categories=${categoryId}&per_page=${perPage}&offset=${offset}&_embed`
         )
         .then(response => response.data)
         .then(data => {
@@ -170,13 +177,24 @@ export default new Vuex.Store({
     getCategoryInfo(context, { siteUrl, categoryId }) {
       context.commit('startLoading')
 
-      //asia-vietnam.ru/wp-json/wp/v2/posts?search="путин"
       return axios
         .get(`${siteUrl}/wp-json/wp/v2/categories/${categoryId}`)
         .then(response => response.data)
         .then(data => {
           context.commit('stopLoading')
           // console.log("post:", data);
+          return data
+        })
+    },
+    getCategories(context, { siteUrl }) {
+      context.commit('startLoading')
+
+      return axios
+        .get(`${siteUrl}/wp-json/wp/v2/categories`)
+        .then(response => response.data)
+        .then(data => {
+          context.commit('stopLoading')
+          // console.log("сategories:", data);
           return data
         })
     }

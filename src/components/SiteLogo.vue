@@ -25,16 +25,21 @@
       </div>
 
       <!-- Logo text -->
-      <div class="site-logo_full__logo-text text-left pl-4" align="center">
-        <div
-          class="font-weight-regular text-uppercase"
-          v-text="siteName ? siteNameRu : 'АЗИЯ'"
-        ></div>
-        <div class="font-weight-thin">СЕГОДНЯ</div>
-      </div>
+      <a
+        :to="siteName ? '/' + siteName : '/'"
+        class="site-logo_full__logo-text"
+      >
+        <div class="text-left pl-4" align="center">
+          <div
+            class="font-weight-regular text-uppercase"
+            v-text="siteName ? siteNameRu : 'АЗИЯ'"
+          ></div>
+          <div class="font-weight-thin">СЕГОДНЯ</div>
+        </div>
+      </a>
     </v-row>
 
-    <!-- Logo icon only -->
+    <!-- Logo without text -->
     <v-row v-else align="center" justify="center">
       <!-- logo icon -->
       <div class="pl-4 pr-2">
@@ -105,7 +110,7 @@ export default {
     &__logo-text {
       height: 48px;
       border-left: 2px solid #525252;
-      padding-left: 16px;
+      color: white;
     }
   }
 }

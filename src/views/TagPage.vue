@@ -1,25 +1,31 @@
 <template>
-  <!-- Site page -->
-  <section class="tag-page">
-    <div class="d-flex justify-center py-12">
-      <v-col cols="12" sm="11" md="9">
-        <v-chip v-if="tag" dark disabled class="my-12 mr-1">Тег</v-chip>
-        <v-chip v-if="tag" dark class="my-12">{{
-          tag.name.toUpperCase()
-        }}</v-chip>
-        <div v-else class="d-flex">
-          <v-skeleton-loader class="my-12 mr-1" type="chip"></v-skeleton-loader>
-          <v-skeleton-loader class="my-12" type="chip"></v-skeleton-loader>
-        </div>
+  <v-container class="tag-page">
+    <v-row justify="center" class="my-12">
+      <v-col cols="12" sm="11" class="px-0 px-sm-3">
+        <section v-if="isSearch">
+          <SearchForm />
+        </section>
 
-        <PostList :posts="postListPosts" :siteName="siteName" class="my-8" />
+        <section v-else>
+          <v-chip v-if="tag" dark disabled class="my-12 mr-1">Тег</v-chip>
+          <v-chip v-if="tag" dark class="my-12">{{
+            tag.name.toUpperCase()
+          }}</v-chip>
+          <div v-else class="d-flex">
+            <v-skeleton-loader
+              class="my-12 mr-1"
+              type="chip"
+            ></v-skeleton-loader>
+            <v-skeleton-loader class="my-12" type="chip"></v-skeleton-loader>
+          </div>
 
-        <loadMoreButton :loadMore="loadMore" class="my-8" />
+          <PostList :posts="postListPosts" :siteName="siteName" class="my-8" />
 
-        <SearchForm :siteName="siteName" class="my-8" />
+          <loadMoreButton :loadMore="loadMore" class="my-8" />
+        </section>
       </v-col>
-    </div>
-  </section>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -27,7 +33,7 @@ import { mapState, mapActions } from 'vuex'
 
 import PostList from '../components/blocks/PostList'
 import LoadMoreButton from '../components/LoadMoreButton'
-import SearchForm from '../components/SearchForm'
+import SearchForm from '../components/blocks/SearchForm'
 
 export default {
   name: 'TagPage',
@@ -64,7 +70,7 @@ export default {
     tag: null
   }),
   computed: {
-    ...mapState(['sites', 'searchString']),
+    ...mapState(['sites', 'searchString', 'isSearch']),
     site() {
       return this.sites.find(site => site.name === this.siteName)
     },
@@ -75,7 +81,7 @@ export default {
   methods: {
     ...mapActions(['fetchPostsByTagId', 'getTagInfo']),
     getPosts() {
-      this.fetchPostsByTagId({
+      return this.fetchPostsByTagId({
         siteUrl: this.site.url,
         offset: this.currentOffset,
         perPage: this.perPage,

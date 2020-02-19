@@ -1,36 +1,35 @@
 <template>
-  <!-- Site page -->
-  <section class="category-page">
-    <div class="d-flex justify-center py-12">
-      <!-- Set title to page -->
-      <vue-headful
-        :title="
-          `${
-            category ? 'Категория: ' + category.name.toUpperCase() + ' -' : ''
-          } ${site.nameRu} Сегодня`
-        "
-      />
+  <v-container class="category-page">
+    <v-row justify="center" class="my-12">
+      <v-col cols="12" sm="11" class="px-0 px-sm-3">
+        <section v-if="isSearch">
+          <SearchForm />
+        </section>
 
-      <v-col cols="12" sm="11" md="9">
-        <v-chip v-if="category" dark disabled class="my-12 mr-1"
-          >Категория</v-chip
-        >
-        <v-chip v-if="category" dark class="my-12">{{
-          category.name.toUpperCase()
-        }}</v-chip>
-        <div v-else class="d-flex">
-          <v-skeleton-loader class="my-12 mr-1" type="chip"></v-skeleton-loader>
-          <v-skeleton-loader class="my-12" type="chip"></v-skeleton-loader>
-        </div>
+        <section v-else>
+          <v-chip v-if="category" dark disabled class="my-12 mr-1"
+            >Категория</v-chip
+          >
 
-        <PostList :posts="postListPosts" :siteName="siteName" class="my-8" />
+          <v-chip v-if="category" dark class="my-12">{{
+            category.name.toUpperCase()
+          }}</v-chip>
 
-        <loadMoreButton :loadMore="loadMore" class="my-8" />
+          <div v-else class="d-flex">
+            <v-skeleton-loader
+              class="my-12 mr-1"
+              type="chip"
+            ></v-skeleton-loader>
+            <v-skeleton-loader class="my-12" type="chip"></v-skeleton-loader>
+          </div>
 
-        <SearchForm :siteName="siteName" class="my-8" />
+          <PostList :posts="postListPosts" :siteName="siteName" class="mb-12" />
+
+          <loadMoreButton :loadMore="loadMore" class="mb-12" />
+        </section>
       </v-col>
-    </div>
-  </section>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -38,7 +37,7 @@ import { mapState, mapActions } from 'vuex'
 
 import PostList from '../components/blocks/PostList'
 import LoadMoreButton from '../components/LoadMoreButton'
-import SearchForm from '../components/SearchForm'
+import SearchForm from '../components/blocks/SearchForm'
 
 export default {
   name: 'CategoryPage',
@@ -46,6 +45,15 @@ export default {
     PostList,
     LoadMoreButton,
     SearchForm
+  },
+  metaInfo() {
+    return {
+      title: `${
+        this.category
+          ? 'Категория: ' + this.category.name.toUpperCase() + ' -'
+          : ''
+      } ${this.site.nameRu} cегодня`
+    }
   },
   props: ['categoryId', 'siteName'],
   data: () => ({
@@ -68,7 +76,7 @@ export default {
     category: null
   }),
   computed: {
-    ...mapState(['sites', 'searchString']),
+    ...mapState(['sites', 'isSearch']),
     site() {
       return this.sites.find(site => site.name === this.siteName)
     },
@@ -79,7 +87,7 @@ export default {
   methods: {
     ...mapActions(['fetchPostsByCategoryId', 'getCategoryInfo']),
     getPosts() {
-      this.fetchPostsByCategoryId({
+      return this.fetchPostsByCategoryId({
         siteUrl: this.site.url,
         offset: this.currentOffset,
         perPage: this.perPage,

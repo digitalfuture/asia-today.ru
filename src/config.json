@@ -98,5 +98,11 @@
       "color": "#99CCCC",
       "capital": "Vientiane"
     }
-  ]
+  ],
+  "categories" : {
+    "Туризм": "Tourism",
+    "Происшествия": "Incidents",
+    "Еда": "Food",
+    "Бизнес": "Business"
+  }
 }

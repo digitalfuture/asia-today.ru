@@ -9,21 +9,18 @@
     class="post-card"
     grey
     height="100%"
+    :class="{ compact: compact && $vuetify.breakpoint.mdAndUp }"
   >
     <v-img
       :src="post.thumb"
       lazy-src="/img/placeholder.jpg"
       gradient="to top, rgba(0,0,0,.8), transparent 100%"
       class="align-end"
-      :aspect-ratio="aspectRatio"
+      :aspect-ratio="$vuetify.breakpoint.smAndDown ? 12 / 6 : aspectRatio"
       height="100%"
     >
       <v-container :class="{ 'pb-0': $vuetify.breakpoint.lgAndUp }">
-        <div
-          class="post-card__color-point px-4 py-0 py-sm-4"
-          width="16"
-          height="16"
-        >
+        <div class="post-card__color-point pa-4" width="16" height="16">
           <v-btn
             fab
             raised
@@ -35,8 +32,8 @@
           <v-btn
             fab
             raised
-            :width="compact ? 16 : 32"
-            :height="compact ? 16 : 32"
+            :width="compact && $vuetify.breakpoint.mdAndUp ? 16 : 32"
+            :height="compact && $vuetify.breakpoint.mdAndUp ? 16 : 32"
             class="hidden-xs-only"
             :style="'background-color: ' + getSiteColor(post.siteName)"
           ></v-btn>
@@ -45,27 +42,15 @@
         <v-row class="px-4">
           <v-col>
             <v-row>
-              <div
-                :class="{
-                  'pb-lg-0': compact && $vuetify.breakpoint.lg,
-                  'post-card__post-title':
-                    !compact || $vuetify.breakpoint.mdAndDown
-                }"
-                class="pb-4"
-                v-html="post.title"
-              ></div>
+              <div class="pb-4 post-card__post-title" v-html="post.title"></div>
             </v-row>
 
             <v-row justify="space-between" class="font-weight-light">
               <span
-                v-if="!compact || $vuetify.breakpoint.mdAndDown"
                 class="font-weight-light blue-grey--text text--lighten-1 post-card__post-date font-italic"
                 >{{ getDate(post.date) }}</span
               >
-              <span
-                v-if="!compact || $vuetify.breakpoint.mdAndDown"
-                class="body-1 grey--text"
-              >
+              <span class="grey--text post-card__post-site ">
                 {{ getSiteNameRu(post.siteName) }}
               </span>
             </v-row>
@@ -124,11 +109,23 @@ export default {
 
   .post-card__post-title {
     font-size: 20px;
+    font-weight: 300;
     line-height: 1.4;
   }
 
   .post-card__post-date {
     font-family: 'Noto Serif', serif;
+  }
+}
+
+.compact {
+  .post-card__post-title {
+    font-size: 16px;
+  }
+
+  .post-card__post-date,
+  .post-card__post-site {
+    font-size: 90%;
   }
 }
 </style>

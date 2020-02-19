@@ -41,11 +41,10 @@
           <h2 class="app-footer__subtitle title grey--text text--darken-2 py-3">
             НОВОСТИ АЗИИ
             <br />
-            <br />
           </h2>
 
           <v-row justify="center">
-            <hr width="10%" class="app-footer__divider" />
+            <hr width="10%" class="app-footer__divider my-3" />
           </v-row>
 
           <p cols="12" class="body-2 pb-5 pt-3">
@@ -63,7 +62,7 @@
           </address>
 
           <div class="caption grey--text text--darken-1">
-            &copy; {{ new Date().getFullYear() }} АЗИЯ СЕГОДНЯ
+            &copy; 2015 - {{ new Date().getFullYear() }} АЗИЯ СЕГОДНЯ
           </div>
         </v-col>
 
