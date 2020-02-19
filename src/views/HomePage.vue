@@ -1,7 +1,7 @@
 <template>
   <!-- Home page -->
-  <v-container class="home-page">
-    <v-row justify="center" class="my-12">
+  <v-container class="home-page px-0">
+    <v-row justify="center" class="my-12 mx-0">
       <v-col cols="12" sm="11" class="px-0 px-sm-3">
         <section v-if="isSearch">
           <SearchForm />
@@ -14,7 +14,7 @@
             class="mt-5 mt-sm-8 mt-md-9 mb-8"
           />
 
-          <v-row align="start">
+          <v-row align="start" class="mx-0">
             <v-col cols="12" lg="9">
               <PostList :posts="lastPosts.slice(5, 7)" class="mb-12" />
 

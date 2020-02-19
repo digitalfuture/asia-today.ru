@@ -1679,6 +1679,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'post-grid-3',
@@ -1917,6 +1918,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'post-list',
@@ -1928,7 +1945,8 @@ __webpack_require__.r(__webpack_exports__);
     compact: {
       type: Boolean,
       default: false
-    }
+    },
+    title: String
   }
 });
 
@@ -4631,10 +4649,9 @@ var render = function() {
                 ? _c(
                     "v-col",
                     {
-                      attrs: {
-                        cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
-                      }
+                      staticClass:
+                        "display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0",
+                      attrs: { cols: "12" }
                     },
                     [
                       _vm._v(_vm._s(_vm.title) + " "),
@@ -4668,7 +4685,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 pb-6 font-weight-thin"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
                       }
                     },
                     [_vm._v(_vm._s(_vm.title) + " "), _c("v-divider")],
@@ -4727,7 +4744,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6  px-4 px-sm-0"
                       }
                     },
                     [
@@ -4762,7 +4779,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
                       }
                     },
                     [
@@ -4824,7 +4841,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6  px-4 px-sm-0"
                       }
                     },
                     [
@@ -4870,7 +4887,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
                       }
                     },
                     [
@@ -4959,7 +4976,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6  px-4 px-sm-0"
                       }
                     },
                     [
@@ -5020,7 +5037,7 @@ var render = function() {
                     {
                       attrs: {
                         cols:
-                          "12 display-1 text--darken-1 font-weight-thin pb-6"
+                          "12 display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
                       }
                     },
                     [
@@ -5087,40 +5104,76 @@ var render = function() {
         ? _c(
             "v-row",
             { attrs: { dense: "" } },
-            _vm._l(_vm.posts, function(post) {
-              return _c(
-                "v-col",
-                { key: post.name, attrs: { cols: "12" } },
-                [
-                  _c("PostStripe", {
-                    attrs: {
-                      post: post,
-                      siteName: post.siteName,
-                      compact: _vm.compact
-                    }
-                  })
-                ],
-                1
-              )
-            }),
-            1
+            [
+              _vm.title
+                ? _c(
+                    "v-col",
+                    {
+                      attrs: {
+                        cols:
+                          "12 display-1 text--darken-1 font-weight-thin pb-6  px-4 px-sm-0"
+                      }
+                    },
+                    [
+                      _vm._v(_vm._s(_vm.title) + " "),
+                      _c("v-divider", { staticClass: "pb-2" })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._l(_vm.posts, function(post) {
+                return _c(
+                  "v-col",
+                  { key: post.name, attrs: { cols: "12" } },
+                  [
+                    _c("PostStripe", {
+                      attrs: {
+                        post: post,
+                        siteName: post.siteName,
+                        compact: _vm.compact
+                      }
+                    })
+                  ],
+                  1
+                )
+              })
+            ],
+            2
           )
         : _c(
             "v-row",
             { attrs: { dense: "" } },
-            _vm._l(4, function(i) {
-              return _c(
-                "v-col",
-                { key: i, attrs: { cols: "12" } },
-                [
-                  _c("v-skeleton-loader", {
-                    attrs: { type: "image", "max-height": "150" }
-                  })
-                ],
-                1
-              )
-            }),
-            1
+            [
+              _vm.title
+                ? _c(
+                    "v-col",
+                    {
+                      attrs: {
+                        cols:
+                          "12 display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
+                      }
+                    },
+                    [
+                      _vm._v(_vm._s(_vm.title) + " "),
+                      _c("v-divider", { staticClass: "pb-2" })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._l(4, function(i) {
+                return _c(
+                  "v-col",
+                  { key: i, attrs: { cols: "12" } },
+                  [
+                    _c("v-skeleton-loader", {
+                      attrs: { type: "image", "max-height": "150" }
+                    })
+                  ],
+                  1
+                )
+              })
+            ],
+            2
           )
     ],
     1
@@ -5248,7 +5301,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "category-page" },
+    { staticClass: "category-page  px-0" },
     [
       _c(
         "v-row",
@@ -5341,11 +5394,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "home-page" },
+    { staticClass: "home-page px-0" },
     [
       _c(
         "v-row",
-        { staticClass: "my-12", attrs: { justify: "center" } },
+        { staticClass: "my-12 mx-0", attrs: { justify: "center" } },
         [
           _c(
             "v-col",
@@ -5365,7 +5418,7 @@ var render = function() {
                       }),
                       _c(
                         "v-row",
-                        { attrs: { align: "start" } },
+                        { staticClass: "mx-0", attrs: { align: "start" } },
                         [
                           _c(
                             "v-col",
@@ -5482,11 +5535,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "post-page" },
+    { staticClass: "post-page  px-0" },
     [
       _c(
         "v-row",
-        { staticClass: "my-3", attrs: { justify: "center" } },
+        { staticClass: "my-3 mx-0", attrs: { justify: "center" } },
         [
           _c(
             "v-col",
@@ -5548,11 +5601,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "site-page" },
+    { staticClass: "site-page  px-0" },
     [
       _c(
         "v-row",
-        { staticClass: "my-12", attrs: { justify: "center" } },
+        { staticClass: "my-12 mx-0", attrs: { justify: "center" } },
         [
           _c(
             "v-col",
@@ -5614,11 +5667,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "tag-page" },
+    { staticClass: "tag-page px-0" },
     [
       _c(
         "v-row",
-        { staticClass: "my-12", attrs: { justify: "center" } },
+        { staticClass: "my-12 mx-0", attrs: { justify: "center" } },
         [
           _c(
             "v-col",
@@ -7510,7 +7563,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/index.js");
-/* harmony import */ var vuetify_lib_components_VSkeletonLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VSkeletonLoader */ "./node_modules/vuetify/lib/components/VSkeletonLoader/index.js");
+/* harmony import */ var vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VDivider */ "./node_modules/vuetify/lib/components/VDivider/index.js");
+/* harmony import */ var vuetify_lib_components_VSkeletonLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VSkeletonLoader */ "./node_modules/vuetify/lib/components/VSkeletonLoader/index.js");
 
 
 
@@ -7534,7 +7588,8 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_4__["VCol"],VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_4__["VRow"],VSkeletonLoader: vuetify_lib_components_VSkeletonLoader__WEBPACK_IMPORTED_MODULE_5__["VSkeletonLoader"]})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_4__["VCol"],VDivider: vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_5__["VDivider"],VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_4__["VRow"],VSkeletonLoader: vuetify_lib_components_VSkeletonLoader__WEBPACK_IMPORTED_MODULE_6__["VSkeletonLoader"]})
 
 
 /* hot reload */

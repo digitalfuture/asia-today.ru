@@ -1,6 +1,6 @@
 <template>
-  <v-container class="tag-page">
-    <v-row justify="center" class="my-12">
+  <v-container class="tag-page px-0">
+    <v-row justify="center" class="my-12 mx-0">
       <v-col cols="12" sm="11" class="px-0 px-sm-3">
         <section v-if="isSearch">
           <SearchForm />

@@ -3,7 +3,8 @@
     <v-row v-if="posts.length" dense>
       <v-col
         v-if="title"
-        cols="12 display-1 text--darken-1 font-weight-thin pb-6"
+        cols="12"
+        class="display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
         >{{ title }}
 
         <v-divider class="pb-2"></v-divider>
@@ -17,7 +18,7 @@
     <v-row v-else dense>
       <v-col
         v-if="title"
-        cols="12 display-1 text--darken-1 pb-6 font-weight-thin"
+        cols="12 display-1 text--darken-1 font-weight-thin pb-6 px-4 px-sm-0"
         >{{ title }}
 
         <v-divider></v-divider>
