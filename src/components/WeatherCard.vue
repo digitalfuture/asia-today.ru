@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card v-if="temp" dark class="weather-card blue-grey darken-4">
+  <div class="weather-card">
+    <v-card v-if="temp" dark class="blue-grey darken-4">
       <v-list-item two-line>
         <v-list-item-content>
           <v-list-item-title class="title"
@@ -157,7 +157,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .weather-card {
   .weather-card__date {
     font-family: 'Noto Serif', serif;

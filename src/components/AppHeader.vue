@@ -32,6 +32,8 @@
       flat
     ></SiteLogo>
 
+    <SocialLinks class="d-none d-md-flex" />
+
     <v-btn
       @click="handleSearchClick"
       fab
@@ -57,9 +59,10 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import SiteLogo from './SiteLogo'
+import SocialLinks from './SocialLinks'
 
 export default {
-  components: { SiteLogo },
+  components: { SiteLogo, SocialLinks },
   computed: {
     ...mapState(['sites', 'loadingCount', 'isSearch']),
     isLoading() {

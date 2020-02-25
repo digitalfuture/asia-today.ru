@@ -15,10 +15,11 @@
     </v-col>
 
     <v-footer class="pa-3 app-footer" height="auto" light>
+      <!-- Social links block - small screen and down -->
       <v-row justify="space-between">
         <!-- Asia Today block -->
         <v-col cols="12" sm="6" md="4" class="text-center">
-          <v-btn to="/" fab class="app-footer__logo black" raised>
+          <v-btn to="/" fab class="app-footer__logo black my-8" raised>
             <v-img
               src="/img/logo-today-transparent.png"
               width="200"
@@ -55,11 +56,15 @@
             Происшествия. Полезная информация.
           </p>
 
-          <address class="mb-8 app-footer__address grey--text text--darken-1">
+          <SocialLinks class="my-8" />
+
+          <address
+            class="mb-8 app-footer__address ont-weight-light blue-grey--text text--darken-4"
+          >
             email:
             <a
               href="mailto:info@asia-today.ru"
-              class="grey--text text--darken-4"
+              class="font-weight-light blue-grey--text text--darken-4"
               >info@asia-today.ru</a
             >
           </address>
@@ -89,13 +94,15 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import ScrollButton from '../components/ScrollButton'
-import SiteLogo from '../components/SiteLogo'
+import ScrollButton from './ScrollButton'
+import SiteLogo from './SiteLogo'
+import SocialLinks from './SocialLinks'
 
 export default {
   components: {
     ScrollButton,
-    SiteLogo
+    SiteLogo,
+    SocialLinks
   },
   computed: {
     ...mapState(['sites'])
