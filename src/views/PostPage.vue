@@ -1,12 +1,12 @@
 <template>
-  <v-container class="post-page  px-0">
+  <v-container class="post-page px-0">
     <v-row justify="center" class="my-3 mx-0">
       <v-col cols="12" sm="11" class="px-0 px-sm-3">
-        <section v-if="isSearch">
+        <section v-show="isSearch">
           <SearchForm class="my-12" />
         </section>
 
-        <section v-else>
+        <section v-show="!isSearch">
           <SitePost
             :siteName="siteName"
             :postSlug="postSlug"
@@ -74,7 +74,7 @@ export default {
   methods: {
     ...mapActions(['fetchLastPostsEmbed']),
     getPosts() {
-      this.fetchLastPostsEmbed({
+      return this.fetchLastPostsEmbed({
         siteUrl: this.site.url,
         offset: this.currentOffset,
         perPage: this.perPage

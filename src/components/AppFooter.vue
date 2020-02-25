@@ -1,5 +1,5 @@
 <template>
-  <section class="app-footer ">
+  <section>
     <!-- All logos block - extra small screen only -->
     <v-col cols="12" class="hidden-sm-and-up my-8">
       <v-row justify="space-around" align="center">
@@ -14,7 +14,7 @@
       </v-row>
     </v-col>
 
-    <v-footer class="pa-3" height="auto" light>
+    <v-footer class="pa-3 app-footer" height="auto" light>
       <v-row justify="space-between">
         <!-- Asia Today block -->
         <v-col cols="12" sm="6" md="4" class="text-center">

@@ -2,11 +2,11 @@
   <v-container class="category-page  px-0">
     <v-row justify="center" class="my-12">
       <v-col cols="12" sm="11" class="px-0 px-sm-3">
-        <section v-if="isSearch">
+        <section v-show="isSearch">
           <SearchForm />
         </section>
 
-        <section v-else>
+        <section v-show="!isSearch">
           <v-chip v-if="category" dark disabled class="my-12 mr-1"
             >Категория</v-chip
           >

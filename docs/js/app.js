@@ -2787,7 +2787,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     getPosts: function getPosts() {
       var _this3 = this;
 
-      this.fetchLastPostsEmbed({
+      return this.fetchLastPostsEmbed({
         siteUrl: this.site.url,
         offset: this.currentOffset,
         perPage: this.perPage
@@ -3242,7 +3242,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { staticClass: "app-footer " },
     [
       _c(
         "v-col",
@@ -3265,7 +3264,10 @@ var render = function() {
       ),
       _c(
         "v-footer",
-        { staticClass: "pa-3", attrs: { height: "auto", light: "" } },
+        {
+          staticClass: "pa-3 app-footer",
+          attrs: { height: "auto", light: "" }
+        },
         [
           _c(
             "v-row",
@@ -5316,56 +5318,76 @@ var render = function() {
             "v-col",
             { staticClass: "px-0 px-sm-3", attrs: { cols: "12", sm: "11" } },
             [
-              _vm.isSearch
-                ? _c("section", [_c("SearchForm")], 1)
-                : _c(
-                    "section",
-                    [
-                      _vm.category
-                        ? _c(
-                            "v-chip",
-                            {
-                              staticClass: "my-12 mr-1",
-                              attrs: { dark: "", disabled: "" }
-                            },
-                            [_vm._v("Категория")]
-                          )
-                        : _vm._e(),
-                      _vm.category
-                        ? _c(
-                            "v-chip",
-                            { staticClass: "my-12", attrs: { dark: "" } },
-                            [_vm._v(_vm._s(_vm.category.name.toUpperCase()))]
-                          )
-                        : _c(
-                            "div",
-                            { staticClass: "d-flex" },
-                            [
-                              _c("v-skeleton-loader", {
-                                staticClass: "my-12 mr-1",
-                                attrs: { type: "chip" }
-                              }),
-                              _c("v-skeleton-loader", {
-                                staticClass: "my-12",
-                                attrs: { type: "chip" }
-                              })
-                            ],
-                            1
-                          ),
-                      _c("PostList", {
-                        staticClass: "mb-12",
-                        attrs: {
-                          posts: _vm.postListPosts,
-                          siteName: _vm.siteName
-                        }
-                      }),
-                      _c("loadMoreButton", {
-                        staticClass: "mb-12",
-                        attrs: { loadMore: _vm.loadMore }
-                      })
-                    ],
-                    1
-                  )
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSearch,
+                      expression: "isSearch"
+                    }
+                  ]
+                },
+                [_c("SearchForm")],
+                1
+              ),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isSearch,
+                      expression: "!isSearch"
+                    }
+                  ]
+                },
+                [
+                  _vm.category
+                    ? _c(
+                        "v-chip",
+                        {
+                          staticClass: "my-12 mr-1",
+                          attrs: { dark: "", disabled: "" }
+                        },
+                        [_vm._v("Категория")]
+                      )
+                    : _vm._e(),
+                  _vm.category
+                    ? _c(
+                        "v-chip",
+                        { staticClass: "my-12", attrs: { dark: "" } },
+                        [_vm._v(_vm._s(_vm.category.name.toUpperCase()))]
+                      )
+                    : _c(
+                        "div",
+                        { staticClass: "d-flex" },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "my-12 mr-1",
+                            attrs: { type: "chip" }
+                          }),
+                          _c("v-skeleton-loader", {
+                            staticClass: "my-12",
+                            attrs: { type: "chip" }
+                          })
+                        ],
+                        1
+                      ),
+                  _c("PostList", {
+                    staticClass: "mb-12",
+                    attrs: { posts: _vm.postListPosts, siteName: _vm.siteName }
+                  }),
+                  _c("loadMoreButton", {
+                    staticClass: "mb-12",
+                    attrs: { loadMore: _vm.loadMore }
+                  })
+                ],
+                1
+              )
             ]
           )
         ],
@@ -5409,96 +5431,112 @@ var render = function() {
             "v-col",
             { staticClass: "px-0 px-sm-3", attrs: { cols: "12", sm: "11" } },
             [
-              _vm.isSearch
-                ? _c("section", [_c("SearchForm")], 1)
-                : _c(
-                    "section",
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSearch,
+                      expression: "isSearch"
+                    }
+                  ]
+                },
+                [_c("SearchForm")],
+                1
+              ),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isSearch,
+                      expression: "!isSearch"
+                    }
+                  ]
+                },
+                [
+                  _c("PostGrid5", {
+                    staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
+                    attrs: {
+                      posts: _vm.lastPosts.slice(0, 5),
+                      title: "Последние новости"
+                    }
+                  }),
+                  _c(
+                    "v-row",
+                    { staticClass: "mx-0", attrs: { align: "start" } },
                     [
-                      _c("PostGrid5", {
-                        staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
-                        attrs: {
-                          posts: _vm.lastPosts.slice(0, 5),
-                          title: "Последние новости"
-                        }
-                      }),
                       _c(
-                        "v-row",
-                        { staticClass: "mx-0", attrs: { align: "start" } },
+                        "v-col",
+                        { attrs: { cols: "12", lg: "9" } },
+                        [
+                          _c("PostList", {
+                            staticClass: "mb-12",
+                            attrs: { posts: _vm.lastPosts.slice(5, 7) }
+                          }),
+                          _c("PostGrid4", {
+                            staticClass: "my-12",
+                            attrs: {
+                              posts: _vm.categoryTourism.slice(0, 4),
+                              title: "Туризм"
+                            }
+                          }),
+                          _c("PostGrid4Mix", {
+                            staticClass: "my-12",
+                            attrs: {
+                              posts: _vm.categoryBusiness.slice(0, 4),
+                              title: "Бизнес"
+                            }
+                          }),
+                          _c("PostGrid3", {
+                            staticClass: "my-12",
+                            attrs: {
+                              posts: _vm.categoryIncidents.slice(0, 3),
+                              title: "Происшествия"
+                            }
+                          }),
+                          _c("PostGrid4", {
+                            staticClass: "my-12",
+                            attrs: {
+                              posts: _vm.categoryFood.slice(0, 4),
+                              title: "Еда"
+                            }
+                          }),
+                          _vm.lastPosts.slice(7).length
+                            ? _c("PostList", {
+                                staticClass: "mb-12",
+                                attrs: { posts: _vm.lastPosts.slice(7) }
+                              })
+                            : _vm._e(),
+                          _c("loadMoreButton", {
+                            staticClass: "mb-12",
+                            attrs: { loadMore: _vm.loadMore }
+                          })
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "d-none d-lg-flex",
+                          attrs: { cols: "3" }
+                        },
                         [
                           _c(
-                            "v-col",
-                            { attrs: { cols: "12", lg: "9" } },
-                            [
-                              _c("PostList", {
-                                staticClass: "mb-12",
-                                attrs: { posts: _vm.lastPosts.slice(5, 7) }
-                              }),
-                              _c("PostGrid4", {
-                                staticClass: "my-12",
-                                attrs: {
-                                  posts: _vm.categoryTourism.slice(0, 4),
-                                  title: "Туризм"
-                                }
-                              }),
-                              _c("PostGrid4Mix", {
-                                staticClass: "my-12",
-                                attrs: {
-                                  posts: _vm.categoryBusiness.slice(0, 4),
-                                  title: "Бизнес"
-                                }
-                              }),
-                              _c("PostGrid3", {
-                                staticClass: "my-12",
-                                attrs: {
-                                  posts: _vm.categoryIncidents.slice(0, 3),
-                                  title: "Происшествия"
-                                }
-                              }),
-                              _c("PostGrid4", {
-                                staticClass: "my-12",
-                                attrs: {
-                                  posts: _vm.categoryFood.slice(0, 4),
-                                  title: "Еда"
-                                }
-                              }),
-                              _vm.lastPosts.slice(7).length
-                                ? _c("PostList", {
-                                    staticClass: "mb-12",
-                                    attrs: { posts: _vm.lastPosts.slice(7) }
-                                  })
-                                : _vm._e(),
-                              _c("loadMoreButton", {
-                                staticClass: "mb-12",
-                                attrs: { loadMore: _vm.loadMore }
-                              })
-                            ],
-                            1
-                          ),
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "d-none d-lg-flex",
-                              attrs: { cols: "3" }
-                            },
-                            [
-                              _c(
-                                "v-row",
-                                { attrs: { dense: "" } },
-                                _vm._l(_vm.sites, function(site) {
-                                  return _c(
-                                    "v-col",
-                                    { key: site.name, attrs: { cols: "12" } },
-                                    [
-                                      _c("WeatherCard", {
-                                        attrs: { site: site }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                }),
+                            "v-row",
+                            { attrs: { dense: "" } },
+                            _vm._l(_vm.sites, function(site) {
+                              return _c(
+                                "v-col",
+                                { key: site.name, attrs: { cols: "12" } },
+                                [_c("WeatherCard", { attrs: { site: site } })],
                                 1
                               )
-                            ],
+                            }),
                             1
                           )
                         ],
@@ -5507,6 +5545,9 @@ var render = function() {
                     ],
                     1
                   )
+                ],
+                1
+              )
             ]
           )
         ],
@@ -5540,7 +5581,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "post-page  px-0" },
+    { staticClass: "post-page px-0" },
     [
       _c(
         "v-row",
@@ -5550,29 +5591,49 @@ var render = function() {
             "v-col",
             { staticClass: "px-0 px-sm-3", attrs: { cols: "12", sm: "11" } },
             [
-              _vm.isSearch
-                ? _c("section", [_c("SearchForm", { staticClass: "my-12" })], 1)
-                : _c(
-                    "section",
-                    [
-                      _c("SitePost", {
-                        staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
-                        attrs: {
-                          siteName: _vm.siteName,
-                          postSlug: _vm.postSlug
-                        }
-                      }),
-                      _c("PostList", {
-                        staticClass: "my-8",
-                        attrs: { posts: _vm.filteredPosts }
-                      }),
-                      _c("loadMoreButton", {
-                        staticClass: "my-8",
-                        attrs: { loadMore: _vm.loadMore }
-                      })
-                    ],
-                    1
-                  )
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSearch,
+                      expression: "isSearch"
+                    }
+                  ]
+                },
+                [_c("SearchForm", { staticClass: "my-12" })],
+                1
+              ),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isSearch,
+                      expression: "!isSearch"
+                    }
+                  ]
+                },
+                [
+                  _c("SitePost", {
+                    staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
+                    attrs: { siteName: _vm.siteName, postSlug: _vm.postSlug }
+                  }),
+                  _c("PostList", {
+                    staticClass: "my-8",
+                    attrs: { posts: _vm.filteredPosts }
+                  }),
+                  _c("loadMoreButton", {
+                    staticClass: "my-8",
+                    attrs: { loadMore: _vm.loadMore }
+                  })
+                ],
+                1
+              )
             ]
           )
         ],
@@ -5616,29 +5677,52 @@ var render = function() {
             "v-col",
             { staticClass: "px-0 px-sm-3", attrs: { cols: "12", sm: "11" } },
             [
-              _vm.isSearch
-                ? _c("section", [_c("SearchForm")], 1)
-                : _c(
-                    "section",
-                    [
-                      _c("PostGrid5", {
-                        staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
-                        attrs: {
-                          posts: _vm.sortedPosts.slice(0, 5),
-                          title: "Последние новости"
-                        }
-                      }),
-                      _c("PostList", {
-                        staticClass: "my-8",
-                        attrs: { posts: _vm.sortedPosts.slice(5) }
-                      }),
-                      _c("loadMoreButton", {
-                        staticClass: "my-8",
-                        attrs: { loadMore: _vm.loadMore }
-                      })
-                    ],
-                    1
-                  )
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSearch,
+                      expression: "isSearch"
+                    }
+                  ]
+                },
+                [_c("SearchForm")],
+                1
+              ),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isSearch,
+                      expression: "!isSearch"
+                    }
+                  ]
+                },
+                [
+                  _c("PostGrid5", {
+                    staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
+                    attrs: {
+                      posts: _vm.sortedPosts.slice(0, 5),
+                      title: "Последние новости"
+                    }
+                  }),
+                  _c("PostList", {
+                    staticClass: "my-8",
+                    attrs: { posts: _vm.sortedPosts.slice(5) }
+                  }),
+                  _c("loadMoreButton", {
+                    staticClass: "my-8",
+                    attrs: { loadMore: _vm.loadMore }
+                  })
+                ],
+                1
+              )
             ]
           )
         ],
@@ -5682,56 +5766,76 @@ var render = function() {
             "v-col",
             { staticClass: "px-0 px-sm-3", attrs: { cols: "12", sm: "11" } },
             [
-              _vm.isSearch
-                ? _c("section", [_c("SearchForm")], 1)
-                : _c(
-                    "section",
-                    [
-                      _vm.tag
-                        ? _c(
-                            "v-chip",
-                            {
-                              staticClass: "my-12 mr-1",
-                              attrs: { dark: "", disabled: "" }
-                            },
-                            [_vm._v("Тег")]
-                          )
-                        : _vm._e(),
-                      _vm.tag
-                        ? _c(
-                            "v-chip",
-                            { staticClass: "my-12", attrs: { dark: "" } },
-                            [_vm._v(_vm._s(_vm.tag.name.toUpperCase()))]
-                          )
-                        : _c(
-                            "div",
-                            { staticClass: "d-flex" },
-                            [
-                              _c("v-skeleton-loader", {
-                                staticClass: "my-12 mr-1",
-                                attrs: { type: "chip" }
-                              }),
-                              _c("v-skeleton-loader", {
-                                staticClass: "my-12",
-                                attrs: { type: "chip" }
-                              })
-                            ],
-                            1
-                          ),
-                      _c("PostList", {
-                        staticClass: "my-8",
-                        attrs: {
-                          posts: _vm.postListPosts,
-                          siteName: _vm.siteName
-                        }
-                      }),
-                      _c("loadMoreButton", {
-                        staticClass: "my-8",
-                        attrs: { loadMore: _vm.loadMore }
-                      })
-                    ],
-                    1
-                  )
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isSearch,
+                      expression: "isSearch"
+                    }
+                  ]
+                },
+                [_c("SearchForm")],
+                1
+              ),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.isSearch,
+                      expression: "!isSearch"
+                    }
+                  ]
+                },
+                [
+                  _vm.tag
+                    ? _c(
+                        "v-chip",
+                        {
+                          staticClass: "my-12 mr-1",
+                          attrs: { dark: "", disabled: "" }
+                        },
+                        [_vm._v("Тег")]
+                      )
+                    : _vm._e(),
+                  _vm.tag
+                    ? _c(
+                        "v-chip",
+                        { staticClass: "my-12", attrs: { dark: "" } },
+                        [_vm._v(_vm._s(_vm.tag.name.toUpperCase()))]
+                      )
+                    : _c(
+                        "div",
+                        { staticClass: "d-flex" },
+                        [
+                          _c("v-skeleton-loader", {
+                            staticClass: "my-12 mr-1",
+                            attrs: { type: "chip" }
+                          }),
+                          _c("v-skeleton-loader", {
+                            staticClass: "my-12",
+                            attrs: { type: "chip" }
+                          })
+                        ],
+                        1
+                      ),
+                  _c("PostList", {
+                    staticClass: "my-8",
+                    attrs: { posts: _vm.postListPosts, siteName: _vm.siteName }
+                  }),
+                  _c("loadMoreButton", {
+                    staticClass: "my-8",
+                    attrs: { loadMore: _vm.loadMore }
+                  })
+                ],
+                1
+              )
             ]
           )
         ],
