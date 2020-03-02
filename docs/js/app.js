@@ -1022,6 +1022,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -1519,8 +1520,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'social-links',
+  props: {
+    top: {
+      type: Boolean,
+      default: true
+    },
+    bottom: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function data() {
     return {
       icons: [{
@@ -2467,14 +2479,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../config */ "./src/config.json");
 var _config__WEBPACK_IMPORTED_MODULE_17___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../config */ "./src/config.json", 1);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _components_blocks_PostGrid3__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/blocks/PostGrid3 */ "./src/components/blocks/PostGrid3.vue");
+/* harmony import */ var _components_blocks_PostGrid5__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/blocks/PostGrid5 */ "./src/components/blocks/PostGrid5.vue");
 /* harmony import */ var _components_blocks_PostGrid4__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../components/blocks/PostGrid4 */ "./src/components/blocks/PostGrid4.vue");
-/* harmony import */ var _components_blocks_PostGrid4Mix__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../components/blocks/PostGrid4Mix */ "./src/components/blocks/PostGrid4Mix.vue");
-/* harmony import */ var _components_blocks_PostGrid5__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../components/blocks/PostGrid5 */ "./src/components/blocks/PostGrid5.vue");
+/* harmony import */ var _components_blocks_PostGrid3__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../components/blocks/PostGrid3 */ "./src/components/blocks/PostGrid3.vue");
+/* harmony import */ var _components_blocks_PostGrid4Mix__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../components/blocks/PostGrid4Mix */ "./src/components/blocks/PostGrid4Mix.vue");
 /* harmony import */ var _components_blocks_PostList__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../components/blocks/PostList */ "./src/components/blocks/PostList.vue");
 /* harmony import */ var _components_WeatherCard__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../components/WeatherCard */ "./src/components/WeatherCard.vue");
 /* harmony import */ var _components_LoadMoreButton__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../components/LoadMoreButton */ "./src/components/LoadMoreButton.vue");
 /* harmony import */ var _components_blocks_SearchForm__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../components/blocks/SearchForm */ "./src/components/blocks/SearchForm.vue");
+/* harmony import */ var _components_SiteLogo__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../components/SiteLogo */ "./src/components/SiteLogo.vue");
 
 
 
@@ -2563,6 +2576,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2575,14 +2600,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    PostGrid3: _components_blocks_PostGrid3__WEBPACK_IMPORTED_MODULE_19__["default"],
+    PostGrid3: _components_blocks_PostGrid3__WEBPACK_IMPORTED_MODULE_21__["default"],
     PostGrid4: _components_blocks_PostGrid4__WEBPACK_IMPORTED_MODULE_20__["default"],
-    PostGrid5: _components_blocks_PostGrid5__WEBPACK_IMPORTED_MODULE_22__["default"],
-    PostGrid4Mix: _components_blocks_PostGrid4Mix__WEBPACK_IMPORTED_MODULE_21__["default"],
+    PostGrid5: _components_blocks_PostGrid5__WEBPACK_IMPORTED_MODULE_19__["default"],
+    PostGrid4Mix: _components_blocks_PostGrid4Mix__WEBPACK_IMPORTED_MODULE_22__["default"],
     PostList: _components_blocks_PostList__WEBPACK_IMPORTED_MODULE_23__["default"],
     WeatherCard: _components_WeatherCard__WEBPACK_IMPORTED_MODULE_24__["default"],
     LoadMoreButton: _components_LoadMoreButton__WEBPACK_IMPORTED_MODULE_25__["default"],
-    SearchForm: _components_blocks_SearchForm__WEBPACK_IMPORTED_MODULE_26__["default"]
+    SearchForm: _components_blocks_SearchForm__WEBPACK_IMPORTED_MODULE_26__["default"],
+    SiteLogo: _components_SiteLogo__WEBPACK_IMPORTED_MODULE_27__["default"]
   },
   data: function data() {
     return {
@@ -3423,7 +3449,10 @@ var render = function() {
                       )
                     ]
                   ),
-                  _c("SocialLinks", { staticClass: "my-8" }),
+                  _c("SocialLinks", {
+                    staticClass: "my-8",
+                    attrs: { top: "" }
+                  }),
                   _c(
                     "address",
                     {
@@ -3563,7 +3592,10 @@ var render = function() {
           flat: ""
         }
       }),
-      _c("SocialLinks", { staticClass: "d-none d-md-flex" }),
+      _c("SocialLinks", {
+        staticClass: "d-none d-md-flex",
+        attrs: { bottom: "" }
+      }),
       _c(
         "v-btn",
         {
@@ -4039,10 +4071,13 @@ var render = function() {
                 1
               ),
               _c(
-                "a",
+                "router-link",
                 {
                   staticClass: "site-logo_full__logo-text",
-                  attrs: { to: _vm.siteName ? "/" + _vm.siteName : "/" }
+                  attrs: {
+                    replace: "",
+                    to: _vm.siteName ? "/" + _vm.siteName : "/"
+                  }
                 },
                 [
                   _c(
@@ -4067,7 +4102,8 @@ var render = function() {
                   )
                 ]
               )
-            ]
+            ],
+            1
           )
         : _c(
             "v-row",
@@ -4486,7 +4522,11 @@ var render = function() {
         "v-tooltip",
         {
           key: icon.name,
-          attrs: { bottom: "", color: "rgba(255, 255, 255, 0)" },
+          attrs: {
+            bottom: _vm.bottom,
+            top: _vm.top,
+            color: "rgba(255, 255, 255, 0)"
+          },
           scopedSlots: _vm._u(
             [
               {
@@ -4670,7 +4710,10 @@ var render = function() {
                   ),
                   _c(
                     "v-row",
-                    { staticClass: "pb-3", attrs: { "no-gutters": "" } },
+                    {
+                      staticClass: "pb-3",
+                      attrs: { "no-gutters": "", justify: "center" }
+                    },
                     [
                       _c(
                         "v-col",
@@ -5632,8 +5675,30 @@ var render = function() {
                             staticClass: "mb-12",
                             attrs: { posts: _vm.lastPosts.slice(5, 7) }
                           }),
+                          _c(
+                            "v-row",
+                            {
+                              staticClass: "py-12",
+                              attrs: {
+                                justify: "space-around",
+                                align: "center"
+                              }
+                            },
+                            _vm._l(_vm.sites, function(site, i) {
+                              return _c("SiteLogo", {
+                                key: i,
+                                staticClass: "ma-2",
+                                attrs: {
+                                  hasText: "",
+                                  siteName: site.name,
+                                  dark: ""
+                                }
+                              })
+                            }),
+                            1
+                          ),
                           _c("PostGrid4", {
-                            staticClass: "my-12",
+                            staticClass: "mb-12",
                             attrs: {
                               posts: _vm.categoryTourism.slice(0, 4),
                               title: "Туризм"
@@ -6089,7 +6154,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".site-logo .site-logo__logo-wrapper[data-v-5b6624c2] {\n  width: 48px;\n  height: 48px;\n}\n.site-logo .dimmed[data-v-5b6624c2] {\n  -webkit-filter: brightness(0.5);\n          filter: brightness(0.5);\n}\n.site-logo .site-logo_full[data-v-5b6624c2] {\n  width: 220px;\n}\n.site-logo .site-logo_full__logo-text[data-v-5b6624c2] {\n  height: 48px;\n  border-left: 2px solid #525252;\n  color: white;\n}", ""]);
+exports.push([module.i, ".site-logo .site-logo__logo-wrapper[data-v-5b6624c2] {\n  width: 48px;\n  height: 48px;\n}\n.site-logo .dimmed[data-v-5b6624c2] {\n  -webkit-filter: brightness(0.5);\n          filter: brightness(0.5);\n}\n.site-logo .site-logo_full[data-v-5b6624c2] {\n  width: 220px;\n}\n.site-logo .site-logo_full__logo-text[data-v-5b6624c2] {\n  height: 48px;\n  border-left: 2px solid #525252;\n  color: white;\n  text-decoration: none;\n}", ""]);
 // Exports
 module.exports = exports;
 

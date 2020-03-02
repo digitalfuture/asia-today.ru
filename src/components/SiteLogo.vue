@@ -26,7 +26,8 @@
       </div>
 
       <!-- Logo text -->
-      <a
+      <router-link
+        replace
         :to="siteName ? '/' + siteName : '/'"
         class="site-logo_full__logo-text"
       >
@@ -37,7 +38,7 @@
           ></div>
           <div class="font-weight-thin">СЕГОДНЯ</div>
         </div>
-      </a>
+      </router-link>
     </v-row>
 
     <!-- Logo without text -->
@@ -122,6 +123,7 @@ export default {
       height: 48px;
       border-left: 2px solid #525252;
       color: white;
+      text-decoration: none;
     }
   }
 }

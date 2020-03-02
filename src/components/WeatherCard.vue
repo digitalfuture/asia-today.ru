@@ -44,7 +44,7 @@
           </v-col>
         </v-row>
 
-        <v-row no-gutters class="pb-3">
+        <v-row no-gutters justify="center" class="pb-3">
           <v-col cols="9">
             <v-list-item two-line class="pr-0">
               <v-list-item-content>
