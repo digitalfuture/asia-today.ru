@@ -8,6 +8,7 @@
       class="site-logo_full pa-2"
     >
       <!-- logo icon -->
+
       <div class="pl-4 pr-3">
         <v-btn
           fab
@@ -42,36 +43,40 @@
     <!-- Logo without text -->
     <v-row v-else align="center" justify="center">
       <!-- logo icon -->
-      <div class="pl-4 pr-2">
-        <v-tooltip
-          top
-          :disabled="!siteName"
-          color="rgba(255, 255, 255, 0)"
-          content-class="site-logo__tooltip"
-        >
-          <template v-slot:activator="{ on }">
-            <v-btn
-              fab
-              class="site-logo__logo-wrapper black"
-              v-on="siteName ? on : false"
-              :to="siteName ? '/' + siteName : '/'"
-            >
-              <v-img
-                :src="
-                  siteName ? siteLogo : '/img/icons/android-icon-192x192.png'
-                "
-                class="site-logo__logo-image"
-                width="48"
-                height="48"
-                contain
-              ></v-img>
-            </v-btn>
-          </template>
-          <v-chip v-if="siteName" dark small>{{
-            siteNameRu.toUpperCase()
-          }}</v-chip>
-        </v-tooltip>
-      </div>
+      <v-hover v-slot:default="{ hover }">
+        <div class="pl-4 pr-2">
+          <v-tooltip
+            top
+            :disabled="!siteName"
+            color="rgba(255, 255, 255, 0)"
+            content-class="site-logo__tooltip"
+          >
+            <template v-slot:activator="{ on }">
+              <v-btn
+                fab
+                class="site-logo__logo-wrapper black"
+                :class="{ dimmed: !hover && !siteName }"
+                v-on="siteName ? on : false"
+                :to="siteName ? '/' + siteName : '/'"
+              >
+                <v-img
+                  :src="
+                    siteName ? siteLogo : '/img/icons/android-icon-192x192.png'
+                  "
+                  class="site-logo__logo-image"
+                  width="48"
+                  height="48"
+                  contain
+                ></v-img>
+              </v-btn>
+            </template>
+
+            <v-chip v-if="siteName" dark small>{{
+              siteNameRu.toUpperCase()
+            }}</v-chip>
+          </v-tooltip>
+        </div>
+      </v-hover>
     </v-row>
   </div>
 </template>
@@ -91,7 +96,9 @@ export default {
       return `/shared/img/logo-${this.siteName}-icon.png`
     },
     siteNameRu() {
-      return this.sites.find(site => site.name === this.siteName).nameRu
+      return this.sites.find(site => site.name === this.siteName)
+        ? this.sites.find(site => site.name === this.siteName).nameRu
+        : ''
     }
   }
 }
@@ -102,6 +109,10 @@ export default {
   .site-logo__logo-wrapper {
     width: 48px;
     height: 48px;
+  }
+
+  .dimmed {
+    filter: brightness(0.5);
   }
 
   .site-logo_full {

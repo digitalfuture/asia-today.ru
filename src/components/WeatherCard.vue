@@ -115,7 +115,7 @@ export default {
         .toLocaleString(DateTime.DATETIME_MED)
     },
     getIcon(id) {
-      return `http://openweathermap.org/img/wn/${id}@2x.png`
+      return `https://openweathermap.org/img/wn/${id}@2x.png`
     },
     fetchWeather() {
       fetch(

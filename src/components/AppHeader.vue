@@ -17,20 +17,14 @@
       >
     </v-btn>
 
-    <v-hover v-slot:default="{ hover }">
-      <SiteLogo
-        v-if="$route.name === 'sitePage'"
-        :class="{ dimmed: !hover }"
-        flat
-      ></SiteLogo>
-    </v-hover>
+    <SiteLogo v-if="$route.name === 'sitePage'" flat />
 
     <SiteLogo
       hasText
       :siteName="$route.name === 'homePage' ? null : $route.params.siteName"
       class="ml-sm-12"
       flat
-    ></SiteLogo>
+    />
 
     <SocialLinks class="d-none d-md-flex" />
 
@@ -89,10 +83,6 @@ export default {
 .app-header {
   .progress-bar {
     bottom: -4px !important;
-  }
-
-  .dimmed {
-    filter: brightness(0.5);
   }
 
   .disabled {
