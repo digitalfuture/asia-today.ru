@@ -18,10 +18,21 @@
             <v-col cols="12" lg="9">
               <PostList :posts="lastPosts.slice(5, 7)" class="mb-12" />
 
+              <v-row justify="space-around" align="center" class="py-12">
+                <SiteLogo
+                  v-for="(site, i) in sites"
+                  :key="i"
+                  hasText
+                  :siteName="site.name"
+                  class="ma-2"
+                  dark
+                />
+              </v-row>
+
               <PostGrid4
                 :posts="categoryTourism.slice(0, 4)"
                 title="Туризм"
-                class="my-12"
+                class="mb-12"
               />
 
               <PostGrid4Mix
@@ -68,14 +79,15 @@
 import { categories } from '../config'
 import { mapState, mapActions } from 'vuex'
 
-import PostGrid3 from '../components/blocks/PostGrid3'
-import PostGrid4 from '../components/blocks/PostGrid4'
-import PostGrid4Mix from '../components/blocks/PostGrid4Mix'
 import PostGrid5 from '../components/blocks/PostGrid5'
+import PostGrid4 from '../components/blocks/PostGrid4'
+import PostGrid3 from '../components/blocks/PostGrid3'
+import PostGrid4Mix from '../components/blocks/PostGrid4Mix'
 import PostList from '../components/blocks/PostList'
 import WeatherCard from '../components/WeatherCard'
 import LoadMoreButton from '../components/LoadMoreButton'
 import SearchForm from '../components/blocks/SearchForm'
+import SiteLogo from '../components/SiteLogo'
 
 export default {
   components: {
@@ -86,7 +98,8 @@ export default {
     PostList,
     WeatherCard,
     LoadMoreButton,
-    SearchForm
+    SearchForm,
+    SiteLogo
   },
   data: () => ({
     lastPosts: [
