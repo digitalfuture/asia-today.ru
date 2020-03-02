@@ -26,7 +26,7 @@
       flat
     />
 
-    <SocialLinks class="d-none d-md-flex" />
+    <SocialLinks class="d-none d-md-flex" bottom />
 
     <v-btn
       @click="handleSearchClick"

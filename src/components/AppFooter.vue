@@ -56,7 +56,7 @@
             Происшествия. Полезная информация.
           </p>
 
-          <SocialLinks class="my-8" />
+          <SocialLinks class="my-8" top />
 
           <address
             class="mb-8 app-footer__address font-weight-light blue-grey--text text--darken-1"

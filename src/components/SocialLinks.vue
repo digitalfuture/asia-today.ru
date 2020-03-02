@@ -3,7 +3,8 @@
     <v-tooltip
       v-for="icon of icons"
       :key="icon.name"
-      bottom
+      :bottom="bottom"
+      :top="top"
       color="rgba(255, 255, 255, 0)"
     >
       <template v-slot:activator="{ on }">
@@ -32,6 +33,10 @@
 <script>
 export default {
   name: 'social-links',
+  props: {
+    top: { type: Boolean, default: true },
+    bottom: { type: Boolean, default: false }
+  },
   data() {
     return {
       icons: [

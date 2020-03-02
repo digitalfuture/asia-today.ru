@@ -39,7 +39,7 @@
                   v-on="on"
                 ></v-img>
               </template>
-              <v-chip dark small>{{ item.description }}</v-chip>
+              <v-chip dark small>{{ item.description.toUpperCase() }}</v-chip>
             </v-tooltip>
           </v-col>
         </v-row>
