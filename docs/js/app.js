@@ -1661,21 +1661,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'weather-card',
@@ -1714,7 +1699,7 @@ __webpack_require__.r(__webpack_exports__);
       this.dateTime = this.getDate(results.timezone);
       this.city = results.name;
       this.temp = Math.round(results.main.temp);
-      this.feelsLike = results.main.feels_like;
+      this.feelsLike = Math.round(results.main.feels_like);
       this.pressure = results.main.pressure;
       this.wind = results.wind.speed;
       this.humidity = results.main.humidity;
@@ -3442,7 +3427,7 @@ var render = function() {
                     "address",
                     {
                       staticClass:
-                        "mb-8 app-footer__address ont-weight-light blue-grey--text text--darken-4"
+                        "mb-8 app-footer__address font-weight-light blue-grey--text text--darken-1"
                     },
                     [
                       _vm._v(" email: "),
@@ -4606,34 +4591,60 @@ var render = function() {
                   _c(
                     "v-row",
                     { attrs: { "no-gutters": "" } },
-                    [
-                      _c(
+                    _vm._l(_vm.weather, function(item) {
+                      return _c(
                         "v-col",
+                        { key: item.id, attrs: { cols: "3" } },
                         [
                           _c(
-                            "v-list-item-subtitle",
-                            { staticClass: "caption" },
-                            _vm._l(_vm.weather, function(item, index) {
-                              return _c("v-list-item", { key: item.id }, [
-                                _vm._v(
-                                  " " +
-                                    _vm._s(
-                                      "" +
-                                        item.description.toUpperCase() +
-                                        (index === _vm.weather.length - 1
-                                          ? ""
-                                          : ",")
-                                    ) +
-                                    " "
-                                )
+                            "v-tooltip",
+                            {
+                              staticClass: "pl-0",
+                              attrs: {
+                                top: "",
+                                color: "rgba(255, 255, 255, 0)",
+                                "content-class": "weather-card__tooltip"
+                              },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "activator",
+                                    fn: function(ref) {
+                                      var on = ref.on
+                                      return [
+                                        _c(
+                                          "v-img",
+                                          _vm._g(
+                                            {
+                                              attrs: {
+                                                src: _vm.getIcon(item.icon),
+                                                alt: "" + item.description,
+                                                height: "80",
+                                                width: "80"
+                                              }
+                                            },
+                                            on
+                                          )
+                                        )
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                true
+                              )
+                            },
+                            [
+                              _c("v-chip", { attrs: { dark: "", small: "" } }, [
+                                _vm._v(_vm._s(item.description))
                               ])
-                            }),
+                            ],
                             1
                           )
                         ],
                         1
                       )
-                    ],
+                    }),
                     1
                   ),
                   _c(
@@ -4677,60 +4688,6 @@ var render = function() {
                             1
                           )
                         ],
-                        1
-                      ),
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "3" } },
-                        _vm._l(_vm.weather, function(item) {
-                          return _c(
-                            "v-tooltip",
-                            {
-                              key: item.id,
-                              staticClass: "pl-0",
-                              attrs: {
-                                cols: "12",
-                                top: "",
-                                color: "rgba(255, 255, 255, 0)",
-                                "content-class": "weather-card__tooltip"
-                              },
-                              scopedSlots: _vm._u(
-                                [
-                                  {
-                                    key: "activator",
-                                    fn: function(ref) {
-                                      var on = ref.on
-                                      return [
-                                        _c(
-                                          "v-img",
-                                          _vm._g(
-                                            {
-                                              attrs: {
-                                                src: _vm.getIcon(item.icon),
-                                                alt: "" + item.description,
-                                                height: "80",
-                                                width: "80"
-                                              }
-                                            },
-                                            on
-                                          )
-                                        )
-                                      ]
-                                    }
-                                  }
-                                ],
-                                null,
-                                true
-                              )
-                            },
-                            [
-                              _c("v-chip", { attrs: { dark: "", small: "" } }, [
-                                _vm._v(_vm._s(item.description))
-                              ])
-                            ],
-                            1
-                          )
-                        }),
                         1
                       )
                     ],

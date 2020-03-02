@@ -59,7 +59,7 @@
           <SocialLinks class="my-8" />
 
           <address
-            class="mb-8 app-footer__address ont-weight-light blue-grey--text text--darken-4"
+            class="mb-8 app-footer__address font-weight-light blue-grey--text text--darken-1"
           >
             email:
             <a

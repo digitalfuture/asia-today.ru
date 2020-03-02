@@ -23,16 +23,24 @@
 
       <v-container>
         <v-row no-gutters>
-          <v-col>
-            <v-list-item-subtitle class="caption">
-              <v-list-item v-for="(item, index) of weather" :key="item.id">
-                {{
-                  `${item.description.toUpperCase()}${
-                    index === weather.length - 1 ? '' : ','
-                  }`
-                }}
-              </v-list-item>
-            </v-list-item-subtitle>
+          <v-col cols="3" v-for="item of weather" :key="item.id">
+            <v-tooltip
+              class="pl-0"
+              top
+              color="rgba(255, 255, 255, 0)"
+              content-class="weather-card__tooltip"
+            >
+              <template v-slot:activator="{ on }">
+                <v-img
+                  :src="getIcon(item.icon)"
+                  :alt="`${item.description}`"
+                  height="80"
+                  width="80"
+                  v-on="on"
+                ></v-img>
+              </template>
+              <v-chip dark small>{{ item.description }}</v-chip>
+            </v-tooltip>
           </v-col>
         </v-row>
 
@@ -50,29 +58,6 @@
                 </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
-          </v-col>
-
-          <v-col cols="3">
-            <v-tooltip
-              v-for="item of weather"
-              :key="item.id"
-              cols="12"
-              class="pl-0"
-              top
-              color="rgba(255, 255, 255, 0)"
-              content-class="weather-card__tooltip"
-            >
-              <template v-slot:activator="{ on }">
-                <v-img
-                  :src="getIcon(item.icon)"
-                  :alt="`${item.description}`"
-                  height="80"
-                  width="80"
-                  v-on="on"
-                ></v-img>
-              </template>
-              <v-chip dark small>{{ item.description }}</v-chip>
-            </v-tooltip>
           </v-col>
         </v-row>
 
@@ -144,7 +129,7 @@ export default {
       this.dateTime = this.getDate(results.timezone)
       this.city = results.name
       this.temp = Math.round(results.main.temp)
-      this.feelsLike = results.main.feels_like
+      this.feelsLike = Math.round(results.main.feels_like)
       this.pressure = results.main.pressure
       this.wind = results.wind.speed
       this.humidity = results.main.humidity

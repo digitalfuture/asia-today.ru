@@ -96,8 +96,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic');
-
 .site-container {
   display: flex;
   flex-wrap: wrap;
@@ -132,7 +130,6 @@ export default {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  text-transform: uppercase;
 }
 .site-container__image {
   position: absolute;
