@@ -144,7 +144,7 @@ export default {
       this.dateTime = this.getDate(results.timezone)
       this.city = results.name
       this.temp = Math.round(results.main.temp)
-      this.feelsLike = results.main.feels_like
+      this.feelsLike = Math.round(results.main.feels_like)
       this.pressure = results.main.pressure
       this.wind = results.wind.speed
       this.humidity = results.main.humidity

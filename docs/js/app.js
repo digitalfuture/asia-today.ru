@@ -1714,7 +1714,7 @@ __webpack_require__.r(__webpack_exports__);
       this.dateTime = this.getDate(results.timezone);
       this.city = results.name;
       this.temp = Math.round(results.main.temp);
-      this.feelsLike = results.main.feels_like;
+      this.feelsLike = Math.round(results.main.feels_like);
       this.pressure = results.main.pressure;
       this.wind = results.wind.speed;
       this.humidity = results.main.humidity;
@@ -3442,7 +3442,7 @@ var render = function() {
                     "address",
                     {
                       staticClass:
-                        "mb-8 app-footer__address ont-weight-light blue-grey--text text--darken-4"
+                        "mb-8 app-footer__address font-weight-light blue-grey--text text--darken-1"
                     },
                     [
                       _vm._v(" email: "),

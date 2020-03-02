@@ -48,8 +48,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap&subset=cyrillic');
-
 .site-container {
   display: flex;
   flex-wrap: wrap;
@@ -93,6 +91,7 @@ export default {
   width: 50px;
   height: 50px;
 }
+
 .site-container__logo-text {
   text-align: left;
   padding: 4px 16px;

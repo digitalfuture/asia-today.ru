@@ -177,9 +177,9 @@
 }
 
 .vietnam p a,
-.vietnam p li a,
+.vietnam ul a,
 .vietnam p a:active,
-.vietnam p li a:active {
+.vietnam p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(104, 215, 88, 0.5) 0%, rgba(104, 215, 88, 0.5) 100%);
   background-repeat: no-repeat;
@@ -189,20 +189,20 @@
   color: #424242 !important;
 }
 .vietnam p a:hover, .vietnam p a:visited,
-.vietnam p li a:hover,
-.vietnam p li a:visited,
+.vietnam ul a:hover,
+.vietnam ul a:visited,
 .vietnam p a:active:hover,
 .vietnam p a:active:visited,
-.vietnam p li a:active:hover,
-.vietnam p li a:active:visited {
+.vietnam p ul a:active:hover,
+.vietnam p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .nepal p a,
-.nepal p li a,
+.nepal ul a,
 .nepal p a:active,
-.nepal p li a:active {
+.nepal p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(77, 178, 236, 0.5) 0%, rgba(77, 178, 236, 0.5) 100%);
   background-repeat: no-repeat;
@@ -212,20 +212,20 @@
   color: #424242 !important;
 }
 .nepal p a:hover, .nepal p a:visited,
-.nepal p li a:hover,
-.nepal p li a:visited,
+.nepal ul a:hover,
+.nepal ul a:visited,
 .nepal p a:active:hover,
 .nepal p a:active:visited,
-.nepal p li a:active:hover,
-.nepal p li a:active:visited {
+.nepal p ul a:active:hover,
+.nepal p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .thailand p a,
-.thailand p li a,
+.thailand ul a,
 .thailand p a:active,
-.thailand p li a:active {
+.thailand p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(187, 134, 252, 0.5) 0%, rgba(187, 134, 252, 0.5) 100%);
   background-repeat: no-repeat;
@@ -235,20 +235,20 @@
   color: #424242 !important;
 }
 .thailand p a:hover, .thailand p a:visited,
-.thailand p li a:hover,
-.thailand p li a:visited,
+.thailand ul a:hover,
+.thailand ul a:visited,
 .thailand p a:active:hover,
 .thailand p a:active:visited,
-.thailand p li a:active:hover,
-.thailand p li a:active:visited {
+.thailand p ul a:active:hover,
+.thailand p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .philippines p a,
-.philippines p li a,
+.philippines ul a,
 .philippines p a:active,
-.philippines p li a:active {
+.philippines p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(3, 218, 198, 0.5) 0%, rgba(3, 218, 198, 0.5) 100%);
   background-repeat: no-repeat;
@@ -258,20 +258,20 @@
   color: #424242 !important;
 }
 .philippines p a:hover, .philippines p a:visited,
-.philippines p li a:hover,
-.philippines p li a:visited,
+.philippines ul a:hover,
+.philippines ul a:visited,
 .philippines p a:active:hover,
 .philippines p a:active:visited,
-.philippines p li a:active:hover,
-.philippines p li a:active:visited {
+.philippines p ul a:active:hover,
+.philippines p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .japan p a,
-.japan p li a,
+.japan ul a,
 .japan p a:active,
-.japan p li a:active {
+.japan p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 204, 0.5) 0%, rgba(255, 204, 204, 0.5) 100%);
   background-repeat: no-repeat;
@@ -281,20 +281,20 @@
   color: #424242 !important;
 }
 .japan p a:hover, .japan p a:visited,
-.japan p li a:hover,
-.japan p li a:visited,
+.japan ul a:hover,
+.japan ul a:visited,
 .japan p a:active:hover,
 .japan p a:active:visited,
-.japan p li a:active:hover,
-.japan p li a:active:visited {
+.japan p ul a:active:hover,
+.japan p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .china p a,
-.china p li a,
+.china ul a,
 .china p a:active,
-.china p li a:active {
+.china p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0.5) 100%);
   background-repeat: no-repeat;
@@ -304,20 +304,20 @@
   color: #424242 !important;
 }
 .china p a:hover, .china p a:visited,
-.china p li a:hover,
-.china p li a:visited,
+.china ul a:hover,
+.china ul a:visited,
 .china p a:active:hover,
 .china p a:active:visited,
-.china p li a:active:hover,
-.china p li a:active:visited {
+.china p ul a:active:hover,
+.china p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .cambodia p a,
-.cambodia p li a,
+.cambodia ul a,
 .cambodia p a:active,
-.cambodia p li a:active {
+.cambodia p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 153, 0.5) 0%, rgba(255, 204, 153, 0.5) 100%);
   background-repeat: no-repeat;
@@ -327,20 +327,20 @@
   color: #424242 !important;
 }
 .cambodia p a:hover, .cambodia p a:visited,
-.cambodia p li a:hover,
-.cambodia p li a:visited,
+.cambodia ul a:hover,
+.cambodia ul a:visited,
 .cambodia p a:active:hover,
 .cambodia p a:active:visited,
-.cambodia p li a:active:hover,
-.cambodia p li a:active:visited {
+.cambodia p ul a:active:hover,
+.cambodia p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .sri-lanka p a,
-.sri-lanka p li a,
+.sri-lanka ul a,
 .sri-lanka p a:active,
-.sri-lanka p li a:active {
+.sri-lanka p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 102, 51, 0.5) 0%, rgba(255, 102, 51, 0.5) 100%);
   background-repeat: no-repeat;
@@ -350,20 +350,20 @@
   color: #424242 !important;
 }
 .sri-lanka p a:hover, .sri-lanka p a:visited,
-.sri-lanka p li a:hover,
-.sri-lanka p li a:visited,
+.sri-lanka ul a:hover,
+.sri-lanka ul a:visited,
 .sri-lanka p a:active:hover,
 .sri-lanka p a:active:visited,
-.sri-lanka p li a:active:hover,
-.sri-lanka p li a:active:visited {
+.sri-lanka p ul a:active:hover,
+.sri-lanka p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .india p a,
-.india p li a,
+.india ul a,
 .india p a:active,
-.india p li a:active {
+.india p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 153, 51, 0.5) 0%, rgba(255, 153, 51, 0.5) 100%);
   background-repeat: no-repeat;
@@ -373,20 +373,20 @@
   color: #424242 !important;
 }
 .india p a:hover, .india p a:visited,
-.india p li a:hover,
-.india p li a:visited,
+.india ul a:hover,
+.india ul a:visited,
 .india p a:active:hover,
 .india p a:active:visited,
-.india p li a:active:hover,
-.india p li a:active:visited {
+.india p ul a:active:hover,
+.india p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .singapore p a,
-.singapore p li a,
+.singapore ul a,
 .singapore p a:active,
-.singapore p li a:active {
+.singapore p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 0, 102, 0.5) 0%, rgba(255, 0, 102, 0.5) 100%);
   background-repeat: no-repeat;
@@ -396,20 +396,20 @@
   color: #424242 !important;
 }
 .singapore p a:hover, .singapore p a:visited,
-.singapore p li a:hover,
-.singapore p li a:visited,
+.singapore ul a:hover,
+.singapore ul a:visited,
 .singapore p a:active:hover,
 .singapore p a:active:visited,
-.singapore p li a:active:hover,
-.singapore p li a:active:visited {
+.singapore p ul a:active:hover,
+.singapore p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .malaysia p a,
-.malaysia p li a,
+.malaysia ul a,
 .malaysia p a:active,
-.malaysia p li a:active {
+.malaysia p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(0, 204, 255, 0.5) 0%, rgba(0, 204, 255, 0.5) 100%);
   background-repeat: no-repeat;
@@ -419,20 +419,20 @@
   color: #424242 !important;
 }
 .malaysia p a:hover, .malaysia p a:visited,
-.malaysia p li a:hover,
-.malaysia p li a:visited,
+.malaysia ul a:hover,
+.malaysia ul a:visited,
 .malaysia p a:active:hover,
 .malaysia p a:active:visited,
-.malaysia p li a:active:hover,
-.malaysia p li a:active:visited {
+.malaysia p ul a:active:hover,
+.malaysia p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .korea p a,
-.korea p li a,
+.korea ul a,
 .korea p a:active,
-.korea p li a:active {
+.korea p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 153, 255, 0.5) 0%, rgba(255, 153, 255, 0.5) 100%);
   background-repeat: no-repeat;
@@ -442,20 +442,20 @@
   color: #424242 !important;
 }
 .korea p a:hover, .korea p a:visited,
-.korea p li a:hover,
-.korea p li a:visited,
+.korea ul a:hover,
+.korea ul a:visited,
 .korea p a:active:hover,
 .korea p a:active:visited,
-.korea p li a:active:hover,
-.korea p li a:active:visited {
+.korea p ul a:active:hover,
+.korea p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .myanmar p a,
-.myanmar p li a,
+.myanmar ul a,
 .myanmar p a:active,
-.myanmar p li a:active {
+.myanmar p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 0, 0.5) 0%, rgba(255, 204, 0, 0.5) 100%);
   background-repeat: no-repeat;
@@ -465,20 +465,20 @@
   color: #424242 !important;
 }
 .myanmar p a:hover, .myanmar p a:visited,
-.myanmar p li a:hover,
-.myanmar p li a:visited,
+.myanmar ul a:hover,
+.myanmar ul a:visited,
 .myanmar p a:active:hover,
 .myanmar p a:active:visited,
-.myanmar p li a:active:hover,
-.myanmar p li a:active:visited {
+.myanmar p ul a:active:hover,
+.myanmar p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
 .laos p a,
-.laos p li a,
+.laos ul a,
 .laos p a:active,
-.laos p li a:active {
+.laos p ul a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(154, 204, 204, 0.5) 0%, rgba(154, 204, 204, 0.5) 100%);
   background-repeat: no-repeat;
@@ -488,12 +488,12 @@
   color: #424242 !important;
 }
 .laos p a:hover, .laos p a:visited,
-.laos p li a:hover,
-.laos p li a:visited,
+.laos ul a:hover,
+.laos ul a:visited,
 .laos p a:active:hover,
 .laos p a:active:visited,
-.laos p li a:active:hover,
-.laos p li a:active:visited {
+.laos p ul a:active:hover,
+.laos p ul a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
