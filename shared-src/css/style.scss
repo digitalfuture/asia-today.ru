@@ -244,8 +244,10 @@ $countries: (
 );
 
 @each $country, $colors in $countries {
-  .#{$country} .td-ss-main-content a,
-  .#{$country} .td-ss-main-content a:active {
+  .#{$country} .td-post-content a,
+  .#{$country} .td-post-content a:active,
+  .#{$country} .td-page-content a,
+  .#{$country} .td-page-content a:active {
     text-decoration: none !important;
     background-image: linear-gradient(
       120deg,

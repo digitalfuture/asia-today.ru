@@ -176,8 +176,10 @@
   padding-right: 4px;
 }
 
-.vietnam .td-ss-main-content a,
-.vietnam .td-ss-main-content a:active {
+.vietnam .td-post-content a,
+.vietnam .td-post-content a:active,
+.vietnam .td-page-content a,
+.vietnam .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(104, 215, 88, 0.5) 0%, rgba(104, 215, 88, 0.5) 100%);
   background-repeat: no-repeat;
@@ -186,15 +188,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.vietnam .td-ss-main-content a:hover, .vietnam .td-ss-main-content a:visited,
-.vietnam .td-ss-main-content a:active:hover,
-.vietnam .td-ss-main-content a:active:visited {
+.vietnam .td-post-content a:hover, .vietnam .td-post-content a:visited,
+.vietnam .td-post-content a:active:hover,
+.vietnam .td-post-content a:active:visited,
+.vietnam .td-page-content a:hover,
+.vietnam .td-page-content a:visited,
+.vietnam .td-page-content a:active:hover,
+.vietnam .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.nepal .td-ss-main-content a,
-.nepal .td-ss-main-content a:active {
+.nepal .td-post-content a,
+.nepal .td-post-content a:active,
+.nepal .td-page-content a,
+.nepal .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(77, 178, 236, 0.5) 0%, rgba(77, 178, 236, 0.5) 100%);
   background-repeat: no-repeat;
@@ -203,15 +211,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.nepal .td-ss-main-content a:hover, .nepal .td-ss-main-content a:visited,
-.nepal .td-ss-main-content a:active:hover,
-.nepal .td-ss-main-content a:active:visited {
+.nepal .td-post-content a:hover, .nepal .td-post-content a:visited,
+.nepal .td-post-content a:active:hover,
+.nepal .td-post-content a:active:visited,
+.nepal .td-page-content a:hover,
+.nepal .td-page-content a:visited,
+.nepal .td-page-content a:active:hover,
+.nepal .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.thailand .td-ss-main-content a,
-.thailand .td-ss-main-content a:active {
+.thailand .td-post-content a,
+.thailand .td-post-content a:active,
+.thailand .td-page-content a,
+.thailand .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(187, 134, 252, 0.5) 0%, rgba(187, 134, 252, 0.5) 100%);
   background-repeat: no-repeat;
@@ -220,15 +234,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.thailand .td-ss-main-content a:hover, .thailand .td-ss-main-content a:visited,
-.thailand .td-ss-main-content a:active:hover,
-.thailand .td-ss-main-content a:active:visited {
+.thailand .td-post-content a:hover, .thailand .td-post-content a:visited,
+.thailand .td-post-content a:active:hover,
+.thailand .td-post-content a:active:visited,
+.thailand .td-page-content a:hover,
+.thailand .td-page-content a:visited,
+.thailand .td-page-content a:active:hover,
+.thailand .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.philippines .td-ss-main-content a,
-.philippines .td-ss-main-content a:active {
+.philippines .td-post-content a,
+.philippines .td-post-content a:active,
+.philippines .td-page-content a,
+.philippines .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(3, 218, 198, 0.5) 0%, rgba(3, 218, 198, 0.5) 100%);
   background-repeat: no-repeat;
@@ -237,15 +257,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.philippines .td-ss-main-content a:hover, .philippines .td-ss-main-content a:visited,
-.philippines .td-ss-main-content a:active:hover,
-.philippines .td-ss-main-content a:active:visited {
+.philippines .td-post-content a:hover, .philippines .td-post-content a:visited,
+.philippines .td-post-content a:active:hover,
+.philippines .td-post-content a:active:visited,
+.philippines .td-page-content a:hover,
+.philippines .td-page-content a:visited,
+.philippines .td-page-content a:active:hover,
+.philippines .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.japan .td-ss-main-content a,
-.japan .td-ss-main-content a:active {
+.japan .td-post-content a,
+.japan .td-post-content a:active,
+.japan .td-page-content a,
+.japan .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 204, 0.5) 0%, rgba(255, 204, 204, 0.5) 100%);
   background-repeat: no-repeat;
@@ -254,15 +280,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.japan .td-ss-main-content a:hover, .japan .td-ss-main-content a:visited,
-.japan .td-ss-main-content a:active:hover,
-.japan .td-ss-main-content a:active:visited {
+.japan .td-post-content a:hover, .japan .td-post-content a:visited,
+.japan .td-post-content a:active:hover,
+.japan .td-post-content a:active:visited,
+.japan .td-page-content a:hover,
+.japan .td-page-content a:visited,
+.japan .td-page-content a:active:hover,
+.japan .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.china .td-ss-main-content a,
-.china .td-ss-main-content a:active {
+.china .td-post-content a,
+.china .td-post-content a:active,
+.china .td-page-content a,
+.china .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0.5) 100%);
   background-repeat: no-repeat;
@@ -271,15 +303,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.china .td-ss-main-content a:hover, .china .td-ss-main-content a:visited,
-.china .td-ss-main-content a:active:hover,
-.china .td-ss-main-content a:active:visited {
+.china .td-post-content a:hover, .china .td-post-content a:visited,
+.china .td-post-content a:active:hover,
+.china .td-post-content a:active:visited,
+.china .td-page-content a:hover,
+.china .td-page-content a:visited,
+.china .td-page-content a:active:hover,
+.china .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.cambodia .td-ss-main-content a,
-.cambodia .td-ss-main-content a:active {
+.cambodia .td-post-content a,
+.cambodia .td-post-content a:active,
+.cambodia .td-page-content a,
+.cambodia .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 153, 0.5) 0%, rgba(255, 204, 153, 0.5) 100%);
   background-repeat: no-repeat;
@@ -288,15 +326,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.cambodia .td-ss-main-content a:hover, .cambodia .td-ss-main-content a:visited,
-.cambodia .td-ss-main-content a:active:hover,
-.cambodia .td-ss-main-content a:active:visited {
+.cambodia .td-post-content a:hover, .cambodia .td-post-content a:visited,
+.cambodia .td-post-content a:active:hover,
+.cambodia .td-post-content a:active:visited,
+.cambodia .td-page-content a:hover,
+.cambodia .td-page-content a:visited,
+.cambodia .td-page-content a:active:hover,
+.cambodia .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.sri-lanka .td-ss-main-content a,
-.sri-lanka .td-ss-main-content a:active {
+.sri-lanka .td-post-content a,
+.sri-lanka .td-post-content a:active,
+.sri-lanka .td-page-content a,
+.sri-lanka .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 102, 51, 0.5) 0%, rgba(255, 102, 51, 0.5) 100%);
   background-repeat: no-repeat;
@@ -305,15 +349,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.sri-lanka .td-ss-main-content a:hover, .sri-lanka .td-ss-main-content a:visited,
-.sri-lanka .td-ss-main-content a:active:hover,
-.sri-lanka .td-ss-main-content a:active:visited {
+.sri-lanka .td-post-content a:hover, .sri-lanka .td-post-content a:visited,
+.sri-lanka .td-post-content a:active:hover,
+.sri-lanka .td-post-content a:active:visited,
+.sri-lanka .td-page-content a:hover,
+.sri-lanka .td-page-content a:visited,
+.sri-lanka .td-page-content a:active:hover,
+.sri-lanka .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.india .td-ss-main-content a,
-.india .td-ss-main-content a:active {
+.india .td-post-content a,
+.india .td-post-content a:active,
+.india .td-page-content a,
+.india .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 153, 51, 0.5) 0%, rgba(255, 153, 51, 0.5) 100%);
   background-repeat: no-repeat;
@@ -322,15 +372,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.india .td-ss-main-content a:hover, .india .td-ss-main-content a:visited,
-.india .td-ss-main-content a:active:hover,
-.india .td-ss-main-content a:active:visited {
+.india .td-post-content a:hover, .india .td-post-content a:visited,
+.india .td-post-content a:active:hover,
+.india .td-post-content a:active:visited,
+.india .td-page-content a:hover,
+.india .td-page-content a:visited,
+.india .td-page-content a:active:hover,
+.india .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.singapore .td-ss-main-content a,
-.singapore .td-ss-main-content a:active {
+.singapore .td-post-content a,
+.singapore .td-post-content a:active,
+.singapore .td-page-content a,
+.singapore .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 0, 102, 0.5) 0%, rgba(255, 0, 102, 0.5) 100%);
   background-repeat: no-repeat;
@@ -339,15 +395,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.singapore .td-ss-main-content a:hover, .singapore .td-ss-main-content a:visited,
-.singapore .td-ss-main-content a:active:hover,
-.singapore .td-ss-main-content a:active:visited {
+.singapore .td-post-content a:hover, .singapore .td-post-content a:visited,
+.singapore .td-post-content a:active:hover,
+.singapore .td-post-content a:active:visited,
+.singapore .td-page-content a:hover,
+.singapore .td-page-content a:visited,
+.singapore .td-page-content a:active:hover,
+.singapore .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.malaysia .td-ss-main-content a,
-.malaysia .td-ss-main-content a:active {
+.malaysia .td-post-content a,
+.malaysia .td-post-content a:active,
+.malaysia .td-page-content a,
+.malaysia .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(0, 204, 255, 0.5) 0%, rgba(0, 204, 255, 0.5) 100%);
   background-repeat: no-repeat;
@@ -356,15 +418,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.malaysia .td-ss-main-content a:hover, .malaysia .td-ss-main-content a:visited,
-.malaysia .td-ss-main-content a:active:hover,
-.malaysia .td-ss-main-content a:active:visited {
+.malaysia .td-post-content a:hover, .malaysia .td-post-content a:visited,
+.malaysia .td-post-content a:active:hover,
+.malaysia .td-post-content a:active:visited,
+.malaysia .td-page-content a:hover,
+.malaysia .td-page-content a:visited,
+.malaysia .td-page-content a:active:hover,
+.malaysia .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.korea .td-ss-main-content a,
-.korea .td-ss-main-content a:active {
+.korea .td-post-content a,
+.korea .td-post-content a:active,
+.korea .td-page-content a,
+.korea .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 153, 255, 0.5) 0%, rgba(255, 153, 255, 0.5) 100%);
   background-repeat: no-repeat;
@@ -373,15 +441,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.korea .td-ss-main-content a:hover, .korea .td-ss-main-content a:visited,
-.korea .td-ss-main-content a:active:hover,
-.korea .td-ss-main-content a:active:visited {
+.korea .td-post-content a:hover, .korea .td-post-content a:visited,
+.korea .td-post-content a:active:hover,
+.korea .td-post-content a:active:visited,
+.korea .td-page-content a:hover,
+.korea .td-page-content a:visited,
+.korea .td-page-content a:active:hover,
+.korea .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.myanmar .td-ss-main-content a,
-.myanmar .td-ss-main-content a:active {
+.myanmar .td-post-content a,
+.myanmar .td-post-content a:active,
+.myanmar .td-page-content a,
+.myanmar .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(255, 204, 0, 0.5) 0%, rgba(255, 204, 0, 0.5) 100%);
   background-repeat: no-repeat;
@@ -390,15 +464,21 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.myanmar .td-ss-main-content a:hover, .myanmar .td-ss-main-content a:visited,
-.myanmar .td-ss-main-content a:active:hover,
-.myanmar .td-ss-main-content a:active:visited {
+.myanmar .td-post-content a:hover, .myanmar .td-post-content a:visited,
+.myanmar .td-post-content a:active:hover,
+.myanmar .td-post-content a:active:visited,
+.myanmar .td-page-content a:hover,
+.myanmar .td-page-content a:visited,
+.myanmar .td-page-content a:active:hover,
+.myanmar .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
 
-.laos .td-ss-main-content a,
-.laos .td-ss-main-content a:active {
+.laos .td-post-content a,
+.laos .td-post-content a:active,
+.laos .td-page-content a,
+.laos .td-page-content a:active {
   text-decoration: none !important;
   background-image: linear-gradient(120deg, rgba(154, 204, 204, 0.5) 0%, rgba(154, 204, 204, 0.5) 100%);
   background-repeat: no-repeat;
@@ -407,9 +487,13 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.laos .td-ss-main-content a:hover, .laos .td-ss-main-content a:visited,
-.laos .td-ss-main-content a:active:hover,
-.laos .td-ss-main-content a:active:visited {
+.laos .td-post-content a:hover, .laos .td-post-content a:visited,
+.laos .td-post-content a:active:hover,
+.laos .td-post-content a:active:visited,
+.laos .td-page-content a:hover,
+.laos .td-page-content a:visited,
+.laos .td-page-content a:active:hover,
+.laos .td-page-content a:active:visited {
   background-size: 100% 88%;
   text-decoration: none !important;
 }
