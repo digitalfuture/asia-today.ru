@@ -176,6 +176,8 @@
   padding-right: 4px;
 }
 
+.vietnam p a,
+.vietnam p a:active,
 .vietnam .td-post-content a,
 .vietnam .td-post-content a:active,
 .vietnam .td-page-content a,
@@ -188,7 +190,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.vietnam .td-post-content a:hover, .vietnam .td-post-content a:visited,
+.vietnam p a:hover, .vietnam p a:visited,
+.vietnam p a:active:hover,
+.vietnam p a:active:visited,
+.vietnam .td-post-content a:hover,
+.vietnam .td-post-content a:visited,
 .vietnam .td-post-content a:active:hover,
 .vietnam .td-post-content a:active:visited,
 .vietnam .td-page-content a:hover,
@@ -199,6 +205,8 @@
   text-decoration: none !important;
 }
 
+.nepal p a,
+.nepal p a:active,
 .nepal .td-post-content a,
 .nepal .td-post-content a:active,
 .nepal .td-page-content a,
@@ -211,7 +219,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.nepal .td-post-content a:hover, .nepal .td-post-content a:visited,
+.nepal p a:hover, .nepal p a:visited,
+.nepal p a:active:hover,
+.nepal p a:active:visited,
+.nepal .td-post-content a:hover,
+.nepal .td-post-content a:visited,
 .nepal .td-post-content a:active:hover,
 .nepal .td-post-content a:active:visited,
 .nepal .td-page-content a:hover,
@@ -222,6 +234,8 @@
   text-decoration: none !important;
 }
 
+.thailand p a,
+.thailand p a:active,
 .thailand .td-post-content a,
 .thailand .td-post-content a:active,
 .thailand .td-page-content a,
@@ -234,7 +248,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.thailand .td-post-content a:hover, .thailand .td-post-content a:visited,
+.thailand p a:hover, .thailand p a:visited,
+.thailand p a:active:hover,
+.thailand p a:active:visited,
+.thailand .td-post-content a:hover,
+.thailand .td-post-content a:visited,
 .thailand .td-post-content a:active:hover,
 .thailand .td-post-content a:active:visited,
 .thailand .td-page-content a:hover,
@@ -245,6 +263,8 @@
   text-decoration: none !important;
 }
 
+.philippines p a,
+.philippines p a:active,
 .philippines .td-post-content a,
 .philippines .td-post-content a:active,
 .philippines .td-page-content a,
@@ -257,7 +277,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.philippines .td-post-content a:hover, .philippines .td-post-content a:visited,
+.philippines p a:hover, .philippines p a:visited,
+.philippines p a:active:hover,
+.philippines p a:active:visited,
+.philippines .td-post-content a:hover,
+.philippines .td-post-content a:visited,
 .philippines .td-post-content a:active:hover,
 .philippines .td-post-content a:active:visited,
 .philippines .td-page-content a:hover,
@@ -268,6 +292,8 @@
   text-decoration: none !important;
 }
 
+.japan p a,
+.japan p a:active,
 .japan .td-post-content a,
 .japan .td-post-content a:active,
 .japan .td-page-content a,
@@ -280,7 +306,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.japan .td-post-content a:hover, .japan .td-post-content a:visited,
+.japan p a:hover, .japan p a:visited,
+.japan p a:active:hover,
+.japan p a:active:visited,
+.japan .td-post-content a:hover,
+.japan .td-post-content a:visited,
 .japan .td-post-content a:active:hover,
 .japan .td-post-content a:active:visited,
 .japan .td-page-content a:hover,
@@ -291,6 +321,8 @@
   text-decoration: none !important;
 }
 
+.china p a,
+.china p a:active,
 .china .td-post-content a,
 .china .td-post-content a:active,
 .china .td-page-content a,
@@ -303,7 +335,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.china .td-post-content a:hover, .china .td-post-content a:visited,
+.china p a:hover, .china p a:visited,
+.china p a:active:hover,
+.china p a:active:visited,
+.china .td-post-content a:hover,
+.china .td-post-content a:visited,
 .china .td-post-content a:active:hover,
 .china .td-post-content a:active:visited,
 .china .td-page-content a:hover,
@@ -314,6 +350,8 @@
   text-decoration: none !important;
 }
 
+.cambodia p a,
+.cambodia p a:active,
 .cambodia .td-post-content a,
 .cambodia .td-post-content a:active,
 .cambodia .td-page-content a,
@@ -326,7 +364,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.cambodia .td-post-content a:hover, .cambodia .td-post-content a:visited,
+.cambodia p a:hover, .cambodia p a:visited,
+.cambodia p a:active:hover,
+.cambodia p a:active:visited,
+.cambodia .td-post-content a:hover,
+.cambodia .td-post-content a:visited,
 .cambodia .td-post-content a:active:hover,
 .cambodia .td-post-content a:active:visited,
 .cambodia .td-page-content a:hover,
@@ -337,6 +379,8 @@
   text-decoration: none !important;
 }
 
+.sri-lanka p a,
+.sri-lanka p a:active,
 .sri-lanka .td-post-content a,
 .sri-lanka .td-post-content a:active,
 .sri-lanka .td-page-content a,
@@ -349,7 +393,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.sri-lanka .td-post-content a:hover, .sri-lanka .td-post-content a:visited,
+.sri-lanka p a:hover, .sri-lanka p a:visited,
+.sri-lanka p a:active:hover,
+.sri-lanka p a:active:visited,
+.sri-lanka .td-post-content a:hover,
+.sri-lanka .td-post-content a:visited,
 .sri-lanka .td-post-content a:active:hover,
 .sri-lanka .td-post-content a:active:visited,
 .sri-lanka .td-page-content a:hover,
@@ -360,6 +408,8 @@
   text-decoration: none !important;
 }
 
+.india p a,
+.india p a:active,
 .india .td-post-content a,
 .india .td-post-content a:active,
 .india .td-page-content a,
@@ -372,7 +422,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.india .td-post-content a:hover, .india .td-post-content a:visited,
+.india p a:hover, .india p a:visited,
+.india p a:active:hover,
+.india p a:active:visited,
+.india .td-post-content a:hover,
+.india .td-post-content a:visited,
 .india .td-post-content a:active:hover,
 .india .td-post-content a:active:visited,
 .india .td-page-content a:hover,
@@ -383,6 +437,8 @@
   text-decoration: none !important;
 }
 
+.singapore p a,
+.singapore p a:active,
 .singapore .td-post-content a,
 .singapore .td-post-content a:active,
 .singapore .td-page-content a,
@@ -395,7 +451,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.singapore .td-post-content a:hover, .singapore .td-post-content a:visited,
+.singapore p a:hover, .singapore p a:visited,
+.singapore p a:active:hover,
+.singapore p a:active:visited,
+.singapore .td-post-content a:hover,
+.singapore .td-post-content a:visited,
 .singapore .td-post-content a:active:hover,
 .singapore .td-post-content a:active:visited,
 .singapore .td-page-content a:hover,
@@ -406,6 +466,8 @@
   text-decoration: none !important;
 }
 
+.malaysia p a,
+.malaysia p a:active,
 .malaysia .td-post-content a,
 .malaysia .td-post-content a:active,
 .malaysia .td-page-content a,
@@ -418,7 +480,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.malaysia .td-post-content a:hover, .malaysia .td-post-content a:visited,
+.malaysia p a:hover, .malaysia p a:visited,
+.malaysia p a:active:hover,
+.malaysia p a:active:visited,
+.malaysia .td-post-content a:hover,
+.malaysia .td-post-content a:visited,
 .malaysia .td-post-content a:active:hover,
 .malaysia .td-post-content a:active:visited,
 .malaysia .td-page-content a:hover,
@@ -429,6 +495,8 @@
   text-decoration: none !important;
 }
 
+.korea p a,
+.korea p a:active,
 .korea .td-post-content a,
 .korea .td-post-content a:active,
 .korea .td-page-content a,
@@ -441,7 +509,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.korea .td-post-content a:hover, .korea .td-post-content a:visited,
+.korea p a:hover, .korea p a:visited,
+.korea p a:active:hover,
+.korea p a:active:visited,
+.korea .td-post-content a:hover,
+.korea .td-post-content a:visited,
 .korea .td-post-content a:active:hover,
 .korea .td-post-content a:active:visited,
 .korea .td-page-content a:hover,
@@ -452,6 +524,8 @@
   text-decoration: none !important;
 }
 
+.myanmar p a,
+.myanmar p a:active,
 .myanmar .td-post-content a,
 .myanmar .td-post-content a:active,
 .myanmar .td-page-content a,
@@ -464,7 +538,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.myanmar .td-post-content a:hover, .myanmar .td-post-content a:visited,
+.myanmar p a:hover, .myanmar p a:visited,
+.myanmar p a:active:hover,
+.myanmar p a:active:visited,
+.myanmar .td-post-content a:hover,
+.myanmar .td-post-content a:visited,
 .myanmar .td-post-content a:active:hover,
 .myanmar .td-post-content a:active:visited,
 .myanmar .td-page-content a:hover,
@@ -475,6 +553,8 @@
   text-decoration: none !important;
 }
 
+.laos p a,
+.laos p a:active,
 .laos .td-post-content a,
 .laos .td-post-content a:active,
 .laos .td-page-content a,
@@ -487,7 +567,11 @@
   transition: background-size 0.25s ease-in;
   color: #424242 !important;
 }
-.laos .td-post-content a:hover, .laos .td-post-content a:visited,
+.laos p a:hover, .laos p a:visited,
+.laos p a:active:hover,
+.laos p a:active:visited,
+.laos .td-post-content a:hover,
+.laos .td-post-content a:visited,
 .laos .td-post-content a:active:hover,
 .laos .td-post-content a:active:visited,
 .laos .td-page-content a:hover,

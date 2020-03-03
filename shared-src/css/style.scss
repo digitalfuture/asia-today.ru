@@ -244,6 +244,8 @@ $countries: (
 );
 
 @each $country, $colors in $countries {
+  .#{$country} p a,
+  .#{$country} p a:active,
   .#{$country} .td-post-content a,
   .#{$country} .td-post-content a:active,
   .#{$country} .td-page-content a,
