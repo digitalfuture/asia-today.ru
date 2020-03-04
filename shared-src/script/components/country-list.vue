@@ -6,6 +6,7 @@
       :href="`//${site.url}`"
       class="site-container__link"
       target="_blank"
+      rel="noopener"
     >
       <div class="site-container__block">
         <div class="site-container__wrapper">

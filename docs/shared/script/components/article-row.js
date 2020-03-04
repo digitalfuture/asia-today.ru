@@ -499,6 +499,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'article-row',
@@ -611,7 +612,7 @@ var render = function() {
         {
           key: article.siteUrl,
           staticClass: "site-container__link",
-          attrs: { href: article.link, target: "_blank" }
+          attrs: { href: article.link, target: "_blank", rel: "noopener" }
         },
         [
           _c("div", { staticClass: "site-container__block" }, [
