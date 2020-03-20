@@ -27,20 +27,22 @@
                     >
                   </div>
                   <!-- Extra small screens only -->
-                  <h1
-                    class="d-inline d-sm-none headline font-weight-light white--text"
-                    v-html="currentPost.title"
-                  ></h1>
-                  <!-- Small screens only -->
-                  <h1
-                    class="d-none d-sm-inline d-md-none display-1 font-weight-light white--text"
-                    v-html="currentPost.title"
-                  ></h1>
-                  <!-- Middle screens and up -->
-                  <h1
-                    class="d-none d-md-inline display-2 font-weight-light white--text"
-                    v-html="currentPost.title"
-                  ></h1>
+                  <div class="d-flex justify-center">
+                    <h1
+                      class="d-inline d-sm-none headline font-weight-light white--text"
+                      v-html="currentPost.title"
+                    ></h1>
+                    <!-- Small screens only -->
+                    <h1
+                      class="d-none d-sm-inline d-md-none display-1 font-weight-light white--text"
+                      v-html="currentPost.title"
+                    ></h1>
+                    <!-- Middle screens and up -->
+                    <h1
+                      class="d-none d-md-inline display-2 font-weight-light white--text"
+                      v-html="currentPost.title"
+                    ></h1>
+                  </div>
                 </v-col>
               </v-row>
             </v-container>
@@ -49,7 +51,12 @@
           <hr />
 
           <v-card-text class="px-4 px-md-8">
-            <div v-html="currentPost.content" class="site-post__content"></div>
+            <div class="d-flex justify-center">
+              <div
+                v-html="currentPost.content"
+                class="site-post__content"
+              ></div>
+            </div>
 
             <!-- Post tags -->
             <div class="site-post__tags d-flex mt-12">
@@ -308,6 +315,11 @@ export default {
 
 //
 .site-post {
+  h1 {
+    width: 100%;
+    max-width: 600px;
+  }
+
   hr {
     height: 12px;
     border: none;
@@ -324,6 +336,7 @@ export default {
   }
 
   .site-post__content {
+    max-width: 600px;
     line-height: initial;
 
     a {

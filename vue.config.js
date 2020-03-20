@@ -1,5 +1,6 @@
 module.exports = {
-  outputDir: 'C:\\Users\\User\\Desktop\\code\\asia-today.ru\\docs',
+  // outputDir: 'C:\\Users\\User\\Desktop\\code\\asia-today.ru\\docs',
+  outputDir: './docs',
   publicPath: '/',
   configureWebpack: {
     devtool: 'source-map',
