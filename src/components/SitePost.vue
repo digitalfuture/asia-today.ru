@@ -440,9 +440,13 @@ export default {
     }
 
     figure {
-      font-family: 'Noto Serif', serif;
       margin-bottom: 24px;
       margin-top: 24px;
+
+      figcaption {
+        font-family: 'Noto Serif', serif;
+        font-style: italic;
+      }
     }
   }
 

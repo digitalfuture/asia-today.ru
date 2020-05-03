@@ -3,8 +3,8 @@
   "version": "0.3.2",
   "private": true,
   "scripts": {
-    "serve": "NODE_ENV=development && vue-cli-service serve",
-    "build": "NODE_ENV=production && rm -rf public/shared/script/components/*.* && npm run build:styles && npm run build:components && npm run build:main && npm run build:shared",
+    "serve": "SET NODE_ENV=development && vue-cli-service serve",
+    "build": "SET NODE_ENV=production && rm -rf public/shared/script/components/*.* && npm run build:styles && npm run build:components && npm run build:main && npm run build:shared",
     "lint": "vue-cli-service lint",
     "build:styles": "sass shared-src/css/style.scss public/shared/css/style.css",
     "build:components": "npm run build:components:article-grid && npm run build:components:article-row && npm run build:components:country-list",
