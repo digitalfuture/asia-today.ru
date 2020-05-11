@@ -3,7 +3,7 @@
   "version": "0.3.2",
   "private": true,
   "scripts": {
-    "serve": "SET NODE_ENV=development && vue-cli-service serve",
+    "serve": "SET NODE_ENV=development && vue-cli-service serve --port 3080",
     "build": "SET NODE_ENV=production && rm -rf public/shared/script/components/*.* && npm run build:styles && npm run build:components && npm run build:main && npm run build:shared",
     "lint": "vue-cli-service lint",
     "build:styles": "sass shared-src/css/style.scss public/shared/css/style.css",

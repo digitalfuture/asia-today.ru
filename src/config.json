@@ -50,6 +50,13 @@
       "capital": "Beijing"
     },
     {
+      "name": "singapore",
+      "nameRu": "Сингапур",
+      "url": "//asia-singapore.ru",
+      "color": "#FF0066",
+      "capital": "Singapore"
+    },
+    {
       "name": "japan",
       "nameRu": "Япония",
       "url": "//asia-japan.ru",
@@ -76,13 +83,6 @@
       "url": "//asia-malaysia.ru",
       "color": "#00CCFF",
       "capital": "Kuala Lumpur"
-    },
-    {
-      "name": "singapore",
-      "nameRu": "Сингапур",
-      "url": "//asia-singapore.ru",
-      "color": "#FF0066",
-      "capital": "Singapore"
     },
     {
       "name": "myanmar",

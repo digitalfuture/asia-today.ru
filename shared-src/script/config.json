@@ -57,6 +57,14 @@
       "telegram": "//t.me/AsiaTodayRu"
     },
     {
+      "name": "singapore",
+      "nameRu": "Сингапур",
+      "url": "//asia-singapore.ru",
+      "zen": "//zen.yandex.ru/id/5e2efa291a860800af3bdf46",
+      "ok": "//ok.ru/asiatodayru",
+      "telegram": "//t.me/AsiaTodayRu"
+    },
+    {
       "name": "japan",
       "nameRu": "Япония",
       "url": "//asia-japan.ru",
@@ -68,14 +76,6 @@
       "name": "india",
       "nameRu": "Таиланд",
       "url": "//asia-india.ru",
-      "zen": "//zen.yandex.ru/id/5e2efa291a860800af3bdf46",
-      "ok": "//ok.ru/asiatodayru",
-      "telegram": "//t.me/AsiaTodayRu"
-    },
-    {
-      "name": "singapore",
-      "nameRu": "Сингапур",
-      "url": "//asia-singapore.ru",
       "zen": "//zen.yandex.ru/id/5e2efa291a860800af3bdf46",
       "ok": "//ok.ru/asiatodayru",
       "telegram": "//t.me/AsiaTodayRu"
