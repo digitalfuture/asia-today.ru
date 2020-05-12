@@ -2619,19 +2619,21 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   },
   data: function data() {
     return {
-      lastPosts: [// {
-        //   id,
-        //   slug,
-        //   siteName,
-        //   title,
-        //   date,
-        //   link,
-        //   content,
-        //   thumb,
-        //   tags,
-        //   categories
-        // }
-      ],
+      // lastPosts: [
+      //   // {
+      //   //   id,
+      //   //   slug,
+      //   //   siteName,
+      //   //   title,
+      //   //   date,
+      //   //   link,
+      //   //   content,
+      //   //   thumb,
+      //   //   tags,
+      //   //   categories
+      //   // }
+      // ],
+      posts: [],
       categoryTourism: [],
       categoryIncidents: [],
       categoryBusiness: [],
@@ -2640,13 +2642,14 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       perPage: 1
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_18__["mapState"])(['sites', 'searchString', 'isSearch'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_18__["mapActions"])(['fetchPostsByCategoryId', 'getCategoryInfo', 'fetchLastPostsEmbed', 'getCategories']), {
-    sortPosts: function sortPosts(posts) {
-      return Object(C_Users_User_Desktop_code_asia_today_ru_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_15__["default"])(posts).sort(function (a, b) {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_18__["mapState"])(['sites', 'searchString', 'isSearch']), {
+    lastPosts: function lastPosts() {
+      return Object(C_Users_User_Desktop_code_asia_today_ru_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_15__["default"])(this.posts).sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
       });
-    },
+    }
+  }),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_18__["mapActions"])(['fetchPostsByCategoryId', 'getCategoryInfo', 'fetchLastPostsEmbed', 'getCategories']), {
     getLastPosts: function getLastPosts() {
       var _this = this;
 
@@ -2672,7 +2675,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       var siteName = _ref.siteName,
           data = _ref.data,
           _ref$target = _ref.target,
-          target = _ref$target === void 0 ? this.lastPosts : _ref$target;
+          target = _ref$target === void 0 ? this.posts : _ref$target;
       var post = {
         id: data.id,
         content: data.content.rendered,
@@ -5679,10 +5682,7 @@ var render = function() {
                 [
                   _c("PostGrid5", {
                     staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
-                    attrs: {
-                      posts: _vm.lastPosts.slice(0, 5),
-                      title: "Последние новости"
-                    }
+                    attrs: { posts: _vm.lastPosts, title: "Последние новости" }
                   }),
                   _c(
                     "v-row",
@@ -5694,7 +5694,7 @@ var render = function() {
                         [
                           _c("PostList", {
                             staticClass: "mb-12",
-                            attrs: { posts: _vm.lastPosts.slice(5, 7) }
+                            attrs: { posts: _vm.lastPosts.slice(5, 8) }
                           }),
                           _c(
                             "v-row",
@@ -5746,10 +5746,10 @@ var render = function() {
                               title: "Еда"
                             }
                           }),
-                          _vm.lastPosts.slice(7).length
+                          _vm.lastPosts.slice(8).length
                             ? _c("PostList", {
                                 staticClass: "mb-12",
-                                attrs: { posts: _vm.lastPosts.slice(7) }
+                                attrs: { posts: _vm.lastPosts.slice(8) }
                               })
                             : _vm._e(),
                           _c("loadMoreButton", {
