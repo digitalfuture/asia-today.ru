@@ -8457,7 +8457,7 @@ vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_7_
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store({
   strict: true,
   state: {
-    sites: _config__WEBPACK_IMPORTED_MODULE_9__["sites"].slice(0, 7),
+    sites: _config__WEBPACK_IMPORTED_MODULE_9__["sites"].slice(0, 8),
     searchString: '',
     loadingCount: 0,
     isSearch: false,
