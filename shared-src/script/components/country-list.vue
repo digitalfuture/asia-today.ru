@@ -41,7 +41,7 @@ export default {
   computed: {
     sites() {
       return sites
-        .slice(0, 7)
+        .slice(0, 8)
         .filter(site => window.location.href.indexOf(site.url) === -1)
     }
   }

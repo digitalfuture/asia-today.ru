@@ -520,7 +520,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
     },
 
     filteredSites() {
-      return _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"].slice(0, 7).filter(site => window.location.href.indexOf(site.url) === -1);
+      return _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"].slice(0, 8).filter(site => window.location.href.indexOf(site.url) === -1);
     }
 
   },
