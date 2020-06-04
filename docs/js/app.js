@@ -2463,25 +2463,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_find__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptor */ "./node_modules/core-js/modules/es.object.get-own-property-descriptor.js");
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptors */ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js");
-/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.object.keys */ "./node_modules/core-js/modules/es.object.keys.js");
-/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.string.iterator */ "./node_modules/core-js/modules/es.string.iterator.js");
-/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var core_js_modules_es_string_link__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.string.link */ "./node_modules/core-js/modules/es.string.link.js");
-/* harmony import */ var core_js_modules_es_string_link__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_link__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var C_Users_User_Desktop_code_asia_today_ru_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.slice */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptor */ "./node_modules/core-js/modules/es.object.get-own-property-descriptor.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptors */ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptors__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.object.keys */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.string.iterator */ "./node_modules/core-js/modules/es.string.iterator.js");
+/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var core_js_modules_es_string_link__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/es.string.link */ "./node_modules/core-js/modules/es.string.link.js");
+/* harmony import */ var core_js_modules_es_string_link__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_link__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var C_Users_User_Desktop_code_asia_today_ru_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../config */ "./src/config.json");
 var _config__WEBPACK_IMPORTED_MODULE_17___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../config */ "./src/config.json", 1);
@@ -2517,6 +2518,9 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(C_Users_User_Desktop_code_asia_today_ru_node_modules_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_16__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
+//
+//
+//
 //
 //
 //
@@ -2644,12 +2648,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_18__["mapState"])(['sites', 'searchString', 'isSearch']), {
     lastPosts: function lastPosts() {
-      return Object(C_Users_User_Desktop_code_asia_today_ru_node_modules_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_15__["default"])(this.posts).sort(function (a, b) {
-        return new Date(b.date) - new Date(a.date);
-      });
+      return this.posts;
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_18__["mapActions"])(['fetchPostsByCategoryId', 'getCategoryInfo', 'fetchLastPostsEmbed', 'getCategories']), {
+    sortPosts: function sortPosts(posts) {
+      return posts.slice().sort(function (a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
+    },
     getLastPosts: function getLastPosts() {
       var _this = this;
 
@@ -5682,7 +5689,10 @@ var render = function() {
                 [
                   _c("PostGrid5", {
                     staticClass: "mt-5 mt-sm-8 mt-md-9 mb-8",
-                    attrs: { posts: _vm.lastPosts, title: "Последние новости" }
+                    attrs: {
+                      posts: _vm.sortPosts(_vm.lastPosts),
+                      title: "Последние новости"
+                    }
                   }),
                   _c(
                     "v-row",
@@ -5694,7 +5704,9 @@ var render = function() {
                         [
                           _c("PostList", {
                             staticClass: "mb-12",
-                            attrs: { posts: _vm.lastPosts.slice(5, 8) }
+                            attrs: {
+                              posts: _vm.sortPosts(_vm.lastPosts.slice(5, 8))
+                            }
                           }),
                           _c(
                             "v-row",
@@ -5749,7 +5761,9 @@ var render = function() {
                           _vm.lastPosts.slice(8).length
                             ? _c("PostList", {
                                 staticClass: "mb-12",
-                                attrs: { posts: _vm.lastPosts.slice(8) }
+                                attrs: {
+                                  posts: _vm.sortPosts(_vm.lastPosts.slice(8))
+                                }
                               })
                             : _vm._e(),
                           _c("loadMoreButton", {
@@ -8229,7 +8243,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! exports provided: sites, categories, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"sites\":[{\"name\":\"vietnam\",\"nameRu\":\"Вьетнам\",\"url\":\"//asia-vietnam.ru\",\"color\":\"#68D758\",\"capital\":\"Hanoi\"},{\"name\":\"nepal\",\"nameRu\":\"Непал\",\"url\":\"//asia-nepal.ru\",\"color\":\"#4DB2EC\",\"capital\":\"Katmandu\"},{\"name\":\"thailand\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-thailand.ru\",\"color\":\"#BB86FC\",\"capital\":\"Bangkok\"},{\"name\":\"philippines\",\"nameRu\":\"Филиппины\",\"url\":\"//asia-philippines.ru\",\"color\":\"#03DAC6\",\"capital\":\"Manila\"},{\"name\":\"sri-lanka\",\"nameRu\":\"Шри-Ланка\",\"url\":\"//asia-sri-lanka.ru\",\"color\":\"#FF6633\",\"capital\":\"Colombo\"},{\"name\":\"cambodia\",\"nameRu\":\"Камбоджа\",\"url\":\"//asia-cambodia.ru\",\"color\":\"#FFCC99\",\"capital\":\"Phnom Penh\"},{\"name\":\"china\",\"nameRu\":\"Китай\",\"url\":\"//asia-china.ru\",\"color\":\"#FF0000\",\"capital\":\"Beijing\"},{\"name\":\"singapore\",\"nameRu\":\"Сингапур\",\"url\":\"//asia-singapore.ru\",\"color\":\"#FF0066\",\"capital\":\"Singapore\"},{\"name\":\"japan\",\"nameRu\":\"Япония\",\"url\":\"//asia-japan.ru\",\"color\":\"#FFCCCC\",\"capital\":\"Tokyo\"},{\"name\":\"korea\",\"nameRu\":\"Корея\",\"url\":\"//asia-korea.ru\",\"color\":\"#FF99FF\",\"capital\":\"Seoul\"},{\"name\":\"india\",\"nameRu\":\"Индия\",\"url\":\"//asia-india.ru\",\"color\":\"#FF9933\",\"capital\":\"New Delhi\"},{\"name\":\"malaysia\",\"nameRu\":\"Малайзия\",\"url\":\"//asia-malaysia.ru\",\"color\":\"#00CCFF\",\"capital\":\"Kuala Lumpur\"},{\"name\":\"myanmar\",\"nameRu\":\"Мьянма\",\"url\":\"//asia-myanmar.ru\",\"color\":\"#FFCC00\",\"capital\":\"Naypyidaw\"},{\"name\":\"laos\",\"nameRu\":\"Лаос\",\"url\":\"//asia-laos.ru\",\"color\":\"#99CCCC\",\"capital\":\"Vientiane\"}],\"categories\":{\"Туризм\":\"Tourism\",\"Происшествия\":\"Incidents\",\"Еда\":\"Food\",\"Бизнес\":\"Business\"}}");
+module.exports = JSON.parse("{\"sites\":[{\"name\":\"vietnam\",\"nameRu\":\"Вьетнам\",\"url\":\"//asia-vietnam.ru\",\"color\":\"#68D758\",\"capital\":\"Hanoi\"},{\"name\":\"nepal\",\"nameRu\":\"Непал\",\"url\":\"//asia-nepal.ru\",\"color\":\"#4DB2EC\",\"capital\":\"Katmandu\"},{\"name\":\"thailand\",\"nameRu\":\"Таиланд\",\"url\":\"//asia-thailand.ru\",\"color\":\"#BB86FC\",\"capital\":\"Bangkok\"},{\"name\":\"philippines\",\"nameRu\":\"Филиппины\",\"url\":\"//asia-philippines.ru\",\"color\":\"#03DAC6\",\"capital\":\"Manila\"},{\"name\":\"sri-lanka\",\"nameRu\":\"Шри-Ланка\",\"url\":\"//asia-sri-lanka.ru\",\"color\":\"#FF6633\",\"capital\":\"Colombo\"},{\"name\":\"cambodia\",\"nameRu\":\"Камбоджа\",\"url\":\"//asia-cambodia.ru\",\"color\":\"#FFCC99\",\"capital\":\"Phnom Penh\"},{\"name\":\"china\",\"nameRu\":\"Китай\",\"url\":\"//asia-china.ru\",\"color\":\"#FF0000\",\"capital\":\"Beijing\"},{\"name\":\"singapore\",\"nameRu\":\"Сингапур\",\"url\":\"//asia-singapore.ru\",\"color\":\"#FF0066\",\"capital\":\"Singapore\"},{\"name\":\"korea\",\"nameRu\":\"Корея\",\"url\":\"//asia-korea.ru\",\"color\":\"#FF99FF\",\"capital\":\"Seoul\"},{\"name\":\"japan\",\"nameRu\":\"Япония\",\"url\":\"//asia-japan.ru\",\"color\":\"#FFCCCC\",\"capital\":\"Tokyo\"},{\"name\":\"india\",\"nameRu\":\"Индия\",\"url\":\"//asia-india.ru\",\"color\":\"#FF9933\",\"capital\":\"New Delhi\"},{\"name\":\"malaysia\",\"nameRu\":\"Малайзия\",\"url\":\"//asia-malaysia.ru\",\"color\":\"#00CCFF\",\"capital\":\"Kuala Lumpur\"},{\"name\":\"myanmar\",\"nameRu\":\"Мьянма\",\"url\":\"//asia-myanmar.ru\",\"color\":\"#FFCC00\",\"capital\":\"Naypyidaw\"},{\"name\":\"laos\",\"nameRu\":\"Лаос\",\"url\":\"//asia-laos.ru\",\"color\":\"#99CCCC\",\"capital\":\"Vientiane\"}],\"categories\":{\"Туризм\":\"Tourism\",\"Происшествия\":\"Incidents\",\"Еда\":\"Food\",\"Бизнес\":\"Business\"}}");
 
 /***/ }),
 
@@ -8457,7 +8471,7 @@ vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_7_
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store({
   strict: true,
   state: {
-    sites: _config__WEBPACK_IMPORTED_MODULE_9__["sites"].slice(0, 8),
+    sites: _config__WEBPACK_IMPORTED_MODULE_9__["sites"].slice(0, 9),
     searchString: '',
     loadingCount: 0,
     isSearch: false,
