@@ -56,7 +56,7 @@ export default {
     },
     filteredSites() {
       return sites
-        .slice(0, 8)
+        .slice(0, 9)
         .filter(site => window.location.href.indexOf(site.url) === -1)
     }
   },

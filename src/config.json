@@ -57,18 +57,18 @@
       "capital": "Singapore"
     },
     {
-      "name": "japan",
-      "nameRu": "Япония",
-      "url": "//asia-japan.ru",
-      "color": "#FFCCCC",
-      "capital": "Tokyo"
-    },
-    {
       "name": "korea",
       "nameRu": "Корея",
       "url": "//asia-korea.ru",
       "color": "#FF99FF",
       "capital": "Seoul"
+    },
+    {
+      "name": "japan",
+      "nameRu": "Япония",
+      "url": "//asia-japan.ru",
+      "color": "#FFCCCC",
+      "capital": "Tokyo"
     },
     {
       "name": "india",
@@ -99,7 +99,7 @@
       "capital": "Vientiane"
     }
   ],
-  "categories" : {
+  "categories": {
     "Туризм": "Tourism",
     "Происшествия": "Incidents",
     "Еда": "Food",

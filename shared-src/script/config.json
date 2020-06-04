@@ -65,6 +65,14 @@
       "telegram": "//t.me/AsiaTodayRu"
     },
     {
+      "name": "korea",
+      "nameRu": "Корея",
+      "url": "//asia-korea.ru",
+      "zen": "//zen.yandex.ru/id/5e2efa291a860800af3bdf46",
+      "ok": "//ok.ru/asiatodayru",
+      "telegram": "//t.me/AsiaTodayRu"
+    },
+    {
       "name": "japan",
       "nameRu": "Япония",
       "url": "//asia-japan.ru",
@@ -84,14 +92,6 @@
       "name": "malaysia",
       "nameRu": "Малайзия",
       "url": "//asia-malaysia.ru",
-      "zen": "//zen.yandex.ru/id/5e2efa291a860800af3bdf46",
-      "ok": "//ok.ru/asiatodayru",
-      "telegram": "//t.me/AsiaTodayRu"
-    },
-    {
-      "name": "korea",
-      "nameRu": "Корея",
-      "url": "//asia-korea.ru",
       "zen": "//zen.yandex.ru/id/5e2efa291a860800af3bdf46",
       "ok": "//ok.ru/asiatodayru",
       "telegram": "//t.me/AsiaTodayRu"

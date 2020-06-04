@@ -9,14 +9,17 @@
 
         <section v-show="!isSearch">
           <PostGrid5
-            :posts="lastPosts"
+            :posts="sortPosts(lastPosts)"
             title="Последние новости"
             class="mt-5 mt-sm-8 mt-md-9 mb-8"
           />
 
           <v-row align="start" class="mx-0">
             <v-col cols="12" lg="9">
-              <PostList :posts="lastPosts.slice(5, 8)" class="mb-12" />
+              <PostList
+                :posts="sortPosts(lastPosts.slice(5, 8))"
+                class="mb-12"
+              />
 
               <v-row justify="space-around" align="center" class="py-12">
                 <SiteLogo
@@ -55,7 +58,7 @@
 
               <PostList
                 v-if="lastPosts.slice(8).length"
-                :posts="lastPosts.slice(8)"
+                :posts="sortPosts(lastPosts.slice(8))"
                 class="mb-12"
               />
 
@@ -128,7 +131,7 @@ export default {
     ...mapState(['sites', 'searchString', 'isSearch']),
 
     lastPosts() {
-      return [...this.posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+      return this.posts
     }
   },
   methods: {
@@ -138,6 +141,9 @@ export default {
       'fetchLastPostsEmbed',
       'getCategories'
     ]),
+    sortPosts(posts) {
+      return posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date))
+    },
     getLastPosts() {
       const promises = []
 

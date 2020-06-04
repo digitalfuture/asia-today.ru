@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     updateArticles() {
-      for (let site of sites.slice(0, 8)) {
+      for (let site of sites.slice(0, 9)) {
         fetch(
           `https://asia-${site.name}.ru/wp-json/wp/v2/posts?&per_page=1&_embed`
         )
@@ -75,7 +75,7 @@ export default {
             this.articles.push({
               site: site.name,
               nameRu: site.nameRu,
-              title: title,
+              title,
               image,
               logo,
               link,

@@ -41,7 +41,7 @@ export default {
   computed: {
     sites() {
       return sites
-        .slice(0, 8)
+        .slice(0, 9)
         .filter(site => window.location.href.indexOf(site.url) === -1)
     }
   }
@@ -50,6 +50,8 @@ export default {
 
 <style scoped>
 .site-container {
+  background-color: #222;
+  padding-top: 24px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
