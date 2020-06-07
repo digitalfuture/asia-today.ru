@@ -51,7 +51,8 @@ export default {
 <style scoped>
 .site-container {
   background-color: #222;
-  padding-top: 24px;
+  padding: 24px;
+  margin-bottom: -1px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
