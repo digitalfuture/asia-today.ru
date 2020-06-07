@@ -1,3 +1,10 @@
+/* Fix padding for info block */
+.tdc-content-wrap .td-container-border h2,
+.tdc-content-wrap .td-container-border p {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 /* Fix top footer banner section */
 .td-a-rec {
   display: initial;
