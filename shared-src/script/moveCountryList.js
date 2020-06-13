@@ -1,9 +1,8 @@
 export default function moveCountryList() {
   const countryList = document.querySelector('country-list')
-  const footerCOntainer = document.querySelector(
-    '.td-footer-container.td-container'
+  const container = document.querySelector(
+    '.td-main-content-wrap .td-container'
   )
-  const parentNode = footerCOntainer.parentNode
 
-  parentNode.insertBefore(countryList, footerCOntainer)
+  container.appendChild(countryList)
 }
