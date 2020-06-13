@@ -1,5 +1,7 @@
 export default function moveCountryList() {
-  const countryList = document.querySelector('country-list')
+  const countryList = document.querySelector(
+    '.td-footer-container country-list'
+  )
 
   if (document.querySelector('.td-main-content-wrap .td-container')) {
     const container = document.querySelector(
