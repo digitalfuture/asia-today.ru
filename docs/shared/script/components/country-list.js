@@ -486,7 +486,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack
   }),
   computed: {
     sites() {
-      return _config_json__WEBPACK_IMPORTED_MODULE_3__["sites"].slice(0, 9).filter(site => window.location.href.indexOf(site.url) === -1);
+      return _config_json__WEBPACK_IMPORTED_MODULE_3__["sites"].slice(0, 10).filter(site => window.location.href.indexOf(site.url) === -1);
     }
 
   }

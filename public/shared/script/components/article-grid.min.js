@@ -555,7 +555,7 @@ var _config_json__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpac
           });
         };
 
-        for (var _iterator = _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"].slice(0, 9)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = _config_json__WEBPACK_IMPORTED_MODULE_10__["sites"].slice(0, 10)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           _loop();
         }
       } catch (err) {
