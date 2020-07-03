@@ -130,7 +130,7 @@
         </v-card>
 
         <!-- Post skeleton placeholder -->
-        <v-skeleton-loader v-else type="image"></v-skeleton-loader>
+        <v-skeleton-loader v-else type="image" />
       </v-col>
     </v-row>
   </section>
@@ -139,26 +139,18 @@
 <script>
 import YandexShare from '@cookieseater/vue-yandex-share'
 
-import { mapState, mapMutations, mapActions } from 'vuex'
-import { DateTime } from 'luxon'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     YandexShare
   },
-  metaInfo() {
-    const titleTemplate = document.createElement('div')
-    titleTemplate.innerHTML = this.currentPost
-      ? `${this.currentPost.title} - ${this.siteNameRu} сегодня: `
-      : ''
-
-    return {
-      title: titleTemplate.innerText
-    }
-  },
-  props: ['postSlug', 'siteName'],
   computed: {
     ...mapState(['sites', 'currentPost']),
+
+    siteName() {
+      return this.$route.params.siteName
+    },
     siteUrl() {
       return this.sites.find(site => site.name === this.siteName).url
     },
@@ -167,113 +159,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['rememberPost', 'forgetPost']),
-    ...mapActions(['fetchPostBySlug', 'getMedia']),
-    getTitle(title) {
-      const div = document.createElement('div')
-      div.innerHTML = title
-      return `${div.innerText} - ${this.siteNameRu} Сегодня`
-    },
-    savePostData(data) {
-      this.rememberPost({
-        id: data.id,
-        slug: data.slug,
-        title: data.title.rendered,
-        content: this.processContent(data.content.rendered),
-        date: DateTime.fromISO(data.date, {
-          locale: 'ru'
-        }).toLocaleString(DateTime.DATE_FULL),
-        thumb:
-          data._embedded['wp:featuredmedia'][0].media_details.sizes.td_537x360
-            .source_url,
-        img:
-          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
-            .source_url,
-        categories: data._embedded['wp:term'][0],
-        tags: data._embedded['wp:term'][1]
-      })
-    },
-    processContent(data) {
-      data = this.removeClasses(data)
-      data = this.processLinks(data)
-      data = this.processIframes(data)
-      data = this.processImages(data)
-
-      return data
-    },
-    removeClasses(data) {
-      const template = document.createElement('div')
-      template.innerHTML = data
-
-      const elements = template.querySelectorAll('*')
-
-      for (const element of elements) {
-        element.classList = []
-      }
-
-      return template.innerHTML
-    },
-    processLinks(data) {
-      const template = document.createElement('div')
-
-      template.innerHTML = data
-      const links = template.querySelectorAll('a')
-
-      this.sites.forEach(site => {
-        for (const link of links) {
-          const domainName = site.url.split('//')[1]
-
-          if (link.href.search(domainName) !== -1) {
-            const linkFragments = link.href.split('/').reverse()
-            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
-
-            link.href = `/${site.name}/${slug}`
-            link.target = ''
-          }
-        }
-      })
-
-      return template.innerHTML
-    },
-    processIframes(data) {
-      const template = document.createElement('div')
-
-      template.innerHTML = data
-      const iframes = template.querySelectorAll('iframe')
-
-      for (const iframe of iframes) {
-        iframe.parentNode.classList.add('site-post__content__aspect-ratio')
-      }
-
-      return template.innerHTML
-    },
-    processImages(data) {
-      const template = document.createElement('div')
-      template.innerHTML = data
-
-      const images = template.querySelectorAll('img')
-
-      for (const image of images) {
-        if (image.src.startsWith(window.location.origin)) {
-          image.src = image.src.replace(window.location.origin, this.siteUrl)
-        }
-      }
-
-      return template.innerHTML
-    }
-  },
-  mounted() {
-    if (this.currentPost) {
-      return
-    } else {
-      this.fetchPostBySlug({
-        siteUrl: this.siteUrl,
-        postSlug: this.postSlug
-      }).then(data => this.savePostData(data))
-    }
-  },
-  beforeDestroy() {
-    this.forgetPost()
+    ...mapActions(['getMedia'])
   }
 }
 </script>

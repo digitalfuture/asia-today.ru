@@ -10,6 +10,7 @@
           <SitePost
             :siteName="siteName"
             :postSlug="postSlug"
+            :currentPost="currentPost"
             class="mt-5 mt-sm-8 mt-md-9 mb-8"
           />
 
@@ -23,7 +24,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { DateTime } from 'luxon'
+import axios from 'axios'
+import { sites } from '../config.json'
+
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 import SitePost from '../components/SitePost'
 import PostList from '../components/blocks/PostList'
@@ -38,9 +43,12 @@ export default {
     SearchForm
   },
   metaInfo() {
-    return { title: `${this.site.nameRu} cегодня` }
+    return {
+      title: this.currentPost
+        ? `${this.currentPost.title} - ${this.siteNameRu} сегодня: `
+        : `${this.site.nameRu} cегодня`
+    }
   },
-  props: ['postSlug'],
   data: () => ({
     posts: [
       // {
@@ -57,10 +65,15 @@ export default {
       // }
     ],
     currentOffset: 0,
-    perPage: 10
+    perPage: 10,
+    currentPost: null
   }),
   computed: {
-    ...mapState(['sites', 'searchString', 'currentPost', 'isSearch']),
+    ...mapState(['sites', 'searchString', 'isSearch']),
+
+    postSlug() {
+      return this.$route.params.postSlug
+    },
     siteName() {
       return this.$route.params.siteName
     },
@@ -68,11 +81,17 @@ export default {
       return this.sites.find(site => site.name === this.siteName)
     },
     filteredPosts() {
-      return this.posts.filter(post => post.id !== this.currentPost.id)
+      if (!this.currentPost) {
+        return this.posts
+      } else {
+        return this.posts.filter(post => post.id !== this.currentPost.id)
+      }
     }
   },
   methods: {
-    ...mapActions(['fetchLastPostsEmbed']),
+    ...mapMutations(['rememberPost', 'forgetPost']),
+    ...mapActions(['fetchLastPostsEmbed', 'fetchPostBySlug']),
+
     getPosts() {
       return this.fetchLastPostsEmbed({
         siteUrl: this.site.url,
@@ -104,10 +123,122 @@ export default {
         tags: data._embedded['wp:term'][1]
       })
     },
+    saveCurrentPostData(data) {
+      this.rememberPost({
+        id: data.id,
+        slug: data.slug,
+        title: data.title.rendered,
+        content: this.processContent(data.content.rendered),
+        date: DateTime.fromISO(data.date, {
+          locale: 'ru'
+        }).toLocaleString(DateTime.DATE_FULL),
+        thumb:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.td_537x360
+            .source_url,
+        img:
+          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+            .source_url,
+        categories: data._embedded['wp:term'][0],
+        tags: data._embedded['wp:term'][1]
+      })
+    },
+    processContent(data) {
+      data = this.removeClasses(data)
+      data = this.processLinks(data)
+      data = this.processIframes(data)
+      data = this.processImages(data)
+
+      return data
+    },
+    removeClasses(data) {
+      const template = document.createElement('div')
+      template.innerHTML = data
+
+      const elements = template.querySelectorAll('*')
+
+      for (const element of elements) {
+        element.classList = []
+      }
+
+      return template.innerHTML
+    },
+    processLinks(data) {
+      const template = document.createElement('div')
+
+      template.innerHTML = data
+      const links = template.querySelectorAll('a')
+
+      this.sites.forEach(site => {
+        for (const link of links) {
+          const domainName = site.url.split('//')[1]
+
+          if (link.href.search(domainName) !== -1) {
+            const linkFragments = link.href.split('/').reverse()
+            const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
+
+            link.href = `/${site.name}/${slug}`
+            link.target = ''
+          }
+        }
+      })
+
+      return template.innerHTML
+    },
+    processIframes(data) {
+      const template = document.createElement('div')
+
+      template.innerHTML = data
+      const iframes = template.querySelectorAll('iframe')
+
+      for (const iframe of iframes) {
+        iframe.parentNode.classList.add('site-post__content__aspect-ratio')
+      }
+
+      return template.innerHTML
+    },
+    processImages(data) {
+      const template = document.createElement('div')
+      template.innerHTML = data
+
+      const images = template.querySelectorAll('img')
+
+      for (const image of images) {
+        if (image.src.startsWith(window.location.origin)) {
+          image.src = image.src.replace(window.location.origin, this.siteUrl)
+        }
+      }
+
+      return template.innerHTML
+    },
     loadMore() {
       this.currentOffset += this.perPage
       this.getPosts()
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    function fetchPostBySlug({ siteUrl, postSlug }) {
+      return axios
+        .get(`${siteUrl}/wp-json/wp/v2/posts?slug=${postSlug}&_embed`)
+        .then(response => response.data[0])
+    }
+
+    const siteUrl = sites.find(site => site.name === to.params.siteName).url
+
+    fetchPostBySlug({
+      siteUrl,
+      postSlug: to.params.postSlug
+    }).then(data => next(vm => vm.saveCurrentPostData(data)))
+  },
+  beforeRouteUpdate(to, from, next) {
+    const siteUrl = sites.find(site => site.name === to.params.siteName).url
+    const postSlug = to.params.postSlug
+
+    this.fetchPostBySlug({
+      siteUrl,
+      postSlug
+    })
+      .then(data => this.saveCurrentPostData(data))
+      .then(() => next())
   },
   created() {
     this.getPosts()
