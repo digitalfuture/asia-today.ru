@@ -1,6 +1,6 @@
 {
   "name": "asia-today.ru",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "serve": "SET NODE_ENV=development && vue-cli-service serve --port 3080",
