@@ -806,6 +806,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -816,12 +817,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       default: false
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_13__["mapState"])(['sites']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_13__["mapState"])(['sites', 'isSearch']), {
     excerpt: function excerpt() {
       return this.post.excerpt.split('<p>')[1].split('</p>')[0];
     }
   }),
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_13__["mapMutations"])(['switchSearch']), {
     getSiteNameRu: function getSiteNameRu(siteName) {
       return this.sites.find(function (site) {
         return site.name === siteName;
@@ -837,8 +838,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       return luxon__WEBPACK_IMPORTED_MODULE_12__["DateTime"].fromISO(date, {
         locale: 'ru'
       }).toLocaleString(luxon__WEBPACK_IMPORTED_MODULE_12__["DateTime"].DATE_FULL);
+    },
+    onStripeClick: function onStripeClick() {
+      if (this.isSearch) this.switchSearch();
     }
-  }
+  })
 });
 
 /***/ }),
@@ -3884,6 +3888,11 @@ var render = function() {
         ripple: "",
         dark: "",
         "max-height": "150"
+      },
+      nativeOn: {
+        click: function($event) {
+          return _vm.onStripeClick($event)
+        }
       }
     },
     [
@@ -8394,6 +8403,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_PostPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/PostPage */ "./src/views/PostPage.vue");
 /* harmony import */ var _views_TagPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../views/TagPage */ "./src/views/TagPage.vue");
 /* harmony import */ var _views_CategoryPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/CategoryPage */ "./src/views/CategoryPage.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/index */ "./src/store/index.js");
+
 
 
 
@@ -8402,7 +8413,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
     path: '/',
@@ -8435,7 +8446,12 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       y: 0
     };
   }
-}));
+});
+router.beforeEach(function (to, from, next) {
+  if (_store_index__WEBPACK_IMPORTED_MODULE_7__["default"].state.isSearch) _store_index__WEBPACK_IMPORTED_MODULE_7__["default"].commit('switchSearch');
+  next();
+});
+/* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),
 
