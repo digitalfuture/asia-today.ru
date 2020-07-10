@@ -5,10 +5,11 @@ import SitePage from '../views/SitePage'
 import PostPage from '../views/PostPage'
 import TagPage from '../views/TagPage'
 import CategoryPage from '../views/CategoryPage'
+import store from '../store/index'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -45,3 +46,11 @@ export default new Router({
     return { x: 0, y: 0 }
   }
 })
+
+router.beforeEach((to, from, next) => {
+  if (store.state.isSearch) store.commit('switchSearch')
+
+  next()
+})
+
+export default router

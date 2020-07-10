@@ -6,6 +6,7 @@
     dark
     class="post-stripe transparent"
     max-height="150"
+    @click.native="onStripeClick"
   >
     <div class="d-flex">
       <v-img
@@ -71,7 +72,7 @@
 
 <script>
 import { DateTime } from 'luxon'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -79,12 +80,15 @@ export default {
     compact: { type: Boolean, default: false }
   },
   computed: {
-    ...mapState(['sites']),
+    ...mapState(['sites', 'isSearch']),
+
     excerpt() {
       return this.post.excerpt.split('<p>')[1].split('</p>')[0]
     }
   },
   methods: {
+    ...mapMutations(['switchSearch']),
+
     getSiteNameRu(siteName) {
       return this.sites.find(site => site.name === siteName).nameRu
     },
@@ -96,6 +100,9 @@ export default {
       return DateTime.fromISO(date, { locale: 'ru' }).toLocaleString(
         DateTime.DATE_FULL
       )
+    },
+    onStripeClick() {
+      if (this.isSearch) this.switchSearch()
     }
   }
 }
