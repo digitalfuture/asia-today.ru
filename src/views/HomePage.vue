@@ -180,9 +180,10 @@ export default {
         date: data.date,
         link: data.link,
         excerpt: data.excerpt.rendered,
-        thumb:
-          data._embedded['wp:featuredmedia'][0].media_details.sizes.full
-            .source_url,
+        thumb: data._embedded['wp:featuredmedia']
+          ? data._embedded['wp:featuredmedia'][0].media_details.sizes.full
+              .source_url
+          : '',
         categories: data._embedded['wp:term'][0],
         tags: data._embedded['wp:term'][1]
       }
