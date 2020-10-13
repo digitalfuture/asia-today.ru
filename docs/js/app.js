@@ -2858,7 +2858,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       try {
         for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var element = _step.value;
-          element.classList = [];
+          element.removeAttribute('class');
         }
       } catch (err) {
         _didIteratorError = true;
@@ -2901,10 +2901,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
                 var linkFragments = link.href.split('/').reverse();
                 var slug = linkFragments[0] ? linkFragments[0] : linkFragments[1];
                 link.href = "/".concat(site.name, "/").concat(slug);
-                console.log('link:', link.href);
-                console.log('target BEFORE:', link.target);
                 link.removeAttribute('target');
-                console.log('target AFTER:', link.target);
                 break sites;
               } else {
                 link.setAttribute('target', '_blank');

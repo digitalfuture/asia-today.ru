@@ -158,7 +158,7 @@ export default {
       const elements = template.querySelectorAll('*')
 
       for (const element of elements) {
-        element.classList = []
+        element.removeAttribute('class')
       }
 
       return template.innerHTML
@@ -178,10 +178,7 @@ export default {
             const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
 
             link.href = `/${site.name}/${slug}`
-            console.log('link:', link.href)
-            console.log('target BEFORE:', link.target)
             link.removeAttribute('target')
-            console.log('target AFTER:', link.target)
 
             break sites
           } else {
