@@ -169,19 +169,26 @@ export default {
       template.innerHTML = data
       const links = template.querySelectorAll('a')
 
-      this.sites.forEach(site => {
-        for (const link of links) {
+      for (const link of links) {
+        sites: for (const site of this.sites) {
           const domainName = site.url.split('//')[1]
 
-          if (link.href.search(domainName) !== -1) {
+          if (link.href.includes(domainName)) {
             const linkFragments = link.href.split('/').reverse()
             const slug = linkFragments[0] ? linkFragments[0] : linkFragments[1]
 
             link.href = `/${site.name}/${slug}`
-            link.target = ''
+            console.log('link:', link.href)
+            console.log('target BEFORE:', link.target)
+            link.removeAttribute('target')
+            console.log('target AFTER:', link.target)
+
+            break sites
+          } else {
+            link.setAttribute('target', '_blank')
           }
         }
-      })
+      }
 
       return template.innerHTML
     },
