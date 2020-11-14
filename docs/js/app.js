@@ -2433,8 +2433,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       });
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_20__["mapActions"])(['fetchPostsByCategoryId', 'getCategoryInfo', // 'fetchLastPostsEmbed',
-  'getCategories']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_20__["mapActions"])(['fetchPostsByCategoryId', 'getCategoryInfo', 'fetchLastPostsEmbed', 'getCategories']), {
     sortPosts: function sortPosts(posts) {
       return posts.slice().sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
@@ -5862,7 +5861,7 @@ var render = function() {
                                 attrs: { posts: _vm.sortedLastPosts.slice(8) }
                               })
                             : _vm._e(),
-                          _c("loadMoreButton", {
+                          _c("LoadMoreButton", {
                             staticClass: "mb-12",
                             attrs: { loadMore: _vm.loadMore }
                           })

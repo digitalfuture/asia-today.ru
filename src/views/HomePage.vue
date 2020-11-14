@@ -59,7 +59,7 @@
                 class="mb-12"
               />
 
-              <loadMoreButton :loadMore="loadMore" class="mb-12" />
+              <LoadMoreButton :loadMore="loadMore" class="mb-12" />
             </v-col>
 
             <v-col cols="3" class="d-none d-lg-flex">
@@ -138,7 +138,7 @@ export default {
     ...mapActions([
       'fetchPostsByCategoryId',
       'getCategoryInfo',
-      // 'fetchLastPostsEmbed',
+      'fetchLastPostsEmbed',
       'getCategories'
     ]),
     sortPosts(posts) {
